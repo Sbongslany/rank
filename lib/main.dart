@@ -104,6 +104,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': const HomeWidget(),
+      'Notification': const NotificationWidget(),
       'AboutUs': const AboutUsWidget(),
       'TransactionHistory': const TransactionHistoryWidget(),
     };
@@ -130,6 +131,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.info_rounded,
+              size: 24.0,
+            ),
+            label: 'Info',
             tooltip: '',
           ),
           BottomNavigationBarItem(

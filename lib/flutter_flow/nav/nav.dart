@@ -114,7 +114,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Notification',
           path: '/notification',
-          builder: (context, params) => const NotificationWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Notification')
+              : const NotificationWidget(),
         ),
         FFRoute(
           name: 'AboutUs',
