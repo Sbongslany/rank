@@ -53,7 +53,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: FlutterFlowTheme.of(context).alternate,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
