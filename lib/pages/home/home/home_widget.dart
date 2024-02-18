@@ -352,45 +352,33 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ],
                 ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  context.pushNamed('PayPouch');
-                },
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 2.0,
-                  child: Container(
-                    width: double.infinity,
-                    height: 170.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.64, -1.0),
-                        end: const AlignmentDirectional(-0.64, 1.0),
-                      ),
+              Material(
+                color: Colors.transparent,
+                elevation: 2.0,
+                child: Container(
+                  width: double.infinity,
+                  height: 170.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).secondary,
+                        FlutterFlowTheme.of(context).primary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.64, -1.0),
+                      end: const AlignmentDirectional(-0.64, 1.0),
                     ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('PayPouch');
-                          },
-                          child: ClipRRect(
+                  ),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/wallet.png',
@@ -398,23 +386,36 @@ class _HomeWidgetState extends State<HomeWidget> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: Text(
-                            'PAY POUCH',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('PayPouch');
+                            },
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: FlutterFlowTheme.of(context).alternate,
+                              size: 44.0,
+                            ),
                           ),
+                        ].divide(const SizedBox(width: 100.0)),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: Text(
+                          'PAY POUCH',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
