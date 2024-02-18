@@ -6,7 +6,6 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'auth/custom_auth/auth_util.dart';
 import 'auth/custom_auth/custom_auth_user_provider.dart';
 
-import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/nav/nav.dart';
@@ -119,7 +118,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: Colors.white,
-        selectedItemColor: FlutterFlowTheme.of(context).primary,
+        selectedItemColor: const Color(0xFFF30A14),
         unselectedItemColor: const Color(0x8A000000),
         showSelectedLabels: false,
         showUnselectedLabels: false,
