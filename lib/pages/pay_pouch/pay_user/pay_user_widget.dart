@@ -280,8 +280,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                           elevation: 5.0,
                           shape: const CircleBorder(),
                           child: Container(
-                            width: 60.0,
-                            height: 60.0,
+                            width: 40.0,
+                            height: 40.0,
                             decoration: const BoxDecoration(
                               color: Color(0xFF38FF00),
                               shape: BoxShape.circle,
@@ -420,8 +420,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                           elevation: 5.0,
                           shape: const CircleBorder(),
                           child: Container(
-                            width: 60.0,
-                            height: 60.0,
+                            width: 40.0,
+                            height: 40.0,
                             decoration: const BoxDecoration(
                               color: Color(0xFF38FF00),
                               shape: BoxShape.circle,
@@ -560,8 +560,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                           elevation: 5.0,
                           shape: const CircleBorder(),
                           child: Container(
-                            width: 60.0,
-                            height: 60.0,
+                            width: 40.0,
+                            height: 40.0,
                             decoration: const BoxDecoration(
                               color: Color(0xFF38FF00),
                               shape: BoxShape.circle,
@@ -693,8 +693,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                         elevation: 5.0,
                         shape: const CircleBorder(),
                         child: Container(
-                          width: 60.0,
-                          height: 60.0,
+                          width: 40.0,
+                          height: 40.0,
                           decoration: const BoxDecoration(
                             color: Color(0xFF38FF00),
                             shape: BoxShape.circle,
@@ -821,8 +821,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                         elevation: 5.0,
                         shape: const CircleBorder(),
                         child: Container(
-                          width: 60.0,
-                          height: 60.0,
+                          width: 40.0,
+                          height: 40.0,
                           decoration: const BoxDecoration(
                             color: Color(0xFF38FF00),
                             shape: BoxShape.circle,
@@ -949,8 +949,8 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                         elevation: 5.0,
                         shape: const CircleBorder(),
                         child: Container(
-                          width: 60.0,
-                          height: 60.0,
+                          width: 40.0,
+                          height: 40.0,
                           decoration: const BoxDecoration(
                             color: Color(0xFF38FF00),
                             shape: BoxShape.circle,

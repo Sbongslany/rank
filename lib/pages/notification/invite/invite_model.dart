@@ -6,6 +6,18 @@ class InviteModel extends FlutterFlowModel<InviteWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue1;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue2;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue3;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue4;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue5;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue6;
 
   /// Initialization and disposal methods.
 
