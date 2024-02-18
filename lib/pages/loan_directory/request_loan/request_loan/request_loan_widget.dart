@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'request_loan_model.dart';
 export 'request_loan_model.dart';
@@ -25,11 +24,6 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RequestLoanModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.safePop();
-    });
   }
 
   @override
