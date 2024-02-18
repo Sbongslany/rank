@@ -699,7 +699,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: const Color(0xFF969EA4),
+                              color: FlutterFlowTheme.of(context).primaryText,
                             ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(

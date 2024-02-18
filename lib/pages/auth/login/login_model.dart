@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
@@ -6,31 +7,33 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for email widget.
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
+  // State field(s) for loginPassword widget.
+  FocusNode? loginPasswordFocusNode;
+  TextEditingController? loginPasswordController;
+  late bool loginPasswordVisibility;
+  String? Function(BuildContext, String?)? loginPasswordControllerValidator;
+  // Stores action output result for [Backend Call - API (SignIn)] action in Button widget.
+  ApiCallResponse? loginResponse;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    loginPasswordVisibility = false;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    loginPasswordFocusNode?.dispose();
+    loginPasswordController?.dispose();
   }
 
   /// Action blocks are added here.

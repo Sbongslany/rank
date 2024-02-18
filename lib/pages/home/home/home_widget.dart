@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -253,33 +254,47 @@ class _HomeWidgetState extends State<HomeWidget> {
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                      child: Container(
-                        width: 60.0,
-                        height: 30.0,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF164969),
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.goNamedAuth('Login', context.mounted);
+                        },
+                        child: Container(
+                          width: 60.0,
+                          height: 30.0,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF164969),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                              topLeft: Radius.circular(20.0),
+                              topRight: Radius.circular(20.0),
+                            ),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
                           ),
-                          border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'Logout',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 11.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
-                        ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          'Logout',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 11.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
                         ),
                       ),
                     ),

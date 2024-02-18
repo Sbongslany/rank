@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -43,6 +44,38 @@ class SignUpCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class SignInCall {
+  static Future<ApiCallResponse> call({
+    String? email = '',
+    String? password = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "email": "$email",
+  "password": "$password"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'SignIn',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/login.php',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? jwt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.token''',
+      ));
 }
 
 class ApiPagingParams {
