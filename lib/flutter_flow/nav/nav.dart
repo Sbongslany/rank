@@ -427,7 +427,7 @@ class FFRoute {
                   child: Center(
                     child: Image.asset(
                       'assets/images/ranklogo.png',
-                      width: 90.0,
+                      width: 200.0,
                       fit: BoxFit.contain,
                     ),
                   ),
