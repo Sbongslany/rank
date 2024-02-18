@@ -50,3 +50,5 @@ export '/pages/pay_pouch/purchase/voucher/voucher_widget.dart'
     show VoucherWidget;
 export '/pages/transaction_history/transaction_history_widget.dart'
     show TransactionHistoryWidget;
+export '/pages/link_accounts/link_card/link_card_widget.dart'
+    show LinkCardWidget;

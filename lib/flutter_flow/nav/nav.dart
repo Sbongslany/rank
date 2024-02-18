@@ -241,6 +241,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'TransactionHistory')
               : const TransactionHistoryWidget(),
+        ),
+        FFRoute(
+          name: 'LinkCard',
+          path: '/linkCard',
+          builder: (context, params) => const LinkCardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'info_model.dart';
 export 'info_model.dart';
@@ -23,11 +22,6 @@ class _InfoWidgetState extends State<InfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InfoModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.safePop();
-    });
   }
 
   @override
@@ -192,7 +186,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                     padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      color: FlutterFlowTheme.of(context).alternate,
                       elevation: 4.0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
