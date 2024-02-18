@@ -229,7 +229,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   validator:
                       _model.firstNameControllerValidator.asValidator(context),
@@ -301,7 +301,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   validator:
                       _model.surnameControllerValidator.asValidator(context),
@@ -373,7 +373,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   keyboardType: TextInputType.emailAddress,
                   validator:
@@ -446,7 +446,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   keyboardType: TextInputType.number,
                   validator: _model.phoneNumberControllerValidator
@@ -533,7 +533,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   validator:
                       _model.passwordControllerValidator.asValidator(context),
@@ -605,7 +605,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFB8BEC7),
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   keyboardType: TextInputType.number,
                   validator:
@@ -691,7 +691,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                    labelStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
