@@ -392,7 +392,25 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        fontSize: 10.0,
+                                        fontSize: 14.0,
+                                      ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    GetUserCall.surname(
+                                      rowGetUserResponse.jsonBody,
+                                    ),
+                                    '\'\'',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 14.0,
                                       ),
                                 ),
                               ),
