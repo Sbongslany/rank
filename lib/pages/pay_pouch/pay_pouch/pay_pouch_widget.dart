@@ -61,7 +61,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
-                height: 102.0,
+                height: 112.0,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -190,7 +190,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('Transfer');
+                    context.pushNamed('Deposit');
                   },
                   child: Container(
                     width: double.infinity,
@@ -227,7 +227,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('OfferLoan');
+                    context.pushNamed('Transfer');
                   },
                   child: Container(
                     width: double.infinity,
