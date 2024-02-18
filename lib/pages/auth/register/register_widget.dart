@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -25,26 +26,26 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     super.initState();
     _model = createModel(context, () => RegisterModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.firstNameController ??= TextEditingController();
+    _model.firstNameFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.surnameController ??= TextEditingController();
+    _model.surnameFocusNode ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
 
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.phoneNumberController ??= TextEditingController();
+    _model.phoneNumberFocusNode ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode5 ??= FocusNode();
+    _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
 
-    _model.textController6 ??= TextEditingController();
-    _model.textFieldFocusNode6 ??= FocusNode();
+    _model.idNumberController ??= TextEditingController();
+    _model.idNumberFocusNode ??= FocusNode();
 
-    _model.textController7 ??= TextEditingController();
-    _model.textFieldFocusNode7 ??= FocusNode();
+    _model.securityAnswerController ??= TextEditingController();
+    _model.securityAnswerFocusNode ??= FocusNode();
   }
 
   @override
@@ -78,7 +79,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           children: [
             Container(
               width: double.infinity,
-              height: 230.0,
+              height: 170.0,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -95,12 +96,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         'assets/images/ranklogo.png',
-                        width: 120.0,
+                        width: 90.0,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -114,7 +115,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             fontFamily: 'Readex Pro',
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 24.0,
+                            fontSize: 17.0,
                           ),
                     ),
                   ),
@@ -122,24 +123,19 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Text(
-                          'Already Registered?',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                        ),
+                      Text(
+                        'Already Registered?',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w300,
+                            ),
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -183,14 +179,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController1,
-                  focusNode: _model.textFieldFocusNode1,
+                  controller: _model.firstNameController,
+                  focusNode: _model.firstNameFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -236,7 +232,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         color: const Color(0xFFB8BEC7),
                       ),
                   validator:
-                      _model.textController1Validator.asValidator(context),
+                      _model.firstNameControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -255,14 +251,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController2,
-                  focusNode: _model.textFieldFocusNode2,
+                  controller: _model.surnameController,
+                  focusNode: _model.surnameFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -308,7 +304,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         color: const Color(0xFFB8BEC7),
                       ),
                   validator:
-                      _model.textController2Validator.asValidator(context),
+                      _model.surnameControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -327,14 +323,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController3,
-                  focusNode: _model.textFieldFocusNode3,
+                  controller: _model.emailController,
+                  focusNode: _model.emailFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -381,7 +377,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   keyboardType: TextInputType.emailAddress,
                   validator:
-                      _model.textController3Validator.asValidator(context),
+                      _model.emailControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -400,14 +396,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController4,
-                  focusNode: _model.textFieldFocusNode4,
+                  controller: _model.phoneNumberController,
+                  focusNode: _model.phoneNumberFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -453,8 +449,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         color: const Color(0xFFB8BEC7),
                       ),
                   keyboardType: TextInputType.number,
-                  validator:
-                      _model.textController4Validator.asValidator(context),
+                  validator: _model.phoneNumberControllerValidator
+                      .asValidator(context),
                 ),
               ),
             ),
@@ -473,14 +469,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController5,
-                  focusNode: _model.textFieldFocusNode5,
+                  controller: _model.passwordController,
+                  focusNode: _model.passwordFocusNode,
                   autofocus: true,
                   obscureText: !_model.passwordVisibility,
                   decoration: InputDecoration(
@@ -540,7 +536,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         color: const Color(0xFFB8BEC7),
                       ),
                   validator:
-                      _model.textController5Validator.asValidator(context),
+                      _model.passwordControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -559,14 +555,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController6,
-                  focusNode: _model.textFieldFocusNode6,
+                  controller: _model.idNumberController,
+                  focusNode: _model.idNumberFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -613,7 +609,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   keyboardType: TextInputType.number,
                   validator:
-                      _model.textController6Validator.asValidator(context),
+                      _model.idNumberControllerValidator.asValidator(context),
                 ),
               ),
             ),
@@ -634,11 +630,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
               child: Container(
-                width: 320.0,
-                height: 40.0,
+                width: 370.0,
+                height: 50.0,
                 decoration: const BoxDecoration(),
                 child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController ??=
+                  controller: _model.questionDropDownValueController ??=
                       FormFieldController<String>(null),
                   options: const [
                     'What is your name',
@@ -646,13 +642,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     'What is your favourite dish'
                   ],
                   onChanged: (val) =>
-                      setState(() => _model.dropDownValue = val),
+                      setState(() => _model.questionDropDownValue = val),
                   width: 350.0,
                   height: 50.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                      ),
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
                   hintText: 'Please select...',
                   icon: Icon(
                     Icons.keyboard_arrow_down_rounded,
@@ -687,14 +680,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               ),
             ),
             Container(
-              width: 330.0,
-              height: 40.0,
+              width: 370.0,
+              height: 50.0,
               decoration: const BoxDecoration(),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController7,
-                  focusNode: _model.textFieldFocusNode7,
+                  controller: _model.securityAnswerController,
+                  focusNode: _model.securityAnswerFocusNode,
                   autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
@@ -739,18 +732,64 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         color: const Color(0xFFB8BEC7),
                       ),
-                  validator:
-                      _model.textController7Validator.asValidator(context),
+                  validator: _model.securityAnswerControllerValidator
+                      .asValidator(context),
                 ),
               ),
             ),
             Align(
               alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    var shouldSetState = false;
+                    _model.authResponse = await SignUpCall.call(
+                      firstName: _model.firstNameController.text,
+                      lastName: _model.surnameController.text,
+                      email: _model.emailController.text,
+                      cellNumber: _model.phoneNumberController.text,
+                      password: _model.passwordController.text,
+                      verifyQuestion: _model.questionDropDownValue,
+                      verifyAnswer: _model.securityAnswerController.text,
+                      idnumber: _model.idNumberController.text,
+                    );
+                    shouldSetState = true;
+                    if ((_model.authResponse?.succeeded ?? true)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Successfully Regidtered',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+
+                      context.pushNamed('Login');
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Not registered',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
                   },
                   text: 'CREATE ACCOUNT',
                   options: FFButtonOptions(

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_widget.dart' show RegisterWidget;
@@ -7,38 +8,40 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController5;
+  // State field(s) for firstName widget.
+  FocusNode? firstNameFocusNode;
+  TextEditingController? firstNameController;
+  String? Function(BuildContext, String?)? firstNameControllerValidator;
+  // State field(s) for surname widget.
+  FocusNode? surnameFocusNode;
+  TextEditingController? surnameController;
+  String? Function(BuildContext, String?)? surnameControllerValidator;
+  // State field(s) for email widget.
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
+  // State field(s) for phoneNumber widget.
+  FocusNode? phoneNumberFocusNode;
+  TextEditingController? phoneNumberController;
+  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
+  // State field(s) for password widget.
+  FocusNode? passwordFocusNode;
+  TextEditingController? passwordController;
   late bool passwordVisibility;
-  String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode6;
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode7;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
+  String? Function(BuildContext, String?)? passwordControllerValidator;
+  // State field(s) for idNumber widget.
+  FocusNode? idNumberFocusNode;
+  TextEditingController? idNumberController;
+  String? Function(BuildContext, String?)? idNumberControllerValidator;
+  // State field(s) for QuestionDropDown widget.
+  String? questionDropDownValue;
+  FormFieldController<String>? questionDropDownValueController;
+  // State field(s) for SecurityAnswer widget.
+  FocusNode? securityAnswerFocusNode;
+  TextEditingController? securityAnswerController;
+  String? Function(BuildContext, String?)? securityAnswerControllerValidator;
+  // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
+  ApiCallResponse? authResponse;
 
   /// Initialization and disposal methods.
 
@@ -50,26 +53,26 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    firstNameFocusNode?.dispose();
+    firstNameController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    surnameFocusNode?.dispose();
+    surnameController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    phoneNumberFocusNode?.dispose();
+    phoneNumberController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController5?.dispose();
+    passwordFocusNode?.dispose();
+    passwordController?.dispose();
 
-    textFieldFocusNode6?.dispose();
-    textController6?.dispose();
+    idNumberFocusNode?.dispose();
+    idNumberController?.dispose();
 
-    textFieldFocusNode7?.dispose();
-    textController7?.dispose();
+    securityAnswerFocusNode?.dispose();
+    securityAnswerController?.dispose();
   }
 
   /// Action blocks are added here.
