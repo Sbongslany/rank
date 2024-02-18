@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'loan_directory_model.dart';
 export 'loan_directory_model.dart';
@@ -22,11 +21,6 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoanDirectoryModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.safePop();
-    });
   }
 
   @override

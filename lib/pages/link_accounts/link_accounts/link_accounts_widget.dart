@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'link_accounts_model.dart';
@@ -25,11 +24,6 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LinkAccountsModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.safePop();
-    });
   }
 
   @override
