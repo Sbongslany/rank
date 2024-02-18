@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       ..listen((user) => _appStateNotifier.update(user));
 
     Future.delayed(
-      const Duration(milliseconds: 10),
+      const Duration(milliseconds: 100),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
