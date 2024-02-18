@@ -117,19 +117,42 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                     ),
                   ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Register');
+                      },
+                      child: Text(
+                        'Register here',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              fontSize: 10.0,
+                              fontWeight: FontWeight.w300,
+                            ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             Opacity(
               opacity: 0.3,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Text(
                   'PLEASE ENTER YOUR EMAIL',
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        fontSize: 10.0,
+                        fontSize: 14.0,
                       ),
                 ),
               ),
@@ -196,13 +219,13 @@ class _LoginWidgetState extends State<LoginWidget> {
             Opacity(
               opacity: 0.3,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 15.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Text(
                   'PLEASE ENTER YOUR PASSWORD',
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        fontSize: 10.0,
+                        fontSize: 14.0,
                       ),
                 ),
               ),
@@ -361,26 +384,6 @@ class _LoginWidgetState extends State<LoginWidget> {
             Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed('Register');
-                      },
-                      child: Text(
-                        'Register ',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                  ),
-                ),
                 Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(

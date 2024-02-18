@@ -150,8 +150,8 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.notifications_rounded,
+            icon: FaIcon(
+              FontAwesomeIcons.donate,
               size: 24.0,
             ),
             label: 'Home',

@@ -78,6 +78,40 @@ class SignInCall {
       ));
 }
 
+class GetUserCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get User',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/get_user.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.first_name''',
+      ));
+  static String? surname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.last_name''',
+      ));
+  static String? cell(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.cell_number''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
