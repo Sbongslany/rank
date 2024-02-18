@@ -127,7 +127,11 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.home,
-              size: 24.0,
+              size: 34.0,
+            ),
+            activeIcon: Icon(
+              Icons.home_outlined,
+              size: 34.0,
             ),
             label: 'Home',
             tooltip: '',
@@ -135,7 +139,11 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite_rounded,
-              size: 24.0,
+              size: 34.0,
+            ),
+            activeIcon: Icon(
+              Icons.favorite_border,
+              size: 34.0,
             ),
             label: 'Info',
             tooltip: '',
@@ -143,15 +151,23 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.info_rounded,
-              size: 24.0,
+              size: 34.0,
+            ),
+            activeIcon: Icon(
+              Icons.info_outline,
+              size: 34.0,
             ),
             label: 'Info',
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.donate,
-              size: 24.0,
+            icon: Icon(
+              Icons.monetization_on,
+              size: 34.0,
+            ),
+            activeIcon: Icon(
+              Icons.monetization_on_outlined,
+              size: 34.0,
             ),
             label: 'Home',
             tooltip: '',
