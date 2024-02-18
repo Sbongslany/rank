@@ -321,6 +321,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         authenticationToken: SignInCall.jwt(
                           (_model.loginResponse?.jsonBody ?? ''),
                         ),
+                        refreshToken: currentAuthRefreshToken,
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
