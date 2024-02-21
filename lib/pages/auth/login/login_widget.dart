@@ -1,10 +1,12 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -15,10 +17,128 @@ class LoginWidget extends StatefulWidget {
   State<LoginWidget> createState() => _LoginWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _LoginWidgetState extends State<LoginWidget>
+    with TickerProviderStateMixin {
   late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 150.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 150.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 250.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 250.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -132,10 +252,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                         'Register here',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: const Color(0xF1F3EAEA),
                               fontSize: 10.0,
                               fontWeight: FontWeight.w300,
+                              decoration: TextDecoration.underline,
                             ),
                       ),
                     ),
@@ -154,7 +274,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 14.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
             ),
             Container(
@@ -213,7 +333,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                   keyboardType: TextInputType.emailAddress,
                   validator:
                       _model.emailControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation1']!),
               ),
             ),
             Opacity(
@@ -227,7 +348,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 14.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ),
             ),
             Container(
@@ -300,7 +421,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                   keyboardType: TextInputType.emailAddress,
                   validator: _model.loginPasswordControllerValidator
                       .asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation2']!),
               ),
             ),
             Align(
@@ -379,7 +501,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     borderRadius: BorderRadius.circular(22.0),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['buttonOnPageLoadAnimation']!),
               ),
             ),
             Column(
@@ -400,9 +523,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                       },
                       child: Text(
                         'Reset Password',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: const Color(0xF14E4444),
+                            ),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation3']!),
                   ),
                 ),
               ],
