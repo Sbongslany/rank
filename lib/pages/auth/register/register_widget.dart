@@ -25,6 +25,18 @@ class _RegisterWidgetState extends State<RegisterWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
     'textOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -1158,7 +1170,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               ),
             ),
           ],
-        ),
+        ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
       ),
     );
   }
