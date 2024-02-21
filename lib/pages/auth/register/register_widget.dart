@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'register_model.dart';
 export 'register_model.dart';
 
@@ -16,10 +18,337 @@ class RegisterWidget extends StatefulWidget {
   State<RegisterWidget> createState() => _RegisterWidgetState();
 }
 
-class _RegisterWidgetState extends State<RegisterWidget> {
+class _RegisterWidgetState extends State<RegisterWidget>
+    with TickerProviderStateMixin {
   late RegisterModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 150.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 150.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 350.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 350.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 450.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 450.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation5': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation6': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 550.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 550.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation6': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation7': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 650.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 650.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'dropDownOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation8': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'textFieldOnPageLoadAnimation7': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 850.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 850.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -175,7 +504,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
             ),
             Container(
@@ -233,7 +562,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   validator:
                       _model.firstNameControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation1']!),
               ),
             ),
             Opacity(
@@ -247,7 +577,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ),
             ),
             Container(
@@ -305,7 +635,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   validator:
                       _model.surnameControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation2']!),
               ),
             ),
             Opacity(
@@ -319,7 +650,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
               ),
             ),
             Container(
@@ -378,7 +709,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   keyboardType: TextInputType.emailAddress,
                   validator:
                       _model.emailControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation3']!),
               ),
             ),
             Opacity(
@@ -392,7 +724,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation4']!),
               ),
             ),
             Container(
@@ -451,7 +783,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   keyboardType: TextInputType.number,
                   validator: _model.phoneNumberControllerValidator
                       .asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation4']!),
               ),
             ),
             Opacity(
@@ -465,7 +798,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation5']!),
               ),
             ),
             Container(
@@ -537,7 +870,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   validator:
                       _model.passwordControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation5']!),
               ),
             ),
             Opacity(
@@ -551,7 +885,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation6']!),
               ),
             ),
             Container(
@@ -610,7 +944,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   keyboardType: TextInputType.number,
                   validator:
                       _model.idNumberControllerValidator.asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation6']!),
               ),
             ),
             Opacity(
@@ -624,7 +959,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation7']!),
               ),
             ),
             Padding(
@@ -662,7 +997,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   isOverButton: true,
                   isSearchable: false,
                   isMultiSelect: false,
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['dropDownOnPageLoadAnimation']!),
               ),
             ),
             Opacity(
@@ -676,7 +1012,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         fontFamily: 'Readex Pro',
                         fontSize: 10.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation8']!),
               ),
             ),
             Container(
@@ -738,7 +1074,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       ),
                   validator: _model.securityAnswerControllerValidator
                       .asValidator(context),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation7']!),
               ),
             ),
             Align(
@@ -816,7 +1153,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     ),
                     borderRadius: BorderRadius.circular(22.0),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['buttonOnPageLoadAnimation']!),
               ),
             ),
           ],
