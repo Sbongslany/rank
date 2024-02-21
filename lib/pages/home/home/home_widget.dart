@@ -398,7 +398,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    1.0, 0.0, 0.0, 0.0),
+                                    4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
                                     GetUserCall.surname(
