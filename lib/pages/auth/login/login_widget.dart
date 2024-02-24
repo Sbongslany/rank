@@ -292,7 +292,6 @@ class _LoginWidgetState extends State<LoginWidget>
                   child: TextFormField(
                     controller: _model.emailController,
                     focusNode: _model.emailFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -367,7 +366,6 @@ class _LoginWidgetState extends State<LoginWidget>
                   child: TextFormField(
                     controller: _model.loginPasswordController,
                     focusNode: _model.loginPasswordFocusNode,
-                    autofocus: true,
                     obscureText: !_model.loginPasswordVisibility,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
