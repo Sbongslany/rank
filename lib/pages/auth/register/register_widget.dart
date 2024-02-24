@@ -522,7 +522,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.firstNameController,
                     focusNode: _model.firstNameFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -596,7 +595,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.surnameController,
                     focusNode: _model.surnameFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -670,7 +668,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.emailController,
                     focusNode: _model.emailFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -745,7 +742,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.phoneNumberController,
                     focusNode: _model.phoneNumberFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -820,7 +816,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.passwordController,
                     focusNode: _model.passwordFocusNode,
-                    autofocus: true,
                     obscureText: !_model.passwordVisibility,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -908,7 +903,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.idNumberController,
                     focusNode: _model.idNumberFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -1038,7 +1032,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: TextFormField(
                     controller: _model.securityAnswerController,
                     focusNode: _model.securityAnswerFocusNode,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle:
