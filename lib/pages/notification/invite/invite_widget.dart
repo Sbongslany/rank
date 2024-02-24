@@ -209,18 +209,15 @@ class _InviteWidgetState extends State<InviteWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  valueOrDefault<String>(
-                                    (GetUsersCall.firstName(
-                                                  rowGetUsersResponse.jsonBody,
-                                                ) !=
-                                                null &&
-                                            (GetUsersCall.firstName(
-                                              rowGetUsersResponse.jsonBody,
-                                            ))!
-                                                .isNotEmpty)
-                                        .toString(),
-                                    '-',
-                                  ),
+                                  (GetUsersCall.firstName(
+                                                rowGetUsersResponse.jsonBody,
+                                              ) !=
+                                              null &&
+                                          (GetUsersCall.firstName(
+                                            rowGetUsersResponse.jsonBody,
+                                          ))!
+                                              .isNotEmpty)
+                                      .toString(),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
