@@ -228,7 +228,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                     r'''$.first_name''',
                                                   )?.toString(),
                                                   '-',
-                                                )}${getJsonField(
+                                                )} ${getJsonField(
                                                   getUsersItem,
                                                   r'''$.last_name''',
                                                 ).toString()}',
