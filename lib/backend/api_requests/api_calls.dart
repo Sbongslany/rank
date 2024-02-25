@@ -242,6 +242,41 @@ class GetPayPouchBalanceCall {
       ));
 }
 
+class PayPouchCall {
+  static Future<ApiCallResponse> call({
+    String? amount = '',
+    String? ref = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "amount": "$amount",
+  "reference": "$ref"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Pay Pouch',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/pay_pouch.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
