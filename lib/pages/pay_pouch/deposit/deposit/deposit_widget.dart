@@ -281,7 +281,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 5.0),
                   child: Text(
-                    'R625.0',
+                    valueOrDefault<String>(
+                      _model.amountValue,
+                      '-',
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
@@ -315,7 +318,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 5.0),
                       child: Text(
-                        'R625.0',
+                        valueOrDefault<String>(
+                          _model.amountValue,
+                          '-',
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).alternate,
