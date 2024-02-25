@@ -276,10 +276,8 @@ class _InviteWidgetState extends State<InviteWidget> {
                                               var shouldSetState = false;
                                               _model.inviteFriendResoonse =
                                                   await InviteFriendCall.call(
-                                                userId: getJsonField(
-                                                  getUsersItem,
-                                                  r'''$.user_id''',
-                                                ).toString(),
+                                                userId:
+                                                    'f6268f9200896cc0b8109bfaf',
                                               );
                                               shouldSetState = true;
                                               if ((_model.inviteFriendResoonse
