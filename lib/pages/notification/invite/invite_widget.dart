@@ -277,55 +277,23 @@ class _InviteWidgetState extends State<InviteWidget> {
                                               _model.inviteFriendResoonse =
                                                   await InviteFriendCall.call(
                                                 userId:
-                                                    'f6268f9200896cc0b8109bfaf',
+                                                    'ed6fdd6996d03fdc64aa4602c',
                                                 jwt: currentAuthenticationToken,
                                               );
                                               shouldSetState = true;
                                               if ((_model.inviteFriendResoonse
                                                       ?.succeeded ??
                                                   true)) {
-                                                var confirmDialogResponse =
-                                                    await showDialog<bool>(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return AlertDialog(
-                                                              title: const Text(
-                                                                  'Friend Request'),
-                                                              content: const Text(
-                                                                  'Invite Successssful'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                  child: const Text(
-                                                                      'Cancel'),
-                                                                ),
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                  child: const Text(
-                                                                      'Confirm'),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          },
-                                                        ) ??
-                                                        false;
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
-                                              } else {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'Request failed',
+                                                      getJsonField(
+                                                        (_model.inviteFriendResoonse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                        r'''$.message''',
+                                                      ).toString(),
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -338,7 +306,37 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .secondary,
+                                                            .primaryBackground,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      getJsonField(
+                                                        (_model.inviteFriendResoonse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                        r'''$.message''',
+                                                      ).toString(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
                                                   ),
                                                 );
                                                 if (shouldSetState) {
