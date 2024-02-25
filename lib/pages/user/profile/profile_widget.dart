@@ -123,8 +123,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                     ),
-                    child: Image.network(
-                      'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzA4MTE0NzA4fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                    child: Image.asset(
+                      'assets/images/imagePlaceholder.png',
                       fit: BoxFit.cover,
                     ),
                   ),

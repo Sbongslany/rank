@@ -246,6 +246,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'LinkCard',
           path: '/linkCard',
           builder: (context, params) => const LinkCardWidget(),
+        ),
+        FFRoute(
+          name: 'ResetPassword',
+          path: '/resetPassword',
+          builder: (context, params) => const ResetPasswordWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

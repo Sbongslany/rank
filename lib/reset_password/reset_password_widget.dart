@@ -2,21 +2,22 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'forgot_password_model.dart';
-export 'forgot_password_model.dart';
+import 'reset_password_model.dart';
+export 'reset_password_model.dart';
 
-class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({super.key});
+class ResetPasswordWidget extends StatefulWidget {
+  const ResetPasswordWidget({super.key});
 
   @override
-  State<ForgotPasswordWidget> createState() => _ForgotPasswordWidgetState();
+  State<ResetPasswordWidget> createState() => _ResetPasswordWidgetState();
 }
 
-class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
+class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
     with TickerProviderStateMixin {
-  late ForgotPasswordModel _model;
+  late ResetPasswordModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -45,7 +46,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ForgotPasswordModel());
+    _model = createModel(context, () => ResetPasswordModel());
 
     _model.emailController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
@@ -88,87 +89,17 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.safePop();
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                  blurRadius: 4.0,
-                                  color: Color(0x33000000),
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(10.0),
-                                bottomRight: Radius.circular(0.0),
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(0.0),
-                              ),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).alternate,
-                              ),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.safePop();
-                              },
-                              child: Icon(
-                                Icons.arrow_back_ios_sharp,
-                                color: FlutterFlowTheme.of(context).alternate,
-                                size: 44.0,
-                              ),
-                            ),
-                          ),
-                        ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/ranklogo.png',
+                        width: 120.0,
+                        fit: BoxFit.cover,
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/ranklogo.png',
-                            width: 120.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Opacity(
-                        opacity: 0.0,
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.safePop();
-                          },
-                          child: Icon(
-                            Icons.arrow_back_ios_sharp,
-                            color: FlutterFlowTheme.of(context).alternate,
-                            size: 44.0,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   Padding(
                     padding:
@@ -186,28 +117,66 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/ranklogo.png',
-                  width: 200.0,
-                  fit: BoxFit.cover,
+            Opacity(
+              opacity: 0.9,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 20.0),
+                child: Text(
+                  'OTP VERIFICATION',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ),
             ),
-            Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+            PinCodeTextField(
+              autoDisposeControllers: false,
+              appContext: context,
+              length: 6,
+              textStyle: FlutterFlowTheme.of(context).bodyLarge,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              enableActiveFill: false,
+              autoFocus: true,
+              enablePinAutofill: false,
+              errorTextSpace: 16.0,
+              showCursor: true,
+              cursorColor: FlutterFlowTheme.of(context).primary,
+              obscureText: false,
+              hintCharacter: '●',
+              keyboardType: TextInputType.number,
+              pinTheme: PinTheme(
+                fieldHeight: 44.0,
+                fieldWidth: 44.0,
+                borderWidth: 2.0,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(12.0),
+                  bottomRight: Radius.circular(12.0),
+                  topLeft: Radius.circular(12.0),
+                  topRight: Radius.circular(12.0),
+                ),
+                shape: PinCodeFieldShape.box,
+                activeColor: FlutterFlowTheme.of(context).primaryText,
+                inactiveColor: FlutterFlowTheme.of(context).alternate,
+                selectedColor: FlutterFlowTheme.of(context).primary,
+                activeFillColor: FlutterFlowTheme.of(context).primaryText,
+                inactiveFillColor: FlutterFlowTheme.of(context).alternate,
+                selectedFillColor: FlutterFlowTheme.of(context).primary,
+              ),
+              controller: _model.pinCodeController,
+              onChanged: (_) {},
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: _model.pinCodeControllerValidator.asValidator(context),
+            ),
+            Opacity(
+              opacity: 0.3,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 5.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: Text(
-                  'PLEASE ENTER YOUR EMAIL',
+                  'New Password',
                   textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                      ),
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
             ),
@@ -268,8 +237,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('ResetPassword');
+                  onPressed: () {
+                    print('Button pressed ...');
                   },
                   text: 'Retrieve password',
                   options: FFButtonOptions(

@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'otp_verification_model.dart';
 export 'otp_verification_model.dart';
 
@@ -13,15 +15,41 @@ class OtpVerificationWidget extends StatefulWidget {
   State<OtpVerificationWidget> createState() => _OtpVerificationWidgetState();
 }
 
-class _OtpVerificationWidgetState extends State<OtpVerificationWidget> {
+class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
+    with TickerProviderStateMixin {
   late OtpVerificationModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textFieldOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 50.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => OtpVerificationModel());
+
+    _model.newpasswordController ??= TextEditingController();
+    _model.newpasswordFocusNode ??= FocusNode();
   }
 
   @override
@@ -63,23 +91,84 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/ranklogo.png',
-                          width: 120.0,
-                          fit: BoxFit.cover,
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 0.0, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(0.0, 2.0),
+                                  )
+                                ],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back_ios_sharp,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 44.0,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 18.0, 0.0, 0.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/ranklogo.png',
+                              width: 120.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Opacity(
+                          opacity: 0.0,
+                          child: Icon(
+                            Icons.arrow_back_ios_sharp,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 44.0,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -104,7 +193,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 50.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
                 child: PinCodeTextField(
                   autoDisposeControllers: false,
                   appContext: context,
@@ -145,12 +234,79 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget> {
                       _model.pinCodeControllerValidator.asValidator(context),
                 ),
               ),
-              Text(
-                'DID YOU RECEIVE THE OTP ?',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
-                      fontWeight: FontWeight.w600,
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                child: Text(
+                  'NEW PASSWORD',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                child: TextFormField(
+                  controller: _model.newpasswordController,
+                  focusNode: _model.newpasswordFocusNode,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                    hintStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: const Color(0xFF969EA4),
+                            ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    filled: true,
+                    fillColor: const Color(0xFFB5C4D1),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: _model.newpasswordControllerValidator
+                      .asValidator(context),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation']!),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                child: Text(
+                  'DID YOU RECEIVE THE OTP ?',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -171,7 +327,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Verify',
+                    text: 'SUBMIT',
                     options: FFButtonOptions(
                       width: 280.0,
                       height: 60.0,

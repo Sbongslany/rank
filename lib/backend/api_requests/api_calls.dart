@@ -277,6 +277,58 @@ class PayPouchCall {
       ));
 }
 
+class ForgotPasswordCall {
+  static Future<ApiCallResponse> call({
+    String? email = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "email": "$email"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Forgot Password',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/forget_password.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class ResetPasswordCall {
+  static Future<ApiCallResponse> call({
+    String? otp = '',
+    String? password = '',
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Reset Password',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/reset_password.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

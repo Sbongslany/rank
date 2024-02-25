@@ -9,6 +9,10 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
+  // State field(s) for newpassword widget.
+  FocusNode? newpasswordFocusNode;
+  TextEditingController? newpasswordController;
+  String? Function(BuildContext, String?)? newpasswordControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -21,6 +25,8 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   void dispose() {
     unfocusNode.dispose();
     pinCodeController?.dispose();
+    newpasswordFocusNode?.dispose();
+    newpasswordController?.dispose();
   }
 
   /// Action blocks are added here.
