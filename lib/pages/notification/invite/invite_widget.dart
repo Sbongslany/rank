@@ -202,8 +202,8 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                     decoration: const BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
-                                                    child: Image.network(
-                                                      'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxwZXJzb258ZW58MHx8fHwxNzA4MTE0NzA4fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                    child: Image.asset(
+                                                      'assets/images/imagePlaceholder.png',
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -260,20 +260,6 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                       ),
                                                 ),
                                               ),
-                                              Text(
-                                                '5 min read',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent3,
-                                                      fontSize: 10.0,
-                                                    ),
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -281,25 +267,111 @@ class _InviteWidgetState extends State<InviteWidget> {
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 5.0, 0.0),
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            elevation: 5.0,
-                                            shape: const CircleBorder(),
-                                            child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFF38FF00),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Icon(
-                                                Icons.add_circle,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 30.0,
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var shouldSetState = false;
+                                              _model.inviteFriendResoonse =
+                                                  await InviteFriendCall.call(
+                                                userId: getJsonField(
+                                                  getUsersItem,
+                                                  r'''$.user_id''',
+                                                ).toString(),
+                                              );
+                                              shouldSetState = true;
+                                              if ((_model.inviteFriendResoonse
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                var confirmDialogResponse =
+                                                    await showDialog<bool>(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              title: const Text(
+                                                                  'Friend Request'),
+                                                              content: const Text(
+                                                                  'Invite Successssful'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: const Text(
+                                                                      'Cancel'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: const Text(
+                                                                      'Confirm'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        ) ??
+                                                        false;
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Request failed',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: const CircleBorder(),
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFF38FF00),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Icon(
+                                                  Icons.add_circle,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 30.0,
+                                                ),
                                               ),
                                             ),
                                           ),

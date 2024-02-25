@@ -9,6 +9,8 @@ class InviteModel extends FlutterFlowModel<InviteWidget> {
 
   final unfocusNode = FocusNode();
   Completer<ApiCallResponse>? apiRequestCompleter;
+  // Stores action output result for [Backend Call - API (Invite friend)] action in Container widget.
+  ApiCallResponse? inviteFriendResoonse;
 
   /// Initialization and disposal methods.
 
