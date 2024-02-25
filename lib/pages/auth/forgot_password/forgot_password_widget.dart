@@ -269,7 +269,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('ResetPassword');
+                    context.pushNamed('OtpVerification');
                   },
                   text: 'Retrieve password',
                   options: FFButtonOptions(
