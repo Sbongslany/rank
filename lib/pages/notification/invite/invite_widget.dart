@@ -278,6 +278,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                   await InviteFriendCall.call(
                                                 userId:
                                                     'f6268f9200896cc0b8109bfaf',
+                                                jwt: currentAuthenticationToken,
                                               );
                                               shouldSetState = true;
                                               if ((_model.inviteFriendResoonse
