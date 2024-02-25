@@ -223,8 +223,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                             children: [
                                               Text(
                                                 getJsonField(
-                                                  listViewGetUsersResponse
-                                                      .jsonBody,
+                                                  getUsersItem,
                                                   r'''$.first_name''',
                                                 ).toString(),
                                                 style: FlutterFlowTheme.of(
