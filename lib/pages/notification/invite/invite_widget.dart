@@ -222,7 +222,11 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'JOHN DOE',
+                                                getJsonField(
+                                                  listViewGetUsersResponse
+                                                      .jsonBody,
+                                                  r'''$.firstName''',
+                                                ).toString(),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
