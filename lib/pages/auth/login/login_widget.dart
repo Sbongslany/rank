@@ -453,7 +453,10 @@ class _LoginWidgetState extends State<LoginWidget>
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              'You have successfully logged in',
+                              getJsonField(
+                                (_model.loginResponse?.jsonBody ?? ''),
+                                r'''$.message''',
+                              ).toString(),
                               style: TextStyle(
                                 color: FlutterFlowTheme.of(context).primaryText,
                               ),
@@ -469,7 +472,10 @@ class _LoginWidgetState extends State<LoginWidget>
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Not Logged In',
+                              getJsonField(
+                                (_model.loginResponse?.jsonBody ?? ''),
+                                r'''$.message''',
+                              ).toString(),
                               style: TextStyle(
                                 color: FlutterFlowTheme.of(context).primaryText,
                               ),

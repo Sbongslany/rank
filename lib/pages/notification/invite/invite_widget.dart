@@ -336,7 +336,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .primary,
+                                                            .primaryBackground,
                                                   ),
                                                 );
                                                 if (shouldSetState) {
