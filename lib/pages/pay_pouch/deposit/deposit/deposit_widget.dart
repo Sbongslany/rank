@@ -831,6 +831,8 @@ class _DepositWidgetState extends State<DepositWidget> {
                               FlutterFlowTheme.of(context).secondary,
                         ),
                       );
+
+                      context.pushNamed('ConfirmDeposit');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
