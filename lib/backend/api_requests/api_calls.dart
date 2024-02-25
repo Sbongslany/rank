@@ -216,6 +216,32 @@ class InviteFriendCall {
   }
 }
 
+class GetPayPouchBalanceCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get PayPouch Balance',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/get_pouch_balance.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? total(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.total''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

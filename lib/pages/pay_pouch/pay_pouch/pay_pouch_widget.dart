@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -156,16 +158,45 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'R3 000',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 35.0,
-                                fontWeight: FontWeight.bold,
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: GetPayPouchBalanceCall.call(
+                            jwt: currentAuthenticationToken,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final textGetPayPouchBalanceResponse =
+                                snapshot.data!;
+                            return Text(
+                              valueOrDefault<String>(
+                                GetPayPouchBalanceCall.total(
+                                  textGetPayPouchBalanceResponse.jsonBody,
+                                ),
+                                '-',
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    fontSize: 35.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            );
+                          },
                         ),
                       ),
                     ),

@@ -41,7 +41,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   TextEditingController? securityAnswerController;
   String? Function(BuildContext, String?)? securityAnswerControllerValidator;
   // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
-  ApiCallResponse? authResponse;
+  ApiCallResponse? regResponse;
 
   /// Initialization and disposal methods.
 

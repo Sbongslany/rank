@@ -1092,7 +1092,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   child: FFButtonWidget(
                     onPressed: () async {
                       var shouldSetState = false;
-                      _model.authResponse = await SignUpCall.call(
+                      _model.regResponse = await SignUpCall.call(
                         firstName: _model.firstNameController.text,
                         lastName: _model.surnameController.text,
                         email: _model.emailController.text,
@@ -1103,18 +1103,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         idnumber: _model.idNumberController.text,
                       );
                       shouldSetState = true;
-                      if ((_model.authResponse?.succeeded ?? true)) {
+                      if ((_model.regResponse?.succeeded ?? true)) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Successfully Regidtered',
+                              getJsonField(
+                                (_model.regResponse?.jsonBody ?? ''),
+                                r'''$.message''',
+                              ).toString(),
                               style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
                             duration: const Duration(milliseconds: 4000),
                             backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
+                                FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
 
@@ -1123,14 +1126,17 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              'Not registered',
+                              getJsonField(
+                                (_model.regResponse?.jsonBody ?? ''),
+                                r'''$.message''',
+                              ).toString(),
                               style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
                             duration: const Duration(milliseconds: 4000),
                             backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
+                                FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
                         if (shouldSetState) setState(() {});
