@@ -13,9 +13,13 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   // State field(s) for ref widget.
   String? refValue;
   FormFieldController<String>? refValueController;
-  // State field(s) for amount widget.
-  String? amountValue;
-  FormFieldController<String>? amountValueController;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
   // Stores action output result for [Backend Call - API (Pay Someone)] action in Button widget.
   ApiCallResponse? apiResult836;
 
@@ -27,6 +31,8 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 
   /// Action blocks are added here.

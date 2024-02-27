@@ -26,6 +26,9 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PaySomeoneModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -362,46 +365,136 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                   ],
                 ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FlutterFlowDropDown<String>(
-                    controller: _model.refValueController ??=
-                        FormFieldController<String>(null),
-                    options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
-                    onChanged: (val) => setState(() => _model.refValue = val),
-                    width: 200.0,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'DIRECT DEPOSIT',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FlutterFlowDropDown<String>(
+                      controller: _model.refValueController ??=
+                          FormFieldController<String>(null),
+                      options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
+                      onChanged: (val) => setState(() => _model.refValue = val),
+                      width: 200.0,
+                      height: 50.0,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      hintText: 'DIRECT DEPOSIT',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
+                      borderRadius: 8.0,
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isOverButton: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
                     ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderWidth: 2.0,
-                    borderRadius: 8.0,
-                    margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isOverButton: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  ),
-                  FlutterFlowDropDown<String>(
-                    controller: _model.amountValueController ??=
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.textController,
+                          focusNode: _model.textFieldFocusNode,
+                          autofocus: true,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Amount',
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          keyboardType: TextInputType.number,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              FutureBuilder<ApiCallResponse>(
+                future: GetMyFriendsCall.call(
+                  jwt: currentAuthenticationToken,
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  final dropDownGetMyFriendsResponse = snapshot.data!;
+                  return FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController ??=
                         FormFieldController<String>(null),
-                    options: const ['1000', '5000 ', '10 000'],
+                    options: (getJsonField(
+                      dropDownGetMyFriendsResponse.jsonBody,
+                      r'''$.names''',
+                      true,
+                    ) as List)
+                        .map<String>((s) => s.toString())
+                        .toList(),
                     onChanged: (val) =>
-                        setState(() => _model.amountValue = val),
-                    width: 160.0,
+                        setState(() => _model.dropDownValue = val),
+                    width: 300.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'AMOUNT',
+                    hintText: 'Please select...',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -418,8 +511,8 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     isOverButton: true,
                     isSearchable: false,
                     isMultiSelect: false,
-                  ),
-                ],
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -510,7 +603,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     var shouldSetState = false;
                     _model.apiResult836 = await PaySomeoneCall.call(
                       jwt: currentAuthenticationToken,
-                      amount: 100.0,
+                      amount: double.tryParse(_model.textController.text),
                       friendId: '498902bf19b9143a8c447ae5c',
                     );
                     shouldSetState = true;
