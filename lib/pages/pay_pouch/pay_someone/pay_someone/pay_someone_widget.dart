@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'pay_someone_model.dart';
 export 'pay_someone_model.dart';
 
@@ -51,16 +53,16 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 FlutterFlowTheme.of(context).primaryBackground,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: const [0.0, 1.0],
-              begin: const AlignmentDirectional(0.0, -1.0),
-              end: const AlignmentDirectional(0, 1.0),
+              stops: [0.0, 1.0],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -70,9 +72,9 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.24, -1.0),
+                    end: AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -94,10 +96,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -108,7 +110,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 110.0)),
+                  ].divide(SizedBox(width: 110.0)),
                 ),
               ),
               Container(
@@ -117,23 +119,23 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      const Color(0xF1EC51DE),
+                      Color(0xF1EC51DE),
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(1.0, 0.34),
-                    end: const AlignmentDirectional(-1.0, -0.34),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(1.0, 0.34),
+                    end: AlignmentDirectional(-1.0, -0.34),
                   ),
                 ),
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(1.0, 0.0),
+                      alignment: AlignmentDirectional(1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: Text(
                           'LOAN POUCH',
                           style: FlutterFlowTheme.of(context)
@@ -147,10 +149,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'PAY POUCH\nAVALABLE BALANCE',
                           style:
@@ -164,10 +166,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'R3 000',
                           style:
@@ -185,7 +187,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -195,7 +197,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       elevation: 1.0,
                       shape: const CircleBorder(),
                       child: Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 4.0,
@@ -205,12 +207,12 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                           ],
                           shape: BoxShape.circle,
                         ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -224,7 +226,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                   width: 50.0,
                                   height: 50.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
@@ -240,7 +242,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'SANELE NDLOVU\nCUSSTOMER SERVICE REP',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -253,9 +255,9 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 0.0, 20.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 0.0, 20.0),
                   child: RatingBar.builder(
                     onRatingUpdate: (newValue) =>
                         setState(() => _model.ratingBarValue = newValue),
@@ -273,9 +275,9 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 10.0),
                   child: Text(
                     'PAYMENT',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -287,16 +289,16 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 60.0, 5.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 60.0, 5.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(60.0, 5.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(60.0, 5.0, 0.0, 0.0),
                         child: Text(
                           'REFERENCE',
                           style: FlutterFlowTheme.of(context)
@@ -311,10 +313,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 0.0),
                         child: Text(
                           'AMOUNT',
                           style: FlutterFlowTheme.of(context)
@@ -338,7 +340,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController1 ??=
                         FormFieldController<String>(null),
-                    options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
+                    options: ['EFT', 'DEPOSIT', 'CHEQUE'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue1 = val),
                     width: 200.0,
@@ -356,7 +358,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -365,7 +367,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController2 ??=
                         FormFieldController<String>(null),
-                    options: const ['1000', '5000 ', '10 000'],
+                    options: ['1000', '5000 ', '10 000'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue2 = val),
                     width: 160.0,
@@ -383,7 +385,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -392,7 +394,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -409,7 +411,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -426,7 +428,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -445,14 +447,14 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
               Opacity(
                 opacity: 0.7,
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 25.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 25.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 55.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 55.0, 0.0),
                         child: Text(
                           'TOTAL',
                           style:
@@ -474,7 +476,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('PayUser');
@@ -484,16 +486,16 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF192A6F),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF192A6F),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -502,7 +504,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LinkConfirmation');
@@ -512,16 +514,16 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFFF000E),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFFFF000E),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

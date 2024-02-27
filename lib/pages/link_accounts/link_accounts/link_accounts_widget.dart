@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'link_accounts_model.dart';
 export 'link_accounts_model.dart';
 
@@ -50,16 +52,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 FlutterFlowTheme.of(context).primaryBackground,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: const [0.0, 1.0],
-              begin: const AlignmentDirectional(0.0, -1.0),
-              end: const AlignmentDirectional(0, 1.0),
+              stops: [0.0, 1.0],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -69,9 +71,9 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.24, -1.0),
+                    end: AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -93,10 +95,10 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -107,11 +109,11 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 110.0)),
+                  ].divide(SizedBox(width: 110.0)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: 70.0,
@@ -121,12 +123,12 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         FlutterFlowTheme.of(context).secondary,
                         FlutterFlowTheme.of(context).primary
                       ],
-                      stops: const [0.0, 1.0],
-                      begin: const AlignmentDirectional(1.0, 0.34),
-                      end: const AlignmentDirectional(-1.0, -0.34),
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(1.0, 0.34),
+                      end: AlignmentDirectional(-1.0, -0.34),
                     ),
                   ),
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     'INSERT ACCOUNT DETAILS',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -138,11 +140,11 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 5.0,
-                  shape: const RoundedRectangleBorder(
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10.0),
                       bottomRight: Radius.circular(10.0),
@@ -155,7 +157,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     height: 320.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).alternate,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(10.0),
                         bottomRight: Radius.circular(10.0),
                         topLeft: Radius.circular(10.0),
@@ -168,7 +170,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         Opacity(
                           opacity: 0.7,
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: Text(
                               'Choose your document',
@@ -185,7 +187,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         Opacity(
                           opacity: 0.7,
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 5.0, 0.0, 0.0),
                             child: Text(
                               'It must be a official photo ID',
@@ -200,7 +202,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -208,7 +210,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).alternate,
                               border: Border.all(
-                                color: const Color(0xFF6D7681),
+                                color: Color(0xFF6D7681),
                               ),
                             ),
                             child: InkWell(
@@ -270,16 +272,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 30.0,
                                       height: 30.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFBFBDBD),
                                         shape: BoxShape.circle,
                                       ),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.door_back_door,
                                         color: Color(0xFF525255),
                                         size: 20.0,
@@ -298,7 +300,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.arrow_forward_ios_sharp,
@@ -313,7 +315,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -321,7 +323,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).alternate,
                               border: Border.all(
-                                color: const Color(0xFF6D7681),
+                                color: Color(0xFF6D7681),
                               ),
                             ),
                             child: InkWell(
@@ -368,17 +370,17 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 30.0,
                                       height: 30.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFC9C9C9),
                                         shape: BoxShape.circle,
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: const FaIcon(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: FaIcon(
                                         FontAwesomeIcons.carAlt,
                                         color: Color(0xFF525255),
                                         size: 20.0,
@@ -397,7 +399,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.arrow_forward_ios_sharp,
@@ -412,7 +414,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -420,7 +422,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).alternate,
                               border: Border.all(
-                                color: const Color(0xFF6D7681),
+                                color: Color(0xFF6D7681),
                               ),
                             ),
                             child: InkWell(
@@ -467,17 +469,17 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 30.0,
                                       height: 30.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFD0D0D0),
                                         shape: BoxShape.circle,
                                       ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: const FaIcon(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: FaIcon(
                                         FontAwesomeIcons.solidStickyNote,
                                         color: Color(0xFF525255),
                                         size: 20.0,
@@ -496,7 +498,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Icon(
                                       Icons.arrow_forward_ios_sharp,
@@ -516,7 +518,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LinkConfirmation');
@@ -526,16 +528,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF116EAF),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF116EAF),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -544,7 +546,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
@@ -554,16 +556,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).error,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -572,7 +574,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LinkCard');
@@ -582,16 +584,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF18FC2C),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF18FC2C),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

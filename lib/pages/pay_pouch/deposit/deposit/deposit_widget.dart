@@ -8,6 +8,8 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'deposit_model.dart';
 export 'deposit_model.dart';
 
@@ -54,16 +56,16 @@ class _DepositWidgetState extends State<DepositWidget> {
                 FlutterFlowTheme.of(context).primaryBackground,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: const [0.0, 1.0],
-              begin: const AlignmentDirectional(0.0, -1.0),
-              end: const AlignmentDirectional(0, 1.0),
+              stops: [0.0, 1.0],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -73,9 +75,9 @@ class _DepositWidgetState extends State<DepositWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.24, -1.0),
+                    end: AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -97,10 +99,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -111,11 +113,11 @@ class _DepositWidgetState extends State<DepositWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 110.0)),
+                  ].divide(SizedBox(width: 110.0)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   'DEPOSIT TO PAY POUCH',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -126,7 +128,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +138,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                       elevation: 1.0,
                       shape: const CircleBorder(),
                       child: Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 4.0,
@@ -146,9 +148,9 @@ class _DepositWidgetState extends State<DepositWidget> {
                           ],
                           shape: BoxShape.circle,
                         ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -162,7 +164,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                               width: 50.0,
                               height: 50.0,
                               clipBehavior: Clip.antiAlias,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
@@ -176,7 +178,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'MY PAY POUCH\nMANAGER AT ONE CALL',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -203,9 +205,9 @@ class _DepositWidgetState extends State<DepositWidget> {
                 glowColor: FlutterFlowTheme.of(context).tertiary,
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
                   child: Text(
                     'OUR LOAN OFFER',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -223,7 +225,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.refValueController ??=
                         FormFieldController<String>(null),
-                    options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
+                    options: ['EFT', 'DEPOSIT', 'CHEQUE'],
                     onChanged: (val) => setState(() => _model.refValue = val),
                     width: 200.0,
                     height: 50.0,
@@ -240,7 +242,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -249,7 +251,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.amountValueController ??=
                         FormFieldController<String>(null),
-                    options: const ['1000', '5000 ', '10 000'],
+                    options: ['1000', '5000 ', '10 000'],
                     onChanged: (val) =>
                         setState(() => _model.amountValue = val),
                     width: 160.0,
@@ -267,7 +269,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -276,10 +278,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(1.0, 0.0),
+                alignment: AlignmentDirectional(1.0, 0.0),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 5.0),
+                      EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 5.0),
                   child: Text(
                     valueOrDefault<String>(
                       _model.amountValue,
@@ -298,10 +300,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 5.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 5.0),
                       child: Text(
                         'TOTAL',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -313,10 +315,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(1.0, 0.0),
+                    alignment: AlignmentDirectional(1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 5.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 5.0),
                       child: Text(
                         valueOrDefault<String>(
                           _model.amountValue,
@@ -335,8 +337,8 @@ class _DepositWidgetState extends State<DepositWidget> {
               Container(
                 width: 500.0,
                 height: 200.0,
-                decoration: const BoxDecoration(),
-                child: SizedBox(
+                decoration: BoxDecoration(),
+                child: Container(
                   width: double.infinity,
                   height: 180.0,
                   child: CarouselSlider(
@@ -344,7 +346,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                       Container(
                         width: double.infinity,
                         height: 180.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(10.0),
                             bottomRight: Radius.circular(10.0),
@@ -364,7 +366,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -372,7 +374,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'VISA',
@@ -385,7 +387,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '. . .',
@@ -401,7 +403,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 20.0, 0.0, 10.0),
                                 child: Text(
                                   '7647 7564 7464 75847',
@@ -414,7 +416,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -422,7 +424,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'card Name',
@@ -435,7 +437,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'Expire Date',
@@ -451,7 +453,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -459,7 +461,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'John Doe',
@@ -472,7 +474,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '14/27',
@@ -494,7 +496,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                       Container(
                         width: 340.0,
                         height: 180.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(10.0),
                             bottomRight: Radius.circular(10.0),
@@ -514,7 +516,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -522,7 +524,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'VISA',
@@ -535,7 +537,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '. . .',
@@ -551,7 +553,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 20.0, 0.0, 10.0),
                                 child: Text(
                                   '7647 7564 7464 75847',
@@ -564,7 +566,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -572,7 +574,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'card Name',
@@ -585,7 +587,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'Expire Date',
@@ -601,7 +603,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -609,7 +611,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'John Doe',
@@ -622,7 +624,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '14/27',
@@ -644,7 +646,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                       Container(
                         width: 340.0,
                         height: 180.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(10.0),
                             bottomRight: Radius.circular(10.0),
@@ -664,7 +666,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -672,7 +674,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'VISA',
@@ -685,7 +687,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '. . .',
@@ -701,7 +703,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 20.0, 0.0, 10.0),
                                 child: Text(
                                   '7647 7564 7464 75847',
@@ -714,7 +716,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -722,7 +724,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'card Name',
@@ -735,7 +737,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'Expire Date',
@@ -751,7 +753,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -759,7 +761,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'John Doe',
@@ -772,7 +774,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         '14/27',
@@ -810,16 +812,16 @@ class _DepositWidgetState extends State<DepositWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    var shouldSetState = false;
+                    var _shouldSetState = false;
                     _model.paypouchresponse = await PayPouchCall.call(
                       amount: _model.amountValue,
                       ref: _model.refValue,
                       jwt: currentAuthenticationToken,
                     );
-                    shouldSetState = true;
+                    _shouldSetState = true;
                     if ((_model.paypouchresponse?.succeeded ?? true)) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -832,7 +834,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
@@ -851,32 +853,32 @@ class _DepositWidgetState extends State<DepositWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
                       );
-                      if (shouldSetState) setState(() {});
+                      if (_shouldSetState) setState(() {});
                       return;
                     }
 
-                    if (shouldSetState) setState(() {});
+                    if (_shouldSetState) setState(() {});
                   },
                   text: 'Pay Now',
                   options: FFButtonOptions(
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF192A6F),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF192A6F),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -885,7 +887,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LinkConfirmation');
@@ -895,16 +897,16 @@ class _DepositWidgetState extends State<DepositWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFFF000E),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFFFF000E),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

@@ -1,13 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -72,185 +78,185 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
           builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Home') : const HomeWidget(),
+              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'Register',
           path: '/register',
-          builder: (context, params) => const RegisterWidget(),
+          builder: (context, params) => RegisterWidget(),
         ),
         FFRoute(
           name: 'ForgotPassword',
           path: '/forgotPassword',
-          builder: (context, params) => const ForgotPasswordWidget(),
+          builder: (context, params) => ForgotPasswordWidget(),
         ),
         FFRoute(
           name: 'OtpVerification',
           path: '/otpVerification',
-          builder: (context, params) => const OtpVerificationWidget(),
+          builder: (context, params) => OtpVerificationWidget(),
         ),
         FFRoute(
           name: 'Profile',
           path: '/profile',
-          builder: (context, params) => const ProfileWidget(),
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'Notification',
           path: '/notification',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Notification')
-              : const NotificationWidget(),
+              ? NavBarPage(initialPage: 'Notification')
+              : NotificationWidget(),
         ),
         FFRoute(
           name: 'AboutUs',
           path: '/aboutUs',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'AboutUs')
-              : const AboutUsWidget(),
+              ? NavBarPage(initialPage: 'AboutUs')
+              : AboutUsWidget(),
         ),
         FFRoute(
           name: 'Invite',
           path: '/invite',
-          builder: (context, params) => const InviteWidget(),
+          builder: (context, params) => InviteWidget(),
         ),
         FFRoute(
           name: 'info',
           path: '/info',
-          builder: (context, params) => const InfoWidget(),
+          builder: (context, params) => InfoWidget(),
         ),
         FFRoute(
           name: 'LinkAccounts',
           path: '/linkAccounts',
-          builder: (context, params) => const LinkAccountsWidget(),
+          builder: (context, params) => LinkAccountsWidget(),
         ),
         FFRoute(
           name: 'LinkConfirmation',
           path: '/linkConfirmation',
-          builder: (context, params) => const LinkConfirmationWidget(),
+          builder: (context, params) => LinkConfirmationWidget(),
         ),
         FFRoute(
           name: 'LoanDirectory',
           path: '/loanDirectory',
-          builder: (context, params) => const LoanDirectoryWidget(),
+          builder: (context, params) => LoanDirectoryWidget(),
         ),
         FFRoute(
           name: 'RequestLoan',
           path: '/requestLoan',
-          builder: (context, params) => const RequestLoanWidget(),
+          builder: (context, params) => RequestLoanWidget(),
         ),
         FFRoute(
           name: 'LoanOffer',
           path: '/loanOffer',
-          builder: (context, params) => const LoanOfferWidget(),
+          builder: (context, params) => LoanOfferWidget(),
         ),
         FFRoute(
           name: 'LoanConfonfirmation',
           path: '/loanConfonfirmation',
-          builder: (context, params) => const LoanConfonfirmationWidget(),
+          builder: (context, params) => LoanConfonfirmationWidget(),
         ),
         FFRoute(
           name: 'OfferLoan',
           path: '/offerLoan',
-          builder: (context, params) => const OfferLoanWidget(),
+          builder: (context, params) => OfferLoanWidget(),
         ),
         FFRoute(
           name: 'OfferConfirmation',
           path: '/offerConfirmation',
-          builder: (context, params) => const OfferConfirmationWidget(),
+          builder: (context, params) => OfferConfirmationWidget(),
         ),
         FFRoute(
           name: 'PayPouch',
           path: '/payPouch',
-          builder: (context, params) => const PayPouchWidget(),
+          builder: (context, params) => PayPouchWidget(),
         ),
         FFRoute(
           name: 'Deposit',
           path: '/deposit',
-          builder: (context, params) => const DepositWidget(),
+          builder: (context, params) => DepositWidget(),
         ),
         FFRoute(
           name: 'ConfirmDeposit',
           path: '/confirmDeposit',
-          builder: (context, params) => const ConfirmDepositWidget(),
+          builder: (context, params) => ConfirmDepositWidget(),
         ),
         FFRoute(
           name: 'Transfer',
           path: '/transfer',
-          builder: (context, params) => const TransferWidget(),
+          builder: (context, params) => TransferWidget(),
         ),
         FFRoute(
           name: 'PayUser',
           path: '/payUser',
-          builder: (context, params) => const PayUserWidget(),
+          builder: (context, params) => PayUserWidget(),
         ),
         FFRoute(
           name: 'PaySomeone',
           path: '/paySomeone',
-          builder: (context, params) => const PaySomeoneWidget(),
+          builder: (context, params) => PaySomeoneWidget(),
         ),
         FFRoute(
           name: 'Airtime',
           path: '/airtime',
-          builder: (context, params) => const AirtimeWidget(),
+          builder: (context, params) => AirtimeWidget(),
         ),
         FFRoute(
           name: 'Purchase',
           path: '/purchase',
-          builder: (context, params) => const PurchaseWidget(),
+          builder: (context, params) => PurchaseWidget(),
         ),
         FFRoute(
           name: 'SMSS',
           path: '/smss',
-          builder: (context, params) => const SmssWidget(),
+          builder: (context, params) => SmssWidget(),
         ),
         FFRoute(
           name: 'DATAA',
           path: '/dataa',
-          builder: (context, params) => const DataaWidget(),
+          builder: (context, params) => DataaWidget(),
         ),
         FFRoute(
           name: 'Electricity',
           path: '/electricity',
-          builder: (context, params) => const ElectricityWidget(),
+          builder: (context, params) => ElectricityWidget(),
         ),
         FFRoute(
           name: 'Voucher',
           path: '/voucher',
-          builder: (context, params) => const VoucherWidget(),
+          builder: (context, params) => VoucherWidget(),
         ),
         FFRoute(
           name: 'TransactionHistory',
           path: '/transactionHistory',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'TransactionHistory')
-              : const TransactionHistoryWidget(),
+              ? NavBarPage(initialPage: 'TransactionHistory')
+              : TransactionHistoryWidget(),
         ),
         FFRoute(
           name: 'LinkCard',
           path: '/linkCard',
-          builder: (context, params) => const LinkCardWidget(),
+          builder: (context, params) => LinkCardWidget(),
         ),
         FFRoute(
           name: 'ResetPassword',
           path: '/resetPassword',
-          builder: (context, params) => const ResetPasswordWidget(),
+          builder: (context, params) => ResetPasswordWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -434,7 +440,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: const Color(0xF16F3737),
+                  color: Color(0xF16F3737),
                   child: Center(
                     child: Image.asset(
                       'assets/images/ranklogo.png',
@@ -485,7 +491,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

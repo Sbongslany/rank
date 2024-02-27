@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'otp_verification_model.dart';
 export 'otp_verification_model.dart';
 
@@ -29,8 +32,8 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
           curve: Curves.easeInOut,
           delay: 50.ms,
           duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -69,7 +72,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,9 +86,9 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.24, -1.0),
+                    end: AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Column(
@@ -96,7 +99,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -108,14 +111,14 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                             },
                             child: Container(
                               decoration: BoxDecoration(
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
                                     offset: Offset(0.0, 2.0),
                                   )
                                 ],
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10.0),
                                   bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(10.0),
@@ -143,7 +146,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 18.0, 0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
@@ -168,7 +171,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -181,7 +184,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
               Opacity(
                 opacity: 0.9,
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Text(
                     'OTP VERIFICATION',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -193,7 +196,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
                 child: PinCodeTextField(
                   autoDisposeControllers: false,
                   appContext: context,
@@ -213,7 +216,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     fieldHeight: 44.0,
                     fieldWidth: 44.0,
                     borderWidth: 2.0,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12.0),
                       bottomRight: Radius.circular(12.0),
                       topLeft: Radius.circular(12.0),
@@ -235,7 +238,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: Text(
                   'NEW PASSWORD',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -245,7 +248,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
                   controller: _model.newpasswordController,
                   focusNode: _model.newpasswordFocusNode,
@@ -255,7 +258,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: const Color(0xFF969EA4),
+                              color: Color(0xFF969EA4),
                             ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -286,7 +289,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     filled: true,
-                    fillColor: const Color(0xFFB5C4D1),
+                    fillColor: Color(0xFFB5C4D1),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
@@ -299,7 +302,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     animationsMap['textFieldOnPageLoadAnimation']!),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Text(
                   'DID YOU RECEIVE THE OTP ?',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -309,7 +312,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   'RESEND OTP',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -320,9 +323,9 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
@@ -332,9 +335,9 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                       width: 280.0,
                       height: 60.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -343,7 +346,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                 fontSize: 19.0,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),

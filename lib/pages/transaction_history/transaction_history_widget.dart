@@ -1,6 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'transaction_history_model.dart';
 export 'transaction_history_model.dart';
 
@@ -48,16 +51,16 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 FlutterFlowTheme.of(context).primaryBackground,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: const [0.0, 1.0],
-              begin: const AlignmentDirectional(0.0, -1.0),
-              end: const AlignmentDirectional(0, 1.0),
+              stops: [0.0, 1.0],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -67,9 +70,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.24, -1.0),
+                    end: AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -77,10 +80,10 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -91,7 +94,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                         ),
                       ),
                     ),
-                  ].divide(const SizedBox(width: 110.0)),
+                  ].divide(SizedBox(width: 110.0)),
                 ),
               ),
               Container(
@@ -103,21 +106,21 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                       FlutterFlowTheme.of(context).tertiary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(1.0, 0.34),
-                    end: const AlignmentDirectional(-1.0, -0.34),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(1.0, 0.34),
+                    end: AlignmentDirectional(-1.0, -0.34),
                   ),
                 ),
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Opacity(
                       opacity: 0.6,
                       child: Align(
-                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 10.0, 0.0),
                           child: Text(
                             'LOAN POUCH',
@@ -134,10 +137,10 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'PAY POUCH\nAVALABLE BALANCE',
                           style:
@@ -151,10 +154,10 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'R 2 500',
                           style: FlutterFlowTheme.of(context)
@@ -171,7 +174,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -183,13 +186,13 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                   child: Container(
                     width: double.infinity,
                     height: 60.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xF1DAD1D1),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 1.0),
+                    alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 3.0),
+                          EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 3.0),
                       child: Text(
                         'TRANSACTION LIST',
                         textAlign: TextAlign.center,
@@ -218,18 +221,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        const Color(0xFF18FC2C),
+                        Color(0xFF18FC2C),
                         FlutterFlowTheme.of(context).primary
                       ],
-                      stops: const [0.0, 1.0],
-                      begin: const AlignmentDirectional(1.0, 0.34),
-                      end: const AlignmentDirectional(-1.0, -0.34),
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(1.0, 0.34),
+                      end: AlignmentDirectional(-1.0, -0.34),
                     ),
                   ),
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -259,9 +262,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                               ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(1.0, 0.0),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Text(
                               '+ R 1500',
@@ -284,7 +287,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -299,18 +302,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFFF30A14),
+                          Color(0xFFF30A14),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(1.0, 0.34),
+                        end: AlignmentDirectional(-1.0, -0.34),
                       ),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -340,9 +343,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 '+ R 1500',
@@ -366,7 +369,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -381,18 +384,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFFF30A14),
+                          Color(0xFFF30A14),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(1.0, 0.34),
+                        end: AlignmentDirectional(-1.0, -0.34),
                       ),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -422,9 +425,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 '+ R 1500',
@@ -448,7 +451,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -463,18 +466,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFF18FC2C),
+                          Color(0xFF18FC2C),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(1.0, 0.34),
+                        end: AlignmentDirectional(-1.0, -0.34),
                       ),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -504,9 +507,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 '+ R 1500',
@@ -530,7 +533,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -545,18 +548,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFF18FC2C),
+                          Color(0xFF18FC2C),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(1.0, 0.34),
+                        end: AlignmentDirectional(-1.0, -0.34),
                       ),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -586,9 +589,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 '+ R 1500',
@@ -612,7 +615,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -627,18 +630,18 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          const Color(0xFFF30A14),
+                          Color(0xFFF30A14),
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(1.0, 0.34),
+                        end: AlignmentDirectional(-1.0, -0.34),
                       ),
                     ),
-                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -668,9 +671,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Text(
                                 '+ R 1500',
