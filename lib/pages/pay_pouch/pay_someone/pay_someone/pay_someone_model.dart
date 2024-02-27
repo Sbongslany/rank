@@ -17,9 +17,6 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
   // Stores action output result for [Backend Call - API (Pay Someone)] action in Button widget.
   ApiCallResponse? apiResult836;
 

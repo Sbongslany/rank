@@ -285,7 +285,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('PaySomeone');
+                    context.pushNamed('PayUser');
                   },
                   child: Container(
                     width: double.infinity,

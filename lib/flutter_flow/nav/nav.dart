@@ -203,7 +203,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PaySomeone',
           path: '/paySomeone',
-          builder: (context, params) => const PaySomeoneWidget(),
+          builder: (context, params) => PaySomeoneWidget(
+            friendId: params.getParam('friendId', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'Airtime',

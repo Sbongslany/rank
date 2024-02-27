@@ -11,7 +11,12 @@ import 'pay_someone_model.dart';
 export 'pay_someone_model.dart';
 
 class PaySomeoneWidget extends StatefulWidget {
-  const PaySomeoneWidget({super.key});
+  const PaySomeoneWidget({
+    super.key,
+    required this.friendId,
+  });
+
+  final String? friendId;
 
   @override
   State<PaySomeoneWidget> createState() => _PaySomeoneWidgetState();
@@ -459,61 +464,6 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                   ],
                 ),
               ),
-              FutureBuilder<ApiCallResponse>(
-                future: GetMyFriendsCall.call(
-                  jwt: currentAuthenticationToken,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                  final dropDownGetMyFriendsResponse = snapshot.data!;
-                  return FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController ??=
-                        FormFieldController<String>(null),
-                    options: (getJsonField(
-                      dropDownGetMyFriendsResponse.jsonBody,
-                      r'''$.names''',
-                      true,
-                    ) as List)
-                        .map<String>((s) => s.toString())
-                        .toList(),
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue = val),
-                    width: 300.0,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Please select...',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderWidth: 2.0,
-                    borderRadius: 8.0,
-                    margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isOverButton: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  );
-                },
-              ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
@@ -604,7 +554,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     _model.apiResult836 = await PaySomeoneCall.call(
                       jwt: currentAuthenticationToken,
                       amount: double.tryParse(_model.textController.text),
-                      friendId: '498902bf19b9143a8c447ae5c',
+                      friendId: widget.friendId,
                     );
                     shouldSetState = true;
                     if ((_model.apiResult836?.succeeded ?? true)) {

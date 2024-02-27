@@ -201,7 +201,18 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('ConfirmDeposit');
+                                      context.pushNamed(
+                                        'PaySomeone',
+                                        queryParameters: {
+                                          'friendId': serializeParam(
+                                            getJsonField(
+                                              getMyFriendsItem,
+                                              r'''$.friend_id''',
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
