@@ -108,6 +108,23 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                         ),
                       ),
                     ),
+                    Opacity(
+                      opacity: 0.0,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.safePop();
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios_sharp,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 44.0,
+                        ),
+                      ),
+                    ),
                   ].divide(const SizedBox(width: 110.0)),
                 ),
               ),

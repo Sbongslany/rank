@@ -74,7 +74,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
                       splashColor: Colors.transparent,
@@ -102,6 +102,23 @@ class _InfoWidgetState extends State<InfoWidget> {
                             width: 70.0,
                             fit: BoxFit.cover,
                           ),
+                        ),
+                      ),
+                    ),
+                    Opacity(
+                      opacity: 0.0,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.safePop();
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios_sharp,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 44.0,
                         ),
                       ),
                     ),
@@ -181,18 +198,22 @@ class _InfoWidgetState extends State<InfoWidget> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 0.0),
-                        child: AutoSizeText(
-                          'Rank financial services is a registered credit\n provider formed in 2022. We strive to provide a\nplatform that allows our users to be able to\ninnovatively access features in the financial\nrealm like never before. We offer a platform\nthat allows our user to make loans, pay for\nservices safely, accept credit agreements with\n fellow users in the most exciting way. We strive\n\n',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w200,
-                                  ),
+                      child: Align(
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 20.0, 20.0, 0.0),
+                          child: AutoSizeText(
+                            'Rank financial services is a registered credit\nprovider formed in 2022. We strive to provide a\nplatform that allows our users to be able to\ninnovatively access features in the financial\nrealm like never before. We offer a platform\nthat allows our user to make loans, pay for\nservices safely, accept credit agreements with\nfellow users in the most exciting way. We strive\n\n',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.w200,
+                                ),
+                          ),
                         ),
                       ),
                     ),
