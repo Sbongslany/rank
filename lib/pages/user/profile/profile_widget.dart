@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -48,7 +46,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,9 +60,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -86,7 +84,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -96,17 +94,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 80.0)),
+                  ].divide(const SizedBox(width: 80.0)),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Container(
                   width: 180.0,
                   height: 180.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondary,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 4.0,
                         color: Color(0x33000000),
@@ -122,7 +120,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     width: 170.0,
                     height: 170.0,
                     clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                     ),
                     child: Image.asset(
@@ -135,10 +133,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               Opacity(
                 opacity: 0.3,
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 50.0, 0.0, 0.0),
                     child: Text(
                       'NAME & SURNAME',
                       textAlign: TextAlign.start,
@@ -148,7 +146,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController1,
                   focusNode: _model.textFieldFocusNode1,
@@ -160,7 +158,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: Color(0xFF969EA4),
+                              color: const Color(0xFF969EA4),
                             ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -191,11 +189,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                     filled: true,
-                    fillColor: Color(0xFFB5C4D1),
+                    fillColor: const Color(0xFFB5C4D1),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: Color(0xFFB8BEC7),
+                        color: const Color(0xFFB8BEC7),
                       ),
                   validator:
                       _model.textController1Validator.asValidator(context),
@@ -204,10 +202,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               Opacity(
                 opacity: 0.3,
                 child: Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 0.0, 0.0),
                     child: Text(
                       'PHONE NUMBER',
                       textAlign: TextAlign.start,
@@ -217,7 +215,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController2,
                   focusNode: _model.textFieldFocusNode2,
@@ -229,7 +227,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
-                              color: Color(0xFF969EA4),
+                              color: const Color(0xFF969EA4),
                             ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -260,20 +258,20 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                     filled: true,
-                    fillColor: Color(0xFFB5C4D1),
+                    fillColor: const Color(0xFFB5C4D1),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: Color(0xFFB8BEC7),
+                        color: const Color(0xFFB8BEC7),
                       ),
                   validator:
                       _model.textController2Validator.asValidator(context),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
@@ -283,9 +281,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       width: 280.0,
                       height: 60.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -294,7 +292,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 fontSize: 19.0,
                               ),
                       elevation: 3.0,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),

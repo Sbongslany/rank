@@ -1,14 +1,7 @@
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'otp_verification_widget.dart' show OtpVerificationWidget;
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   ///  State fields for stateful widgets in this page.
@@ -21,6 +14,8 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   FocusNode? newpasswordFocusNode;
   TextEditingController? newpasswordController;
   String? Function(BuildContext, String?)? newpasswordControllerValidator;
+  // Stores action output result for [Backend Call - API (Reset Password)] action in Button widget.
+  ApiCallResponse? resetResponse;
 
   /// Initialization and disposal methods.
 

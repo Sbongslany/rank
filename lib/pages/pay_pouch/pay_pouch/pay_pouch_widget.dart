@@ -2,10 +2,7 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'pay_pouch_model.dart';
 export 'pay_pouch_model.dart';
 
@@ -53,7 +50,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 112.0,
@@ -63,9 +60,9 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -87,10 +84,10 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, -1.0),
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -101,7 +98,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 110.0)),
+                  ].divide(const SizedBox(width: 110.0)),
                 ),
               ),
               Container(
@@ -110,23 +107,23 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xF1493333),
+                      const Color(0xF1493333),
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(1.0, 0.34),
-                    end: AlignmentDirectional(-1.0, -0.34),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(1.0, 0.34),
+                    end: const AlignmentDirectional(-1.0, -0.34),
                   ),
                 ),
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(1.0, 0.0),
+                      alignment: const AlignmentDirectional(1.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: Text(
                           'LOAN POUCH',
                           style:
@@ -140,10 +137,10 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'PAY POUCH\nAVALABLE BALANCE',
                           style:
@@ -157,10 +154,10 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FutureBuilder<ApiCallResponse>(
                           future: GetPayPouchBalanceCall.call(
                             jwt: currentAuthenticationToken,
@@ -207,7 +204,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -225,12 +222,12 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'MAKE A DEPOSIT INTO\nMY PAY POUCH',
                       textAlign: TextAlign.center,
@@ -244,7 +241,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -262,12 +259,12 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'TRANSFER TO MY DEBIT\nCARD',
                       textAlign: TextAlign.center,
@@ -281,7 +278,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -299,12 +296,12 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PAY SOMEONE',
                       textAlign: TextAlign.center,
@@ -318,7 +315,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -336,12 +333,12 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE AIRTIME AND \nUTILITIES ETC',
                       textAlign: TextAlign.center,

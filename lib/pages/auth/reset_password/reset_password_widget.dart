@@ -5,10 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'reset_password_model.dart';
 export 'reset_password_model.dart';
 
@@ -33,8 +30,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
           curve: Curves.easeInOut,
           delay: 50.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -85,9 +82,9 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                     FlutterFlowTheme.of(context).secondary,
                     FlutterFlowTheme.of(context).primary
                   ],
-                  stops: [0.0, 1.0],
-                  begin: AlignmentDirectional(0.24, -1.0),
-                  end: AlignmentDirectional(-0.24, 1.0),
+                  stops: const [0.0, 1.0],
+                  begin: const AlignmentDirectional(0.24, -1.0),
+                  end: const AlignmentDirectional(-0.24, 1.0),
                 ),
               ),
               child: Column(
@@ -95,7 +92,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
@@ -107,7 +104,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Text(
                       'Forgot Password',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -124,7 +121,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
             Opacity(
               opacity: 0.9,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 20.0),
                 child: Text(
                   'OTP VERIFICATION',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -154,7 +151,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                 fieldHeight: 44.0,
                 fieldWidth: 44.0,
                 borderWidth: 2.0,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(12.0),
                   bottomRight: Radius.circular(12.0),
                   topLeft: Radius.circular(12.0),
@@ -176,7 +173,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
             Opacity(
               opacity: 0.3,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: Text(
                   'New Password',
                   textAlign: TextAlign.start,
@@ -185,7 +182,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
               child: TextFormField(
                 controller: _model.newPasswordController,
                 focusNode: _model.newPasswordFocusNode,
@@ -194,7 +191,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                   labelStyle: FlutterFlowTheme.of(context).labelMedium,
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: Color(0xFF969EA4),
+                        color: const Color(0xFF969EA4),
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -225,7 +222,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   filled: true,
-                  fillColor: Color(0xFFB5C4D1),
+                  fillColor: const Color(0xFFB5C4D1),
                   suffixIcon: InkWell(
                     onTap: () => setState(
                       () => _model.newPasswordVisibility =
@@ -251,17 +248,17 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                   animationsMap['textFieldOnPageLoadAnimation']!),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    var _shouldSetState = false;
+                    var shouldSetState = false;
                     _model.resetResponse = await ResetPasswordCall.call(
                       otp: _model.pinCodeController!.text,
                       password: _model.newPasswordController.text,
                     );
-                    _shouldSetState = true;
+                    shouldSetState = true;
                     if ((_model.resetResponse?.succeeded ?? true)) {
                       context.pushNamed('Login');
 
@@ -276,7 +273,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
+                          duration: const Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
@@ -293,25 +290,25 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
+                          duration: const Duration(milliseconds: 4000),
                           backgroundColor:
                               FlutterFlowTheme.of(context).secondary,
                         ),
                       );
-                      if (_shouldSetState) setState(() {});
+                      if (shouldSetState) setState(() {});
                       return;
                     }
 
-                    if (_shouldSetState) setState(() {});
+                    if (shouldSetState) setState(() {});
                   },
                   text: 'Retrieve password',
                   options: FFButtonOptions(
                     width: 280.0,
                     height: 60.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).secondary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
@@ -319,7 +316,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                           fontSize: 19.0,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

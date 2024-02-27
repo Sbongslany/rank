@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'purchase_model.dart';
 export 'purchase_model.dart';
 
@@ -51,7 +48,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -61,9 +58,9 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -85,10 +82,10 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, -1.0),
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -99,11 +96,11 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 110.0)),
+                  ].divide(const SizedBox(width: 110.0)),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -121,12 +118,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE AIRTIME',
                       textAlign: TextAlign.center,
@@ -140,7 +137,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -158,12 +155,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE SMS',
                       textAlign: TextAlign.center,
@@ -177,7 +174,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -195,12 +192,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE DATA',
                       textAlign: TextAlign.center,
@@ -214,7 +211,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -232,12 +229,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE ELECTRICITY',
                       textAlign: TextAlign.center,
@@ -251,7 +248,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -269,12 +266,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE LOTTO',
                       textAlign: TextAlign.center,
@@ -288,7 +285,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -306,12 +303,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE POWERBALL',
                       textAlign: TextAlign.center,
@@ -325,7 +322,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -343,12 +340,12 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                           FlutterFlowTheme.of(context).secondary,
                           FlutterFlowTheme.of(context).primary
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.47, -1.0),
-                        end: AlignmentDirectional(-0.47, 1.0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(0.47, -1.0),
+                        end: const AlignmentDirectional(-0.47, 1.0),
                       ),
                     ),
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'PURCHASE VOUCHER',
                       textAlign: TextAlign.center,

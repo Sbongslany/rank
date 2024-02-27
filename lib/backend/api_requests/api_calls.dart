@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -21,14 +20,14 @@ class SignUpCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "first_name": "${firstName}",
-  "last_name": "${lastName}",
-  "email": "${email}",
-  "cell_number": "${cellNumber}",
-  "password": "${password}",
-  "verify_question": "${verifyQuestion}",
-  "verify_answer": "${verifyAnswer}",
-  "idnumber": "${idnumber}"
+  "first_name": "$firstName",
+  "last_name": "$lastName",
+  "email": "$email",
+  "cell_number": "$cellNumber",
+  "password": "$password",
+  "verify_question": "$verifyQuestion",
+  "verify_answer": "$verifyAnswer",
+  "idnumber": "$idnumber"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SignUp',
@@ -54,8 +53,8 @@ class SignInCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "email": "${email}",
-  "password": "${password}"
+  "email": "$email",
+  "password": "$password"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SignIn',
@@ -88,7 +87,7 @@ class GetUserCall {
       apiUrl: 'https://m-techsolutions.co.za/app-rank/get_user.php',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer ${jwt}',
+        'Authorization': 'Bearer $jwt',
       },
       params: {},
       returnBody: true,
@@ -122,7 +121,7 @@ class GetUsersCall {
       apiUrl: 'https://m-techsolutions.co.za/app-rank/get_all_users.php',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer ${jwt}',
+        'Authorization': 'Bearer $jwt',
       },
       params: {},
       returnBody: true,
@@ -196,14 +195,14 @@ class InviteFriendCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "user_id": "${userId}"
+  "user_id": "$userId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Invite friend',
       apiUrl: 'https://m-techsolutions.co.za/app-rank/add_friend.php',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer ${jwt}',
+        'Authorization': 'Bearer $jwt',
       },
       params: {},
       body: ffApiRequestBody,
@@ -226,7 +225,7 @@ class GetPayPouchBalanceCall {
       apiUrl: 'https://m-techsolutions.co.za/app-rank/get_pouch_balance.php',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer ${jwt}',
+        'Authorization': 'Bearer $jwt',
       },
       params: {},
       returnBody: true,
@@ -251,15 +250,15 @@ class PayPouchCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "amount": "${amount}",
-  "reference": "${ref}"
+  "amount": "$amount",
+  "reference": "$ref"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Pay Pouch',
       apiUrl: 'https://m-techsolutions.co.za/app-rank/pay_pouch.php',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer ${jwt}',
+        'Authorization': 'Bearer $jwt',
       },
       params: {},
       body: ffApiRequestBody,
@@ -284,7 +283,7 @@ class ForgotPasswordCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "email": "${email}"
+  "email": "$email"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Forgot Password',
@@ -310,8 +309,8 @@ class ResetPasswordCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "otp": "${otp}",
-  "password": "${password}"
+  "otp": "$otp",
+  "password": "$password"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Reset Password',

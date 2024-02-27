@@ -2,11 +2,8 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'invite_model.dart';
 export 'invite_model.dart';
 
@@ -53,16 +50,16 @@ class _InviteWidgetState extends State<InviteWidget> {
                 FlutterFlowTheme.of(context).primary,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: [0.0, 1.0],
-              begin: AlignmentDirectional(0.0, -1.0),
-              end: AlignmentDirectional(0, 1.0),
+              stops: const [0.0, 1.0],
+              begin: const AlignmentDirectional(0.0, -1.0),
+              end: const AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -72,9 +69,9 @@ class _InviteWidgetState extends State<InviteWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -96,10 +93,10 @@ class _InviteWidgetState extends State<InviteWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, -1.0),
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -110,7 +107,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 110.0)),
+                  ].divide(const SizedBox(width: 110.0)),
                 ),
               ),
               FutureBuilder<ApiCallResponse>(
@@ -156,7 +153,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 20.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -173,7 +170,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -181,7 +178,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: InkWell(
@@ -202,7 +199,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                     height: 50.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: BoxDecoration(
+                                                    decoration: const BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.asset(
@@ -217,7 +214,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 1.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -268,7 +265,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 5.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -276,14 +273,14 @@ class _InviteWidgetState extends State<InviteWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              var _shouldSetState = false;
+                                              var shouldSetState = false;
                                               _model.inviteFriendResoonse =
                                                   await InviteFriendCall.call(
                                                 userId:
                                                     'ed6fdd6996d03fdc64aa4602c',
                                                 jwt: currentAuthenticationToken,
                                               );
-                                              _shouldSetState = true;
+                                              shouldSetState = true;
                                               if ((_model.inviteFriendResoonse
                                                       ?.succeeded ??
                                                   true)) {
@@ -304,7 +301,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                                 .primaryText,
                                                       ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -312,8 +309,9 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                             .primaryBackground,
                                                   ),
                                                 );
-                                                if (_shouldSetState)
+                                                if (shouldSetState) {
                                                   setState(() {});
+                                                }
                                                 return;
                                               } else {
                                                 ScaffoldMessenger.of(context)
@@ -333,7 +331,7 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                                 .primaryText,
                                                       ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -341,13 +339,15 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                             .primaryBackground,
                                                   ),
                                                 );
-                                                if (_shouldSetState)
+                                                if (shouldSetState) {
                                                   setState(() {});
+                                                }
                                                 return;
                                               }
 
-                                              if (_shouldSetState)
+                                              if (shouldSetState) {
                                                 setState(() {});
+                                              }
                                             },
                                             child: Material(
                                               color: Colors.transparent,
@@ -356,11 +356,11 @@ class _InviteWidgetState extends State<InviteWidget> {
                                               child: Container(
                                                 width: 40.0,
                                                 height: 40.0,
-                                                decoration: BoxDecoration(
+                                                decoration: const BoxDecoration(
                                                   color: Color(0xFF38FF00),
                                                   shape: BoxShape.circle,
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Icon(
                                                   Icons.add_circle,

@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'request_loan_model.dart';
 export 'request_loan_model.dart';
 
@@ -52,16 +50,16 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 FlutterFlowTheme.of(context).primaryBackground,
                 FlutterFlowTheme.of(context).secondary
               ],
-              stops: [0.0, 1.0],
-              begin: AlignmentDirectional(0.0, -1.0),
-              end: AlignmentDirectional(0, 1.0),
+              stops: const [0.0, 1.0],
+              begin: const AlignmentDirectional(0.0, -1.0),
+              end: const AlignmentDirectional(0, 1.0),
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               AnimatedContainer(
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 curve: Curves.bounceOut,
                 width: double.infinity,
                 height: 102.0,
@@ -71,9 +69,9 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Row(
@@ -95,10 +93,10 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, -1.0),
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
@@ -109,7 +107,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(width: 110.0)),
+                  ].divide(const SizedBox(width: 110.0)),
                 ),
               ),
               Container(
@@ -118,10 +116,10 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).alternate,
                 ),
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: 70.0,
@@ -131,12 +129,12 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                         FlutterFlowTheme.of(context).secondary,
                         FlutterFlowTheme.of(context).primary
                       ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(1.0, 0.34),
-                      end: AlignmentDirectional(-1.0, -0.34),
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(1.0, 0.34),
+                      end: const AlignmentDirectional(-1.0, -0.34),
                     ),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     'FIND YOUR LOAN',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -148,9 +146,9 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
                   child: Text(
                     'HOW MUCH DO  YOU NEED',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -164,7 +162,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
               FlutterFlowDropDown<String>(
                 controller: _model.dropDownValueController1 ??=
                     FormFieldController<String>(null),
-                options: [
+                options: const [
                   '500',
                   '1000',
                   '1500',
@@ -188,16 +186,16 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 borderColor: FlutterFlowTheme.of(context).alternate,
                 borderWidth: 2.0,
                 borderRadius: 8.0,
-                margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                 hidesUnderline: true,
                 isOverButton: true,
                 isSearchable: false,
                 isMultiSelect: false,
               ),
               Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 5.0),
                   child: Text(
                     'TIME PERIOD TO REPAY LOAN',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -211,7 +209,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
               FlutterFlowDropDown<String>(
                 controller: _model.dropDownValueController2 ??=
                     FormFieldController<String>(null),
-                options: [
+                options: const [
                   '1 MONTH',
                   '2 MOTHNS',
                   '3 MONTHS',
@@ -234,14 +232,14 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 borderColor: FlutterFlowTheme.of(context).alternate,
                 borderWidth: 2.0,
                 borderRadius: 8.0,
-                margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                 hidesUnderline: true,
                 isOverButton: true,
                 isSearchable: false,
                 isMultiSelect: false,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LoanOffer');
@@ -251,16 +249,16 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                     width: 200.0,
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF116EAF),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: const Color(0xFF116EAF),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

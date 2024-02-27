@@ -6,10 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'register_model.dart';
 export 'register_model.dart';
 
@@ -46,8 +43,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 50.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -65,8 +62,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 100.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -84,8 +81,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -103,8 +100,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -122,8 +119,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 250.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -141,8 +138,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -160,8 +157,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 350.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -179,8 +176,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 400.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -198,8 +195,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 450.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -217,8 +214,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -236,8 +233,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 550.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -255,8 +252,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 600.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -274,8 +271,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 650.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -293,8 +290,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 700.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -312,8 +309,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -331,8 +328,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -350,8 +347,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
           curve: Curves.easeInOut,
           delay: 850.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 50.0),
+          end: const Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -421,9 +418,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       FlutterFlowTheme.of(context).secondary,
                       FlutterFlowTheme.of(context).primary
                     ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.24, -1.0),
-                    end: AlignmentDirectional(-0.24, 1.0),
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.24, -1.0),
+                    end: const AlignmentDirectional(-0.24, 1.0),
                   ),
                 ),
                 child: Column(
@@ -431,7 +428,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -444,7 +441,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Text(
                         'CREATE NEW ACCOUNT',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -471,7 +468,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -504,7 +501,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR NAME',
                     textAlign: TextAlign.start,
@@ -519,9 +516,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.firstNameController,
                     focusNode: _model.firstNameFocusNode,
@@ -531,7 +528,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -562,7 +559,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
@@ -577,7 +574,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR SURNAME',
                     textAlign: TextAlign.start,
@@ -592,9 +589,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.surnameController,
                     focusNode: _model.surnameFocusNode,
@@ -604,7 +601,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -635,7 +632,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
@@ -650,7 +647,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR EMAIL',
                     textAlign: TextAlign.start,
@@ -665,9 +662,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.emailController,
                     focusNode: _model.emailFocusNode,
@@ -677,7 +674,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -708,7 +705,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
@@ -724,7 +721,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR PHONE NUMBER',
                     textAlign: TextAlign.start,
@@ -739,9 +736,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.phoneNumberController,
                     focusNode: _model.phoneNumberFocusNode,
@@ -751,7 +748,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -782,7 +779,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
@@ -798,7 +795,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR PASSWORD',
                     textAlign: TextAlign.start,
@@ -813,9 +810,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.passwordController,
                     focusNode: _model.passwordFocusNode,
@@ -825,7 +822,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -856,7 +853,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                       suffixIcon: InkWell(
                         onTap: () => setState(
                           () => _model.passwordVisibility =
@@ -885,7 +882,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'PLEASE ENTER YOUR ID NUMBER',
                     textAlign: TextAlign.start,
@@ -900,9 +897,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.idNumberController,
                     focusNode: _model.idNumberFocusNode,
@@ -912,7 +909,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: Color(0xFF969EA4),
+                                color: const Color(0xFF969EA4),
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -943,7 +940,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
@@ -959,7 +956,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'SECURITY QUESTION',
                     textAlign: TextAlign.start,
@@ -972,15 +969,15 @@ class _RegisterWidgetState extends State<RegisterWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                 child: Container(
                   width: 370.0,
                   height: 50.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: FlutterFlowDropDown<String>(
                     controller: _model.questionDropDownValueController ??=
                         FormFieldController<String>(null),
-                    options: [
+                    options: const [
                       'What is your name',
                       'Where were you born',
                       'What is your favourite dish'
@@ -996,13 +993,13 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       color: FlutterFlowTheme.of(context).secondaryText,
                       size: 24.0,
                     ),
-                    fillColor: Color(0xFFB5C4D1),
+                    fillColor: const Color(0xFFB5C4D1),
                     elevation: 2.0,
                     borderColor: FlutterFlowTheme.of(context).alternate,
                     borderWidth: 2.0,
                     borderRadius: 8.0,
                     margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -1014,7 +1011,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Opacity(
                 opacity: 0.3,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'SECURITY ANSWER',
                     textAlign: TextAlign.start,
@@ -1029,9 +1026,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
               Container(
                 width: 370.0,
                 height: 50.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: TextFormField(
                     controller: _model.securityAnswerController,
                     focusNode: _model.securityAnswerFocusNode,
@@ -1076,11 +1073,11 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFB5C4D1),
+                      fillColor: const Color(0xFFB5C4D1),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          color: Color(0xFFB8BEC7),
+                          color: const Color(0xFFB8BEC7),
                         ),
                     validator: _model.securityAnswerControllerValidator
                         .asValidator(context),
@@ -1089,12 +1086,12 @@ class _RegisterWidgetState extends State<RegisterWidget>
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      var _shouldSetState = false;
+                      var shouldSetState = false;
                       _model.regResponse = await SignUpCall.call(
                         firstName: _model.firstNameController.text,
                         lastName: _model.surnameController.text,
@@ -1105,7 +1102,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         verifyAnswer: _model.securityAnswerController.text,
                         idnumber: _model.idNumberController.text,
                       );
-                      _shouldSetState = true;
+                      shouldSetState = true;
                       if ((_model.regResponse?.succeeded ?? true)) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -1118,7 +1115,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                 color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
-                            duration: Duration(milliseconds: 4000),
+                            duration: const Duration(milliseconds: 4000),
                             backgroundColor:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
@@ -1137,25 +1134,25 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                 color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
-                            duration: Duration(milliseconds: 4000),
+                            duration: const Duration(milliseconds: 4000),
                             backgroundColor:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
-                        if (_shouldSetState) setState(() {});
+                        if (shouldSetState) setState(() {});
                         return;
                       }
 
-                      if (_shouldSetState) setState(() {});
+                      if (shouldSetState) setState(() {});
                     },
                     text: 'CREATE ACCOUNT',
                     options: FFButtonOptions(
                       width: 280.0,
                       height: 60.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -1164,7 +1161,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                 fontSize: 19.0,
                               ),
                       elevation: 3.0,
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),
