@@ -711,7 +711,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Lottie.asset(
@@ -722,18 +722,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 reverse: true,
                                 animate: true,
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  'LINKS ACCOUNTS',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
+                              Flexible(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    'LINKS ACCOUNTS',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ],
