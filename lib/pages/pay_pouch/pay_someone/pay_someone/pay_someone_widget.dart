@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -168,16 +170,45 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'R3 000',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: GetPayPouchBalanceCall.call(
+                            jwt: currentAuthenticationToken,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final textGetPayPouchBalanceResponse =
+                                snapshot.data!;
+                            return Text(
+                              valueOrDefault<String>(
+                                GetPayPouchBalanceCall.total(
+                                  textGetPayPouchBalanceResponse.jsonBody,
+                                ),
+                                '0',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 35.0,
                                     fontWeight: FontWeight.bold,
                                   ),
+                            );
+                          },
                         ),
                       ),
                     ),
