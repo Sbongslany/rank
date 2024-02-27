@@ -9,6 +9,10 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
 
   final unfocusNode = FocusNode();
   Completer<ApiCallResponse>? apiRequestCompleter;
+  // Stores action output result for [Backend Call - API (Reject Friend)] action in Container widget.
+  ApiCallResponse? apiResultconCopy;
+  // Stores action output result for [Backend Call - API (Approve request)] action in Container widget.
+  ApiCallResponse? apiResultcon;
 
   /// Initialization and disposal methods.
 

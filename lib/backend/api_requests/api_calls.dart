@@ -458,6 +458,63 @@ class PaySomeoneCall {
   }
 }
 
+class AcceptRequestCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    String? friendId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "friend_id": "$friendId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Accept Request',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/approve_friend_request.php',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class RejectFriendCall {
+  static Future<ApiCallResponse> call({
+    String? friendId = '',
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Reject Friend',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/reject_friend_request.php',
+      callType: ApiCallType.DELETE,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'friend_id': friendId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic friendid(dynamic response) => getJsonField(
+        response,
+        r'''$.friend_id''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

@@ -249,25 +249,106 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 5.0, 0.0),
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            elevation: 5.0,
-                                            shape: const CircleBorder(),
-                                            child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFF30A14),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Icon(
-                                                Icons.close,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                size: 30.0,
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var shouldSetState = false;
+                                              _model.apiResultconCopy =
+                                                  await RejectFriendCall.call(
+                                                jwt: currentAuthenticationToken,
+                                                friendId: getJsonField(
+                                                  getMyFriendsRequestsItem,
+                                                  r'''$.friend_id''',
+                                                ).toString(),
+                                              );
+                                              shouldSetState = true;
+                                              if ((_model.apiResultcon
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      getJsonField(
+                                                        getMyFriendsRequestsItem,
+                                                        r'''$.message''',
+                                                      ).toString(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      getJsonField(
+                                                        getMyFriendsRequestsItem,
+                                                        r'''$.message''',
+                                                      ).toString(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .error,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: const CircleBorder(),
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFFF30A14),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  size: 30.0,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -276,25 +357,106 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 5.0, 0.0),
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            elevation: 5.0,
-                                            shape: const CircleBorder(),
-                                            child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFF38FF00),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Icon(
-                                                Icons.add_task_outlined,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 30.0,
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              var shouldSetState = false;
+                                              _model.apiResultcon =
+                                                  await ApproveRequestCall.call(
+                                                jwt: currentAuthenticationToken,
+                                                friendId: getJsonField(
+                                                  getMyFriendsRequestsItem,
+                                                  r'''$.friend_id''',
+                                                ).toString(),
+                                              );
+                                              shouldSetState = true;
+                                              if ((_model.apiResultcon
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      getJsonField(
+                                                        getMyFriendsRequestsItem,
+                                                        r'''$.message''',
+                                                      ).toString(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      getJsonField(
+                                                        getMyFriendsRequestsItem,
+                                                        r'''$.message''',
+                                                      ).toString(),
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    ),
+                                                    duration: const Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .error,
+                                                  ),
+                                                );
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                            },
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 5.0,
+                                              shape: const CircleBorder(),
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFF38FF00),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Icon(
+                                                  Icons.add_task_outlined,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 30.0,
+                                                ),
                                               ),
                                             ),
                                           ),
