@@ -124,6 +124,11 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                       final getMyFriendsRequests =
                           listViewGetMyFriendsRequestsResponse.jsonBody
                               .toList();
+                      if (getMyFriendsRequests.isEmpty) {
+                        return Image.asset(
+                          'https://www.google.co.za/imgres?imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2748%2F2748558.png&tbnid=-au37EiEuum9KM&vet=12ahUKEwil0-Go88uEAxUGV6QEHQJBBzwQMygCegQIARBS..i&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fnot-found_2748558&docid=4e3gnSHPi3GqzM&w=512&h=512&q=not%20found%20icon&ved=2ahUKEwil0-Go88uEAxUGV6QEHQJBBzwQMygCegQIARBS',
+                        );
+                      }
                       return RefreshIndicator(
                         onRefresh: () async {
                           setState(() => _model.apiRequestCompleter = null);
