@@ -524,12 +524,12 @@ class _TransferWidgetState extends State<TransferWidget> {
                               r'''$.message''',
                             ).toString(),
                             style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).secondary,
                             ),
                           ),
                           duration: const Duration(milliseconds: 4000),
                           backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                              FlutterFlowTheme.of(context).primaryBackground,
                         ),
                       );
                     } else {
@@ -541,12 +541,12 @@ class _TransferWidgetState extends State<TransferWidget> {
                               r'''$.message''',
                             ).toString(),
                             style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).secondary,
                             ),
                           ),
                           duration: const Duration(milliseconds: 4000),
                           backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                              FlutterFlowTheme.of(context).primaryBackground,
                         ),
                       );
                       if (shouldSetState) setState(() {});
