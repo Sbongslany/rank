@@ -230,22 +230,21 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                               .alternate,
                                                     ),
                                               ),
-                                              Opacity(
-                                                opacity: 0.0,
-                                                child: Text(
-                                                  'MANAGER AT ONECALL24',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                      ),
-                                                ),
+                                              Text(
+                                                getJsonField(
+                                                  getMyFriendsRequestsItem,
+                                                  r'''$.status''',
+                                                ).toString(),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                    ),
                                               ),
                                             ],
                                           ),
