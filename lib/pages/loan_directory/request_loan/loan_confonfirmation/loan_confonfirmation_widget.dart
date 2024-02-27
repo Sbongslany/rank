@@ -1,9 +1,8 @@
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:lottie/lottie.dart';
 import 'loan_confonfirmation_model.dart';
 export 'loan_confonfirmation_model.dart';
 
@@ -15,26 +14,10 @@ class LoanConfonfirmationWidget extends StatefulWidget {
       _LoanConfonfirmationWidgetState();
 }
 
-class _LoanConfonfirmationWidgetState extends State<LoanConfonfirmationWidget>
-    with TickerProviderStateMixin {
+class _LoanConfonfirmationWidgetState extends State<LoanConfonfirmationWidget> {
   late LoanConfonfirmationModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'iconOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        RotateEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -156,19 +139,12 @@ class _LoanConfonfirmationWidgetState extends State<LoanConfonfirmationWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 140.0,
-                          height: 140.0,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF18FC2C),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.done_outlined,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 100.0,
-                          ).animateOnPageLoad(
-                              animationsMap['iconOnPageLoadAnimation']!),
+                        Lottie.asset(
+                          'assets/lottie_animations/Animation_-_1709044385859.json',
+                          width: 150.0,
+                          height: 130.0,
+                          fit: BoxFit.cover,
+                          animate: true,
                         ),
                         Opacity(
                           opacity: 0.7,

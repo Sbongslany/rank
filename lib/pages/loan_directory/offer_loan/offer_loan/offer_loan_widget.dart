@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'offer_loan_model.dart';
 export 'offer_loan_model.dart';
 
@@ -24,11 +23,6 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OfferLoanModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.pushNamed('OfferConfirmation');
-    });
   }
 
   @override
