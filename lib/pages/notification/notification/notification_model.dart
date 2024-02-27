@@ -3,17 +3,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'notification_widget.dart' show NotificationWidget;
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for ListView widget.
-
-  PagingController<ApiPagingParams, dynamic>? listViewPagingController;
-  Function(ApiPagingParams nextPageMarker)? listViewApiCall;
-
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (Reject Friend)] action in Container widget.
   ApiCallResponse? apiResultconCopy;
   // Stores action output result for [Backend Call - API (Approve request)] action in Container widget.
@@ -27,52 +22,13 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    listViewPagingController?.dispose();
   }
 
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 
-  PagingController<ApiPagingParams, dynamic> setListViewController(
-    Function(ApiPagingParams) apiCall,
-  ) {
-    listViewApiCall = apiCall;
-    return listViewPagingController ??= _createListViewController(apiCall);
-  }
-
-  PagingController<ApiPagingParams, dynamic> _createListViewController(
-    Function(ApiPagingParams) query,
-  ) {
-    final controller = PagingController<ApiPagingParams, dynamic>(
-      firstPageKey: ApiPagingParams(
-        nextPageNumber: 0,
-        numItems: 0,
-        lastResponse: null,
-      ),
-    );
-    return controller..addPageRequestListener(listViewGetMyFriendsRequestsPage);
-  }
-
-  void listViewGetMyFriendsRequestsPage(ApiPagingParams nextPageMarker) =>
-      listViewApiCall!(nextPageMarker)
-          .then((listViewGetMyFriendsRequestsResponse) {
-        final pageItems = (listViewGetMyFriendsRequestsResponse.jsonBody ?? [])
-            .toList() as List;
-        final newNumItems = nextPageMarker.numItems + pageItems.length;
-        listViewPagingController?.appendPage(
-          pageItems,
-          (pageItems.isNotEmpty)
-              ? ApiPagingParams(
-                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
-                  numItems: newNumItems,
-                  lastResponse: listViewGetMyFriendsRequestsResponse,
-                )
-              : null,
-        );
-      });
-
-  Future waitForOnePageForListView({
+  Future waitForApiRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,
   }) async {
@@ -80,8 +36,7 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
     while (true) {
       await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete =
-          (listViewPagingController?.nextPageKey?.nextPageNumber ?? 0) > 0;
+      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
         break;
       }
