@@ -367,11 +367,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController1 ??=
+                    controller: _model.refValueController ??=
                         FormFieldController<String>(null),
                     options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue1 = val),
+                    onChanged: (val) => setState(() => _model.refValue = val),
                     width: 200.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -394,11 +393,11 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     isMultiSelect: false,
                   ),
                   FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController2 ??=
+                    controller: _model.amountValueController ??=
                         FormFieldController<String>(null),
                     options: const ['1000', '5000 ', '10 000'],
                     onChanged: (val) =>
-                        setState(() => _model.dropDownValue2 = val),
+                        setState(() => _model.amountValue = val),
                     width: 160.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -508,7 +507,53 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('PayUser');
+                    var shouldSetState = false;
+                    _model.apiResult836 = await PaySomeoneCall.call(
+                      jwt: currentAuthenticationToken,
+                      amount: 100.0,
+                      friendId: '498902bf19b9143a8c447ae5c',
+                    );
+                    shouldSetState = true;
+                    if ((_model.apiResult836?.succeeded ?? true)) {
+                      context.pushNamed('ConfirmDeposit');
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.apiResult836?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: FlutterFlowTheme.of(context).primary,
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.apiResult836?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
                   },
                   text: 'pay now',
                   options: FFButtonOptions(

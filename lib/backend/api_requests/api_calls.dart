@@ -428,6 +428,36 @@ class GetMyFriendsCall {
   }
 }
 
+class PaySomeoneCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    double? amount,
+    String? friendId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "amount": $amount,
+  "friend_id": "$friendId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Pay Someone',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/pay_someone.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
