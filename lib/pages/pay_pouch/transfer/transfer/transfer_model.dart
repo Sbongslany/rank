@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'transfer_widget.dart' show TransferWidget;
@@ -9,12 +10,14 @@ class TransferModel extends FlutterFlowModel<TransferWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
+  // State field(s) for ref widget.
+  String? refValue;
+  FormFieldController<String>? refValueController;
+  // State field(s) for amount widget.
+  String? amountValue;
+  FormFieldController<String>? amountValueController;
+  // Stores action output result for [Backend Call - API (Paypouch Withdraw)] action in Button widget.
+  ApiCallResponse? withdrawResponse;
 
   /// Initialization and disposal methods.
 

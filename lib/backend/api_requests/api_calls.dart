@@ -350,6 +350,63 @@ class GetMyFriendsRequestsCall {
   }
 }
 
+class ApproveRequestCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    String? friendId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "friend_id": "$friendId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Approve request',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/approve_friend_request.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class PaypouchWithdrawCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    String? amount = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "amount": "$amount"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Paypouch Withdraw',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/withdraw_debit.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

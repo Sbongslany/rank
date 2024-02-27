@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -336,11 +338,10 @@ class _TransferWidgetState extends State<TransferWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController1 ??=
+                    controller: _model.refValueController ??=
                         FormFieldController<String>(null),
                     options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue1 = val),
+                    onChanged: (val) => setState(() => _model.refValue = val),
                     width: 200.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -363,11 +364,11 @@ class _TransferWidgetState extends State<TransferWidget> {
                     isMultiSelect: false,
                   ),
                   FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController2 ??=
+                    controller: _model.amountValueController ??=
                         FormFieldController<String>(null),
                     options: const ['1000', '5000 ', '10 000'],
                     onChanged: (val) =>
-                        setState(() => _model.dropDownValue2 = val),
+                        setState(() => _model.amountValue = val),
                     width: 160.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -477,7 +478,53 @@ class _TransferWidgetState extends State<TransferWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('ConfirmDeposit');
+                    var shouldSetState = false;
+                    _model.withdrawResponse = await PaypouchWithdrawCall.call(
+                      jwt: currentAuthenticationToken,
+                      amount: _model.amountValue,
+                    );
+                    shouldSetState = true;
+                    if ((_model.withdrawResponse?.succeeded ?? true)) {
+                      context.pushNamed('ConfirmDeposit');
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.withdrawResponse?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.withdrawResponse?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
                   },
                   text: 'confirm',
                   options: FFButtonOptions(
