@@ -125,11 +125,6 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                         final getMyFriendsRequests =
                             listViewGetMyFriendsRequestsResponse.jsonBody
                                 .toList();
-                        if (getMyFriendsRequests.isEmpty) {
-                          return Image.asset(
-                            'assets/images/ranklogo_2.png',
-                          );
-                        }
                         return RefreshIndicator(
                           onRefresh: () async {
                             setState(() => _model.apiRequestCompleter = null);
@@ -275,7 +270,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                   ).toString(),
                                                 );
                                                 shouldSetState = true;
-                                                if ((_model.apiResultcon
+                                                if ((_model.apiApprove
                                                         ?.succeeded ??
                                                     true)) {
                                                   ScaffoldMessenger.of(context)
@@ -374,7 +369,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                   Colors.transparent,
                                               onTap: () async {
                                                 var shouldSetState = false;
-                                                _model.apiResultcon =
+                                                _model.apiApprove =
                                                     await ApproveRequestCall
                                                         .call(
                                                   jwt:
@@ -385,7 +380,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                   ).toString(),
                                                 );
                                                 shouldSetState = true;
-                                                if ((_model.apiResultcon
+                                                if ((_model.apiApprove
                                                         ?.succeeded ??
                                                     true)) {
                                                   ScaffoldMessenger.of(context)
@@ -393,13 +388,15 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                     SnackBar(
                                                       content: Text(
                                                         getJsonField(
-                                                          getMyFriendsRequestsItem,
+                                                          (_model.apiApprove
+                                                                  ?.jsonBody ??
+                                                              ''),
                                                           r'''$.message''',
                                                         ).toString(),
                                                         style: TextStyle(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondary,
+                                                              .alternate,
                                                         ),
                                                       ),
                                                       duration: const Duration(
@@ -407,7 +404,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryBackground,
+                                                              .error,
                                                     ),
                                                   );
                                                   if (shouldSetState) {
@@ -420,7 +417,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                     SnackBar(
                                                       content: Text(
                                                         getJsonField(
-                                                          getMyFriendsRequestsItem,
+                                                          (_model.apiApprove
+                                                                  ?.jsonBody ??
+                                                              ''),
                                                           r'''$.message''',
                                                         ).toString(),
                                                         style: TextStyle(
