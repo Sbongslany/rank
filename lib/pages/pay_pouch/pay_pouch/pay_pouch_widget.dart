@@ -232,7 +232,8 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
                           'MAKE A DEPOSIT INTO\nMY PAY POUCH',
@@ -285,7 +286,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'TRANSFER TO MY DEBIT\nCARD',
@@ -295,7 +296,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 19.0,
+                                fontSize: 15.0,
                               ),
                         ),
                         Lottie.asset(
@@ -338,7 +339,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'PAY SOMEONE',
@@ -348,7 +349,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 19.0,
+                                fontSize: 15.0,
                               ),
                         ),
                         Padding(
@@ -395,7 +396,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'PURCHASE AIRTIME AND \nUTILITIES ETC',
@@ -405,7 +406,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 19.0,
+                                fontSize: 15.0,
                               ),
                         ),
                         Lottie.asset(
