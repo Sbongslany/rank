@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lottie/lottie.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -579,13 +580,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/wallet.png',
-                                    width: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                                Lottie.asset(
+                                  'assets/lottie_animations/Animation_-_1709060506272.json',
+                                  width: 188.0,
+                                  height: 100.0,
+                                  fit: BoxFit.cover,
+                                  reverse: true,
+                                  animate: true,
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -646,13 +647,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/loan.png',
-                                width: 90.0,
-                                fit: BoxFit.cover,
-                              ),
+                            Lottie.asset(
+                              'assets/lottie_animations/Animation_-_1709061002700.json',
+                              width: 105.0,
+                              height: 100.0,
+                              fit: BoxFit.cover,
+                              reverse: true,
+                              animate: true,
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -713,21 +714,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context).alternate,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/link.png',
-                                    width: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                              Lottie.asset(
+                                'assets/lottie_animations/Animation_-_1709061503251.json',
+                                width: 105.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                                reverse: true,
+                                animate: true,
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(

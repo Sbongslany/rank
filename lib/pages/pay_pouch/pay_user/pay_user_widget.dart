@@ -77,7 +77,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
                       splashColor: Colors.transparent,
@@ -105,23 +105,6 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                             width: 70.0,
                             fit: BoxFit.cover,
                           ),
-                        ),
-                      ),
-                    ),
-                    Opacity(
-                      opacity: 0.0,
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.safePop();
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios_sharp,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 44.0,
                         ),
                       ),
                     ),
