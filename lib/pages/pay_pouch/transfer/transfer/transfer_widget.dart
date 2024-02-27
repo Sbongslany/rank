@@ -170,16 +170,45 @@ class _TransferWidgetState extends State<TransferWidget> {
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'R3 000',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: GetPayPouchBalanceCall.call(
+                            jwt: currentAuthenticationToken,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final textGetPayPouchBalanceResponse =
+                                snapshot.data!;
+                            return Text(
+                              valueOrDefault<String>(
+                                GetPayPouchBalanceCall.total(
+                                  textGetPayPouchBalanceResponse.jsonBody,
+                                ),
+                                '-',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 35.0,
                                     fontWeight: FontWeight.bold,
                                   ),
+                            );
+                          },
                         ),
                       ),
                     ),
