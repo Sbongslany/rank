@@ -2,6 +2,7 @@ import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
@@ -478,7 +479,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 20.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
                         padding:
@@ -487,46 +488,73 @@ class _HomeWidgetState extends State<HomeWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.message_sharp,
-                              color: FlutterFlowTheme.of(context).error,
-                              size: 14.0,
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  Icons.message_sharp,
+                                  color: FlutterFlowTheme.of(context).error,
+                                  size: 20.0,
+                                ),
+                                Opacity(
+                                  opacity: 0.7,
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        1.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'CHATBOX',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            fontSize: 12.0,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      Opacity(
-                        opacity: 0.7,
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              1.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'CHATBOX',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  fontSize: 9.0,
-                                ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('Invite');
+                            context.pushNamed('Notification');
                           },
-                          child: const Icon(
-                            Icons.people_sharp,
-                            color: Color(0xFF193CC2),
-                            size: 20.0,
+                          child: badges.Badge(
+                            badgeContent: Text(
+                              '1',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 10.0,
+                                  ),
+                            ),
+                            showBadge: true,
+                            shape: badges.BadgeShape.circle,
+                            badgeColor: FlutterFlowTheme.of(context).secondary,
+                            elevation: 4.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                8.0, 8.0, 8.0, 8.0),
+                            position: badges.BadgePosition.topEnd(),
+                            animationType: badges.BadgeAnimationType.scale,
+                            toAnimate: true,
+                            child: Icon(
+                              Icons.favorite,
+                              color: FlutterFlowTheme.of(context).error,
+                              size: 34.0,
+                            ),
                           ),
                         ),
                       ),
