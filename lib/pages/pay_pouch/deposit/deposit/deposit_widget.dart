@@ -256,7 +256,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.refValueController ??=
                         FormFieldController<String>(null),
-                    options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
+                    options: const ['EFT Deposit', 'Deposit', 'Cheque'],
                     onChanged: (val) => setState(() => _model.refValue = val),
                     width: 200.0,
                     height: 50.0,
