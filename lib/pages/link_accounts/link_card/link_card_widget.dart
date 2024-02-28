@@ -369,91 +369,83 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                 .asValidator(context),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              var shouldSetState = false;
-                              _model.bankResponse = await BankDetailsCall.call(
-                                jwt: currentAuthenticationToken,
-                                bankname: _model.bankNameController.text,
-                                accountNumber:
-                                    _model.accountNumberController.text,
-                                holder: _model.holderController.text,
-                              );
-                              shouldSetState = true;
-                              if ((_model.bankResponse?.succeeded ?? true)) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      getJsonField(
-                                        (_model.bankResponse?.jsonBody ?? ''),
-                                        r'''$.message''',
-                                      ).toString(),
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                  ),
-                                );
-
-                                context.pushNamed('LinkConfirmation');
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      getJsonField(
-                                        (_model.bankResponse?.jsonBody ?? ''),
-                                        r'''$.message''',
-                                      ).toString(),
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).error,
-                                  ),
-                                );
-                                if (shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              if (shouldSetState) setState(() {});
-                            },
-                            text: 'Confirm',
-                            options: FFButtonOptions(
-                              width: 200.0,
-                              height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF116EAF),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    var shouldSetState = false;
+                    _model.bankResponse = await BankDetailsCall.call(
+                      jwt: currentAuthenticationToken,
+                      bankname: _model.bankNameController.text,
+                      accountNumber: _model.accountNumberController.text,
+                      holder: _model.holderController.text,
+                    );
+                    shouldSetState = true;
+                    if ((_model.bankResponse?.succeeded ?? true)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.bankResponse?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                        ),
+                      );
+
+                      context.pushNamed('LinkConfirmation');
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            getJsonField(
+                              (_model.bankResponse?.jsonBody ?? ''),
+                              r'''$.message''',
+                            ).toString(),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).alternate,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: FlutterFlowTheme.of(context).error,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
+                  },
+                  text: 'Confirm',
+                  options: FFButtonOptions(
+                    width: 200.0,
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: const Color(0xFF116EAF),
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(18.0),
                   ),
                 ),
               ),
