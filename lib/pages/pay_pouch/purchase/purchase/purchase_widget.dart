@@ -129,7 +129,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -166,7 +167,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -203,7 +205,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -240,7 +243,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -277,7 +281,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -314,7 +319,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
@@ -351,7 +357,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
                           ),
                     ),
