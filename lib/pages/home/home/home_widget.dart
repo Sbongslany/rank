@@ -627,7 +627,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -770,8 +770,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
                 Flexible(
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -819,7 +818,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 ),
                                 Flexible(
                                   child: Text(
-                                    'LINKS ACCOUNTS',
+                                    'LINK ACCOUNTS',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
