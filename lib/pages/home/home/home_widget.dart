@@ -578,7 +578,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   } else {
                                     context.pushNamed('Notification');
                                   }
+                                } else {
+                                  if (shouldSetState) setState(() {});
+                                  return;
                                 }
+
                                 if (shouldSetState) setState(() {});
                               },
                               child: badges.Badge(

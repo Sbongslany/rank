@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'pay_user_model.dart';
 export 'pay_user_model.dart';
@@ -178,12 +179,11 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            FlutterFlowTheme.of(context).primary,
-                          ),
+                        width: 40.0,
+                        height: 40.0,
+                        child: SpinKitDualRing(
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 40.0,
                         ),
                       ),
                     );
@@ -193,6 +193,12 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                     builder: (context) {
                       final getMyFriends =
                           listViewGetMyFriendsResponse.jsonBody.toList();
+                      if (getMyFriends.isEmpty) {
+                        return Image.asset(
+                          'assets/images/ranklogo_2.png',
+                          width: 100.0,
+                        );
+                      }
                       return RefreshIndicator(
                         onRefresh: () async {
                           setState(() => _model.apiRequestCompleter = null);
