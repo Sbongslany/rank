@@ -357,7 +357,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 30.0, 0.0),
+                              0.0, 0.0, 90.0, 0.0),
                           child: Lottie.asset(
                             'assets/lottie_animations/Animation_-_1709059590514.json',
                             width: 70.0,
