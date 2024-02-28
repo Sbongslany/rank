@@ -243,7 +243,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                             width: 80.0,
                             height: 80.0,
                             fit: BoxFit.cover,
-                            repeat: false,
+                            reverse: true,
                             animate: true,
                           ),
                           Text(
