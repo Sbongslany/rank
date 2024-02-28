@@ -200,9 +200,10 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                                   final textGetUserResponse = snapshot.data!;
                                   return Text(
                                     valueOrDefault<String>(
-                                      GetUserCall.name(
+                                      getJsonField(
                                         textGetUserResponse.jsonBody,
-                                      ),
+                                        r'''$.email''',
+                                      )?.toString(),
                                       '-',
                                     ),
                                     textAlign: TextAlign.center,
