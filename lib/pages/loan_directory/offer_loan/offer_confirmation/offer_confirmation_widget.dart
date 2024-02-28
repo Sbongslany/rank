@@ -139,6 +139,7 @@ class _OfferConfirmationWidgetState extends State<OfferConfirmationWidget> {
                             width: 150.0,
                             height: 130.0,
                             fit: BoxFit.cover,
+                            repeat: false,
                             animate: true,
                           ),
                           Opacity(
