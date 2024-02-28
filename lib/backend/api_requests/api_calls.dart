@@ -569,6 +569,38 @@ class UploadDocCall {
   }
 }
 
+class BankDetailsCall {
+  static Future<ApiCallResponse> call({
+    String? bankname = '',
+    String? accountNumber = '',
+    String? holder = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "bankname": "$bankname",
+  "account_number": "$accountNumber",
+  "holder": "$holder"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Bank Details',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/add_banking.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

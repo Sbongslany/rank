@@ -12,10 +12,14 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   bool isDataUploading1 = false;
   List<FFUploadedFile> uploadedLocalFiles1 = [];
 
+  // Stores action output result for [Backend Call - API (UploadDoc)] action in Container widget.
+  ApiCallResponse? uplaodedDrivers;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  // Stores action output result for [Backend Call - API (UploadDoc)] action in Container widget.
+  ApiCallResponse? uplaodedIdCard;
   bool isDataUploading3 = false;
   FFUploadedFile uploadedLocalFile3 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
