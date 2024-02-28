@@ -7,6 +7,7 @@ import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -431,7 +432,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: const Color(0xF16F3737),
+                  color: FlutterFlowTheme.of(context).primary,
                   child: Center(
                     child: Image.asset(
                       'assets/images/ranklogo.png',

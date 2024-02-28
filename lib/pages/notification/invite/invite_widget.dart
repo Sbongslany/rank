@@ -302,7 +302,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                   const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
+                                                      .success,
                                             ),
                                           );
                                           if (shouldSetState) setState(() {});
@@ -328,7 +328,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                   const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
+                                                      .error,
                                             ),
                                           );
                                           if (shouldSetState) setState(() {});
