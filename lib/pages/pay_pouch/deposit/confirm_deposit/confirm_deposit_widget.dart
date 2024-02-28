@@ -201,7 +201,7 @@ class _ConfirmDepositWidgetState extends State<ConfirmDepositWidget> {
                                   return Text(
                                     getJsonField(
                                       textGetUserResponse.jsonBody,
-                                      r'''$.message''',
+                                      r'''$.email''',
                                     ).toString(),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
