@@ -171,7 +171,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     cursorColor: FlutterFlowTheme.of(context).primary,
                     obscureText: false,
                     hintCharacter: '●',
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.visiblePassword,
                     pinTheme: PinTheme(
                       fieldHeight: 44.0,
                       fieldWidth: 44.0,
