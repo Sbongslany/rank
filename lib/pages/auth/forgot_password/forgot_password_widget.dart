@@ -146,17 +146,6 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/ranklogo.png',
-                  width: 200.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
             Align(
               alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
