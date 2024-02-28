@@ -515,6 +515,33 @@ class RejectFriendCall {
       );
 }
 
+class GetFriendRequesCountCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Friend Reques Count',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/get_number_of_request.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? numberRequests(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].nr_friend_request''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

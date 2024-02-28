@@ -521,41 +521,68 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                       Align(
                         alignment: const AlignmentDirectional(1.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Notification');
-                          },
-                          child: badges.Badge(
-                            badgeContent: Text(
-                              '1',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 10.0,
-                                  ),
-                            ),
-                            showBadge: true,
-                            shape: badges.BadgeShape.circle,
-                            badgeColor: FlutterFlowTheme.of(context).secondary,
-                            elevation: 4.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
-                            position: badges.BadgePosition.topEnd(),
-                            animationType: badges.BadgeAnimationType.scale,
-                            toAnimate: true,
-                            child: Icon(
-                              Icons.favorite,
-                              color: FlutterFlowTheme.of(context).error,
-                              size: 34.0,
-                            ),
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: GetFriendRequesCountCall.call(
+                            jwt: currentAuthenticationToken,
                           ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final badgeGetFriendRequesCountResponse =
+                                snapshot.data!;
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('Notification');
+                              },
+                              child: badges.Badge(
+                                badgeContent: Text(
+                                  GetFriendRequesCountCall.numberRequests(
+                                    badgeGetFriendRequesCountResponse.jsonBody,
+                                  )!
+                                      .toString(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 10.0,
+                                      ),
+                                ),
+                                showBadge: true,
+                                shape: badges.BadgeShape.circle,
+                                badgeColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                                elevation: 4.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 8.0, 8.0, 8.0),
+                                position: badges.BadgePosition.topEnd(),
+                                animationType: badges.BadgeAnimationType.scale,
+                                toAnimate: true,
+                                child: Icon(
+                                  Icons.favorite,
+                                  color: FlutterFlowTheme.of(context).error,
+                                  size: 34.0,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],
