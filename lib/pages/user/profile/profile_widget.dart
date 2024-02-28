@@ -30,6 +30,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
+    _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
   }
 
   @override
@@ -153,7 +156,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             30.0, 50.0, 0.0, 0.0),
                         child: Text(
-                          'NAME & SURNAME',
+                          'NAME',
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -224,7 +227,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             30.0, 10.0, 0.0, 0.0),
                         child: Text(
-                          'PHONE NUMBER',
+                          'SURNAME',
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -236,6 +239,77 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController2,
                       focusNode: _model.textFieldFocusNode2,
+                      autofocus: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: GetUserCall.surname(
+                          containerGetUserResponse.jsonBody,
+                        ),
+                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF969EA4),
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        filled: true,
+                        fillColor: const Color(0xFFB5C4D1),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: const Color(0xFFB8BEC7),
+                          ),
+                      validator:
+                          _model.textController2Validator.asValidator(context),
+                    ),
+                  ),
+                  Opacity(
+                    opacity: 0.3,
+                    child: Align(
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            30.0, 10.0, 0.0, 0.0),
+                        child: Text(
+                          'PHONE NUMBER',
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.textController3,
+                      focusNode: _model.textFieldFocusNode3,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -284,7 +358,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             color: const Color(0xFFB8BEC7),
                           ),
                       validator:
-                          _model.textController2Validator.asValidator(context),
+                          _model.textController3Validator.asValidator(context),
                     ),
                   ),
                   Align(
