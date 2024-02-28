@@ -104,8 +104,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': const HomeWidget(),
-      'Notification': const NotificationWidget(),
       'AboutUs': const AboutUsWidget(),
+      'Invite': const InviteWidget(),
       'TransactionHistory': const TransactionHistoryWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -121,8 +121,8 @@ class _NavBarPageState extends State<NavBarPage> {
         backgroundColor: Colors.white,
         selectedItemColor: FlutterFlowTheme.of(context).secondary,
         unselectedItemColor: const Color(0x8A000000),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -139,18 +139,6 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.favorite_rounded,
-              size: 34.0,
-            ),
-            activeIcon: Icon(
-              Icons.favorite_border,
-              size: 34.0,
-            ),
-            label: 'Info',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.info_rounded,
               size: 34.0,
             ),
@@ -163,6 +151,18 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
+              Icons.people_alt,
+              size: 34.0,
+            ),
+            activeIcon: Icon(
+              Icons.people_outline,
+              size: 34.0,
+            ),
+            label: 'Invite Friends',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
               Icons.monetization_on,
               size: 34.0,
             ),
@@ -170,7 +170,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.monetization_on_outlined,
               size: 34.0,
             ),
-            label: 'Home',
+            label: 'Transactions',
             tooltip: '',
           )
         ],
