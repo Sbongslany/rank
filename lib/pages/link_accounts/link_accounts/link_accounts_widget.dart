@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -235,112 +237,172 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 10.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              border: Border.all(
-                                color: const Color(0xFF6D7681),
-                              ),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                final selectedFiles = await selectFiles(
-                                  multiFile: true,
-                                );
-                                if (selectedFiles != null) {
-                                  setState(
-                                      () => _model.isDataUploading1 = true);
-                                  var selectedUploadedFiles =
-                                      <FFUploadedFile>[];
-
-                                  try {
-                                    showUploadMessage(
-                                      context,
-                                      'Uploading file...',
-                                      showLoading: true,
-                                    );
-                                    selectedUploadedFiles = selectedFiles
-                                        .map((m) => FFUploadedFile(
-                                              name:
-                                                  m.storagePath.split('/').last,
-                                              bytes: m.bytes,
-                                            ))
-                                        .toList();
-                                  } finally {
-                                    ScaffoldMessenger.of(context)
-                                        .hideCurrentSnackBar();
-                                    _model.isDataUploading1 = false;
-                                  }
-                                  if (selectedUploadedFiles.length ==
-                                      selectedFiles.length) {
-                                    setState(() {
-                                      _model.uploadedLocalFiles1 =
-                                          selectedUploadedFiles;
-                                    });
-                                    showUploadMessage(
-                                      context,
-                                      'Success!',
-                                    );
-                                  } else {
-                                    setState(() {});
-                                    showUploadMessage(
-                                      context,
-                                      'Failed to upload file',
-                                    );
-                                    return;
-                                  }
-                                }
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 30.0,
-                                      height: 30.0,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFFBFBDBD),
-                                        shape: BoxShape.circle,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var shouldSetState = false;
+                              _model.uplaodedDocs = await UploadDocCall.call(
+                                jwt: currentAuthenticationToken,
+                                file: _model.uploadedLocalFile3,
+                                type: 'BankStatements',
+                              );
+                              shouldSetState = true;
+                              if ((_model.uplaodedDocs?.succeeded ?? true)) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      getJsonField(
+                                        (_model.uplaodedDocs?.jsonBody ?? ''),
+                                        r'''$.message''',
+                                      ).toString(),
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
                                       ),
-                                      child: const Icon(
-                                        Icons.door_back_door,
-                                        color: Color(0xFF525255),
+                                    ),
+                                    duration: const Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                  ),
+                                );
+                                if (shouldSetState) setState(() {});
+                                return;
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      getJsonField(
+                                        (_model.uplaodedDocs?.jsonBody ?? ''),
+                                        r'''$.message''',
+                                      ).toString(),
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                      ),
+                                    ),
+                                    duration: const Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).error,
+                                  ),
+                                );
+                                if (shouldSetState) setState(() {});
+                                return;
+                              }
+
+                              if (shouldSetState) setState(() {});
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 60.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                border: Border.all(
+                                  color: const Color(0xFF6D7681),
+                                ),
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  final selectedFiles = await selectFiles(
+                                    multiFile: true,
+                                  );
+                                  if (selectedFiles != null) {
+                                    setState(
+                                        () => _model.isDataUploading1 = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+
+                                    try {
+                                      showUploadMessage(
+                                        context,
+                                        'Uploading file...',
+                                        showLoading: true,
+                                      );
+                                      selectedUploadedFiles = selectedFiles
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                              ))
+                                          .toList();
+                                    } finally {
+                                      ScaffoldMessenger.of(context)
+                                          .hideCurrentSnackBar();
+                                      _model.isDataUploading1 = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                        selectedFiles.length) {
+                                      setState(() {
+                                        _model.uploadedLocalFiles1 =
+                                            selectedUploadedFiles;
+                                      });
+                                      showUploadMessage(
+                                        context,
+                                        'Success!',
+                                      );
+                                    } else {
+                                      setState(() {});
+                                      showUploadMessage(
+                                        context,
+                                        'Failed to upload file',
+                                      );
+                                      return;
+                                    }
+                                  }
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 30.0,
+                                        height: 30.0,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFFBFBDBD),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: const Icon(
+                                          Icons.door_back_door,
+                                          color: Color(0xFF525255),
+                                          size: 20.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Bank Statement\n(3 Months)',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Ubuntu',
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Icon(
+                                        Icons.arrow_forward_ios_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
                                         size: 20.0,
                                       ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Bank Statement\n(3 Months)',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Ubuntu',
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Icon(
-                                      Icons.arrow_forward_ios_sharp,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 20.0,
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),

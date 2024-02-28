@@ -542,6 +542,33 @@ class GetFriendRequesCountCall {
       ));
 }
 
+class UploadDocCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    FFUploadedFile? file,
+    String? type = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'UploadDoc',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/link_account.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'file': file,
+        'type': type,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
