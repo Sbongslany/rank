@@ -548,7 +548,38 @@ class _HomeWidgetState extends State<HomeWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('Notification');
+                                var shouldSetState = false;
+                                _model.countResponse =
+                                    await GetFriendRequesCountCall.call(
+                                  jwt: currentAuthenticationToken,
+                                );
+                                shouldSetState = true;
+                                if ((_model.countResponse?.succeeded ?? true)) {
+                                  if (GetFriendRequesCountCall.numberRequests(
+                                        (_model.countResponse?.jsonBody ?? ''),
+                                      ) ==
+                                      0) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'You  don\'t have notification',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context).error,
+                                      ),
+                                    );
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  } else {
+                                    context.pushNamed('Notification');
+                                  }
+                                }
+                                if (shouldSetState) setState(() {});
                               },
                               child: badges.Badge(
                                 badgeContent: Text(
