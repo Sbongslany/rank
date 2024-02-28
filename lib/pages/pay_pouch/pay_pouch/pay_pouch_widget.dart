@@ -94,7 +94,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
                             'assets/images/ranklogo.png',
-                            width: 70.0,
+                            width: 90.0,
                             fit: BoxFit.cover,
                           ),
                         ),
