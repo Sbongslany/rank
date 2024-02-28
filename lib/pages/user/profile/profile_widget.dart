@@ -355,7 +355,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: const Color(0xFFB8BEC7),
+                            color: FlutterFlowTheme.of(context).primaryText,
                           ),
                       validator:
                           _model.textController3Validator.asValidator(context),
