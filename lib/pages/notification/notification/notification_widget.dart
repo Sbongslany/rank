@@ -203,7 +203,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
                                             padding:
