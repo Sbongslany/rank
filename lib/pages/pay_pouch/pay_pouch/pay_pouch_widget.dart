@@ -46,7 +46,15 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).alternate,
+            gradient: LinearGradient(
+              colors: [
+                FlutterFlowTheme.of(context).primaryBackground,
+                FlutterFlowTheme.of(context).secondaryBackground
+              ],
+              stops: const [0.0, 1.0],
+              begin: const AlignmentDirectional(0.0, -1.0),
+              end: const AlignmentDirectional(0, 1.0),
+            ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -207,57 +215,62 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   onTap: () async {
                     context.pushNamed('Deposit');
                   },
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.47, -1.0),
-                        end: const AlignmentDirectional(-0.47, 1.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            FlutterFlowTheme.of(context).secondary,
+                            FlutterFlowTheme.of(context).primary
+                          ],
+                          stops: const [0.0, 1.0],
+                          begin: const AlignmentDirectional(0.47, -1.0),
+                          end: const AlignmentDirectional(-0.47, 1.0),
+                        ),
                       ),
-                    ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709060185421.json',
-                          width: 80.0,
-                          height: 80.0,
-                          fit: BoxFit.cover,
-                          repeat: false,
-                          animate: true,
-                        ),
-                        Text(
-                          'MAKE A DEPOSIT INTO\nMY PAY POUCH',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 15.0,
-                                  ),
-                        ),
-                        Opacity(
-                          opacity: 0.0,
-                          child: Lottie.asset(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Lottie.asset(
                             'assets/lottie_animations/Animation_-_1709060185421.json',
-                            width: 70.0,
-                            height: 70.0,
+                            width: 80.0,
+                            height: 80.0,
                             fit: BoxFit.cover,
                             repeat: false,
                             animate: true,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'MAKE A DEPOSIT INTO\nMY PAY POUCH',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 15.0,
+                                ),
+                          ),
+                          Opacity(
+                            opacity: 0.0,
+                            child: Lottie.asset(
+                              'assets/lottie_animations/Animation_-_1709060185421.json',
+                              width: 70.0,
+                              height: 70.0,
+                              fit: BoxFit.cover,
+                              repeat: false,
+                              animate: true,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -272,56 +285,61 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   onTap: () async {
                     context.pushNamed('Transfer');
                   },
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.47, -1.0),
-                        end: const AlignmentDirectional(-0.47, 1.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            FlutterFlowTheme.of(context).secondary,
+                            FlutterFlowTheme.of(context).primary
+                          ],
+                          stops: const [0.0, 1.0],
+                          begin: const AlignmentDirectional(0.47, -1.0),
+                          end: const AlignmentDirectional(-0.47, 1.0),
+                        ),
                       ),
-                    ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709059834925.json',
-                          width: 100.0,
-                          height: 100.0,
-                          fit: BoxFit.cover,
-                          reverse: true,
-                          animate: true,
-                        ),
-                        Text(
-                          'TRANSFER TO MY DEBIT\nCARD',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 15.0,
-                                  ),
-                        ),
-                        Opacity(
-                          opacity: 0.0,
-                          child: Lottie.asset(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Lottie.asset(
                             'assets/lottie_animations/Animation_-_1709059834925.json',
-                            width: 70.0,
-                            height: 70.0,
+                            width: 100.0,
+                            height: 100.0,
                             fit: BoxFit.cover,
                             reverse: true,
                             animate: true,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'TRANSFER TO MY DEBIT\nCARD',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 15.0,
+                                ),
+                          ),
+                          Opacity(
+                            opacity: 0.0,
+                            child: Lottie.asset(
+                              'assets/lottie_animations/Animation_-_1709059834925.json',
+                              width: 70.0,
+                              height: 70.0,
+                              fit: BoxFit.cover,
+                              reverse: true,
+                              animate: true,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -336,53 +354,31 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   onTap: () async {
                     context.pushNamed('PayUser');
                   },
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.47, -1.0),
-                        end: const AlignmentDirectional(-0.47, 1.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            FlutterFlowTheme.of(context).secondary,
+                            FlutterFlowTheme.of(context).primary
+                          ],
+                          stops: const [0.0, 1.0],
+                          begin: const AlignmentDirectional(0.47, -1.0),
+                          end: const AlignmentDirectional(-0.47, 1.0),
+                        ),
                       ),
-                    ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 90.0, 0.0),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1709059590514.json',
-                            width: 70.0,
-                            height: 70.0,
-                            fit: BoxFit.cover,
-                            reverse: true,
-                            animate: true,
-                          ),
-                        ),
-                        Text(
-                          'PAY SOMEONE',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 15.0,
-                                  ),
-                        ),
-                        Opacity(
-                          opacity: 0.0,
-                          child: Padding(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 30.0, 0.0),
+                                0.0, 0.0, 90.0, 0.0),
                             child: Lottie.asset(
                               'assets/lottie_animations/Animation_-_1709059590514.json',
                               width: 70.0,
@@ -392,8 +388,35 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                               animate: true,
                             ),
                           ),
-                        ),
-                      ],
+                          Text(
+                            'PAY SOMEONE',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 15.0,
+                                ),
+                          ),
+                          Opacity(
+                            opacity: 0.0,
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 30.0, 0.0),
+                              child: Lottie.asset(
+                                'assets/lottie_animations/Animation_-_1709059590514.json',
+                                width: 70.0,
+                                height: 70.0,
+                                fit: BoxFit.cover,
+                                reverse: true,
+                                animate: true,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -408,56 +431,61 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   onTap: () async {
                     context.pushNamed('Purchase');
                   },
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.47, -1.0),
-                        end: const AlignmentDirectional(-0.47, 1.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            FlutterFlowTheme.of(context).secondary,
+                            FlutterFlowTheme.of(context).primary
+                          ],
+                          stops: const [0.0, 1.0],
+                          begin: const AlignmentDirectional(0.47, -1.0),
+                          end: const AlignmentDirectional(-0.47, 1.0),
+                        ),
                       ),
-                    ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709059203646.json',
-                          width: 80.0,
-                          height: 80.0,
-                          fit: BoxFit.cover,
-                          reverse: true,
-                          animate: true,
-                        ),
-                        Text(
-                          'PURCHASE AIRTIME AND \nUTILITIES ETC',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 15.0,
-                                  ),
-                        ),
-                        Opacity(
-                          opacity: 0.0,
-                          child: Lottie.asset(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Lottie.asset(
                             'assets/lottie_animations/Animation_-_1709059203646.json',
-                            width: 70.0,
-                            height: 70.0,
+                            width: 80.0,
+                            height: 80.0,
                             fit: BoxFit.cover,
                             reverse: true,
                             animate: true,
                           ),
-                        ),
-                      ],
+                          Text(
+                            'PURCHASE AIRTIME AND \nUTILITIES ETC',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 15.0,
+                                ),
+                          ),
+                          Opacity(
+                            opacity: 0.0,
+                            child: Lottie.asset(
+                              'assets/lottie_animations/Animation_-_1709059203646.json',
+                              width: 70.0,
+                              height: 70.0,
+                              fit: BoxFit.cover,
+                              reverse: true,
+                              animate: true,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
