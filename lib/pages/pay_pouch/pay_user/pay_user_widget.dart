@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
@@ -80,19 +81,10 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.safePop();
-                      },
-                      child: Icon(
-                        Icons.arrow_back_ios_sharp,
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        size: 44.0,
-                      ),
+                    wrapWithModel(
+                      model: _model.backButtonModel,
+                      updateCallback: () => setState(() {}),
+                      child: const BackButtonWidget(),
                     ),
                     Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),

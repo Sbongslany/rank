@@ -1,3 +1,4 @@
+import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -78,52 +79,10 @@ class _LoanOfferWidgetState extends State<LoanOfferWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.safePop();
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
-                              )
-                            ],
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(10.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(10.0),
-                              topRight: Radius.circular(0.0),
-                            ),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).alternate,
-                            ),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Icon(
-                              Icons.arrow_back_ios_sharp,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 44.0,
-                            ),
-                          ),
-                        ),
-                      ),
+                    wrapWithModel(
+                      model: _model.backButtonModel,
+                      updateCallback: () => setState(() {}),
+                      child: const BackButtonWidget(),
                     ),
                     Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
