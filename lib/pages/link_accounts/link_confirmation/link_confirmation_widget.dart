@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -157,7 +159,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
                               child: Text(
-                                'Thank you for linking your documents.\nfinal confirmation will be sent via your email\nabc@gmail.com',
+                                'Thank you for linking your documents.\nfinal confirmation will be sent via your email',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -166,6 +168,53 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                                       fontSize: 15.0,
                                       fontWeight: FontWeight.w300,
                                     ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: 0.7,
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FutureBuilder<ApiCallResponse>(
+                                future: GetUserCall.call(
+                                  jwt: currentAuthenticationToken,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  final textGetUserResponse = snapshot.data!;
+                                  return Text(
+                                    valueOrDefault<String>(
+                                      GetUserCall.name(
+                                        textGetUserResponse.jsonBody,
+                                      ),
+                                      '-',
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                  );
+                                },
                               ),
                             ),
                           ),
