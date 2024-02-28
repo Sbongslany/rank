@@ -307,7 +307,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                   Colors.transparent,
                                               onTap: () async {
                                                 var shouldSetState = false;
-                                                _model.apiResultconCopy =
+                                                _model.rejectRespanse =
                                                     await RejectFriendCall.call(
                                                   jwt:
                                                       currentAuthenticationToken,
@@ -325,7 +325,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                     SnackBar(
                                                       content: Text(
                                                         getJsonField(
-                                                          getMyFriendsRequestsItem,
+                                                          (_model.rejectRespanse
+                                                                  ?.jsonBody ??
+                                                              ''),
                                                           r'''$.message''',
                                                         ).toString(),
                                                         style: TextStyle(
@@ -352,7 +354,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                     SnackBar(
                                                       content: Text(
                                                         getJsonField(
-                                                          getMyFriendsRequestsItem,
+                                                          (_model.rejectRespanse
+                                                                  ?.jsonBody ??
+                                                              ''),
                                                           r'''$.message''',
                                                         ).toString(),
                                                         style: TextStyle(
