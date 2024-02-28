@@ -235,6 +235,14 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Lottie.asset(
+                          'assets/lottie_animations/Animation_-_1709060185421.json',
+                          width: 70.0,
+                          height: 70.0,
+                          fit: BoxFit.cover,
+                          repeat: false,
+                          animate: true,
+                        ),
                         Text(
                           'MAKE A DEPOSIT INTO\nMY PAY POUCH',
                           textAlign: TextAlign.center,
@@ -246,13 +254,16 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                 fontSize: 15.0,
                               ),
                         ),
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709060185421.json',
-                          width: 70.0,
-                          height: 70.0,
-                          fit: BoxFit.cover,
-                          repeat: false,
-                          animate: true,
+                        Opacity(
+                          opacity: 0.0,
+                          child: Lottie.asset(
+                            'assets/lottie_animations/Animation_-_1709060185421.json',
+                            width: 70.0,
+                            height: 70.0,
+                            fit: BoxFit.cover,
+                            repeat: false,
+                            animate: true,
+                          ),
                         ),
                       ],
                     ),
@@ -288,6 +299,14 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Lottie.asset(
+                          'assets/lottie_animations/Animation_-_1709059834925.json',
+                          width: 70.0,
+                          height: 70.0,
+                          fit: BoxFit.cover,
+                          reverse: true,
+                          animate: true,
+                        ),
                         Text(
                           'TRANSFER TO MY DEBIT\nCARD',
                           textAlign: TextAlign.center,
@@ -299,13 +318,16 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                 fontSize: 15.0,
                               ),
                         ),
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709059834925.json',
-                          width: 70.0,
-                          height: 70.0,
-                          fit: BoxFit.cover,
-                          reverse: true,
-                          animate: true,
+                        Opacity(
+                          opacity: 0.0,
+                          child: Lottie.asset(
+                            'assets/lottie_animations/Animation_-_1709059834925.json',
+                            width: 70.0,
+                            height: 70.0,
+                            fit: BoxFit.cover,
+                            reverse: true,
+                            animate: true,
+                          ),
                         ),
                       ],
                     ),
@@ -341,6 +363,18 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 30.0, 0.0),
+                          child: Lottie.asset(
+                            'assets/lottie_animations/Animation_-_1709059590514.json',
+                            width: 70.0,
+                            height: 70.0,
+                            fit: BoxFit.cover,
+                            reverse: true,
+                            animate: true,
+                          ),
+                        ),
                         Text(
                           'PAY SOMEONE',
                           textAlign: TextAlign.center,
@@ -352,16 +386,19 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                 fontSize: 15.0,
                               ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 30.0, 0.0),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1709059590514.json',
-                            width: 70.0,
-                            height: 70.0,
-                            fit: BoxFit.cover,
-                            reverse: true,
-                            animate: true,
+                        Opacity(
+                          opacity: 0.0,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 30.0, 0.0),
+                            child: Lottie.asset(
+                              'assets/lottie_animations/Animation_-_1709059590514.json',
+                              width: 70.0,
+                              height: 70.0,
+                              fit: BoxFit.cover,
+                              reverse: true,
+                              animate: true,
+                            ),
                           ),
                         ),
                       ],
@@ -398,6 +435,14 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Lottie.asset(
+                          'assets/lottie_animations/Animation_-_1709059203646.json',
+                          width: 70.0,
+                          height: 70.0,
+                          fit: BoxFit.cover,
+                          reverse: true,
+                          animate: true,
+                        ),
                         Text(
                           'PURCHASE AIRTIME AND \nUTILITIES ETC',
                           textAlign: TextAlign.center,
@@ -409,13 +454,16 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                 fontSize: 15.0,
                               ),
                         ),
-                        Lottie.asset(
-                          'assets/lottie_animations/Animation_-_1709059203646.json',
-                          width: 70.0,
-                          height: 70.0,
-                          fit: BoxFit.cover,
-                          reverse: true,
-                          animate: true,
+                        Opacity(
+                          opacity: 0.0,
+                          child: Lottie.asset(
+                            'assets/lottie_animations/Animation_-_1709059203646.json',
+                            width: 70.0,
+                            height: 70.0,
+                            fit: BoxFit.cover,
+                            reverse: true,
+                            animate: true,
+                          ),
                         ),
                       ],
                     ),
