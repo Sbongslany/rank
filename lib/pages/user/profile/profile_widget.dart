@@ -168,7 +168,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode1,
-                      autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: GetUserCall.name(
@@ -239,7 +238,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController2,
                       focusNode: _model.textFieldFocusNode2,
-                      autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: GetUserCall.surname(
@@ -310,7 +308,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController3,
                       focusNode: _model.textFieldFocusNode3,
-                      autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: GetUserCall.cell(
