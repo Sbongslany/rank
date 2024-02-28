@@ -1,9 +1,11 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'invite_model.dart';
 export 'invite_model.dart';
 
@@ -14,15 +16,39 @@ class InviteWidget extends StatefulWidget {
   State<InviteWidget> createState() => _InviteWidgetState();
 }
 
-class _InviteWidgetState extends State<InviteWidget> {
+class _InviteWidgetState extends State<InviteWidget>
+    with TickerProviderStateMixin {
   late InviteModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'containerOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(1.0, 1.0),
+          end: const Offset(1.0, 1.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => InviteModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -352,6 +378,9 @@ class _InviteWidgetState extends State<InviteWidget> {
                                                 ),
                                               ),
                                             ),
+                                          ).animateOnActionTrigger(
+                                            animationsMap[
+                                                'containerOnActionTriggerAnimation']!,
                                           ),
                                         ),
                                       ],
