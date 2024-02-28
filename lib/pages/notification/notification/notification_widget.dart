@@ -79,6 +79,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       wrapWithModel(
                         model: _model.backButtonModel,

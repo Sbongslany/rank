@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'pay_user_model.dart';
@@ -26,6 +27,34 @@ class _PayUserWidgetState extends State<PayUserWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PayUserModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.friendResponse = await GetMyFriendsCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.friendResponse?.jsonBody ?? '')) {
+        if ((_model.friendResponse?.statusCode ?? 200) == 422) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'You  don\'t have friends',
+                style: TextStyle(
+                  color: FlutterFlowTheme.of(context).alternate,
+                ),
+              ),
+              duration: const Duration(milliseconds: 4000),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+          return;
+        } else {
+          context.pushNamed('PayUser');
+        }
+      } else {
+        return;
+      }
+    });
   }
 
   @override

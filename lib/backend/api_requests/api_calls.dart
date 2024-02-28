@@ -410,6 +410,7 @@ class PaypouchWithdrawCall {
 class GetMyFriendsCall {
   static Future<ApiCallResponse> call({
     String? jwt = '',
+    String? message = 'No Friends Yet ,Please invite friends',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Get My Friends',
