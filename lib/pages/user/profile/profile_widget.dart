@@ -25,13 +25,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     super.initState();
     _model = createModel(context, () => ProfileModel());
 
-    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
   }
 
@@ -166,13 +163,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController1,
+                      controller: _model.textController1 ??=
+                          TextEditingController(
+                        text: GetUserCall.name(
+                          containerGetUserResponse.jsonBody,
+                        ),
+                      ),
                       focusNode: _model.textFieldFocusNode1,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: GetUserCall.name(
-                          containerGetUserResponse.jsonBody,
-                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
@@ -236,13 +235,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController2,
+                      controller: _model.textController2 ??=
+                          TextEditingController(
+                        text: GetUserCall.surname(
+                          containerGetUserResponse.jsonBody,
+                        ),
+                      ),
                       focusNode: _model.textFieldFocusNode2,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: GetUserCall.surname(
-                          containerGetUserResponse.jsonBody,
-                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
@@ -306,13 +307,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController3,
+                      controller: _model.textController3 ??=
+                          TextEditingController(
+                        text: GetUserCall.cell(
+                          containerGetUserResponse.jsonBody,
+                        ),
+                      ),
                       focusNode: _model.textFieldFocusNode3,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: GetUserCall.cell(
-                          containerGetUserResponse.jsonBody,
-                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
