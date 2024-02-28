@@ -181,7 +181,6 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.holderController,
                               focusNode: _model.holderFocusNode,
-                              autofocus: true,
                               textInputAction: TextInputAction.next,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -234,7 +233,6 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.accountNumberController,
                               focusNode: _model.accountNumberFocusNode,
-                              autofocus: true,
                               textInputAction: TextInputAction.next,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -288,7 +286,6 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.bankNameController,
                               focusNode: _model.bankNameFocusNode,
-                              autofocus: true,
                               textCapitalization: TextCapitalization.sentences,
                               textInputAction: TextInputAction.done,
                               obscureText: false,

@@ -238,13 +238,13 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         Text(
                           'MAKE A DEPOSIT INTO\nMY PAY POUCH',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 15.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 15.0,
+                                  ),
                         ),
                         Opacity(
                           opacity: 0.0,
@@ -302,13 +302,13 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         Text(
                           'TRANSFER TO MY DEBIT\nCARD',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 15.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 15.0,
+                                  ),
                         ),
                         Opacity(
                           opacity: 0.0,
@@ -370,13 +370,13 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         Text(
                           'PAY SOMEONE',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 15.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 15.0,
+                                  ),
                         ),
                         Opacity(
                           opacity: 0.0,
@@ -438,13 +438,13 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         Text(
                           'PURCHASE AIRTIME AND \nUTILITIES ETC',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 15.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 15.0,
+                                  ),
                         ),
                         Opacity(
                           opacity: 0.0,
