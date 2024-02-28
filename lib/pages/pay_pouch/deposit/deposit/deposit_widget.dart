@@ -241,7 +241,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                   FlutterFlowDropDown<String>(
                     controller: _model.amountValueController ??=
                         FormFieldController<String>(null),
-                    options: const ['1000', '5000 ', '10 000'],
+                    options: const ['1000', '5000 ', '10000'],
                     onChanged: (val) =>
                         setState(() => _model.amountValue = val),
                     width: 160.0,
