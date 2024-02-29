@@ -378,7 +378,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         if (shouldSetState) setState(() {});
                         return;
                       } else {
-                        context.pushNamed('Notification');
+                        context.pushNamed('PayUser');
                       }
                     } else {
                       if (shouldSetState) setState(() {});
