@@ -1,3 +1,4 @@
+import '/components/back_menu_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -56,90 +57,10 @@ class _InfoWidgetState extends State<InfoWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.bounceOut,
-                width: double.infinity,
-                height: 102.0,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).secondary,
-                      FlutterFlowTheme.of(context).primary
-                    ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.24, -1.0),
-                    end: const AlignmentDirectional(-0.24, 1.0),
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.safePop();
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
-                              )
-                            ],
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(10.0),
-                              bottomRight: Radius.circular(0.0),
-                              topLeft: Radius.circular(10.0),
-                              topRight: Radius.circular(0.0),
-                            ),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).alternate,
-                            ),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Icon(
-                              Icons.arrow_back_ios_sharp,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 44.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/ranklogo.png',
-                            width: 70.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ].divide(const SizedBox(width: 110.0)),
-                ),
+              wrapWithModel(
+                model: _model.backMenuAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: const BackMenuAppBarWidget(),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),

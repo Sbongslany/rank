@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/back_button_widget.dart';
+import '/components/back_menu_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'pay_user_widget.dart' show PayUserWidget;
@@ -9,21 +9,21 @@ class PayUserModel extends FlutterFlowModel<PayUserWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for backButton component.
-  late BackButtonModel backButtonModel;
+  // Model for backMenuAppBar component.
+  late BackMenuAppBarModel backMenuAppBarModel;
   Completer<ApiCallResponse>? apiRequestCompleter;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
-    backButtonModel = createModel(context, () => BackButtonModel());
+    backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    backButtonModel.dispose();
+    backMenuAppBarModel.dispose();
   }
 
   /// Action blocks are added here.

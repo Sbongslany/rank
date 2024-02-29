@@ -89,7 +89,7 @@ class _InviteWidgetState extends State<InviteWidget>
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.bounceOut,
                   width: double.infinity,
-                  height: 102.0,
+                  height: 132.0,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -109,7 +109,7 @@ class _InviteWidgetState extends State<InviteWidget>
                         alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 18.0, 0.0, 0.0),
+                              0.0, 50.0, 0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(

@@ -200,7 +200,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.bounceOut,
                   width: double.infinity,
-                  height: 122.0,
+                  height: 142.0,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -212,89 +212,99 @@ class _HomeWidgetState extends State<HomeWidget> {
                       end: const AlignmentDirectional(-0.24, 1.0),
                     ),
                   ),
-                  child: Row(
+                  child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            scaffoldKey.currentState!.openDrawer();
-                          },
-                          child: Icon(
-                            Icons.menu,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 34.0,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              40.0, 18.0, 0.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/ranklogo.png',
-                              width: 70.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth('Login', context.mounted);
-                          },
-                          child: Container(
-                            width: 60.0,
-                            height: 30.0,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF164969),
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(20.0),
-                                bottomRight: Radius.circular(20.0),
-                                topLeft: Radius.circular(20.0),
-                                topRight: Radius.circular(20.0),
-                              ),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  scaffoldKey.currentState!.openDrawer();
+                                },
+                                child: Icon(
+                                  Icons.menu,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  size: 34.0,
+                                ),
                               ),
                             ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              'Logout',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 11.0,
-                                    fontWeight: FontWeight.w600,
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    40.0, 18.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/ranklogo.png',
+                                    width: 70.0,
+                                    fit: BoxFit.cover,
                                   ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  GoRouter.of(context).prepareAuthEvent();
+                                  await authManager.signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
+
+                                  context.goNamedAuth('Login', context.mounted);
+                                },
+                                child: Container(
+                                  width: 60.0,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFF164969),
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20.0),
+                                      bottomRight: Radius.circular(20.0),
+                                      topLeft: Radius.circular(20.0),
+                                      topRight: Radius.circular(20.0),
+                                    ),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                                  ),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Text(
+                                    'Logout',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontSize: 11.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
