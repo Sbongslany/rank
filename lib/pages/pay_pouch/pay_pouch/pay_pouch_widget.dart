@@ -358,7 +358,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                       jwt: currentAuthenticationToken,
                     );
                     shouldSetState = true;
-                    if ((_model.countFriendsResponse?.jsonBody ?? '')) {
+                    if ((_model.countFriendsResponse?.succeeded ?? true)) {
                       if (GetFriendsCountCall.numberRequests(
                             (_model.countFriendsResponse?.jsonBody ?? ''),
                           ) ==
@@ -366,7 +366,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              'You  don\'t have any friends, please invite friends ',
+                              'You  don\'t have notification',
                               style: TextStyle(
                                 color: FlutterFlowTheme.of(context).alternate,
                               ),
@@ -375,13 +375,10 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                             backgroundColor: FlutterFlowTheme.of(context).error,
                           ),
                         );
-
-                        context.pushNamed('Invite');
-
                         if (shouldSetState) setState(() {});
                         return;
                       } else {
-                        context.pushNamed('PayUser');
+                        context.pushNamed('Notification');
                       }
                     } else {
                       if (shouldSetState) setState(() {});
