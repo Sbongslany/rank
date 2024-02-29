@@ -543,6 +543,33 @@ class GetFriendRequesCountCall {
       ));
 }
 
+class GetFriendsCountCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Friends Count',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/get_number_of_friends.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? numberRequests(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].nr_friends''',
+      ));
+}
+
 class UploadDocCall {
   static Future<ApiCallResponse> call({
     String? jwt = '',

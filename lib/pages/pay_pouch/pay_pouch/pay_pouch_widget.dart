@@ -352,7 +352,43 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('PayUser');
+                    var shouldSetState = false;
+                    _model.countFriendsResponse =
+                        await GetFriendsCountCall.call(
+                      jwt: currentAuthenticationToken,
+                    );
+                    shouldSetState = true;
+                    if ((_model.countFriendsResponse?.jsonBody ?? '')) {
+                      if (GetFriendsCountCall.numberRequests(
+                            (_model.countFriendsResponse?.jsonBody ?? ''),
+                          ) ==
+                          0) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'You  don\'t have any friends, please invite friends ',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).alternate,
+                              ),
+                            ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor: FlutterFlowTheme.of(context).error,
+                          ),
+                        );
+
+                        context.pushNamed('Invite');
+
+                        if (shouldSetState) setState(() {});
+                        return;
+                      } else {
+                        context.pushNamed('PayUser');
+                      }
+                    } else {
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
                   },
                   child: Material(
                     color: Colors.transparent,

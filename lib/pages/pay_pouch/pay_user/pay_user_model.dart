@@ -9,8 +9,6 @@ class PayUserModel extends FlutterFlowModel<PayUserWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (Get My Friends)] action in PayUser widget.
-  ApiCallResponse? friendResponse;
   // Model for backButton component.
   late BackButtonModel backButtonModel;
   Completer<ApiCallResponse>? apiRequestCompleter;
