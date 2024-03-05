@@ -74,22 +74,26 @@ class _InviteWidgetState extends State<InviteWidget>
             SliverAppBar(
               expandedHeight: 80.0,
               pinned: false,
-              floating: false,
+              floating: true,
+              snap: false,
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              title: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset(
-                    'assets/images/ranklogo.png',
-                    width: 60.0,
-                    fit: BoxFit.contain,
+              actions: const [],
+              flexibleSpace: FlexibleSpaceBar(
+                title: Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.asset(
+                      'assets/images/ranklogo.png',
+                      width: 90.0,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
+                centerTitle: true,
+                expandedTitleScale: 1.0,
               ),
-              actions: const [],
-              centerTitle: true,
               elevation: 2.0,
             )
           ],
