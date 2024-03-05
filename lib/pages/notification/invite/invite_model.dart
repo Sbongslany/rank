@@ -9,6 +9,10 @@ class InviteModel extends FlutterFlowModel<InviteWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for ListView widget.
 
   PagingController<ApiPagingParams, dynamic>? listViewPagingController;
@@ -25,6 +29,9 @@ class InviteModel extends FlutterFlowModel<InviteWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+
     listViewPagingController?.dispose();
   }
 
