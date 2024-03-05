@@ -193,7 +193,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AnimatedContainer(
@@ -666,7 +666,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           elevation: 2.0,
                           child: Container(
                             width: double.infinity,
-                            height: 170.0,
+                            height: 120.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
@@ -679,15 +679,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                             ),
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Column(
+                            child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1709060506272.json',
-                                  width: 188.0,
-                                  height: 100.0,
-                                  fit: BoxFit.cover,
+                                  width: 180.0,
+                                  height: 180.0,
+                                  fit: BoxFit.contain,
                                   reverse: true,
                                   animate: true,
                                 ),
@@ -702,6 +702,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           fontFamily: 'Readex Pro',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
+                                          fontSize: 20.0,
                                         ),
                                   ),
                                 ),
@@ -733,7 +734,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       elevation: 2.0,
                       child: Container(
                         width: double.infinity,
-                        height: 170.0,
+                        height: 120.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -746,15 +747,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Column(
+                        child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Lottie.asset(
                               'assets/lottie_animations/Animation_-_1709061002700.json',
-                              width: 105.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
+                              width: 180.0,
+                              height: 180.0,
+                              fit: BoxFit.contain,
                               reverse: true,
                               animate: true,
                             ),
@@ -762,13 +763,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Text(
-                                'LOAN DIRECTORY',
+                                'LOAN \nDIRECTORY',
+                                textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
+                                      fontSize: 20.0,
                                     ),
                               ),
                             ),
@@ -801,7 +804,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           elevation: 2.0,
                           child: Container(
                             width: double.infinity,
-                            height: 170.0,
+                            height: 120.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
@@ -814,27 +817,30 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                             ),
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1709061503251.json',
-                                  width: 105.0,
-                                  height: 100.0,
-                                  fit: BoxFit.cover,
+                                  width: 180.0,
+                                  height: 180.0,
+                                  fit: BoxFit.contain,
                                   reverse: true,
                                   animate: true,
                                 ),
                                 Flexible(
                                   child: Text(
-                                    'LINK ACCOUNTS',
+                                    'LINK \nACCOUNTS',
+                                    textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
+                                          fontSize: 20.0,
                                         ),
                                   ),
                                 ),

@@ -74,7 +74,7 @@ class SignInCall {
 
   static String? jwt(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.token''',
+        r'''$.data.token''',
       ));
 }
 
@@ -512,7 +512,7 @@ class RejectFriendCall {
 
   static dynamic friendid(dynamic response) => getJsonField(
         response,
-        r'''$.friend_id''',
+        r'''$.data.friend_id''',
       );
 }
 
