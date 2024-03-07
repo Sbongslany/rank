@@ -449,6 +449,8 @@ class _LoginWidgetState extends State<LoginWidget>
                             (_model.loginResponse?.jsonBody ?? ''),
                           ),
                           refreshToken: currentAuthRefreshToken,
+                          tokenExpiration: currentAuthTokenExpiration,
+                          authUid: currentUserUid,
                         );
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
