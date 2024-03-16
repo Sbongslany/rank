@@ -1,5 +1,4 @@
 import '/auth/custom_auth/auth_util.dart';
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -562,7 +561,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 var shouldSetState = false;
                                 _model.countResponse =
                                     await GetFriendRequesCountCall.call(
-                                  jwt: currentJwtToken,
+                                  jwt: currentAuthenticationToken,
                                 );
                                 shouldSetState = true;
                                 if ((_model.countResponse?.succeeded ?? true)) {
