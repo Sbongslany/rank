@@ -391,7 +391,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      GetUserCall.name(
+                                      GetUserCall.firstname(
                                         rowGetUserResponse.jsonBody,
                                       ),
                                       '\'\'',
@@ -409,7 +409,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       4.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      GetUserCall.surname(
+                                      GetUserCall.lastname(
                                         rowGetUserResponse.jsonBody,
                                       ),
                                       '\'\'',

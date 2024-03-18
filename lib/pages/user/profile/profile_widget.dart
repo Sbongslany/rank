@@ -165,7 +165,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController1 ??=
                           TextEditingController(
-                        text: GetUserCall.name(
+                        text: GetUserCall.firstname(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),
@@ -237,7 +237,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController2 ??=
                           TextEditingController(
-                        text: GetUserCall.surname(
+                        text: GetUserCall.lastname(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),
@@ -309,7 +309,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     child: TextFormField(
                       controller: _model.textController3 ??=
                           TextEditingController(
-                        text: GetUserCall.cell(
+                        text: GetUserCall.cellnumber(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),

@@ -76,6 +76,28 @@ class SignInCall {
         response,
         r'''$.data.token''',
       ));
+  static String? myEmail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.email''',
+      ));
+  static String? myId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.id''',
+      ));
+  static String? myFirstName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.first_name''',
+      ));
+  static String? myLastName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.last_name''',
+      ));
+  static String? myProfile(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.profile_picture''',
+      ));
 }
 
 class GetUserCall {
@@ -98,17 +120,26 @@ class GetUserCall {
     );
   }
 
-  static String? name(dynamic response) => castToType<String>(getJsonField(
+  static String? profile(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.first_name''',
+        r'''$.data.profile_picture''',
       ));
-  static String? surname(dynamic response) => castToType<String>(getJsonField(
+  static String? firstname(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.last_name''',
+        r'''$.data.first_name''',
       ));
-  static String? cell(dynamic response) => castToType<String>(getJsonField(
+  static String? lastname(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.cell_number''',
+        r'''$.data.last_name''',
+      ));
+  static String? cellnumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.cell_number''',
+      ));
+  static String? email(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.email''',
       ));
 }
 
@@ -238,7 +269,7 @@ class GetPayPouchBalanceCall {
 
   static String? total(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.total''',
+        r'''$.data.total''',
       ));
 }
 
@@ -348,6 +379,11 @@ class GetMyFriendsRequestsCall {
       alwaysAllowBody: false,
     );
   }
+
+  static int? requests(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data[:].nr_friend_request''',
+      ));
 }
 
 class ApproveRequestCall {

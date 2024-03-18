@@ -1,13 +1,16 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
 import 'invite_model.dart';
 export 'invite_model.dart';
 
@@ -25,7 +28,20 @@ class _InviteWidgetState extends State<InviteWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'containerOnActionTriggerAnimation': AnimationInfo(
+    'containerOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(1.0, 1.0),
+          end: const Offset(1.0, 1.0),
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -45,8 +61,14 @@ class _InviteWidgetState extends State<InviteWidget>
     super.initState();
     _model = createModel(context, () => InviteModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().searchActive = false;
+      });
+    });
+
     _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -65,6 +87,8 @@ class _InviteWidgetState extends State<InviteWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -114,231 +138,297 @@ class _InviteWidgetState extends State<InviteWidget>
                             0.0, 15.0, 0.0, 15.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 10.0),
+                                    5.0, 0.0, 0.0, 0.0),
                                 child: SizedBox(
                                   width: 320.0,
-                                  child: TextFormField(
-                                    controller: _model.textController,
-                                    focusNode: _model.textFieldFocusNode,
-                                    onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.textController',
-                                      const Duration(milliseconds: 2000),
-                                      () => setState(() {}),
-                                    ),
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelText: 'Search for user',
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          width: 2.0,
+                                  child: Autocomplete<String>(
+                                    initialValue: const TextEditingValue(),
+                                    optionsBuilder: (textEditingValue) {
+                                      if (textEditingValue.text == '') {
+                                        return const Iterable<String>.empty();
+                                      }
+                                      return [''].where((option) {
+                                        final lowercaseOption =
+                                            option.toLowerCase();
+                                        return lowercaseOption.contains(
+                                            textEditingValue.text
+                                                .toLowerCase());
+                                      });
+                                    },
+                                    optionsViewBuilder:
+                                        (context, onSelected, options) {
+                                      return AutocompleteOptionsList(
+                                        textFieldKey: _model.textFieldKey,
+                                        textController: _model.textController!,
+                                        options: options.toList(),
+                                        onSelected: onSelected,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        textHighlightStyle: const TextStyle(),
+                                        elevation: 4.0,
+                                        optionBackgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                        optionHighlightColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                        maxHeight: 200.0,
+                                      );
+                                    },
+                                    onSelected: (String selection) {
+                                      setState(() => _model
+                                          .textFieldSelectedOption = selection);
+                                      FocusScope.of(context).unfocus();
+                                    },
+                                    fieldViewBuilder: (
+                                      context,
+                                      textEditingController,
+                                      focusNode,
+                                      onEditingComplete,
+                                    ) {
+                                      _model.textFieldFocusNode = focusNode;
+
+                                      _model.textController =
+                                          textEditingController;
+                                      return TextFormField(
+                                        key: _model.textFieldKey,
+                                        controller: textEditingController,
+                                        focusNode: focusNode,
+                                        onEditingComplete: onEditingComplete,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.textController',
+                                          const Duration(milliseconds: 2000),
+                                          () async {
+                                            setState(() {
+                                              FFAppState().searchActive = true;
+                                            });
+                                          },
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 2.0,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Search friend',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          suffixIcon: const Icon(
+                                            Icons.search_sharp,
+                                          ),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      suffixIcon: const Icon(
-                                        Icons.close,
-                                      ),
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                    validator: _model.textControllerValidator
-                                        .asValidator(context),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        validator: _model
+                                            .textControllerValidator
+                                            .asValidator(context),
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
                             ),
-                            Icon(
-                              Icons.search,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 34.0,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                setState(() {
+                                  _model.textController?.clear();
+                                });
+                                setState(() {
+                                  FFAppState().searchActive = false;
+                                });
+                              },
+                              child: Icon(
+                                Icons.close,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 34.0,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      RefreshIndicator(
-                        onRefresh: () async {
-                          setState(
-                              () => _model.listViewPagingController?.refresh());
-                          await _model.waitForOnePageForListView();
-                        },
-                        child: PagedListView<ApiPagingParams, dynamic>(
-                          pagingController: _model.setListViewController(
-                            (nextPageMarker) => GetUsersCall.call(
-                              jwt: currentAuthenticationToken,
-                            ),
-                          ),
-                          padding: EdgeInsets.zero,
-                          primary: false,
-                          shrinkWrap: true,
-                          reverse: false,
-                          scrollDirection: Axis.vertical,
-                          builderDelegate: PagedChildBuilderDelegate<dynamic>(
-                            // Customize what your widget looks like when it's loading the first page.
-                            firstPageProgressIndicatorBuilder: (_) => Center(
-                              child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: SpinKitSpinningCircle(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 40.0,
-                                ),
+                      if (!FFAppState().searchActive)
+                        RefreshIndicator(
+                          onRefresh: () async {
+                            setState(() =>
+                                _model.listViewPagingController?.refresh());
+                            await _model.waitForOnePageForListView();
+                          },
+                          child: PagedListView<ApiPagingParams, dynamic>(
+                            pagingController: _model.setListViewController(
+                              (nextPageMarker) => GetUsersCall.call(
+                                jwt: currentAuthenticationToken,
                               ),
                             ),
-                            // Customize what your widget looks like when it's loading another page.
-                            newPageProgressIndicatorBuilder: (_) => Center(
-                              child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: SpinKitSpinningCircle(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 40.0,
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            reverse: false,
+                            scrollDirection: Axis.vertical,
+                            builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                              // Customize what your widget looks like when it's loading the first page.
+                              firstPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitSpinningCircle(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    size: 40.0,
+                                  ),
                                 ),
                               ),
-                            ),
-                            noItemsFoundIndicatorBuilder: (_) => Image.asset(
-                              'assets/images/ranklogo_2.png',
-                              width: 200.0,
-                              fit: BoxFit.contain,
-                            ),
-                            itemBuilder: (context, _, getUsersIndex) {
-                              final getUsersItem = _model
-                                  .listViewPagingController!
-                                  .itemList![getUsersIndex];
-                              return SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 20.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context
-                                                          .pushNamed('Profile');
-                                                    },
-                                                    child: Container(
-                                                      width: 50.0,
-                                                      height: 50.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: const BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.asset(
-                                                        'assets/images/imagePlaceholder.png',
-                                                        fit: BoxFit.cover,
+                              // Customize what your widget looks like when it's loading another page.
+                              newPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitSpinningCircle(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    size: 40.0,
+                                  ),
+                                ),
+                              ),
+
+                              itemBuilder: (context, _, getUsersIndex) {
+                                final getUsersItem = _model
+                                    .listViewPagingController!
+                                    .itemList![getUsersIndex];
+                                return SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 20.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                            'Profile');
+                                                      },
+                                                      child: Container(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.asset(
+                                                          'assets/images/imagePlaceholder.png',
+                                                          fit: BoxFit.cover,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 1.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  '${valueOrDefault<String>(
-                                                    getJsonField(
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 1.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    '${valueOrDefault<String>(
+                                                      getJsonField(
+                                                        getUsersItem,
+                                                        r'''$.first_name''',
+                                                      )?.toString(),
+                                                      '-',
+                                                    )} ${getJsonField(
                                                       getUsersItem,
-                                                      r'''$.first_name''',
-                                                    )?.toString(),
-                                                    '-',
-                                                  )} ${getJsonField(
-                                                    getUsersItem,
-                                                    r'''$.last_name''',
-                                                  ).toString()}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                      ),
-                                                ),
-                                                Opacity(
-                                                  opacity: 0.0,
-                                                  child: Text(
-                                                    'MANAGER AT ONECALL24',
+                                                      r'''$.last_name''',
+                                                    ).toString()}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -350,141 +440,455 @@ class _InviteWidgetState extends State<InviteWidget>
                                                               .alternate,
                                                         ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 5.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                var shouldSetState = false;
-                                                _model.inviteFriendResoonse =
-                                                    await InviteFriendCall.call(
-                                                  userId: getJsonField(
-                                                    getUsersItem,
-                                                    r'''$.user_id''',
-                                                  ).toString(),
-                                                  jwt:
-                                                      currentAuthenticationToken,
-                                                );
-                                                shouldSetState = true;
-                                                if ((_model.inviteFriendResoonse
-                                                        ?.succeeded ??
-                                                    true)) {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        getJsonField(
-                                                          (_model.inviteFriendResoonse
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                          r'''$.message''',
-                                                        ).toString(),
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: const Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
+                                                  Opacity(
+                                                    opacity: 0.0,
+                                                    child: Text(
+                                                      'MANAGER AT ONECALL24',
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .success,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                              ),
                                                     ),
-                                                  );
-                                                  if (shouldSetState) {
-                                                    setState(() {});
-                                                  }
-                                                  return;
-                                                } else {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        getJsonField(
-                                                          (_model.inviteFriendResoonse
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                          r'''$.message''',
-                                                        ).toString(),
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: const Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                    ),
-                                                  );
-                                                  if (shouldSetState) {
-                                                    setState(() {});
-                                                  }
-                                                  return;
-                                                }
-
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                              },
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                elevation: 5.0,
-                                                shape: const CircleBorder(),
-                                                child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  decoration: const BoxDecoration(
-                                                    color: Color(0xFF38FF00),
-                                                    shape: BoxShape.circle,
                                                   ),
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.add_circle,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    size: 30.0,
-                                                  ),
-                                                ),
+                                                ],
                                               ),
-                                            ).animateOnActionTrigger(
-                                              animationsMap[
-                                                  'containerOnActionTriggerAnimation']!,
                                             ),
-                                          ),
-                                        ],
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 10.0, 5.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  var shouldSetState = false;
+                                                  _model.inviteFriendResoonse =
+                                                      await InviteFriendCall
+                                                          .call(
+                                                    userId: getJsonField(
+                                                      getUsersItem,
+                                                      r'''$.user_id''',
+                                                    ).toString(),
+                                                    jwt:
+                                                        currentAuthenticationToken,
+                                                  );
+                                                  shouldSetState = true;
+                                                  if ((_model
+                                                          .inviteFriendResoonse
+                                                          ?.succeeded ??
+                                                      true)) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          getJsonField(
+                                                            (_model.inviteFriendResoonse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.message''',
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                      ),
+                                                    );
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          getJsonField(
+                                                            (_model.inviteFriendResoonse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.message''',
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                      ),
+                                                    );
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  }
+
+                                                  if (shouldSetState) {
+                                                    setState(() {});
+                                                  }
+                                                },
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  elevation: 5.0,
+                                                  shape: const CircleBorder(),
+                                                  child: Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    decoration: const BoxDecoration(
+                                                      color: Color(0xFF38FF00),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.add_circle,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 30.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ).animateOnActionTrigger(
+                                                animationsMap[
+                                                    'containerOnActionTriggerAnimation1']!,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Divider(
-                                      thickness: 1.0,
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
+                                      Divider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
-                      ),
+                      if (FFAppState().searchActive)
+                        RefreshIndicator(
+                          onRefresh: () async {
+                            setState(() => _model.searchResultsPagingController
+                                ?.refresh());
+                            await _model.waitForOnePageForSearchResults();
+                          },
+                          child: PagedListView<ApiPagingParams, dynamic>(
+                            pagingController: _model.setSearchResultsController(
+                              (nextPageMarker) => GetUsersCall.call(
+                                jwt: currentAuthenticationToken,
+                              ),
+                            ),
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            reverse: false,
+                            scrollDirection: Axis.vertical,
+                            builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                              // Customize what your widget looks like when it's loading the first page.
+                              firstPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitSpinningCircle(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    size: 40.0,
+                                  ),
+                                ),
+                              ),
+                              // Customize what your widget looks like when it's loading another page.
+                              newPageProgressIndicatorBuilder: (_) => Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: SpinKitSpinningCircle(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    size: 40.0,
+                                  ),
+                                ),
+                              ),
+
+                              itemBuilder: (context, _, getUsersIndex) {
+                                final getUsersItem = _model
+                                    .searchResultsPagingController!
+                                    .itemList![getUsersIndex];
+                                return SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 20.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                            'Profile');
+                                                      },
+                                                      child: Container(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.asset(
+                                                          'assets/images/imagePlaceholder.png',
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 1.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    '${valueOrDefault<String>(
+                                                      getJsonField(
+                                                        getUsersItem,
+                                                        r'''$.first_name''',
+                                                      )?.toString(),
+                                                      '-',
+                                                    )} ${getJsonField(
+                                                      getUsersItem,
+                                                      r'''$.last_name''',
+                                                    ).toString()}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                        ),
+                                                  ),
+                                                  Opacity(
+                                                    opacity: 0.0,
+                                                    child: Text(
+                                                      'MANAGER AT ONECALL24',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 10.0, 5.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  var shouldSetState = false;
+                                                  _model.inviteFriendRespond =
+                                                      await InviteFriendCall
+                                                          .call(
+                                                    userId: getJsonField(
+                                                      getUsersItem,
+                                                      r'''$.user_id''',
+                                                    ).toString(),
+                                                    jwt:
+                                                        currentAuthenticationToken,
+                                                  );
+                                                  shouldSetState = true;
+                                                  if ((_model
+                                                          .inviteFriendRespond
+                                                          ?.succeeded ??
+                                                      true)) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          getJsonField(
+                                                            (_model.inviteFriendRespond
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.message''',
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                      ),
+                                                    );
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          getJsonField(
+                                                            (_model.inviteFriendRespond
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.message''',
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                      ),
+                                                    );
+                                                    if (shouldSetState) {
+                                                      setState(() {});
+                                                    }
+                                                    return;
+                                                  }
+
+                                                  if (shouldSetState) {
+                                                    setState(() {});
+                                                  }
+                                                },
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  elevation: 5.0,
+                                                  shape: const CircleBorder(),
+                                                  child: Container(
+                                                    width: 40.0,
+                                                    height: 40.0,
+                                                    decoration: const BoxDecoration(
+                                                      color: Color(0xFF38FF00),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.add_circle,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 30.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ).animateOnActionTrigger(
+                                                animationsMap[
+                                                    'containerOnActionTriggerAnimation2']!,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
