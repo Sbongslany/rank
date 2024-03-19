@@ -211,7 +211,6 @@ class _InviteWidgetState extends State<InviteWidget>
                                             });
                                           },
                                         ),
-                                        autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Search friend',

@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'register_widget.dart' show RegisterWidget;
 import 'package:flutter/material.dart';
 
@@ -33,13 +32,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   FocusNode? idNumberFocusNode;
   TextEditingController? idNumberController;
   String? Function(BuildContext, String?)? idNumberControllerValidator;
-  // State field(s) for QuestionDropDown widget.
-  String? questionDropDownValue;
-  FormFieldController<String>? questionDropDownValueController;
-  // State field(s) for SecurityAnswer widget.
-  FocusNode? securityAnswerFocusNode;
-  TextEditingController? securityAnswerController;
-  String? Function(BuildContext, String?)? securityAnswerControllerValidator;
   // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
   ApiCallResponse? regResponse;
 
@@ -70,9 +62,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
     idNumberFocusNode?.dispose();
     idNumberController?.dispose();
-
-    securityAnswerFocusNode?.dispose();
-    securityAnswerController?.dispose();
   }
 
   /// Action blocks are added here.

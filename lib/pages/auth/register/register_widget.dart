@@ -1,10 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'register_model.dart';
@@ -264,82 +262,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
         ),
       ],
     ),
-    'textOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 650.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 650.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'dropDownOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 700.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 700.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'buttonOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -383,9 +305,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
 
     _model.idNumberController ??= TextEditingController();
     _model.idNumberFocusNode ??= FocusNode();
-
-    _model.securityAnswerController ??= TextEditingController();
-    _model.securityAnswerFocusNode ??= FocusNode();
   }
 
   @override
@@ -953,138 +872,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                       animationsMap['textFieldOnPageLoadAnimation6']!),
                 ),
               ),
-              Opacity(
-                opacity: 0.3,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
-                  child: Text(
-                    'SECURITY QUESTION',
-                    textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          fontSize: 10.0,
-                        ),
-                  ).animateOnPageLoad(
-                      animationsMap['textOnPageLoadAnimation7']!),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                child: Container(
-                  width: 370.0,
-                  height: 50.0,
-                  decoration: const BoxDecoration(),
-                  child: FlutterFlowDropDown<String>(
-                    controller: _model.questionDropDownValueController ??=
-                        FormFieldController<String>(null),
-                    options: const [
-                      'What is your name',
-                      'Where were you born',
-                      'What is your favourite dish'
-                    ],
-                    onChanged: (val) =>
-                        setState(() => _model.questionDropDownValue = val),
-                    width: 350.0,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Please select...',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                    fillColor: const Color(0xFFB5C4D1),
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderWidth: 2.0,
-                    borderRadius: 8.0,
-                    margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isOverButton: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  ).animateOnPageLoad(
-                      animationsMap['dropDownOnPageLoadAnimation']!),
-                ),
-              ),
-              Opacity(
-                opacity: 0.3,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 0.0, 0.0),
-                  child: Text(
-                    'SECURITY ANSWER',
-                    textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          fontSize: 10.0,
-                        ),
-                  ).animateOnPageLoad(
-                      animationsMap['textOnPageLoadAnimation8']!),
-                ),
-              ),
-              Container(
-                width: 370.0,
-                height: 50.0,
-                decoration: const BoxDecoration(),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.securityAnswerController,
-                    focusNode: _model.securityAnswerFocusNode,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                      hintStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xFFB5C4D1),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Readex Pro',
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
-                    validator: _model.securityAnswerControllerValidator
-                        .asValidator(context),
-                  ).animateOnPageLoad(
-                      animationsMap['textFieldOnPageLoadAnimation7']!),
-                ),
-              ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
@@ -1098,8 +885,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         email: _model.emailController.text,
                         cellNumber: _model.phoneNumberController.text,
                         password: _model.passwordController.text,
-                        verifyQuestion: _model.questionDropDownValue,
-                        verifyAnswer: _model.securityAnswerController.text,
                         idnumber: _model.idNumberController.text,
                       );
                       shouldSetState = true;

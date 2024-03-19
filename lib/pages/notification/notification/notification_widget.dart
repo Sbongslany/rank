@@ -381,6 +381,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                     if ((_model.apiApprove
                                                             ?.succeeded ??
                                                         true)) {
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
