@@ -360,12 +360,12 @@ class ResetPasswordCall {
   }
 }
 
-class GetMyFriendsRequestsCall {
+class GetMyFriendRequestsCall {
   static Future<ApiCallResponse> call({
     String? jwt = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'Get My Friends Requests',
+      callName: 'Get My Friend Requests',
       apiUrl: 'https://m-techsolutions.co.za/app-rank/get_friends_request.php',
       callType: ApiCallType.GET,
       headers: {
@@ -383,6 +383,27 @@ class GetMyFriendsRequestsCall {
   static int? requests(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.data[:].nr_friend_request''',
+      ));
+  static String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].status''',
+      ));
+  static String? contactNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].contactNumber''',
+      ));
+  static String? names(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].names''',
+      ));
+  static String? friendid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].friend_id''',
+      ));
+  static String? profile(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].profile_picture''',
       ));
 }
 
@@ -663,6 +684,89 @@ class BankDetailsCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class GetFriendsToInviteCall {
+  static Future<ApiCallResponse> call({
+    String? userId = '',
+    String? firstName = '',
+    String? lastName = '',
+    String? email = '',
+    String? cellNumber = '',
+    String? filename = '',
+    String? jwt = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Friends to Invite',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/get_friends_to_invite.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? userId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].user_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fileName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].filename''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cellNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].cell_number''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? email(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].email''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].last_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? firstName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].first_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {

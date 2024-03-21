@@ -68,7 +68,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                 FutureBuilder<ApiCallResponse>(
                   future: (_model.apiRequestCompleter ??=
                           Completer<ApiCallResponse>()
-                            ..complete(GetMyFriendsRequestsCall.call(
+                            ..complete(GetMyFriendRequestsCall.call(
                               jwt: currentAuthenticationToken,
                             )))
                       .future,
@@ -87,11 +87,11 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                         ),
                       );
                     }
-                    final listViewGetMyFriendsRequestsResponse = snapshot.data!;
+                    final listViewGetMyFriendRequestsResponse = snapshot.data!;
                     return Builder(
                       builder: (context) {
                         final getMyFriendsRequests =
-                            listViewGetMyFriendsRequestsResponse.jsonBody
+                            listViewGetMyFriendRequestsResponse.jsonBody
                                 .toList();
                         return RefreshIndicator(
                           onRefresh: () async {
@@ -184,10 +184,14 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                       const AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: Text(
-                                                    getJsonField(
-                                                      getMyFriendsRequestsItem,
-                                                      r'''$.names''',
-                                                    ).toString(),
+                                                    valueOrDefault<String>(
+                                                      GetMyFriendRequestsCall
+                                                          .names(
+                                                        listViewGetMyFriendRequestsResponse
+                                                            .jsonBody,
+                                                      ),
+                                                      '-',
+                                                    ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -206,10 +210,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                       const AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: Text(
-                                                    getJsonField(
-                                                      getMyFriendsRequestsItem,
-                                                      r'''$.status''',
-                                                    ).toString(),
+                                                    'Pending',
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
