@@ -596,7 +596,7 @@ class GetFriendRequesCountCall {
 
   static int? numberRequests(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$[:].nr_friend_request''',
+        r'''$.nr_friend_request''',
       ));
 }
 
@@ -688,12 +688,6 @@ class BankDetailsCall {
 
 class GetFriendsToInviteCall {
   static Future<ApiCallResponse> call({
-    String? userId = '',
-    String? firstName = '',
-    String? lastName = '',
-    String? email = '',
-    String? cellNumber = '',
-    String? filename = '',
     String? jwt = '',
   }) async {
     return ApiManager.instance.makeApiCall(
