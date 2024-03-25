@@ -17,7 +17,7 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.
-  ApiCallResponse? apiResultkeq;
+  ApiCallResponse? apiResultt2a;
 
   /// Initialization and disposal methods.
 

@@ -245,50 +245,43 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  final selectedFiles = await selectFiles(
-                                    multiFile: false,
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    allowPhoto: true,
                                   );
-                                  if (selectedFiles != null) {
+                                  if (selectedMedia != null &&
+                                      selectedMedia.every((m) =>
+                                          validateFileFormat(
+                                              m.storagePath, context))) {
                                     setState(
                                         () => _model.isDataUploading = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
 
                                     try {
-                                      showUploadMessage(
-                                        context,
-                                        'Uploading file...',
-                                        showLoading: true,
-                                      );
-                                      selectedUploadedFiles = selectedFiles
+                                      selectedUploadedFiles = selectedMedia
                                           .map((m) => FFUploadedFile(
                                                 name: m.storagePath
                                                     .split('/')
                                                     .last,
                                                 bytes: m.bytes,
+                                                height: m.dimensions?.height,
+                                                width: m.dimensions?.width,
+                                                blurHash: m.blurHash,
                                               ))
                                           .toList();
                                     } finally {
-                                      ScaffoldMessenger.of(context)
-                                          .hideCurrentSnackBar();
                                       _model.isDataUploading = false;
                                     }
                                     if (selectedUploadedFiles.length ==
-                                        selectedFiles.length) {
+                                        selectedMedia.length) {
                                       setState(() {
                                         _model.uploadedLocalFile =
                                             selectedUploadedFiles.first;
                                       });
-                                      showUploadMessage(
-                                        context,
-                                        'Success!',
-                                      );
                                     } else {
                                       setState(() {});
-                                      showUploadMessage(
-                                        context,
-                                        'Failed to upload file',
-                                      );
                                       return;
                                     }
                                   }
@@ -341,13 +334,6 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             ),
                           ),
                         ),
-                        Text(
-                          valueOrDefault<String>(
-                            _model.uploadedLocalFile.height?.toString(),
-                            '-',
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
                       ],
                     ),
                   ),
@@ -358,16 +344,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 child: FFButtonWidget(
                   onPressed: () async {
                     var shouldSetState = false;
-                    _model.apiResultkeq = await UploadDocCall.call(
+                    _model.apiResultt2a = await UploadDocCall.call(
                       jwt: currentAuthenticationToken,
                       file: _model.uploadedLocalFile,
                     );
                     shouldSetState = true;
-                    if ((_model.apiResultkeq?.succeeded ?? true)) {
+                    if ((_model.apiResultt2a?.succeeded ?? true)) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            'File uploaded successfully',
+                            'file uploaded',
                             style: TextStyle(
                               color: FlutterFlowTheme.of(context).primaryText,
                             ),
@@ -378,23 +364,23 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         ),
                       );
 
-                      context.pushNamed('LinkConfirmation');
-
-                      if (shouldSetState) setState(() {});
-                      return;
+                      context.pushNamed('LinkAccounts');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            'File not uploaded successfully',
+                            'file not uploaded',
                             style: TextStyle(
-                              color: FlutterFlowTheme.of(context).alternate,
+                              color: FlutterFlowTheme.of(context).primaryText,
                             ),
                           ),
                           duration: const Duration(milliseconds: 4000),
-                          backgroundColor: FlutterFlowTheme.of(context).error,
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
                         ),
                       );
+                      if (shouldSetState) setState(() {});
+                      return;
                     }
 
                     if (shouldSetState) setState(() {});
@@ -467,7 +453,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     color: const Color(0xFF18FC2C),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).secondary,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
