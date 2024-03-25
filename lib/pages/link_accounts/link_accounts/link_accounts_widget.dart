@@ -145,7 +145,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 15.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),
@@ -163,7 +163,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 12.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.normal,
                                   ),
                             ),
                           ),
@@ -225,6 +225,12 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     offset: Offset(0.0, 2.0),
                                   )
                                 ],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0),
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(10.0),
+                                ),
                                 border: Border.all(
                                   color: FlutterFlowTheme.of(context).secondary,
                                 ),
