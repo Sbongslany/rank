@@ -75,22 +75,14 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     width: double.infinity,
                     height: 70.0,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.34),
-                        end: const AlignmentDirectional(-1.0, -0.34),
-                      ),
+                      color: FlutterFlowTheme.of(context).secondary,
                     ),
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'INSERT ACCOUNT DETAILS',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 20.0,
                           ),
                     ),
@@ -290,7 +282,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     var shouldSetState = false;
@@ -343,8 +335,8 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                   },
                   text: 'Confirm',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -353,6 +345,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          fontSize: 20.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -364,15 +357,15 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
                   },
                   text: 'Cancel',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -381,6 +374,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          fontSize: 20.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -393,15 +387,15 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 40.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('LinkCard');
                   },
                   text: 'Link my card',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -410,6 +404,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).secondary,
+                          fontSize: 20.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
