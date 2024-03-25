@@ -162,7 +162,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 9.0,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -217,9 +217,16 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                               width: double.infinity,
                               height: 60.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FlutterFlowTheme.of(context).secondary,
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(0.0, 2.0),
+                                  )
+                                ],
                                 border: Border.all(
-                                  color: const Color(0xFF6D7681),
+                                  color: FlutterFlowTheme.of(context).secondary,
                                 ),
                               ),
                               child: Row(
@@ -233,8 +240,9 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     child: Container(
                                       width: 40.0,
                                       height: 40.0,
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFFBFBDBD),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         shape: BoxShape.circle,
                                       ),
                                       alignment: const AlignmentDirectional(0.0, 0.0),
@@ -252,15 +260,17 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Ubuntu',
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.w300,
+                                          fontFamily: 'Nunito',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                   ),
                                   Icon(
                                     Icons.arrow_forward_ios_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     size: 24.0,
                                   ),
                                 ],
