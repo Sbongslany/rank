@@ -246,7 +246,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   final selectedFiles = await selectFiles(
-                                    multiFile: true,
+                                    multiFile: false,
                                   );
                                   if (selectedFiles != null) {
                                     setState(
@@ -276,8 +276,8 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     if (selectedUploadedFiles.length ==
                                         selectedFiles.length) {
                                       setState(() {
-                                        _model.uploadedLocalFiles =
-                                            selectedUploadedFiles;
+                                        _model.uploadedLocalFile =
+                                            selectedUploadedFiles.first;
                                       });
                                       showUploadMessage(
                                         context,
@@ -353,7 +353,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     var shouldSetState = false;
                     _model.apiResultkeq = await UploadDocCall.call(
                       jwt: currentAuthenticationToken,
-                      file: name,
+                      file: _model.uploadedLocalFile,
                     );
                     shouldSetState = true;
                     if ((_model.apiResultkeq?.succeeded ?? true)) {
