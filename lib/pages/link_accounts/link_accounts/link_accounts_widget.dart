@@ -342,48 +342,8 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    var shouldSetState = false;
-                    _model.apiResultt2a = await UploadDocCall.call(
-                      jwt: currentAuthenticationToken,
-                      file: _model.uploadedLocalFile,
-                    );
-                    shouldSetState = true;
-                    if ((_model.apiResultt2a?.succeeded ?? true)) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'file uploaded',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                          ),
-                          duration: const Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
-                        ),
-                      );
-
-                      context.pushNamed('LinkAccounts');
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'file not uploaded',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                          ),
-                          duration: const Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
-                        ),
-                      );
-                      if (shouldSetState) setState(() {});
-                      return;
-                    }
-
-                    if (shouldSetState) setState(() {});
+                  onPressed: () {
+                    print('Button pressed ...');
                   },
                   text: 'Confirm',
                   options: FFButtonOptions(
