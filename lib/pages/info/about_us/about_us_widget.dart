@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'about_us_model.dart';
 export 'about_us_model.dart';
 
@@ -23,11 +22,6 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutUsModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.safePop();
-    });
   }
 
   @override

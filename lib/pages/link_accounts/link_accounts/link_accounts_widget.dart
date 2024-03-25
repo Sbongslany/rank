@@ -150,23 +150,21 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             ),
                           ),
                         ),
-                        Flexible(
-                          child: Opacity(
-                            opacity: 0.7,
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Text(
-                                '3 Months bank statements, Drivers license or identiity card (front and back)',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 9.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                              ),
+                        Opacity(
+                          opacity: 0.7,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 0.0),
+                            child: Text(
+                              '3 Months bank statements, Drivers license or identiity card (front and back)',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 9.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ),
                           ),
                         ),
@@ -249,7 +247,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                     ),
                                   ),
                                   Text(
-                                    'Bank Statement\n(3 Months)',
+                                    'Upload here',
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
