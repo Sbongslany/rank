@@ -341,6 +341,13 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             ),
                           ),
                         ),
+                        Text(
+                          valueOrDefault<String>(
+                            _model.uploadedLocalFile.height?.toString(),
+                            '-',
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
                       ],
                     ),
                   ),
