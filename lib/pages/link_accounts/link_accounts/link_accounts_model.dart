@@ -12,20 +12,11 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   late BackMenuAppBarModel backMenuAppBarModel;
   // Stores action output result for [Backend Call - API (UploadDoc)] action in Container widget.
   ApiCallResponse? uplaodedDocs;
-  bool isDataUploading1 = false;
-  List<FFUploadedFile> uploadedLocalFiles1 = [];
+  bool isDataUploading = false;
+  List<FFUploadedFile> uploadedLocalFiles = [];
 
-  // Stores action output result for [Backend Call - API (UploadDoc)] action in Container widget.
-  ApiCallResponse? uplaodedDrivers;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Backend Call - API (UploadDoc)] action in Container widget.
-  ApiCallResponse? uplaodedIdCard;
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+  // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.
+  ApiCallResponse? apiResultkeq;
 
   /// Initialization and disposal methods.
 

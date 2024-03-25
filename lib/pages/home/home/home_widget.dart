@@ -54,7 +54,23 @@ class _HomeWidgetState extends State<HomeWidget> {
                   width: double.infinity,
                   height: 200.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: FlutterFlowTheme.of(context).secondary,
+                  ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(40.0, 40.0, 40.0, 40.0),
+                    child: Container(
+                      width: 20.0,
+                      height: 20.0,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(
+                        'assets/images/ranklogo_2.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                 ),
                 InkWell(
@@ -106,7 +122,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     height: 70.0,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: FlutterFlowTheme.of(context).secondary,
                       ),
                     ),
                     child: Row(
