@@ -353,7 +353,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     var shouldSetState = false;
                     _model.apiResultkeq = await UploadDocCall.call(
                       jwt: currentAuthenticationToken,
-                      file: file,
+                      file: name,
                     );
                     shouldSetState = true;
                     if ((_model.apiResultkeq?.succeeded ?? true)) {
