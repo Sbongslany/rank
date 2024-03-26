@@ -798,6 +798,17 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
+                        await PayFastCall.call(
+                          mPaymentId: PayPouchCall.userId(
+                            (_model.paypouchresponse?.jsonBody ?? ''),
+                          ),
+                          amount: PayPouchCall.amount(
+                            (_model.paypouchresponse?.jsonBody ?? ''),
+                          ),
+                          itemName: PayPouchCall.ref(
+                            (_model.paypouchresponse?.jsonBody ?? ''),
+                          ),
+                        );
 
                         context.pushNamed('ConfirmDeposit');
                       } else {

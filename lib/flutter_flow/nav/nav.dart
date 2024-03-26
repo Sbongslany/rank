@@ -250,6 +250,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'LinkCard',
           path: '/linkCard',
           builder: (context, params) => const LinkCardWidget(),
+        ),
+        FFRoute(
+          name: 'PayWebView',
+          path: '/payWebView',
+          builder: (context, params) => const PayWebViewWidget(),
+        ),
+        FFRoute(
+          name: 'payfast',
+          path: '/payfast',
+          builder: (context, params) => const PayfastWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

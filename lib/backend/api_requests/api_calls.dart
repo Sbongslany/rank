@@ -306,6 +306,18 @@ class PayPouchCall {
         response,
         r'''$.message''',
       ));
+  static String? userId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.user_id''',
+      ));
+  static String? ref(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.reference''',
+      ));
+  static String? amount(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.amount''',
+      ));
 }
 
 class ForgotPasswordCall {
@@ -420,7 +432,7 @@ class ApproveRequestCall {
       callName: 'Approve request',
       apiUrl:
           'https://m-techsolutions.co.za/app-rank/approve_friend_request.php',
-      callType: ApiCallType.PUT,
+      callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Bearer $jwt',
       },
@@ -761,6 +773,38 @@ class GetFriendsToInviteCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+}
+
+class PayFastCall {
+  static Future<ApiCallResponse> call({
+    String? mPaymentId = '',
+    String? amount = '',
+    String? itemName = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "merchant_id": "10000100",
+  "merchant_key": "46f0cd694581a",
+  "return_url": "https://www.m-techsolutions.co.za/app-rank/return.php",
+  "m_payment_id": "$mPaymentId",
+  "amount": $amount,
+  "item_name": "$itemName"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'PayFast',
+      apiUrl: 'https://sandbox.payfast.co.za/eng/process',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {
