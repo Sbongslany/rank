@@ -1,11 +1,17 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
 import 'pay_web_view_model.dart';
 export 'pay_web_view_model.dart';
 
 class PayWebViewWidget extends StatefulWidget {
-  const PayWebViewWidget({super.key});
+  const PayWebViewWidget({
+    super.key,
+    required this.urlLink,
+  });
+
+  final String? urlLink;
 
   @override
   State<PayWebViewWidget> createState() => _PayWebViewWidgetState();
@@ -38,6 +44,12 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: FlutterFlowWebView(
+          content: widget.urlLink!,
+          height: 850.0,
+          verticalScroll: false,
+          horizontalScroll: false,
+        ),
       ),
     );
   }

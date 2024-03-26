@@ -798,7 +798,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
-                        await PayFastCall.call(
+                        _model.fastUrl = await PayFastCall.call(
                           mPaymentId: PayPouchCall.userId(
                             (_model.paypouchresponse?.jsonBody ?? ''),
                           ),
@@ -809,8 +809,20 @@ class _DepositWidgetState extends State<DepositWidget> {
                             (_model.paypouchresponse?.jsonBody ?? ''),
                           ),
                         );
+                        shouldSetState = true;
 
-                        context.pushNamed('ConfirmDeposit');
+                        context.pushNamed(
+                          'PayWebView',
+                          queryParameters: {
+                            'urlLink': serializeParam(
+                              (_model.fastUrl?.succeeded ?? true).toString(),
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+
+                        if (shouldSetState) setState(() {});
+                        return;
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

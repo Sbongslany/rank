@@ -254,12 +254,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PayWebView',
           path: '/payWebView',
-          builder: (context, params) => const PayWebViewWidget(),
-        ),
-        FFRoute(
-          name: 'payfast',
-          path: '/payfast',
-          builder: (context, params) => const PayfastWidget(),
+          builder: (context, params) => PayWebViewWidget(
+            urlLink: params.getParam('urlLink', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

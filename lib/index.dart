@@ -54,4 +54,3 @@ export '/pages/link_accounts/link_card/link_card_widget.dart'
     show LinkCardWidget;
 export '/pages/pay_pouch/deposit/pay_web_view/pay_web_view_widget.dart'
     show PayWebViewWidget;
-export '/payfast/payfast_widget.dart' show PayfastWidget;

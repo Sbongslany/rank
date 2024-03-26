@@ -1,21 +1,15 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'payfast_widget.dart' show PayfastWidget;
+import 'tasting_widget.dart' show TastingWidget;
 import 'package:flutter/material.dart';
 
-class PayfastModel extends FlutterFlowModel<PayfastWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
+class TastingModel extends FlutterFlowModel<TastingWidget> {
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 
