@@ -405,6 +405,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).secondary,
                           fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
