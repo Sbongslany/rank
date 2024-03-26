@@ -810,6 +810,19 @@ class _DepositWidgetState extends State<DepositWidget> {
                           ),
                         );
                         shouldSetState = true;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              (_model.fastUrl?.bodyText ?? ''),
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
+                          ),
+                        );
 
                         context.pushNamed(
                           'PayWebView',
