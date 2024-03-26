@@ -810,30 +810,8 @@ class _DepositWidgetState extends State<DepositWidget> {
                           ),
                         );
                         shouldSetState = true;
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              (_model.fastUrl?.bodyText ?? ''),
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                            ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                          ),
-                        );
-
-                        context.pushNamed(
-                          'PayWebView',
-                          queryParameters: {
-                            'urlLink': serializeParam(
-                              (_model.fastUrl?.succeeded ?? true).toString(),
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                        );
-
+                        await launchURL(
+                            (_model.fastUrl?.jsonBody ?? '').toString());
                         if (shouldSetState) setState(() {});
                         return;
                       } else {
