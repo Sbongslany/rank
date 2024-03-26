@@ -420,7 +420,7 @@ class ApproveRequestCall {
       callName: 'Approve request',
       apiUrl:
           'https://m-techsolutions.co.za/app-rank/approve_friend_request.php',
-      callType: ApiCallType.POST,
+      callType: ApiCallType.PUT,
       headers: {
         'Authorization': 'Bearer $jwt',
       },
