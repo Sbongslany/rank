@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -152,7 +154,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 ),
               ),
               FlutterFlowDropDown<String>(
-                controller: _model.dropDownValueController1 ??=
+                controller: _model.amountValueController ??=
                     FormFieldController<String>(null),
                 options: const [
                   '500',
@@ -163,7 +165,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                   '3000',
                   '5000'
                 ],
-                onChanged: (val) => setState(() => _model.dropDownValue1 = val),
+                onChanged: (val) => setState(() => _model.amountValue = val),
                 width: 350.0,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -199,17 +201,10 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 ),
               ),
               FlutterFlowDropDown<String>(
-                controller: _model.dropDownValueController2 ??=
+                controller: _model.daysValueController ??=
                     FormFieldController<String>(null),
-                options: const [
-                  '1 MONTH',
-                  '2 MOTHNS',
-                  '3 MONTHS',
-                  '4 MONTHS',
-                  '5 MONTHS',
-                  '6 MONTHS'
-                ],
-                onChanged: (val) => setState(() => _model.dropDownValue2 = val),
+                options: const ['30', '60', '90'],
+                onChanged: (val) => setState(() => _model.daysValue = val),
                 width: 350.0,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -231,15 +226,59 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                 isMultiSelect: false,
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('LoanOffer');
+                    var shouldSetState = false;
+                    _model.apiResultmsa = await LoanDirectoryCall.call(
+                      jwt: currentAuthenticationToken,
+                      amount: _model.amountValue,
+                      days: _model.daysValue,
+                    );
+                    shouldSetState = true;
+                    if ((_model.apiResultmsa?.succeeded ?? true)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            LoanDirectoryCall.meesage(
+                              (_model.apiResultmsa?.jsonBody ?? ''),
+                            )!,
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                        ),
+                      );
+
+                      context.pushNamed('LoanConfonfirmation');
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            LoanDirectoryCall.meesage(
+                              (_model.apiResultmsa?.jsonBody ?? ''),
+                            )!,
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: FlutterFlowTheme.of(context).error,
+                        ),
+                      );
+                      if (shouldSetState) setState(() {});
+                      return;
+                    }
+
+                    if (shouldSetState) setState(() {});
                   },
                   text: 'SUBMIT',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:

@@ -25,11 +25,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     super.initState();
     _model = createModel(context, () => ProfileModel());
 
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.firstnameFocusNode ??= FocusNode();
 
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.lastnameFocusNode ??= FocusNode();
 
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.cellnumberFocusNode ??= FocusNode();
+
+    _model.bioFocusNode ??= FocusNode();
   }
 
   @override
@@ -115,8 +117,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Container(
-                      width: 180.0,
-                      height: 180.0,
+                      width: 90.0,
+                      height: 90.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondary,
                         boxShadow: const [
@@ -132,8 +134,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ),
                       child: Container(
-                        width: 170.0,
-                        height: 170.0,
+                        width: 90.0,
+                        height: 90.0,
                         clipBehavior: Clip.antiAlias,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
@@ -144,6 +146,74 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ),
                     ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 5.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'UPLOAD',
+                          options: FFButtonOptions(
+                            height: 20.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).secondary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 10.0,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'SAVE',
+                          options: FFButtonOptions(
+                            height: 20.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).secondary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 10.0,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Opacity(
                     opacity: 0.3,
@@ -163,13 +233,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController1 ??=
+                      controller: _model.firstnameController ??=
                           TextEditingController(
                         text: GetUserCall.firstname(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),
-                      focusNode: _model.textFieldFocusNode1,
+                      focusNode: _model.firstnameFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -213,8 +283,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
-                      validator:
-                          _model.textController1Validator.asValidator(context),
+                      validator: _model.firstnameControllerValidator
+                          .asValidator(context),
                     ),
                   ),
                   Opacity(
@@ -235,13 +305,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController2 ??=
+                      controller: _model.lastnameController ??=
                           TextEditingController(
                         text: GetUserCall.lastname(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),
-                      focusNode: _model.textFieldFocusNode2,
+                      focusNode: _model.lastnameFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -285,8 +355,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
-                      validator:
-                          _model.textController2Validator.asValidator(context),
+                      validator: _model.lastnameControllerValidator
+                          .asValidator(context),
                     ),
                   ),
                   Opacity(
@@ -307,13 +377,85 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
-                      controller: _model.textController3 ??=
+                      controller: _model.cellnumberController ??=
                           TextEditingController(
                         text: GetUserCall.cellnumber(
                           containerGetUserResponse.jsonBody,
                         ),
                       ),
-                      focusNode: _model.textFieldFocusNode3,
+                      focusNode: _model.cellnumberFocusNode,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF969EA4),
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        filled: true,
+                        fillColor: const Color(0xFFB5C4D1),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                      validator: _model.cellnumberControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
+                  Opacity(
+                    opacity: 0.3,
+                    child: Align(
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            30.0, 10.0, 0.0, 0.0),
+                        child: Text(
+                          'BIO',
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.bioController ??=
+                          TextEditingController(
+                        text: GetUserCall.bio(
+                          containerGetUserResponse.jsonBody,
+                        ).toString(),
+                      ),
+                      focusNode: _model.bioFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -358,21 +500,73 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
                       validator:
-                          _model.textController3Validator.asValidator(context),
+                          _model.bioControllerValidator.asValidator(context),
                     ),
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          var shouldSetState = false;
+                          _model.editApiResponse = await EditProfileCall.call(
+                            jwt: currentAuthenticationToken,
+                            firstName: _model.firstnameController.text,
+                            lastName: _model.lastnameController.text,
+                            cellNumber: _model.cellnumberController.text,
+                            bio: _model.bioController.text,
+                          );
+                          shouldSetState = true;
+                          if ((_model.editApiResponse?.succeeded ?? true)) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  EditProfileCall.message(
+                                    (_model.editApiResponse?.jsonBody ?? ''),
+                                  )!,
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                ),
+                                duration: const Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
+
+                            context.pushNamed('Home');
+
+                            if (shouldSetState) setState(() {});
+                            return;
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  EditProfileCall.message(
+                                    (_model.editApiResponse?.jsonBody ?? ''),
+                                  )!,
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                  ),
+                                ),
+                                duration: const Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).error,
+                              ),
+                            );
+                            if (shouldSetState) setState(() {});
+                            return;
+                          }
+
+                          if (shouldSetState) setState(() {});
                         },
                         text: 'SUBMIT',
                         options: FFButtonOptions(
-                          width: 280.0,
+                          width: double.infinity,
                           height: 60.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),

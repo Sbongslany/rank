@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -10,12 +11,14 @@ class RequestLoanModel extends FlutterFlowModel<RequestLoanWidget> {
   final unfocusNode = FocusNode();
   // Model for backButton component.
   late BackButtonModel backButtonModel;
-  // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
-  // State field(s) for DropDown widget.
-  String? dropDownValue2;
-  FormFieldController<String>? dropDownValueController2;
+  // State field(s) for amount widget.
+  String? amountValue;
+  FormFieldController<String>? amountValueController;
+  // State field(s) for days widget.
+  String? daysValue;
+  FormFieldController<String>? daysValueController;
+  // Stores action output result for [Backend Call - API (Loan Directory)] action in Button widget.
+  ApiCallResponse? apiResultmsa;
 
   /// Initialization and disposal methods.
 

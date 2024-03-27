@@ -141,6 +141,10 @@ class GetUserCall {
         response,
         r'''$.data.email''',
       ));
+  static dynamic bio(dynamic response) => getJsonField(
+        response,
+        r'''$.data.bio''',
+      );
 }
 
 class GetUsersCall {
@@ -805,6 +809,90 @@ class PayFastCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class LoanDirectoryCall {
+  static Future<ApiCallResponse> call({
+    String? compId = '',
+    String? amount = '',
+    String? days = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "comp_id": 1,
+  "amount": $amount,
+  "days": $days
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Loan Directory',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/post_loan.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? meesage(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static String? days(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.days''',
+      ));
+  static String? amount(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.amount''',
+      ));
+}
+
+class EditProfileCall {
+  static Future<ApiCallResponse> call({
+    String? firstName = '',
+    String? lastName = '',
+    String? cellNumber = '',
+    String? bio = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "first_name": "$firstName",
+  "last_name": "$lastName",
+  "cell_number": "$cellNumber",
+  "bio": "$bio"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Edit Profile',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/edit_profile.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class ApiPagingParams {

@@ -235,7 +235,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
             Align(
               alignment: const AlignmentDirectional(0.0, 1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     var shouldSetState = false;
@@ -287,7 +287,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                   },
                   text: 'Retrieve password',
                   options: FFButtonOptions(
-                    width: 280.0,
+                    width: double.infinity,
                     height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),

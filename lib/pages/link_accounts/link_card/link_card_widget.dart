@@ -301,7 +301,8 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       var shouldSetState = false;
@@ -355,8 +356,8 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                     },
                     text: 'Confirm',
                     options: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
+                      width: double.infinity,
+                      height: 60.0,
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
