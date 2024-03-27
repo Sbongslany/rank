@@ -394,6 +394,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     context.pushNamed('Profile');
                                   },
                                   child: Stack(
+                                    alignment: const AlignmentDirectional(1.0, 1.0),
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -442,7 +443,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           FontAwesomeIcons.edit,
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
-                                          size: 10.0,
+                                          size: 20.0,
                                         ),
                                       ),
                                     ],
