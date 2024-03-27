@@ -55,15 +55,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.0, -1.0),
-                    end: const AlignmentDirectional(0, 1.0),
-                  ),
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -139,7 +131,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('PayPouch');
+                        context.pushNamed('LoanDirectory');
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -314,8 +306,8 @@ class _HomeWidgetState extends State<HomeWidget> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  FlutterFlowTheme.of(context).primary,
-                  FlutterFlowTheme.of(context).secondary
+                  FlutterFlowTheme.of(context).primaryBackground,
+                  FlutterFlowTheme.of(context).secondaryBackground
                 ],
                 stops: const [0.0, 1.0],
                 begin: const AlignmentDirectional(0.0, -1.0),
