@@ -255,11 +255,11 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                       child: FlutterFlowDropDown<String>(
-                        controller: _model.mobileNetworkValueController1 ??=
+                        controller: _model.mobileNetworkValueController ??=
                             FormFieldController<String>(null),
                         options: const ['Vodacom', 'CellC', 'MTN', 'Telkom'],
                         onChanged: (val) =>
-                            setState(() => _model.mobileNetworkValue1 = val),
+                            setState(() => _model.mobileNetworkValue = val),
                         width: 400.0,
                         height: 50.0,
                         textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -285,36 +285,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
-                child: FlutterFlowDropDown<String>(
-                  controller: _model.mobileNetworkValueController2 ??=
-                      FormFieldController<String>(null),
-                  options: const ['Account 1', 'Account 2'],
-                  onChanged: (val) =>
-                      setState(() => _model.mobileNetworkValue2 = val),
-                  width: double.infinity,
-                  height: 50.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                  hintText: 'Account',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
-                  fillColor: const Color(0xFFB5C4D1),
-                  elevation: 2.0,
-                  borderColor: FlutterFlowTheme.of(context).alternate,
-                  borderWidth: 2.0,
-                  borderRadius: 8.0,
-                  margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 4.0),
-                  hidesUnderline: true,
-                  isOverButton: true,
-                  isSearchable: false,
-                  isMultiSelect: false,
-                ),
-              ),
-              if (_model.mobileNetworkValue1 == 'CellC')
+              if (_model.mobileNetworkValue == 'CellC')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -346,7 +317,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue1 == 'Vodacom')
+              if (_model.mobileNetworkValue == 'Vodacom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -378,7 +349,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue1 == 'MTN')
+              if (_model.mobileNetworkValue == 'MTN')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -410,7 +381,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue1 == 'Telkom')
+              if (_model.mobileNetworkValue == 'Telkom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -442,6 +413,34 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                child: FlutterFlowDropDown<String>(
+                  controller: _model.accountValueController ??=
+                      FormFieldController<String>(null),
+                  options: const ['Account 1', 'Account 2'],
+                  onChanged: (val) => setState(() => _model.accountValue = val),
+                  width: double.infinity,
+                  height: 50.0,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                  hintText: 'Account',
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
+                  fillColor: const Color(0xFFB5C4D1),
+                  elevation: 2.0,
+                  borderColor: FlutterFlowTheme.of(context).alternate,
+                  borderWidth: 2.0,
+                  borderRadius: 8.0,
+                  margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 4.0),
+                  hidesUnderline: true,
+                  isOverButton: true,
+                  isSearchable: false,
+                  isMultiSelect: false,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                 child: FFButtonWidget(

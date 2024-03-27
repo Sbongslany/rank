@@ -791,12 +791,12 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 r'''$.message''',
                               ).toString(),
                               style: TextStyle(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
                             duration: const Duration(milliseconds: 4000),
                             backgroundColor:
-                                FlutterFlowTheme.of(context).success,
+                                FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
 
@@ -811,8 +811,6 @@ class _DepositWidgetState extends State<DepositWidget> {
                             ),
                           }.withoutNulls,
                         );
-
-                        context.pushNamed('ConfirmDeposit');
 
                         if (shouldSetState) setState(() {});
                         return;

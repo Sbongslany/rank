@@ -14,11 +14,8 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
   TextEditingController? phoneNumberController;
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   // State field(s) for MobileNetwork widget.
-  String? mobileNetworkValue1;
-  FormFieldController<String>? mobileNetworkValueController1;
-  // State field(s) for MobileNetwork widget.
-  String? mobileNetworkValue2;
-  FormFieldController<String>? mobileNetworkValueController2;
+  String? mobileNetworkValue;
+  FormFieldController<String>? mobileNetworkValueController;
   // State field(s) for PrePaidAirtimeCellC widget.
   String? prePaidAirtimeCellCValue;
   FormFieldController<String>? prePaidAirtimeCellCValueController;
@@ -31,6 +28,9 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
   // State field(s) for PrePaidAirtimeTelkom widget.
   String? prePaidAirtimeTelkomValue;
   FormFieldController<String>? prePaidAirtimeTelkomValueController;
+  // State field(s) for account widget.
+  String? accountValue;
+  FormFieldController<String>? accountValueController;
 
   /// Initialization and disposal methods.
 
