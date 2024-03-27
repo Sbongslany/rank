@@ -179,8 +179,8 @@ class _InviteWidgetState extends State<InviteWidget>
                                                     decoration: const BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/imagePlaceholder.png',
+                                                    child: Image.network(
+                                                      '',
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),

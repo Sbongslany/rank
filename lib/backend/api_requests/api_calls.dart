@@ -860,7 +860,7 @@ class EditProfileCall {
   static Future<ApiCallResponse> call({
     String? firstName = '',
     String? lastName = '',
-    String? cellNumber = '',
+    String? contactNumber = '',
     String? bio = '',
     String? jwt = '',
   }) async {
@@ -868,7 +868,7 @@ class EditProfileCall {
 {
   "first_name": "$firstName",
   "last_name": "$lastName",
-  "contact_number": "$cellNumber",
+  "contact_number": "$contactNumber",
   "bio": "$bio"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -909,7 +909,7 @@ class UploadPictureCall {
         'Authorization': 'Bearer $jwt',
       },
       params: {
-        'file': file,
+        'profile_picture': file,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
