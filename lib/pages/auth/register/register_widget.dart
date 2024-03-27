@@ -327,7 +327,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, _) => [
             SliverAppBar(
-              expandedHeight: 110.0,
+              expandedHeight: 130.0,
               pinned: false,
               floating: false,
               backgroundColor: FlutterFlowTheme.of(context).secondary,
