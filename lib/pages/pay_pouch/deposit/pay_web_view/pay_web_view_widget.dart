@@ -65,10 +65,19 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Icon(
-                  Icons.clear_sharp,
-                  color: FlutterFlowTheme.of(context).alternate,
-                  size: 54.0,
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed('ConfirmDeposit');
+                  },
+                  child: Icon(
+                    Icons.close_sharp,
+                    color: FlutterFlowTheme.of(context).secondary,
+                    size: 44.0,
+                  ),
                 ),
               ),
             ],
@@ -77,7 +86,7 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
           ),
           body: FlutterFlowWebView(
             content: widget.urlLink!,
-            height: 764.0,
+            height: 744.0,
             verticalScroll: false,
             horizontalScroll: false,
             html: true,
