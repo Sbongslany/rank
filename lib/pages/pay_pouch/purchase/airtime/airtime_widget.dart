@@ -156,7 +156,8 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
               Align(
                 alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 0.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 0.0, 20.0),
                   child: FlutterFlowRadioButton(
                     options: ['Me', 'Someone'].toList(),
                     onChanged: (val) => setState(() {}),
