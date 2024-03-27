@@ -660,13 +660,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                               },
                               child: badges.Badge(
                                 badgeContent: Text(
-                                  valueOrDefault<String>(
-                                    GetFriendRequesCountCall.numberRequests(
-                                      badgeGetFriendRequesCountResponse
-                                          .jsonBody,
-                                    )?.toString(),
-                                    '0',
-                                  ),
+                                  GetFriendRequesCountCall.numberRequests(
+                                    badgeGetFriendRequesCountResponse.jsonBody,
+                                  )!
+                                      .toString(),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
