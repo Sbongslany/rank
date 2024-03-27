@@ -144,7 +144,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
-                    'PURCHASE DETAILS',
+                    'PURCHASE  AIRTIME',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
@@ -153,28 +153,31 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                child: FlutterFlowRadioButton(
-                  options: ['Me', 'Someone'].toList(),
-                  onChanged: (val) => setState(() {}),
-                  controller: _model.radioButtonValueController ??=
-                      FormFieldController<String>(null),
-                  optionHeight: 32.0,
-                  textStyle: FlutterFlowTheme.of(context).labelMedium,
-                  selectedTextStyle:
-                      FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
-                          ),
-                  buttonPosition: RadioButtonPosition.left,
-                  direction: Axis.horizontal,
-                  radioButtonColor: FlutterFlowTheme.of(context).alternate,
-                  inactiveRadioButtonColor:
-                      FlutterFlowTheme.of(context).secondary,
-                  toggleable: false,
-                  horizontalAlignment: WrapAlignment.start,
-                  verticalAlignment: WrapCrossAlignment.start,
+              Align(
+                alignment: const AlignmentDirectional(-1.0, 0.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 0.0, 0.0),
+                  child: FlutterFlowRadioButton(
+                    options: ['Me', 'Someone'].toList(),
+                    onChanged: (val) => setState(() {}),
+                    controller: _model.radioButtonValueController ??=
+                        FormFieldController<String>(null),
+                    optionHeight: 32.0,
+                    textStyle: FlutterFlowTheme.of(context).labelMedium,
+                    selectedTextStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).alternate,
+                            ),
+                    buttonPosition: RadioButtonPosition.left,
+                    direction: Axis.vertical,
+                    radioButtonColor: FlutterFlowTheme.of(context).alternate,
+                    inactiveRadioButtonColor:
+                        FlutterFlowTheme.of(context).secondary,
+                    toggleable: false,
+                    horizontalAlignment: WrapAlignment.start,
+                    verticalAlignment: WrapCrossAlignment.start,
+                  ),
                 ),
               ),
               if (_model.radioButtonValue == 'Someone')
@@ -241,11 +244,11 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                 child: FlutterFlowDropDown<String>(
-                  controller: _model.mobileNetworkValueController ??=
+                  controller: _model.mobileNetworkValueController1 ??=
                       FormFieldController<String>(null),
                   options: const ['Vodacom', 'CellC', 'MTN', 'Telkom'],
                   onChanged: (val) =>
-                      setState(() => _model.mobileNetworkValue = val),
+                      setState(() => _model.mobileNetworkValue1 = val),
                   width: double.infinity,
                   height: 50.0,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -267,7 +270,36 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   isMultiSelect: false,
                 ),
               ),
-              if (_model.mobileNetworkValue == 'CellC')
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                child: FlutterFlowDropDown<String>(
+                  controller: _model.mobileNetworkValueController2 ??=
+                      FormFieldController<String>(null),
+                  options: const ['Account 1', 'Account 2'],
+                  onChanged: (val) =>
+                      setState(() => _model.mobileNetworkValue2 = val),
+                  width: double.infinity,
+                  height: 50.0,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                  hintText: 'Account',
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
+                  fillColor: const Color(0xFFB5C4D1),
+                  elevation: 2.0,
+                  borderColor: FlutterFlowTheme.of(context).alternate,
+                  borderWidth: 2.0,
+                  borderRadius: 8.0,
+                  margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 4.0),
+                  hidesUnderline: true,
+                  isOverButton: true,
+                  isSearchable: false,
+                  isMultiSelect: false,
+                ),
+              ),
+              if (_model.mobileNetworkValue1 == 'CellC')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -299,7 +331,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue == 'Vodacom')
+              if (_model.mobileNetworkValue1 == 'Vodacom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -331,7 +363,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue == 'MTN')
+              if (_model.mobileNetworkValue1 == 'MTN')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -363,7 +395,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.mobileNetworkValue == 'Telkom')
+              if (_model.mobileNetworkValue1 == 'Telkom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -396,15 +428,15 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   ),
                 ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed('PayUser');
                   },
                   text: 'buy now',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -413,6 +445,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          fontSize: 20.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
