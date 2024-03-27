@@ -100,25 +100,36 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 5.0),
-                                child: Text(
-                                  'Pay Pouch',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                            Expanded(
+                              child: Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 5.0, 0.0, 5.0),
+                                  child: Text(
+                                    'Pay Pouch',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
                                 ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.moneyCheck,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 24.0,
                               ),
                             ),
                           ],
@@ -142,25 +153,36 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 5.0),
-                                child: Text(
-                                  'Loan Directory',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                            Flexible(
+                              child: Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 5.0, 0.0, 5.0),
+                                  child: Text(
+                                    'Loan Directory',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
                                 ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Icon(
+                                Icons.flight_land,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 24.0,
                               ),
                             ),
                           ],
@@ -182,31 +204,57 @@ class _HomeWidgetState extends State<HomeWidget> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 5.0),
-                                child: Text(
-                                  'Link Accounts',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.w300,
-                                      ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 5.0),
+                                    child: Text(
+                                      'Link Accounts',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Icon(
+                                  Icons.link,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 24.0,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
+                    ),
+                    const Spacer(),
+                    Opacity(
+                      opacity: 0.5,
+                      child: Text(
+                        'Version 1.0',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
                       ),
                     ),
                     Card(
