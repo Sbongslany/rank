@@ -435,11 +435,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           ),
                                         ),
                                       ),
-                                      FaIcon(
-                                        FontAwesomeIcons.edit,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        size: 10.0,
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(1.0, 1.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.edit,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 10.0,
+                                        ),
                                       ),
                                     ],
                                   ),
