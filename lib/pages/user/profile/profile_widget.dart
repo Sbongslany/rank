@@ -198,10 +198,25 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   return;
                                 }
                               }
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Uploaded Please save the file',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).success,
+                                ),
+                              );
                             },
                             text: 'UPLOAD',
                             options: FFButtonOptions(
-                              height: 20.0,
+                              height: 28.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -275,7 +290,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             },
                             text: 'SAVE',
                             options: FFButtonOptions(
-                              height: 20.0,
+                              height: 28.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(

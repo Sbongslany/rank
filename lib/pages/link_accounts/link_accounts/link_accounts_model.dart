@@ -10,8 +10,12 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   final unfocusNode = FocusNode();
   // Model for backMenuAppBar component.
   late BackMenuAppBarModel backMenuAppBarModel;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.

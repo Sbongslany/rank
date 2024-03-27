@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'link_accounts_model.dart';
 export 'link_accounts_model.dart';
 
@@ -177,7 +176,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading = true);
+                                setState(() => _model.isDataUploading1 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -191,12 +190,12 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                           ))
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading = false;
+                                  _model.isDataUploading1 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
                                   setState(() {
-                                    _model.uploadedLocalFile =
+                                    _model.uploadedLocalFile1 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
@@ -244,47 +243,89 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: FaIcon(
-                                        FontAwesomeIcons.fileUpload,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        size: 20.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'Upload here',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Nunito',
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold,
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      final selectedMedia =
+                                          await selectMediaWithSourceBottomSheet(
+                                        context: context,
+                                        allowPhoto: true,
+                                      );
+                                      if (selectedMedia != null &&
+                                          selectedMedia.every((m) =>
+                                              validateFileFormat(
+                                                  m.storagePath, context))) {
+                                        setState(() =>
+                                            _model.isDataUploading2 = true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+
+                                        try {
+                                          selectedUploadedFiles = selectedMedia
+                                              .map((m) => FFUploadedFile(
+                                                    name: m.storagePath
+                                                        .split('/')
+                                                        .last,
+                                                    bytes: m.bytes,
+                                                    height:
+                                                        m.dimensions?.height,
+                                                    width: m.dimensions?.width,
+                                                    blurHash: m.blurHash,
+                                                  ))
+                                              .toList();
+                                        } finally {
+                                          _model.isDataUploading2 = false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                            selectedMedia.length) {
+                                          setState(() {
+                                            _model.uploadedLocalFile2 =
+                                                selectedUploadedFiles.first;
+                                          });
+                                        } else {
+                                          setState(() {});
+                                          return;
+                                        }
+                                      }
+
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Uploaded please confirm',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .success,
                                         ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios_outlined,
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    size: 24.0,
+                                      );
+                                    },
+                                    child: Text(
+                                      'Upload here',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Nunito',
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -303,7 +344,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     var shouldSetState = false;
                     _model.apiResultg6a = await UploadDocCall.call(
                       jwt: currentAuthenticationToken,
-                      file: _model.uploadedLocalFile,
+                      file: _model.uploadedLocalFile1,
                       type: 'S',
                     );
                     shouldSetState = true;
