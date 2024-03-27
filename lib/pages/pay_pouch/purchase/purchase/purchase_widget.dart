@@ -115,7 +115,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       },
                       child: Container(
                         width: double.infinity,
-                        height: 60.0,
+                        height: 80.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -169,7 +169,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -220,7 +220,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -271,7 +271,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
@@ -326,7 +326,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                     },
                     child: Container(
                       width: double.infinity,
-                      height: 60.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
