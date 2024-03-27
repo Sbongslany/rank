@@ -868,7 +868,7 @@ class EditProfileCall {
 {
   "first_name": "$firstName",
   "last_name": "$lastName",
-  "cell_number": "$cellNumber",
+  "contact_number": "$cellNumber",
   "bio": "$bio"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -893,6 +893,34 @@ class EditProfileCall {
         response,
         r'''$.message''',
       ));
+}
+
+class UploadPictureCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    FFUploadedFile? file,
+    String? type = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Upload picture',
+      apiUrl:
+          'https://m-techsolutions.co.za/app-rank/upload_profile_picture.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'file': file,
+        'type': type,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

@@ -10,6 +10,12 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   final unfocusNode = FocusNode();
   // Model for backButton component.
   late BackButtonModel backButtonModel;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Backend Call - API (Upload picture)] action in Button widget.
+  ApiCallResponse? apiResult9ge;
   // State field(s) for firstname widget.
   FocusNode? firstnameFocusNode;
   TextEditingController? firstnameController;

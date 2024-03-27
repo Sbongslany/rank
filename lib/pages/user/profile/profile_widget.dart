@@ -4,6 +4,7 @@ import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
@@ -140,8 +141,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                         ),
-                        child: Image.asset(
-                          'assets/images/imagePlaceholder.png',
+                        child: Image.memory(
+                          _model.uploadedLocalFile.bytes ??
+                              Uint8List.fromList([]),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -155,8 +157,42 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 5.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                selectedMedia.every((m) => validateFileFormat(
+                                    m.storagePath, context))) {
+                              setState(() => _model.isDataUploading = true);
+                              var selectedUploadedFiles = <FFUploadedFile>[];
+
+                              try {
+                                selectedUploadedFiles = selectedMedia
+                                    .map((m) => FFUploadedFile(
+                                          name: m.storagePath.split('/').last,
+                                          bytes: m.bytes,
+                                          height: m.dimensions?.height,
+                                          width: m.dimensions?.width,
+                                          blurHash: m.blurHash,
+                                        ))
+                                    .toList();
+                              } finally {
+                                _model.isDataUploading = false;
+                              }
+                              if (selectedUploadedFiles.length ==
+                                  selectedMedia.length) {
+                                setState(() {
+                                  _model.uploadedLocalFile =
+                                      selectedUploadedFiles.first;
+                                });
+                              } else {
+                                setState(() {});
+                                return;
+                              }
+                            }
                           },
                           text: 'UPLOAD',
                           options: FFButtonOptions(
@@ -186,8 +222,30 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(5.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            _model.apiResult9ge = await UploadPictureCall.call(
+                              jwt: currentAuthenticationToken,
+                              file: _model.uploadedLocalFile,
+                              type: 's',
+                            );
+                            if ((_model.apiResult9ge?.succeeded ?? true)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Uploaded Successfully',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+
+                            setState(() {});
                           },
                           text: 'SAVE',
                           options: FFButtonOptions(
