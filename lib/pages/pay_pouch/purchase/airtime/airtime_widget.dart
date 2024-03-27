@@ -248,7 +248,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   Flexible(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                       child: FlutterFlowDropDown<String>(
                         controller: _model.mobileNetworkValueController1 ??=
                             FormFieldController<String>(null),
@@ -276,14 +276,6 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         isSearchable: false,
                         isMultiSelect: false,
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
-                    child: Icon(
-                      Icons.add_box,
-                      color: FlutterFlowTheme.of(context).alternate,
-                      size: 40.0,
                     ),
                   ),
                 ],
