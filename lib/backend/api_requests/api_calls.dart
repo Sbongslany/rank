@@ -322,6 +322,10 @@ class PayPouchCall {
         response,
         r'''$.data.amount''',
       ));
+  static String? paylink(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.pay_link''',
+      ));
 }
 
 class ForgotPasswordCall {

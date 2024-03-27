@@ -1,6 +1,6 @@
+import '/components/url_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
 import 'pay_web_view_model.dart';
 export 'pay_web_view_model.dart';
@@ -59,12 +59,10 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
           centerTitle: false,
           elevation: 2.0,
         ),
-        body: FlutterFlowWebView(
-          content: widget.urlLink!,
-          bypass: true,
-          height: 850.0,
-          verticalScroll: false,
-          horizontalScroll: false,
+        body: wrapWithModel(
+          model: _model.urlModel,
+          updateCallback: () => setState(() {}),
+          child: const UrlWidget(),
         ),
       ),
     );

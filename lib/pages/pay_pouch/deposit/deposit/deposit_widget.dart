@@ -771,7 +771,8 @@ class _DepositWidgetState extends State<DepositWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       var shouldSetState = false;
@@ -798,6 +799,19 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                         );
+
+                        context.pushNamed(
+                          'PayWebView',
+                          queryParameters: {
+                            'urlLink': serializeParam(
+                              PayPouchCall.paylink(
+                                (_model.paypouchresponse?.jsonBody ?? ''),
+                              ),
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+
                         _model.fastUrl = await PayFastCall.call(
                           mPaymentId: PayPouchCall.userId(
                             (_model.paypouchresponse?.jsonBody ?? ''),
@@ -839,42 +853,13 @@ class _DepositWidgetState extends State<DepositWidget> {
                     },
                     text: 'Pay Now',
                     options: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
+                      width: double.infinity,
+                      height: 60.0,
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: const Color(0xFF192A6F),
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(18.0),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed('LinkConfirmation');
-                    },
-                    text: 'Cancel',
-                    options: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFFFF000E),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',

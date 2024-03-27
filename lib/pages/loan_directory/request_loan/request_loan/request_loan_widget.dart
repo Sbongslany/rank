@@ -244,7 +244,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                               (_model.apiResultmsa?.jsonBody ?? ''),
                             )!,
                             style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).alternate,
                             ),
                           ),
                           duration: const Duration(milliseconds: 4000),
@@ -262,7 +262,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                               (_model.apiResultmsa?.jsonBody ?? ''),
                             )!,
                             style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).alternate,
                             ),
                           ),
                           duration: const Duration(milliseconds: 4000),
