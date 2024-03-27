@@ -226,7 +226,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             _model.apiResult9ge = await UploadPictureCall.call(
                               jwt: currentAuthenticationToken,
                               file: _model.uploadedLocalFile,
-                              type: 's',
                             );
                             if ((_model.apiResult9ge?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(

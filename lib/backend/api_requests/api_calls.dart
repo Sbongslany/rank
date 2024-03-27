@@ -899,7 +899,6 @@ class UploadPictureCall {
   static Future<ApiCallResponse> call({
     String? jwt = '',
     FFUploadedFile? file,
-    String? type = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Upload picture',
@@ -911,7 +910,6 @@ class UploadPictureCall {
       },
       params: {
         'file': file,
-        'type': type,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
