@@ -250,7 +250,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     Opacity(
                       opacity: 0.5,
                       child: Text(
-                        'Version 1.0',
+                        'Version 0.0.1',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).secondary,
@@ -472,10 +472,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(1.0, 1.0),
-                                        child: FaIcon(
-                                          FontAwesomeIcons.edit,
+                                        child: Icon(
+                                          Icons.edit_square,
                                           color: FlutterFlowTheme.of(context)
-                                              .secondary,
+                                              .alternate,
                                           size: 20.0,
                                         ),
                                       ),
