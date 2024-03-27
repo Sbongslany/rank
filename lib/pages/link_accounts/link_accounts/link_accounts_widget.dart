@@ -204,6 +204,21 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   return;
                                 }
                               }
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Uploaded please confirm',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).success,
+                                ),
+                              );
                             },
                             child: Container(
                               width: double.infinity,
