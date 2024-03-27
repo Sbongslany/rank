@@ -241,34 +241,52 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   ).animateOnPageLoad(
                       animationsMap['textFieldOnPageLoadAnimation']!),
                 ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
-                child: FlutterFlowDropDown<String>(
-                  controller: _model.mobileNetworkValueController1 ??=
-                      FormFieldController<String>(null),
-                  options: const ['Vodacom', 'CellC', 'MTN', 'Telkom'],
-                  onChanged: (val) =>
-                      setState(() => _model.mobileNetworkValue1 = val),
-                  width: double.infinity,
-                  height: 50.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                  hintText: 'Mobile Network',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 0.0, 0.0),
+                      child: FlutterFlowDropDown<String>(
+                        controller: _model.mobileNetworkValueController1 ??=
+                            FormFieldController<String>(null),
+                        options: const ['Vodacom', 'CellC', 'MTN', 'Telkom'],
+                        onChanged: (val) =>
+                            setState(() => _model.mobileNetworkValue1 = val),
+                        width: 400.0,
+                        height: 50.0,
+                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        hintText: 'Mobile Network',
+                        icon: Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                        fillColor: const Color(0xFFB5C4D1),
+                        elevation: 2.0,
+                        borderColor: FlutterFlowTheme.of(context).alternate,
+                        borderWidth: 2.0,
+                        borderRadius: 8.0,
+                        margin: const EdgeInsetsDirectional.fromSTEB(
+                            20.0, 4.0, 20.0, 4.0),
+                        hidesUnderline: true,
+                        isOverButton: true,
+                        isSearchable: false,
+                        isMultiSelect: false,
+                      ),
+                    ),
                   ),
-                  fillColor: const Color(0xFFB5C4D1),
-                  elevation: 2.0,
-                  borderColor: FlutterFlowTheme.of(context).alternate,
-                  borderWidth: 2.0,
-                  borderRadius: 8.0,
-                  margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 4.0),
-                  hidesUnderline: true,
-                  isOverButton: true,
-                  isSearchable: false,
-                  isMultiSelect: false,
-                ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                    child: Icon(
+                      Icons.add_box,
+                      color: FlutterFlowTheme.of(context).alternate,
+                      size: 40.0,
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -433,7 +451,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   onPressed: () async {
                     context.pushNamed('PayUser');
                   },
-                  text: 'buy now',
+                  text: 'Buy now',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 60.0,
