@@ -164,7 +164,11 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     controller: _model.radioButtonValueController ??=
                         FormFieldController<String>(null),
                     optionHeight: 32.0,
-                    textStyle: FlutterFlowTheme.of(context).labelMedium,
+                    textStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
                     selectedTextStyle:
                         FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
