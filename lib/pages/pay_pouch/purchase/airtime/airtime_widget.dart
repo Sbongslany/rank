@@ -267,7 +267,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   isMultiSelect: false,
                 ),
               ),
-              if (_model.prePaidAirtimeCellCValue == 'CellC')
+              if (_model.mobileNetworkValue == 'CellC')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -299,7 +299,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.prePaidAirtimeVodacomValue == 'Vodacom')
+              if (_model.mobileNetworkValue == 'Vodacom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -331,7 +331,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.prePaidAirtimeMTNValue == 'MTN')
+              if (_model.mobileNetworkValue == 'MTN')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
@@ -363,7 +363,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     isMultiSelect: false,
                   ),
                 ),
-              if (_model.prePaidAirtimeTelkomValue == 'Telkom')
+              if (_model.mobileNetworkValue == 'Telkom')
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
