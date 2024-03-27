@@ -41,30 +41,47 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Pay',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: false,
+            title: Text(
+              'Pay',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Outfit',
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+            ),
+            actions: [
+              Card(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
+                child: Icon(
+                  Icons.clear_sharp,
+                  color: FlutterFlowTheme.of(context).alternate,
+                  size: 54.0,
+                ),
+              ),
+            ],
+            centerTitle: false,
+            elevation: 2.0,
           ),
-          actions: const [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
-        body: FlutterFlowWebView(
-          content: widget.urlLink!,
-          height: 500.0,
-          verticalScroll: false,
-          horizontalScroll: false,
-          html: true,
+          body: FlutterFlowWebView(
+            content: widget.urlLink!,
+            height: 764.0,
+            verticalScroll: false,
+            horizontalScroll: false,
+            html: true,
+          ),
         ),
       ),
     );

@@ -791,12 +791,12 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 r'''$.message''',
                               ).toString(),
                               style: TextStyle(
-                                color: FlutterFlowTheme.of(context).secondary,
+                                color: FlutterFlowTheme.of(context).alternate,
                               ),
                             ),
                             duration: const Duration(milliseconds: 4000),
                             backgroundColor:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                                FlutterFlowTheme.of(context).success,
                           ),
                         );
 
@@ -812,20 +812,8 @@ class _DepositWidgetState extends State<DepositWidget> {
                           }.withoutNulls,
                         );
 
-                        _model.fastUrl = await PayFastCall.call(
-                          mPaymentId: PayPouchCall.userId(
-                            (_model.paypouchresponse?.jsonBody ?? ''),
-                          ),
-                          amount: PayPouchCall.amount(
-                            (_model.paypouchresponse?.jsonBody ?? ''),
-                          ),
-                          itemName: PayPouchCall.ref(
-                            (_model.paypouchresponse?.jsonBody ?? ''),
-                          ),
-                        );
-                        shouldSetState = true;
-                        await launchURL(
-                            (_model.fastUrl?.jsonBody ?? '').toString());
+                        context.pushNamed('ConfirmDeposit');
+
                         if (shouldSetState) setState(() {});
                         return;
                       } else {

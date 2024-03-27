@@ -27,8 +27,6 @@ class DepositModel extends FlutterFlowModel<DepositWidget> {
 
   // Stores action output result for [Backend Call - API (Pay Pouch)] action in Button widget.
   ApiCallResponse? paypouchresponse;
-  // Stores action output result for [Backend Call - API (PayFast)] action in Button widget.
-  ApiCallResponse? fastUrl;
 
   /// Initialization and disposal methods.
 
