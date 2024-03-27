@@ -162,173 +162,111 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 10.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              final selectedMedia =
-                                  await selectMediaWithSourceBottomSheet(
-                                context: context,
-                                allowPhoto: true,
-                              );
-                              if (selectedMedia != null &&
-                                  selectedMedia.every((m) => validateFileFormat(
-                                      m.storagePath, context))) {
-                                setState(() => _model.isDataUploading1 = true);
-                                var selectedUploadedFiles = <FFUploadedFile>[];
-
-                                try {
-                                  selectedUploadedFiles = selectedMedia
-                                      .map((m) => FFUploadedFile(
-                                            name: m.storagePath.split('/').last,
-                                            bytes: m.bytes,
-                                            height: m.dimensions?.height,
-                                            width: m.dimensions?.width,
-                                            blurHash: m.blurHash,
-                                          ))
-                                      .toList();
-                                } finally {
-                                  _model.isDataUploading1 = false;
-                                }
-                                if (selectedUploadedFiles.length ==
-                                    selectedMedia.length) {
-                                  setState(() {
-                                    _model.uploadedLocalFile1 =
-                                        selectedUploadedFiles.first;
-                                  });
-                                } else {
-                                  setState(() {});
-                                  return;
-                                }
-                              }
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Uploaded please confirm',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).success,
-                                ),
-                              );
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
-                                  topLeft: Radius.circular(10.0),
-                                  topRight: Radius.circular(10.0),
-                                ),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                ),
+                          child: Container(
+                            width: double.infinity,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).secondary,
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(0.0, 2.0),
+                                )
+                              ],
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(10.0),
+                                bottomRight: Radius.circular(10.0),
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      final selectedMedia =
-                                          await selectMediaWithSourceBottomSheet(
-                                        context: context,
-                                        allowPhoto: true,
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        setState(() =>
-                                            _model.isDataUploading2 = true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).secondary,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    final selectedMedia =
+                                        await selectMediaWithSourceBottomSheet(
+                                      context: context,
+                                      allowPhoto: true,
+                                    );
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      setState(
+                                          () => _model.isDataUploading = true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
 
-                                        try {
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                    blurHash: m.blurHash,
-                                                  ))
-                                              .toList();
-                                        } finally {
-                                          _model.isDataUploading2 = false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                            selectedMedia.length) {
-                                          setState(() {
-                                            _model.uploadedLocalFile2 =
-                                                selectedUploadedFiles.first;
-                                          });
-                                        } else {
-                                          setState(() {});
-                                          return;
-                                        }
+                                      try {
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                ))
+                                            .toList();
+                                      } finally {
+                                        _model.isDataUploading = false;
                                       }
+                                      if (selectedUploadedFiles.length ==
+                                          selectedMedia.length) {
+                                        setState(() {
+                                          _model.uploadedLocalFile =
+                                              selectedUploadedFiles.first;
+                                        });
+                                      } else {
+                                        setState(() {});
+                                        return;
+                                      }
+                                    }
 
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Uploaded please confirm',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          duration:
-                                              const Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .success,
-                                        ),
-                                      );
-                                    },
-                                    child: Text(
-                                      'Upload here',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Nunito',
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Uploaded please confirm',
+                                          style: TextStyle(
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w800,
                                           ),
-                                    ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .success,
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Upload here',
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Nunito',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -344,7 +282,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                     var shouldSetState = false;
                     _model.apiResultg6a = await UploadDocCall.call(
                       jwt: currentAuthenticationToken,
-                      file: _model.uploadedLocalFile1,
+                      file: _model.uploadedLocalFile,
                       type: 'S',
                     );
                     shouldSetState = true;
