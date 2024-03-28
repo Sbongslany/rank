@@ -457,8 +457,9 @@ class _TransferWidgetState extends State<TransferWidget> {
                   ),
                 ),
               ),
+              const Spacer(),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 50.0, 40.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     var shouldSetState = false;
@@ -511,41 +512,13 @@ class _TransferWidgetState extends State<TransferWidget> {
                   },
                   text: 'confirm',
                   options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
+                    width: double.infinity,
+                    height: 60.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: const Color(0xFF192A6F),
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('LinkConfirmation');
-                  },
-                  text: 'Cancel',
-                  options: FFButtonOptions(
-                    width: 200.0,
-                    height: 40.0,
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFFF000E),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,

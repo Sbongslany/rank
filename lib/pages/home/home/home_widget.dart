@@ -385,12 +385,16 @@ class _HomeWidgetState extends State<HomeWidget> {
                 },
               ),
               actions: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                  child: Icon(
-                    Icons.refresh,
-                    color: FlutterFlowTheme.of(context).alternate,
-                    size: 30.0,
+                Opacity(
+                  opacity: 0.0,
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                    child: Icon(
+                      Icons.refresh,
+                      color: FlutterFlowTheme.of(context).alternate,
+                      size: 30.0,
+                    ),
                   ),
                 ),
               ],
