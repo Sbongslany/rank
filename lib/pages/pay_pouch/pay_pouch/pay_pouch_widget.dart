@@ -304,22 +304,22 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       var shouldSetState = false;
-                      _model.countFriendsResponse =
-                          await GetFriendsCountCall.call(
+                      _model.apiGetFriends = await GetFriendsCountCall.call(
                         jwt: currentAuthenticationToken,
                       );
                       shouldSetState = true;
-                      if ((_model.countFriendsResponse?.succeeded ?? true)) {
+                      if ((_model.apiGetFriends?.jsonBody ?? '')) {
                         if (GetFriendsCountCall.numberRequests(
-                              (_model.countFriendsResponse?.jsonBody ?? ''),
+                              (_model.apiGetFriends?.jsonBody ?? ''),
                             ) ==
                             0) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                'You  don\'t have notification',
+                                'You don\'t have friends please invite new friends',
                                 style: TextStyle(
                                   color: FlutterFlowTheme.of(context).alternate,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                               duration: const Duration(milliseconds: 4000),
@@ -327,14 +327,28 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                   FlutterFlowTheme.of(context).error,
                             ),
                           );
+
+                          context.pushNamed('Invite');
+
                           if (shouldSetState) setState(() {});
                           return;
                         } else {
                           context.pushNamed('PayUser');
                         }
                       } else {
-                        if (shouldSetState) setState(() {});
-                        return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'error',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor: FlutterFlowTheme.of(context).error,
+                          ),
+                        );
                       }
 
                       if (shouldSetState) setState(() {});
