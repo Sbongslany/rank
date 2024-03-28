@@ -11,7 +11,7 @@ class PayPouchModel extends FlutterFlowModel<PayPouchWidget> {
   // Model for backMenuAppBar component.
   late BackMenuAppBarModel backMenuAppBarModel;
   // Stores action output result for [Backend Call - API (Get Friends Count)] action in Container widget.
-  ApiCallResponse? apiGetFriends;
+  ApiCallResponse? apiCount;
 
   /// Initialization and disposal methods.
 

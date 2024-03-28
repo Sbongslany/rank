@@ -133,9 +133,11 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                         final getMyFriends =
                             listViewGetMyFriendsResponse.jsonBody.toList();
                         if (getMyFriends.isEmpty) {
-                          return Image.asset(
-                            'assets/images/ranklogo_2.png',
-                            width: 100.0,
+                          return Center(
+                            child: Image.asset(
+                              'assets/images/ranklogo_2.png',
+                              width: 100.0,
+                            ),
                           );
                         }
                         return RefreshIndicator(
