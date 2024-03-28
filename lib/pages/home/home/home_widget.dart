@@ -246,6 +246,63 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                       ),
                     ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Purchase');
+                      },
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        elevation: 4.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 5.0),
+                                    child: Text(
+                                      'Utilities',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Icon(
+                                  Icons.shopify_sharp,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 24.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                     const Spacer(),
                     Opacity(
                       opacity: 0.5,
@@ -309,9 +366,9 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           ),
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(90.0),
+            preferredSize: const Size.fromHeight(120.0),
             child: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primary,
+              backgroundColor: FlutterFlowTheme.of(context).secondary,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
@@ -327,7 +384,16 @@ class _HomeWidgetState extends State<HomeWidget> {
                   scaffoldKey.currentState!.openDrawer();
                 },
               ),
-              actions: const [],
+              actions: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                  child: Icon(
+                    Icons.refresh,
+                    color: FlutterFlowTheme.of(context).alternate,
+                    size: 30.0,
+                  ),
+                ),
+              ],
               flexibleSpace: FlexibleSpaceBar(
                 title: Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),

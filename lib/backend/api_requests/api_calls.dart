@@ -616,7 +616,7 @@ class GetFriendRequesCountCall {
 
   static int? numberRequests(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$.nr_friend_request''',
+        r'''$.nr_friends''',
       ));
 }
 
@@ -643,7 +643,7 @@ class GetFriendsCountCall {
 
   static int? numberRequests(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$[:].nr_friends''',
+        r'''$.nr_friends''',
       ));
 }
 
