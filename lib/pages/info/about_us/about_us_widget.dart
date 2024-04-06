@@ -122,51 +122,40 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/ranklogo.png',
-                                width: 70.0,
-                                fit: BoxFit.cover,
+                        child: Container(
+                          decoration: const BoxDecoration(),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 5.0, 10.0),
+                                child: AutoSizeText(
+                                  'Rank Financial services a groundbreaking',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 19.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                'ABOUT US',
+                              AutoSizeText(
+                                'mobile application designed to\nrevolutionize the financial services\nlandscape. Our app aims to provide users\nwith a seamless and user-friendly\nplatform for requesting short term loans,\npurchasing of utilities, airtime, lotto and\ninstant payments. With innovative\nfeatures and a commitment to user\nsatisfaction, Rank Financial Services is\npoised to become a leading player in the\n\nfinancial technology sector.',
+                                textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 24.0,
+                                      fontSize: 19.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w300,
                                     ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                        child: Container(
-                          decoration: const BoxDecoration(),
-                          child: AutoSizeText(
-                            'Rank financial services is a registered credit\n provider formed in 2022. We strive to provide a\nplatform that allows our users to be able to\ninnovatively access features in the financial\nrealm like never before. We offer a platform\nthat allows our user to make loans, pay for\nservices safely, accept credit agreements with\n fellow users in the most exciting way. We strive\n for excellence in our daily operations and are\ncommitted to enhancing the experience of\nthose we serve and employ our commitment is\nreflected in our core values\nOur Purpose\nCreating a financial services platform that\nunderstands all transactional needs of our\ncustomers\nOur Values\nRespect, honesty, passion, innovation,\ndetermination and financial freedom\nContact details\n24A Cato roaD\nGlenwood\n4001 Durban\nRankapp.info@gmail.com',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 15.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
+                            ],
                           ),
                         ),
                       ),

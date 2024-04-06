@@ -416,622 +416,651 @@ class _HomeWidgetState extends State<HomeWidget> {
                     ),
                   ),
                 ),
+                background: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
+                    ),
+                  ),
+                ),
                 centerTitle: true,
                 expandedTitleScale: 1.0,
               ),
               elevation: 2.0,
             ),
           ),
-          body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  FlutterFlowTheme.of(context).primaryBackground,
-                  FlutterFlowTheme.of(context).secondaryBackground
-                ],
-                stops: const [0.0, 1.0],
-                begin: const AlignmentDirectional(0.0, -1.0),
-                end: const AlignmentDirectional(0, 1.0),
+          body: SafeArea(
+            top: true,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).primaryBackground,
+                    FlutterFlowTheme.of(context).secondaryBackground
+                  ],
+                  stops: const [0.0, 1.0],
+                  begin: const AlignmentDirectional(0.0, -1.0),
+                  end: const AlignmentDirectional(0, 1.0),
+                ),
               ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 20.0, 0.0),
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: GetUserCall.call(
-                      jwt: currentAuthenticationToken,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 20.0, 0.0),
+                    child: FutureBuilder<ApiCallResponse>(
+                      future: GetUserCall.call(
+                        jwt: currentAuthenticationToken,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }
-                      final rowGetUserResponse = snapshot.data!;
-                      return Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Material(
+                          );
+                        }
+                        final rowGetUserResponse = snapshot.data!;
+                        return Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 5.0,
+                                      shape: const CircleBorder(),
+                                      child: Container(
+                                        width: 30.0,
+                                        height: 30.0,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF38FF00),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('Profile');
+                                    },
+                                    child: Stack(
+                                      alignment: const AlignmentDirectional(1.0, 1.0),
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('Profile');
+                                            },
+                                            child: Container(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: const BoxDecoration(
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: CachedNetworkImage(
+                                                fadeInDuration:
+                                                    const Duration(milliseconds: 500),
+                                                fadeOutDuration:
+                                                    const Duration(milliseconds: 500),
+                                                imageUrl:
+                                                    valueOrDefault<String>(
+                                                  GetUserCall.profile(
+                                                    rowGetUserResponse.jsonBody,
+                                                  ),
+                                                  'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F08%2F08%2F09%2F17%2Favatar-1577909_1280.png&imgrefurl=https%3A%2F%2Fpixabay.com%2Fvectors%2Favatar-icon-placeholder-facebook-1577909%2F&docid=cyPowwVV5ZV6IM&tbnid=5gYUCMTyYfVWCM&vet=12ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA..i&w=1280&h=1280&hcb=2&ved=2ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA',
+                                                ),
+                                                fit: BoxFit.cover,
+                                                errorWidget: (context, error,
+                                                        stackTrace) =>
+                                                    Image.asset(
+                                                  'assets/images/error_image.png',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(1.0, 1.0),
+                                          child: Icon(
+                                            Icons.edit_square,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            size: 20.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        GetUserCall.firstname(
+                                          rowGetUserResponse.jsonBody,
+                                        ),
+                                        '\'\'',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        GetUserCall.lastname(
+                                          rowGetUserResponse.jsonBody,
+                                        ),
+                                        '\'\'',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Material(
                                     color: Colors.transparent,
-                                    elevation: 5.0,
+                                    elevation: 20.0,
                                     shape: const CircleBorder(),
                                     child: Container(
-                                      width: 30.0,
-                                      height: 30.0,
                                       decoration: const BoxDecoration(
-                                        color: Color(0xFF38FF00),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
                                         shape: BoxShape.circle,
                                       ),
                                     ),
                                   ),
-                                ),
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('Profile');
-                                  },
-                                  child: Stack(
-                                    alignment: const AlignmentDirectional(1.0, 1.0),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed('Profile');
-                                          },
-                                          child: Container(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: CachedNetworkImage(
-                                              fadeInDuration:
-                                                  const Duration(milliseconds: 500),
-                                              fadeOutDuration:
-                                                  const Duration(milliseconds: 500),
-                                              imageUrl: valueOrDefault<String>(
-                                                GetUserCall.profile(
-                                                  rowGetUserResponse.jsonBody,
-                                                ),
-                                                'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F08%2F08%2F09%2F17%2Favatar-1577909_1280.png&imgrefurl=https%3A%2F%2Fpixabay.com%2Fvectors%2Favatar-icon-placeholder-facebook-1577909%2F&docid=cyPowwVV5ZV6IM&tbnid=5gYUCMTyYfVWCM&vet=12ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA..i&w=1280&h=1280&hcb=2&ved=2ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA',
-                                              ),
-                                              fit: BoxFit.cover,
-                                              errorWidget: (context, error,
-                                                      stackTrace) =>
-                                                  Image.asset(
-                                                'assets/images/error_image.png',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('info');
+                                        },
+                                        child: const FaIcon(
+                                          FontAwesomeIcons.mailBulk,
+                                          color: Color(0xFF2391E1),
+                                          size: 24.0,
                                         ),
                                       ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 1.0),
-                                        child: Icon(
-                                          Icons.edit_square,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          size: 20.0,
-                                        ),
+                                      Text(
+                                        'RANK INFO',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 8.0,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ],
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      GetUserCall.firstname(
-                                        rowGetUserResponse.jsonBody,
-                                      ),
-                                      '\'\'',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      GetUserCall.lastname(
-                                        rowGetUserResponse.jsonBody,
-                                      ),
-                                      '\'\'',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 20.0,
-                                  shape: const CircleBorder(),
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                        )
-                                      ],
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('info');
-                                      },
-                                      child: const FaIcon(
-                                        FontAwesomeIcons.mailBulk,
-                                        color: Color(0xFF2391E1),
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                    Text(
-                                      'RANK INFO',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 8.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 20.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Icon(
-                                  Icons.message_sharp,
-                                  color: FlutterFlowTheme.of(context).error,
-                                  size: 20.0,
-                                ),
-                                Opacity(
-                                  opacity: 0.7,
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        1.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'CHATBOX',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            fontSize: 12.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
-                        ),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(1.0, 0.0),
-                        child: FutureBuilder<ApiCallResponse>(
-                          future: GetFriendRequesCountCall.call(
-                            jwt: currentAuthenticationToken,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 20.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.message_sharp,
+                                    color: FlutterFlowTheme.of(context).error,
+                                    size: 20.0,
+                                  ),
+                                  Opacity(
+                                    opacity: 0.7,
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          1.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        'CHATBOX',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              fontSize: 12.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
                                     ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(1.0, 0.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: GetFriendRequesCountCall.call(
+                              jwt: currentAuthenticationToken,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              final badgeGetFriendRequesCountResponse =
+                                  snapshot.data!;
+                              return InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  var shouldSetState = false;
+                                  _model.countResponse =
+                                      await GetFriendRequesCountCall.call(
+                                    jwt: currentAuthenticationToken,
+                                  );
+                                  shouldSetState = true;
+                                  if ((_model.countResponse?.succeeded ??
+                                      true)) {
+                                    if (GetFriendRequesCountCall.numberRequests(
+                                          (_model.countResponse?.jsonBody ??
+                                              ''),
+                                        ) ==
+                                        0) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'You  don\'t have notification',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                            ),
+                                          ),
+                                          duration:
+                                              const Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .error,
+                                        ),
+                                      );
+                                      if (shouldSetState) setState(() {});
+                                      return;
+                                    } else {
+                                      context.pushNamed('Notification');
+                                    }
+                                  } else {
+                                    if (shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  if (shouldSetState) setState(() {});
+                                },
+                                child: badges.Badge(
+                                  badgeContent: Text(
+                                    valueOrDefault<String>(
+                                      GetFriendRequesCountCall.numberRequests(
+                                        badgeGetFriendRequesCountResponse
+                                            .jsonBody,
+                                      )?.toString(),
+                                      '0',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontSize: 10.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  showBadge: true,
+                                  shape: badges.BadgeShape.circle,
+                                  badgeColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  elevation: 4.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 8.0, 8.0, 8.0),
+                                  position: badges.BadgePosition.topEnd(),
+                                  animationType:
+                                      badges.BadgeAnimationType.scale,
+                                  toAnimate: true,
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: FlutterFlowTheme.of(context).error,
+                                    size: 34.0,
                                   ),
                                 ),
                               );
-                            }
-                            final badgeGetFriendRequesCountResponse =
-                                snapshot.data!;
-                            return InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var shouldSetState = false;
-                                _model.countResponse =
-                                    await GetFriendRequesCountCall.call(
-                                  jwt: currentAuthenticationToken,
-                                );
-                                shouldSetState = true;
-                                if ((_model.countResponse?.succeeded ?? true)) {
-                                  if (GetFriendRequesCountCall.numberRequests(
-                                        (_model.countResponse?.jsonBody ?? ''),
-                                      ) ==
-                                      0) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'You  don\'t have notification',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                          ),
-                                        ),
-                                        duration: const Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context).error,
-                                      ),
-                                    );
-                                    if (shouldSetState) setState(() {});
-                                    return;
-                                  } else {
-                                    context.pushNamed('Notification');
-                                  }
-                                } else {
-                                  if (shouldSetState) setState(() {});
-                                  return;
-                                }
-
-                                if (shouldSetState) setState(() {});
-                              },
-                              child: badges.Badge(
-                                badgeContent: Text(
-                                  valueOrDefault<String>(
-                                    GetFriendRequesCountCall.numberRequests(
-                                      badgeGetFriendRequesCountResponse
-                                          .jsonBody,
-                                    )?.toString(),
-                                    '0',
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('PayPouch');
+                      },
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        elevation: 4.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('PayPouch');
+                          },
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 2.0,
+                            child: Container(
+                              width: double.infinity,
+                              height: 120.0,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    FlutterFlowTheme.of(context).secondary,
+                                    FlutterFlowTheme.of(context).primary
+                                  ],
+                                  stops: const [0.0, 1.0],
+                                  begin: const AlignmentDirectional(0.64, -1.0),
+                                  end: const AlignmentDirectional(-0.64, 1.0),
+                                ),
+                              ),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Lottie.asset(
+                                    'assets/lottie_animations/Animation_-_1709060506272.json',
+                                    width: 180.0,
+                                    height: 180.0,
+                                    fit: BoxFit.contain,
+                                    reverse: true,
+                                    animate: true,
                                   ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Text(
+                                      'PAY POUCH',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 4.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('LoanDirectory');
+                      },
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 2.0,
+                        child: Container(
+                          width: double.infinity,
+                          height: 120.0,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                FlutterFlowTheme.of(context).secondary,
+                                FlutterFlowTheme.of(context).primary
+                              ],
+                              stops: const [0.0, 1.0],
+                              begin: const AlignmentDirectional(0.64, -1.0),
+                              end: const AlignmentDirectional(-0.64, 1.0),
+                            ),
+                          ),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Lottie.asset(
+                                'assets/lottie_animations/Animation_-_1709061002700.json',
+                                width: 180.0,
+                                height: 180.0,
+                                fit: BoxFit.contain,
+                                reverse: true,
+                                animate: true,
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Text(
+                                  'LOAN \nDIRECTORY',
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
-                                      .titleSmall
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        fontSize: 10.0,
+                                        fontSize: 20.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
-                                showBadge: true,
-                                shape: badges.BadgeShape.circle,
-                                badgeColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                                elevation: 4.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
-                                position: badges.BadgePosition.topEnd(),
-                                animationType: badges.BadgeAnimationType.scale,
-                                toAnimate: true,
-                                child: Icon(
-                                  Icons.favorite,
-                                  color: FlutterFlowTheme.of(context).error,
-                                  size: 34.0,
-                                ),
                               ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed('PayPouch');
-                    },
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('PayPouch');
-                        },
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 2.0,
-                          child: Container(
-                            width: double.infinity,
-                            height: 120.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  FlutterFlowTheme.of(context).secondary,
-                                  FlutterFlowTheme.of(context).primary
-                                ],
-                                stops: const [0.0, 1.0],
-                                begin: const AlignmentDirectional(0.64, -1.0),
-                                end: const AlignmentDirectional(-0.64, 1.0),
-                              ),
-                            ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1709060506272.json',
-                                  width: 180.0,
-                                  height: 180.0,
-                                  fit: BoxFit.contain,
-                                  reverse: true,
-                                  animate: true,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Text(
-                                    'PAY POUCH',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Card(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  elevation: 4.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed('RequestLoan');
-                    },
-                    child: Material(
-                      color: Colors.transparent,
-                      elevation: 2.0,
-                      child: Container(
-                        width: double.infinity,
-                        height: 120.0,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              FlutterFlowTheme.of(context).secondary,
-                              FlutterFlowTheme.of(context).primary
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(0.64, -1.0),
-                            end: const AlignmentDirectional(-0.64, 1.0),
                           ),
-                        ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Lottie.asset(
-                              'assets/lottie_animations/Animation_-_1709061002700.json',
-                              width: 180.0,
-                              height: 180.0,
-                              fit: BoxFit.contain,
-                              reverse: true,
-                              animate: true,
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'LOAN \nDIRECTORY',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('LinkAccounts');
-                        },
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 2.0,
-                          child: Container(
-                            width: double.infinity,
-                            height: 120.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  FlutterFlowTheme.of(context).secondary,
-                                  FlutterFlowTheme.of(context).primary
-                                ],
-                                stops: const [0.0, 1.0],
-                                begin: const AlignmentDirectional(0.64, -1.0),
-                                end: const AlignmentDirectional(-0.64, 1.0),
-                              ),
-                            ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1709061503251.json',
-                                  width: 180.0,
-                                  height: 180.0,
-                                  fit: BoxFit.contain,
-                                  reverse: true,
-                                  animate: true,
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        elevation: 4.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('LinkAccounts');
+                          },
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 2.0,
+                            child: Container(
+                              width: double.infinity,
+                              height: 120.0,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    FlutterFlowTheme.of(context).secondary,
+                                    FlutterFlowTheme.of(context).primary
+                                  ],
+                                  stops: const [0.0, 1.0],
+                                  begin: const AlignmentDirectional(0.64, -1.0),
+                                  end: const AlignmentDirectional(-0.64, 1.0),
                                 ),
-                                Flexible(
-                                  child: Text(
-                                    'LINK \nACCOUNTS',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                        ),
+                              ),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Lottie.asset(
+                                    'assets/lottie_animations/Animation_-_1709061503251.json',
+                                    width: 180.0,
+                                    height: 180.0,
+                                    fit: BoxFit.contain,
+                                    reverse: true,
+                                    animate: true,
                                   ),
-                                ),
-                              ],
+                                  Flexible(
+                                    child: Text(
+                                      'LINK \nACCOUNTS',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

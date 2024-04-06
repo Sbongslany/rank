@@ -201,7 +201,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                     ),
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
-                      'OFFER LOAN INVESTMENT',
+                      'Digital Stokvel',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color:
