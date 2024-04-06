@@ -1,4 +1,3 @@
-import '/components/back_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -46,65 +45,149 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
             SliverAppBar(
               expandedHeight: 100.0,
               pinned: false,
-              floating: true,
-              snap: false,
-              backgroundColor: FlutterFlowTheme.of(context).alternate,
+              floating: false,
+              backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
-                title: Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          FlutterFlowTheme.of(context).secondary,
-                          FlutterFlowTheme.of(context).primary
-                        ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(0.24, -1.0),
-                        end: const AlignmentDirectional(-0.24, 1.0),
-                      ),
+                background: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        wrapWithModel(
-                          model: _model.backButtonModel1,
-                          updateCallback: () => setState(() {}),
-                          child: const BackButtonWidget(),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 20.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/ranklogo.png',
-                              width: 80.0,
-                              fit: BoxFit.contain,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.safePop();
+                          },
+                          child: Container(
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
+                                )
+                              ],
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(10.0),
+                                bottomRight: Radius.circular(0.0),
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(0.0),
+                              ),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).alternate,
+                              ),
+                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Icon(
+                                Icons.arrow_back_ios_sharp,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 34.0,
+                              ),
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: 0.0,
-                          child: wrapWithModel(
-                            model: _model.backButtonModel2,
-                            updateCallback: () => setState(() {}),
-                            child: const BackButtonWidget(),
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/ranklogo_2.png',
+                          width: 100.0,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Opacity(
+                        opacity: 0.0,
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 0.0, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Container(
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
+                                  )
+                                ],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back_ios_sharp,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 34.0,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                centerTitle: true,
+                centerTitle: false,
                 expandedTitleScale: 1.0,
               ),
-              elevation: 0.0,
+              elevation: 2.0,
             )
           ],
           body: Builder(
@@ -144,7 +227,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                                 ),
                               ),
                               AutoSizeText(
-                                'mobile application designed to\nrevolutionize the financial services\nlandscape. Our app aims to provide users\nwith a seamless and user-friendly\nplatform for requesting short term loans,\npurchasing of utilities, airtime, lotto and\ninstant payments. With innovative\nfeatures and a commitment to user\nsatisfaction, Rank Financial Services is\npoised to become a leading player in the\n\nfinancial technology sector.',
+                                'mobile application designed to\nrevolutionize the financial services\nlandscape. Our app aims to provide users\nwith a seamless and user-friendly\nplatform for requesting short term loans,\npurchasing of utilities, airtime, lotto and\ninstant payments. With innovative\nfeatures and a commitment to user\nsatisfaction, Rank Financial Services is\npoised to become a leading player in the\nfinancial technology sector.',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
