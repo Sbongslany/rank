@@ -315,27 +315,6 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                               ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 5.0, 0.0),
-                                        child: Text(
-                                          getJsonField(
-                                            getTransactionsHistoryItem,
-                                            r'''$.amount''',
-                                          ).toString(),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 13.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                   Row(
@@ -390,7 +369,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                                 fontFamily: 'Readex Pro',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .alternate,
+                                                        .primaryText,
                                                 fontSize: 13.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
@@ -408,38 +387,13 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                                 fontFamily: 'Readex Pro',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .alternate,
+                                                        .primaryText,
                                                 fontSize: 13.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                         ),
                                       ],
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 5.0, 0.0),
-                                      child: Text(
-                                        getJsonField(
-                                          getTransactionsHistoryItem,
-                                          r'''$.amount''',
-                                        ).toString(),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              fontSize: 13.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                      ),
                                     ),
                                   ),
                                 ],
