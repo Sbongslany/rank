@@ -541,7 +541,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                                   _model.textController4,
                                               focusNode:
                                                   _model.textFieldFocusNode1,
-                                              autofocus: true,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'Expiry date',
@@ -638,7 +638,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                                   _model.textController5,
                                               focusNode:
                                                   _model.textFieldFocusNode2,
-                                              autofocus: true,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText: 'CVV',

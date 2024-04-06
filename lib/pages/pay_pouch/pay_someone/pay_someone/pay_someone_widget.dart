@@ -251,29 +251,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
-                                child: Text(
-                                  'LOAN POUCH',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                    10.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   'PAY POUCH\nAVALABLE BALANCE',
                                   style: FlutterFlowTheme.of(context)

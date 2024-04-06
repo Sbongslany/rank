@@ -76,7 +76,7 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
                   },
                   child: Icon(
                     Icons.close_sharp,
-                    color: FlutterFlowTheme.of(context).secondary,
+                    color: FlutterFlowTheme.of(context).alternate,
                     size: 44.0,
                   ),
                 ),

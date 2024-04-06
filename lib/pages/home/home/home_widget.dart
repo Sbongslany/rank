@@ -489,88 +489,58 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      elevation: 5.0,
-                                      shape: const CircleBorder(),
-                                      child: Container(
-                                        width: 30.0,
-                                        height: 30.0,
-                                        decoration: const BoxDecoration(
-                                          color: Color(0xFF38FF00),
-                                          shape: BoxShape.circle,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('Profile');
-                                    },
-                                    child: Stack(
-                                      alignment: const AlignmentDirectional(1.0, 1.0),
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed('Profile');
-                                            },
-                                            child: Container(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: CachedNetworkImage(
-                                                fadeInDuration:
-                                                    const Duration(milliseconds: 500),
-                                                fadeOutDuration:
-                                                    const Duration(milliseconds: 500),
-                                                imageUrl:
-                                                    valueOrDefault<String>(
-                                                  GetUserCall.profile(
-                                                    rowGetUserResponse.jsonBody,
-                                                  ),
-                                                  'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1214428300%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration.jpg%3Fs%3D170667a%26w%3D0%26k%3D20%26c%3DuO4FM9F9sdP66Bd-Cnp-YZHjv2KECHL3eCB1EaZTRpc%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration-gm1214428300-353321368&docid=dX0DjZNlTwerkM&tbnid=KNSAziEV1ERcSM&vet=12ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA..i&w=416&h=416&hcb=2&ved=2ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA',
-                                                ),
+                                  Stack(
+                                    alignment: const AlignmentDirectional(1.0, 1.0),
+                                    children: [
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('Profile');
+                                        },
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 4.0,
+                                          shape: const CircleBorder(),
+                                          child: Container(
+                                            width: 70.0,
+                                            height: 70.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                errorWidget: (context, error,
-                                                        stackTrace) =>
-                                                    Image.asset(
-                                                  'assets/images/error_image.png',
-                                                  fit: BoxFit.cover,
+                                                image:
+                                                    CachedNetworkImageProvider(
+                                                  valueOrDefault<String>(
+                                                    GetUserCall.profile(
+                                                      rowGetUserResponse
+                                                          .jsonBody,
+                                                    ),
+                                                    'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1214428300%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration.jpg%3Fs%3D170667a%26w%3D0%26k%3D20%26c%3DuO4FM9F9sdP66Bd-Cnp-YZHjv2KECHL3eCB1EaZTRpc%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration-gm1214428300-353321368&docid=dX0DjZNlTwerkM&tbnid=KNSAziEV1ERcSM&vet=12ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA..i&w=416&h=416&hcb=2&ved=2ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA',
+                                                  ),
                                                 ),
+                                              ),
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                               ),
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(1.0, 1.0),
-                                          child: Icon(
-                                            Icons.edit_square,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            size: 20.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                      FaIcon(
+                                        FontAwesomeIcons.solidEdit,
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        size: 24.0,
+                                      ),
+                                    ],
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(

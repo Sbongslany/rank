@@ -54,15 +54,6 @@ class _PayUserWidgetState extends State<PayUserWidget> {
               automaticallyImplyLeading: false,
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  'Page Title',
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
                 background: Container(
                   width: 100.0,
                   height: 100.0,
