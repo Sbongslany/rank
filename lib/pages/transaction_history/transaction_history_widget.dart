@@ -81,69 +81,51 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Text(
-                                'R',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: FutureBuilder<ApiCallResponse>(
-                                    future: GetPayPouchBalanceCall.call(
-                                      jwt: currentAuthenticationToken,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      final textGetPayPouchBalanceResponse =
-                                          snapshot.data!;
-                                      return Text(
-                                        valueOrDefault<String>(
-                                          GetPayPouchBalanceCall.total(
-                                            textGetPayPouchBalanceResponse
-                                                .jsonBody,
-                                          ),
-                                          '-',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              fontSize: 13.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      );
-                                    },
+                                child: FutureBuilder<ApiCallResponse>(
+                                  future: GetPayPouchBalanceCall.call(
+                                    jwt: currentAuthenticationToken,
                                   ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    final textGetPayPouchBalanceResponse =
+                                        snapshot.data!;
+                                    return Text(
+                                      valueOrDefault<String>(
+                                        GetPayPouchBalanceCall.total(
+                                          textGetPayPouchBalanceResponse
+                                              .jsonBody,
+                                        ),
+                                        '-',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            fontSize: 13.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    );
+                                  },
                                 ),
                               ),
                             ],
