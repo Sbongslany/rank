@@ -109,6 +109,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -127,6 +128,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -171,6 +173,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 35.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               );
@@ -197,7 +200,10 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             shape: BoxShape.circle,
@@ -244,6 +250,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -282,6 +289,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontSize: 24.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -306,6 +314,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -324,6 +333,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -345,7 +355,11 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                             setState(() => _model.refValue = val),
                         width: 200.0,
                         height: 50.0,
-                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                         hintText: 'DIRECT DEPOSIT',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
@@ -372,6 +386,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                           child: TextFormField(
                             controller: _model.textController,
                             focusNode: _model.textFieldFocusNode,
+                            autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Amount',
@@ -381,9 +396,14 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
-                              hintStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).alternate,
@@ -416,7 +436,13 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            minLines: null,
                             keyboardType: TextInputType.number,
                             validator: _model.textControllerValidator
                                 .asValidator(context),
@@ -434,11 +460,17 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     children: [
                       Text(
                         '28/05/2022 SERVICE RENDERED',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Text(
                         'R604.00',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -451,11 +483,17 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     children: [
                       Text(
                         '28/05/2022 SERVICE RENDERED',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Text(
                         'R604.00',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -468,11 +506,17 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                     children: [
                       Text(
                         '28/05/2022 SERVICE RENDERED',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Text(
                         'R604.00',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ],
                   ),
@@ -495,6 +539,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -504,6 +549,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -580,6 +626,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(

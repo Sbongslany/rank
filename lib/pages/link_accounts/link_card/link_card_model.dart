@@ -25,8 +25,6 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
   // Stores action output result for [Backend Call - API (Bank Details)] action in Button widget.
   ApiCallResponse? bankResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -45,8 +43,4 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
     bankNameFocusNode?.dispose();
     bankNameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

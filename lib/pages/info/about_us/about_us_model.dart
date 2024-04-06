@@ -12,8 +12,6 @@ class AboutUsModel extends FlutterFlowModel<AboutUsWidget> {
   // Model for backButton component.
   late BackButtonModel backButtonModel2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backButtonModel1 = createModel(context, () => BackButtonModel());
@@ -26,8 +24,4 @@ class AboutUsModel extends FlutterFlowModel<AboutUsWidget> {
     backButtonModel1.dispose();
     backButtonModel2.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

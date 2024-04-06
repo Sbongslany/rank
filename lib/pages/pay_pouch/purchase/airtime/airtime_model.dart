@@ -32,8 +32,6 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
   String? accountValue;
   FormFieldController<String>? accountValueController;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -44,9 +42,6 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
     phoneNumberController?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get radioButtonValue => radioButtonValueController?.value;
 }

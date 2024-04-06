@@ -10,8 +10,6 @@ class LoanDirectoryModel extends FlutterFlowModel<LoanDirectoryWidget> {
   // Model for backMenuAppBar component.
   late BackMenuAppBarModel backMenuAppBarModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -22,8 +20,4 @@ class LoanDirectoryModel extends FlutterFlowModel<LoanDirectoryWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

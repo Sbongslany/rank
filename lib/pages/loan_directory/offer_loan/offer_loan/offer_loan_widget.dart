@@ -96,6 +96,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
@@ -112,6 +113,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
                           fontSize: 12.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -123,7 +125,10 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                 onChanged: (val) => setState(() => _model.dropDownValue1 = val),
                 width: 350.0,
                 height: 50.0,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Please select...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
@@ -151,6 +156,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
                           fontSize: 12.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -169,7 +175,10 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                 onChanged: (val) => setState(() => _model.dropDownValue2 = val),
                 width: 350.0,
                 height: 50.0,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Please select...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
@@ -197,6 +206,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
                           fontSize: 12.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -208,7 +218,10 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                 onChanged: (val) => setState(() => _model.dropDownValue3 = val),
                 width: 350.0,
                 height: 50.0,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Please select...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
@@ -244,6 +257,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -272,6 +286,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

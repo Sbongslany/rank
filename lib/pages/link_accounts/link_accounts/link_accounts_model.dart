@@ -17,8 +17,6 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.
   ApiCallResponse? apiResultg6a;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -29,8 +27,4 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

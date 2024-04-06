@@ -83,6 +83,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 20.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -110,7 +111,10 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
                         )
                       ],
                       borderRadius: const BorderRadius.only(
@@ -136,6 +140,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -154,6 +159,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 12.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -229,7 +235,10 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                   )
                                 ],
                                 borderRadius: const BorderRadius.only(
@@ -256,6 +265,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -334,6 +344,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(
@@ -364,6 +375,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).secondary,
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                     elevation: 3.0,

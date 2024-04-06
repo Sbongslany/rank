@@ -115,6 +115,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -132,6 +133,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),
@@ -143,14 +145,23 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.holderController,
                               focusNode: _model.holderFocusNode,
+                              autofocus: false,
                               textInputAction: TextInputAction.next,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Account Holder',
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -184,7 +195,13 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                 fillColor:
                                     FlutterFlowTheme.of(context).alternate,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: null,
                               validator: _model.holderControllerValidator
                                   .asValidator(context),
                             ),
@@ -195,14 +212,23 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.accountNumberController,
                               focusNode: _model.accountNumberFocusNode,
+                              autofocus: false,
                               textInputAction: TextInputAction.next,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Account Number',
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -236,7 +262,13 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                 fillColor:
                                     FlutterFlowTheme.of(context).alternate,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: null,
                               keyboardType: TextInputType.number,
                               validator: _model.accountNumberControllerValidator
                                   .asValidator(context),
@@ -248,15 +280,24 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             child: TextFormField(
                               controller: _model.bankNameController,
                               focusNode: _model.bankNameFocusNode,
+                              autofocus: false,
                               textCapitalization: TextCapitalization.sentences,
                               textInputAction: TextInputAction.done,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Bank Name',
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -290,7 +331,13 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                 fillColor:
                                     FlutterFlowTheme.of(context).alternate,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: null,
                               validator: _model.bankNameControllerValidator
                                   .asValidator(context),
                             ),
@@ -367,6 +414,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

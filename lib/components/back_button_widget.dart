@@ -51,7 +51,10 @@ class _BackButtonWidgetState extends State<BackButtonWidget> {
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x33000000),
-                offset: Offset(0.0, 2.0),
+                offset: Offset(
+                  0.0,
+                  2.0,
+                ),
               )
             ],
             borderRadius: const BorderRadius.only(

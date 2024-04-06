@@ -92,6 +92,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -109,6 +110,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -126,6 +128,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
                                 fontSize: 35.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
                               ),
                         ),
@@ -166,6 +169,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -203,6 +207,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 19.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),

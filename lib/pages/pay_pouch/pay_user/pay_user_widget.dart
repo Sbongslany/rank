@@ -100,6 +100,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 12.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -254,6 +255,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 Opacity(
@@ -269,6 +271,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .alternate,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -285,6 +288,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
                                                                     context)
                                                                 .accent3,
                                                         fontSize: 10.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],

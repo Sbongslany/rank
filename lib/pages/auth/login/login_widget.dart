@@ -227,6 +227,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 24.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -241,6 +242,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                         ),
@@ -264,6 +266,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   fontFamily: 'Readex Pro',
                                   color: const Color(0xF1F3EAEA),
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                   decoration: TextDecoration.underline,
                                 ),
@@ -284,6 +287,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 14.0,
+                            letterSpacing: 0.0,
                           ),
                     ).animateOnPageLoad(
                         animationsMap['textOnPageLoadAnimation1']!),
@@ -298,13 +302,19 @@ class _LoginWidgetState extends State<LoginWidget>
                     child: TextFormField(
                       controller: _model.emailController,
                       focusNode: _model.emailFocusNode,
+                      autofocus: false,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
                                   color: const Color(0xFF969EA4),
+                                  letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -340,7 +350,9 @@ class _LoginWidgetState extends State<LoginWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).primaryText,
+                            letterSpacing: 0.0,
                           ),
+                      minLines: null,
                       keyboardType: TextInputType.emailAddress,
                       validator:
                           _model.emailControllerValidator.asValidator(context),
@@ -359,6 +371,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 14.0,
+                            letterSpacing: 0.0,
                           ),
                     ).animateOnPageLoad(
                         animationsMap['textOnPageLoadAnimation2']!),
@@ -373,13 +386,19 @@ class _LoginWidgetState extends State<LoginWidget>
                     child: TextFormField(
                       controller: _model.loginPasswordController,
                       focusNode: _model.loginPasswordFocusNode,
+                      autofocus: false,
                       obscureText: !_model.loginPasswordVisibility,
                       decoration: InputDecoration(
-                        labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
                                   color: const Color(0xFF969EA4),
+                                  letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -429,7 +448,9 @@ class _LoginWidgetState extends State<LoginWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).primaryText,
+                            letterSpacing: 0.0,
                           ),
+                      minLines: null,
                       keyboardType: TextInputType.emailAddress,
                       validator: _model.loginPasswordControllerValidator
                           .asValidator(context),
@@ -515,6 +536,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                   fontSize: 19.0,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(
@@ -550,6 +572,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   color: const Color(0xF14E4444),
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ).animateOnPageLoad(

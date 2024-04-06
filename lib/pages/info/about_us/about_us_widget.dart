@@ -144,6 +144,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 24.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -163,6 +164,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),

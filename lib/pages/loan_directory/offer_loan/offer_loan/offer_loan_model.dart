@@ -20,8 +20,6 @@ class OfferLoanModel extends FlutterFlowModel<OfferLoanWidget> {
   String? dropDownValue3;
   FormFieldController<String>? dropDownValueController3;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -32,8 +30,4 @@ class OfferLoanModel extends FlutterFlowModel<OfferLoanWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -226,6 +226,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 Text(
@@ -243,6 +244,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .alternate,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],

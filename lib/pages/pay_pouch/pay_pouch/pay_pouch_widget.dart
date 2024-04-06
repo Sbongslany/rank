@@ -98,6 +98,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -116,6 +117,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -160,6 +162,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
                                       fontSize: 35.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               );
@@ -224,6 +227,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],
@@ -286,6 +290,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],
@@ -382,6 +387,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ],
@@ -443,6 +449,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],

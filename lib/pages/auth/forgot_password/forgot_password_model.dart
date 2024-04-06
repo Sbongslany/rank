@@ -17,8 +17,6 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   // Stores action output result for [Backend Call - API (Forgot Password)] action in Button widget.
   ApiCallResponse? forgotResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backButtonModel = createModel(context, () => BackButtonModel());
@@ -31,8 +29,4 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
     emailFocusNode?.dispose();
     emailController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -13,8 +13,6 @@ class PayUserModel extends FlutterFlowModel<PayUserWidget> {
   late BackMenuAppBarModel backMenuAppBarModel;
   Completer<ApiCallResponse>? apiRequestCompleter;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -26,10 +24,7 @@ class PayUserModel extends FlutterFlowModel<PayUserWidget> {
     backMenuAppBarModel.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForApiRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

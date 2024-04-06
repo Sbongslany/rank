@@ -140,6 +140,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 24.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -156,6 +157,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primaryText,
+                        letterSpacing: 0.0,
                       ),
                 ),
               ),
@@ -165,12 +167,17 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
               child: TextFormField(
                 controller: _model.emailController,
                 focusNode: _model.emailFocusNode,
+                autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                  labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                        fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
+                      ),
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Readex Pro',
                         color: const Color(0xFF969EA4),
+                        letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -206,7 +213,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       color: FlutterFlowTheme.of(context).primaryText,
+                      letterSpacing: 0.0,
                     ),
+                minLines: null,
                 keyboardType: TextInputType.emailAddress,
                 validator: _model.emailControllerValidator.asValidator(context),
               ).animateOnPageLoad(
@@ -228,6 +237,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).secondaryText,
                         fontSize: 10.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
               ),
@@ -298,6 +308,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                           fontSize: 19.0,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

@@ -95,6 +95,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 24.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -112,6 +113,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                             ),
@@ -148,6 +150,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   fontSize: 17.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w200,
                                 ),
                           ),

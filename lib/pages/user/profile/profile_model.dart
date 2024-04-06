@@ -35,8 +35,6 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   // Stores action output result for [Backend Call - API (Edit Profile)] action in Button widget.
   ApiCallResponse? editApiResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backButtonModel = createModel(context, () => BackButtonModel());
@@ -58,8 +56,4 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
     bioFocusNode?.dispose();
     bioController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

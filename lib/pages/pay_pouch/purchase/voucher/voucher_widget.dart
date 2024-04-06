@@ -165,6 +165,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 24.0,
+                      letterSpacing: 0.0,
                     ),
               ),
             ),
@@ -175,6 +176,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 14.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
                     ),
               ),
@@ -205,6 +207,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 19.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
               ),
@@ -218,7 +221,10 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                 onChanged: (val) => setState(() => _model.dropDownValue = val),
                 width: 350.0,
                 height: 50.0,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Please select...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
@@ -257,6 +263,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           fontSize: 19.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -280,6 +287,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
+                        letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(
@@ -307,6 +315,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
+                        letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(

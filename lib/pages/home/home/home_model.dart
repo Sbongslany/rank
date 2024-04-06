@@ -10,8 +10,6 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   // Stores action output result for [Backend Call - API (Get Friend Reques Count)] action in Badge widget.
   ApiCallResponse? countResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -19,8 +17,4 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

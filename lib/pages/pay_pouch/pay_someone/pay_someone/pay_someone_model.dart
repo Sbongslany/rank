@@ -23,8 +23,6 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   // Stores action output result for [Backend Call - API (Pay Someone)] action in Button widget.
   ApiCallResponse? apiResult836;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -37,8 +35,4 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

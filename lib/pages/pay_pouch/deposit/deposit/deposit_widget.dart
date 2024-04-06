@@ -74,6 +74,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 15.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -93,7 +94,10 @@ class _DepositWidgetState extends State<DepositWidget> {
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             shape: BoxShape.circle,
@@ -135,6 +139,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -167,6 +172,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 12.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -182,7 +188,11 @@ class _DepositWidgetState extends State<DepositWidget> {
                       onChanged: (val) => setState(() => _model.refValue = val),
                       width: 200.0,
                       height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: 'DIRECT DEPOSIT',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -210,7 +220,11 @@ class _DepositWidgetState extends State<DepositWidget> {
                           setState(() => _model.amountValue = val),
                       width: 160.0,
                       height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: 'AMOUNT',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -246,6 +260,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 12.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -267,6 +282,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
                                 fontSize: 12.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -287,6 +303,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
                                 fontSize: 12.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -342,6 +359,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -355,6 +373,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 24.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -371,6 +390,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 24.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -392,6 +412,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -405,6 +426,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -429,6 +451,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -442,6 +465,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -492,6 +516,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -505,6 +530,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 24.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -521,6 +547,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 24.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -542,6 +569,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -555,6 +583,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -579,6 +608,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -592,6 +622,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -642,6 +673,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -655,6 +687,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 24.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -671,6 +704,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 24.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -692,6 +726,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -705,6 +740,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 9.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -729,6 +765,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -742,6 +779,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -850,6 +888,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

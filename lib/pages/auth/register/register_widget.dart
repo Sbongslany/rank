@@ -361,6 +361,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
@@ -376,6 +377,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                         ),
@@ -399,6 +401,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -441,6 +444,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation1']!),
@@ -456,15 +460,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.firstNameController,
                               focusNode: _model.firstNameFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -504,7 +514,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               validator: _model.firstNameControllerValidator
                                   .asValidator(context),
                             ).animateOnPageLoad(animationsMap[
@@ -524,6 +536,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation2']!),
@@ -539,15 +552,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.surnameController,
                               focusNode: _model.surnameFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -587,7 +606,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               validator: _model.surnameControllerValidator
                                   .asValidator(context),
                             ).animateOnPageLoad(animationsMap[
@@ -607,6 +628,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation3']!),
@@ -622,15 +644,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.emailController,
                               focusNode: _model.emailFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -670,7 +698,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               keyboardType: TextInputType.emailAddress,
                               validator: _model.emailControllerValidator
                                   .asValidator(context),
@@ -691,6 +721,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation4']!),
@@ -706,15 +737,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.phoneNumberController,
                               focusNode: _model.phoneNumberFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -754,7 +791,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               keyboardType: TextInputType.number,
                               validator: _model.phoneNumberControllerValidator
                                   .asValidator(context),
@@ -775,6 +814,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation5']!),
@@ -790,15 +830,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.passwordController,
                               focusNode: _model.passwordFocusNode,
+                              autofocus: false,
                               obscureText: !_model.passwordVisibility,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -853,7 +899,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               validator: _model.passwordControllerValidator
                                   .asValidator(context),
                             ).animateOnPageLoad(animationsMap[
@@ -873,6 +921,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation6']!),
@@ -888,15 +937,21 @@ class _RegisterWidgetState extends State<RegisterWidget>
                             child: TextFormField(
                               controller: _model.idNumberController,
                               focusNode: _model.idNumberFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: const Color(0xFF969EA4),
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -936,7 +991,9 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    letterSpacing: 0.0,
                                   ),
+                              minLines: null,
                               keyboardType: TextInputType.number,
                               validator: _model.idNumberControllerValidator
                                   .asValidator(context),
@@ -1022,6 +1079,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
                                       fontSize: 19.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: const BorderSide(

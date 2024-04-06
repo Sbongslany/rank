@@ -17,8 +17,6 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   // Stores action output result for [Backend Call - API (Approve request)] action in Container widget.
   ApiCallResponse? apiApprove;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -30,10 +28,7 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
     backMenuAppBarModel.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForApiRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

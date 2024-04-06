@@ -22,8 +22,6 @@ class TransferModel extends FlutterFlowModel<TransferWidget> {
   // Stores action output result for [Backend Call - API (Paypouch Withdraw)] action in Button widget.
   ApiCallResponse? withdrawResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -34,8 +32,4 @@ class TransferModel extends FlutterFlowModel<TransferWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

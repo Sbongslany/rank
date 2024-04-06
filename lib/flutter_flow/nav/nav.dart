@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/backend/schema/structs/index.dart';
 
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
@@ -206,7 +207,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PaySomeone',
           path: '/paySomeone',
           builder: (context, params) => PaySomeoneWidget(
-            friendId: params.getParam('friendId', ParamType.String),
+            friendId: params.getParam(
+              'friendId',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -255,7 +259,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PayWebView',
           path: '/payWebView',
           builder: (context, params) => PayWebViewWidget(
-            urlLink: params.getParam('urlLink', ParamType.String),
+            urlLink: params.getParam(
+              'urlLink',
+              ParamType.String,
+            ),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -375,6 +382,7 @@ class FFParameters {
     String paramName,
     ParamType type, [
     bool isList = false,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -392,6 +400,7 @@ class FFParameters {
       param,
       type,
       isList,
+      structBuilder: structBuilder,
     );
   }
 }

@@ -150,6 +150,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 19.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -168,6 +169,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),
@@ -214,6 +216,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   );
@@ -246,6 +249,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

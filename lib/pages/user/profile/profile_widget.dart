@@ -128,7 +128,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
                             )
                           ],
                           shape: BoxShape.circle,
@@ -228,6 +231,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(
@@ -302,6 +306,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
                                     fontSize: 10.0,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(
@@ -324,7 +329,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           child: Text(
                             'NAME',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -340,13 +350,19 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                         ),
                         focusNode: _model.firstnameFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
                                     color: const Color(0xFF969EA4),
+                                    letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -382,7 +398,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
                             ),
+                        minLines: null,
                         validator: _model.firstnameControllerValidator
                             .asValidator(context),
                       ),
@@ -397,7 +415,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           child: Text(
                             'SURNAME',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -413,13 +436,19 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                         ),
                         focusNode: _model.lastnameFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
                                     color: const Color(0xFF969EA4),
+                                    letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -455,7 +484,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
                             ),
+                        minLines: null,
                         validator: _model.lastnameControllerValidator
                             .asValidator(context),
                       ),
@@ -470,7 +501,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           child: Text(
                             'PHONE NUMBER',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -486,13 +522,19 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                         ),
                         focusNode: _model.cellnumberFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
                                     color: const Color(0xFF969EA4),
+                                    letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -528,7 +570,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
                             ),
+                        minLines: null,
                         validator: _model.cellnumberControllerValidator
                             .asValidator(context),
                       ),
@@ -543,7 +587,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           child: Text(
                             'BIO',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -559,13 +608,19 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ).toString(),
                         ),
                         focusNode: _model.bioFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
                                     color: const Color(0xFF969EA4),
+                                    letterSpacing: 0.0,
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -601,7 +656,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
                             ),
+                        minLines: null,
                         validator:
                             _model.bioControllerValidator.asValidator(context),
                       ),
@@ -682,6 +739,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                   fontSize: 19.0,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: const BorderSide(

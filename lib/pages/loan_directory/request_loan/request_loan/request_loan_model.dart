@@ -20,8 +20,6 @@ class RequestLoanModel extends FlutterFlowModel<RequestLoanWidget> {
   // Stores action output result for [Backend Call - API (Loan Directory)] action in Button widget.
   ApiCallResponse? apiResultmsa;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backButtonModel = createModel(context, () => BackButtonModel());
@@ -32,8 +30,4 @@ class RequestLoanModel extends FlutterFlowModel<RequestLoanWidget> {
     unfocusNode.dispose();
     backButtonModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

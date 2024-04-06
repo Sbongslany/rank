@@ -98,6 +98,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 15.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -115,6 +116,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -159,6 +161,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 35.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             );
@@ -185,7 +188,10 @@ class _TransferWidgetState extends State<TransferWidget> {
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
                             )
                           ],
                           shape: BoxShape.circle,
@@ -231,6 +237,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 10.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
@@ -267,6 +274,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).secondaryText,
                           fontSize: 24.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -291,6 +299,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontSize: 12.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -309,6 +318,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontSize: 12.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -327,7 +337,10 @@ class _TransferWidgetState extends State<TransferWidget> {
                     onChanged: (val) => setState(() => _model.refValue = val),
                     width: 200.0,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'DIRECT DEPOSIT',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -354,7 +367,10 @@ class _TransferWidgetState extends State<TransferWidget> {
                         setState(() => _model.amountValue = val),
                     width: 160.0,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'AMOUNT',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -383,11 +399,17 @@ class _TransferWidgetState extends State<TransferWidget> {
                   children: [
                     Text(
                       '28/05/2022 SERVICE RENDERED',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Text(
                       'R604.00',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ],
                 ),
@@ -400,11 +422,17 @@ class _TransferWidgetState extends State<TransferWidget> {
                   children: [
                     Text(
                       '28/05/2022 SERVICE RENDERED',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Text(
                       'R604.00',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ],
                 ),
@@ -417,11 +445,17 @@ class _TransferWidgetState extends State<TransferWidget> {
                   children: [
                     Text(
                       '28/05/2022 SERVICE RENDERED',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Text(
                       'R604.00',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ],
                 ),
@@ -442,6 +476,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -450,6 +485,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                         'R604.00',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -522,6 +558,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

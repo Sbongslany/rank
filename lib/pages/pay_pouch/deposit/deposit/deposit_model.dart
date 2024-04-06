@@ -28,8 +28,6 @@ class DepositModel extends FlutterFlowModel<DepositWidget> {
   // Stores action output result for [Backend Call - API (Pay Pouch)] action in Button widget.
   ApiCallResponse? paypouchresponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -40,8 +38,4 @@ class DepositModel extends FlutterFlowModel<DepositWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

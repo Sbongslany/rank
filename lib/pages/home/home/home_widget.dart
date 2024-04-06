@@ -117,6 +117,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -170,6 +171,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -226,6 +228,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                             fontSize: 20.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -283,6 +286,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                             fontSize: 20.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -311,6 +315,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).secondary,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
@@ -351,6 +356,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                         fontSize: 20.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -385,16 +391,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                 },
               ),
               actions: [
-                Opacity(
-                  opacity: 0.0,
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                    child: Icon(
-                      Icons.refresh,
-                      color: FlutterFlowTheme.of(context).alternate,
-                      size: 30.0,
-                    ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                  child: Icon(
+                    Icons.notifications_sharp,
+                    color: FlutterFlowTheme.of(context).alternate,
+                    size: 30.0,
                   ),
                 ),
               ],
@@ -567,6 +569,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -585,6 +588,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .override(
                                           fontFamily: 'Readex Pro',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -608,7 +612,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x33000000),
-                                          offset: Offset(0.0, 2.0),
+                                          offset: Offset(
+                                            0.0,
+                                            2.0,
+                                          ),
                                         )
                                       ],
                                       shape: BoxShape.circle,
@@ -639,6 +646,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             fontSize: 8.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -686,6 +694,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondary,
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -777,6 +786,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         fontSize: 10.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                                 showBadge: true,
@@ -869,6 +879,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -938,6 +949,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -1007,6 +1019,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),

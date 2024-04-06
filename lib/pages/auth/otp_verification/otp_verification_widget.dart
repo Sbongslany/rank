@@ -149,6 +149,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 20.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
@@ -161,7 +162,10 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     autoDisposeControllers: false,
                     appContext: context,
                     length: 6,
-                    textStyle: FlutterFlowTheme.of(context).bodyLarge,
+                    textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     enableActiveFill: false,
                     autoFocus: true,
@@ -203,6 +207,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     'NEW PASSWORD',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -212,13 +217,19 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                   child: TextFormField(
                     controller: _model.newpasswordController,
                     focusNode: _model.newpasswordFocusNode,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
                                 color: const Color(0xFF969EA4),
+                                letterSpacing: 0.0,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -254,7 +265,9 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
                         ),
+                    minLines: null,
                     keyboardType: TextInputType.emailAddress,
                     validator: _model.newpasswordControllerValidator
                         .asValidator(context),
@@ -267,6 +280,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     'DID YOU RECEIVE THE OTP ?',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -278,6 +292,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).secondary,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -353,6 +368,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                   fontSize: 19.0,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(

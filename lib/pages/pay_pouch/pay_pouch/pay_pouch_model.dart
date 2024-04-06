@@ -13,8 +13,6 @@ class PayPouchModel extends FlutterFlowModel<PayPouchWidget> {
   // Stores action output result for [Backend Call - API (Get Friends Count)] action in Container widget.
   ApiCallResponse? apiCount;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     backMenuAppBarModel = createModel(context, () => BackMenuAppBarModel());
@@ -25,8 +23,4 @@ class PayPouchModel extends FlutterFlowModel<PayPouchWidget> {
     unfocusNode.dispose();
     backMenuAppBarModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

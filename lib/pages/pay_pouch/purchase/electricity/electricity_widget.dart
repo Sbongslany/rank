@@ -168,6 +168,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 24.0,
+                      letterSpacing: 0.0,
                     ),
               ),
             ),
@@ -178,6 +179,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       fontSize: 14.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
                     ),
               ),
@@ -208,6 +210,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 19.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
               ),
@@ -221,7 +224,10 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                 onChanged: (val) => setState(() => _model.dropDownValue = val),
                 width: 350.0,
                 height: 50.0,
-                textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Readex Pro',
+                      letterSpacing: 0.0,
+                    ),
                 hintText: 'Please select...',
                 icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
@@ -249,6 +255,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 19.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
               ),
@@ -261,10 +268,14 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                 autofocus: true,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                  labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                        fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
+                      ),
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Readex Pro',
                         color: const Color(0xFF969EA4),
+                        letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -300,7 +311,9 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
                       color: const Color(0xFFB8BEC7),
+                      letterSpacing: 0.0,
                     ),
+                minLines: null,
                 validator: _model.textControllerValidator.asValidator(context),
               ),
             ),
@@ -324,6 +337,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           fontSize: 19.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -347,6 +361,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
+                        letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(
@@ -374,6 +389,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
+                        letterSpacing: 0.0,
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(

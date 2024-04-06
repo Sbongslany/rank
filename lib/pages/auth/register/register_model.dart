@@ -35,8 +35,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
   ApiCallResponse? regResponse;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
@@ -63,8 +61,4 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     idNumberFocusNode?.dispose();
     idNumberController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

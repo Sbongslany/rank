@@ -149,6 +149,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).alternate,
                           fontSize: 19.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -168,11 +169,13 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).secondary,
+                              letterSpacing: 0.0,
                             ),
                     selectedTextStyle:
                         FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).alternate,
+                              letterSpacing: 0.0,
                             ),
                     buttonPosition: RadioButtonPosition.left,
                     direction: Axis.vertical,
@@ -191,13 +194,19 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   child: TextFormField(
                     controller: _model.phoneNumberController,
                     focusNode: _model.phoneNumberFocusNode,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Readex Pro',
                                 color: const Color(0xFF969EA4),
+                                letterSpacing: 0.0,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -239,7 +248,9 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
                         ),
+                    minLines: null,
                     keyboardType: TextInputType.emailAddress,
                     validator: _model.phoneNumberControllerValidator
                         .asValidator(context),
@@ -262,7 +273,11 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                             setState(() => _model.mobileNetworkValue = val),
                         width: 400.0,
                         height: 50.0,
-                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                         hintText: 'Mobile Network',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
@@ -297,7 +312,10 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         setState(() => _model.prePaidAirtimeCellCValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'Prepaid Value',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -329,7 +347,10 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         setState(() => _model.prePaidAirtimeVodacomValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'Prepaid Value',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -361,7 +382,10 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         setState(() => _model.prePaidAirtimeMTNValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'Prepaid Value',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -393,7 +417,10 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         setState(() => _model.prePaidAirtimeTelkomValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'Prepaid Value',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -422,7 +449,10 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                   onChanged: (val) => setState(() => _model.accountValue = val),
                   width: double.infinity,
                   height: 50.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
+                      ),
                   hintText: 'Account',
                   icon: Icon(
                     Icons.keyboard_arrow_down_rounded,
@@ -460,6 +490,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: const BorderSide(

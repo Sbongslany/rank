@@ -37,7 +37,10 @@ class _TastingWidgetState extends State<TastingWidget> {
   Widget build(BuildContext context) {
     return Text(
       'Hello World',
-      style: FlutterFlowTheme.of(context).bodyMedium,
+      style: FlutterFlowTheme.of(context).bodyMedium.override(
+            fontFamily: 'Readex Pro',
+            letterSpacing: 0.0,
+          ),
     );
   }
 }
