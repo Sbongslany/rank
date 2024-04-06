@@ -280,6 +280,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 begin: const AlignmentDirectional(1.0, 0.34),
                                 end: const AlignmentDirectional(-1.0, -0.34),
                               ),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).alternate,
+                              ),
                             ),
                             alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
