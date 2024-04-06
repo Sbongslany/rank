@@ -315,22 +315,26 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                               ),
                                         ),
                                       ),
-                                      Text(
-                                        getJsonField(
-                                          getTransactionsHistoryItem,
-                                          r'''$.amount''',
-                                        ).toString(),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 19.0,
-                                              letterSpacing: 0.0,
-                                            ),
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 5.0, 0.0),
+                                        child: Text(
+                                          getJsonField(
+                                            getTransactionsHistoryItem,
+                                            r'''$.amount''',
+                                          ).toString(),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 13.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -417,7 +421,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                     alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 20.0, 0.0),
+                                          0.0, 0.0, 5.0, 0.0),
                                       child: Text(
                                         getJsonField(
                                           getTransactionsHistoryItem,
