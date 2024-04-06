@@ -82,6 +82,23 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
                 ),
               ),
             ],
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                width: 100.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      FlutterFlowTheme.of(context).primary,
+                      FlutterFlowTheme.of(context).secondary
+                    ],
+                    stops: const [0.0, 1.0],
+                    begin: const AlignmentDirectional(0.0, -1.0),
+                    end: const AlignmentDirectional(0, 1.0),
+                  ),
+                ),
+              ),
+            ),
             centerTitle: false,
             elevation: 2.0,
           ),

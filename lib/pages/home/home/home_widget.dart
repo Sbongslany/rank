@@ -546,7 +546,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   GetUserCall.profile(
                                                     rowGetUserResponse.jsonBody,
                                                   ),
-                                                  'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F08%2F08%2F09%2F17%2Favatar-1577909_1280.png&imgrefurl=https%3A%2F%2Fpixabay.com%2Fvectors%2Favatar-icon-placeholder-facebook-1577909%2F&docid=cyPowwVV5ZV6IM&tbnid=5gYUCMTyYfVWCM&vet=12ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA..i&w=1280&h=1280&hcb=2&ved=2ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA',
+                                                  'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1214428300%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration.jpg%3Fs%3D170667a%26w%3D0%26k%3D20%26c%3DuO4FM9F9sdP66Bd-Cnp-YZHjv2KECHL3eCB1EaZTRpc%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration-gm1214428300-353321368&docid=dX0DjZNlTwerkM&tbnid=KNSAziEV1ERcSM&vet=12ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA..i&w=416&h=416&hcb=2&ved=2ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA',
                                                 ),
                                                 fit: BoxFit.cover,
                                                 errorWidget: (context, error,

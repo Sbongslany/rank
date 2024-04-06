@@ -91,6 +91,81 @@ class _InviteWidgetState extends State<InviteWidget>
                     ),
                   ),
                 ),
+                background: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).primary,
+                        FlutterFlowTheme.of(context).secondary
+                      ],
+                      stops: const [0.0, 1.0],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Opacity(
+                        opacity: 0.0,
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 0.0, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.safePop();
+                            },
+                            child: Container(
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 4.0,
+                                    color: Color(0x33000000),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
+                                  )
+                                ],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                ),
+                              ),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.safePop();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back_ios_sharp,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 34.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 centerTitle: true,
                 expandedTitleScale: 1.0,
               ),
@@ -191,7 +266,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                           inviteFriendsItem,
                                                           r'''$.filename''',
                                                         )?.toString(),
-                                                        'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F08%2F08%2F09%2F17%2Favatar-1577909_1280.png&imgrefurl=https%3A%2F%2Fpixabay.com%2Fvectors%2Favatar-icon-placeholder-facebook-1577909%2F&docid=cyPowwVV5ZV6IM&tbnid=5gYUCMTyYfVWCM&vet=12ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA..i&w=1280&h=1280&hcb=2&ved=2ahUKEwj88ZHXs5SFAxU1-AIHHRGpBGYQM3oECBYQAA',
+                                                        'https://www.google.co.za/imgres?q=avatar%20placeholder%20photo&imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1214428300%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration.jpg%3Fs%3D170667a%26w%3D0%26k%3D20%26c%3DuO4FM9F9sdP66Bd-Cnp-YZHjv2KECHL3eCB1EaZTRpc%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fvector%2Fdefault-profile-picture-avatar-photo-placeholder-vector-illustration-gm1214428300-353321368&docid=dX0DjZNlTwerkM&tbnid=KNSAziEV1ERcSM&vet=12ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA..i&w=416&h=416&hcb=2&ved=2ahUKEwit5bOr9q2FAxWcSfEDHcQqBYkQM3oECDcQAA',
                                                       ),
                                                       fit: BoxFit.cover,
                                                     ),
