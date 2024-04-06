@@ -153,40 +153,6 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('Airtime');
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 60.0,
-                          decoration: const BoxDecoration(
-                            color: Color(0xF1DAD1D1),
-                          ),
-                          alignment: const AlignmentDirectional(-1.0, 1.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                3.0, 0.0, 0.0, 3.0),
-                            child: Text(
-                              'TRANSACTION LIST',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 15.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
                       RefreshIndicator(
                         onRefresh: () async {
                           setState(
@@ -244,7 +210,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                 },
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60.0,
+                                  height: 100.0,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
@@ -272,7 +238,9 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Row(
-                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
                                           children: [
                                             Text(
                                               'REF: ',
