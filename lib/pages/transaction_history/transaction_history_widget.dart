@@ -42,6 +42,30 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(100.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: false,
+            actions: const [],
+            flexibleSpace: FlexibleSpaceBar(
+              title: Container(
+                decoration: const BoxDecoration(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/ranklogo_2.png',
+                    width: 100.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              centerTitle: true,
+              expandedTitleScale: 1.0,
+            ),
+            elevation: 2.0,
+          ),
+        ),
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -60,44 +84,6 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.bounceOut,
-                  width: double.infinity,
-                  height: 132.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        FlutterFlowTheme.of(context).secondary,
-                        FlutterFlowTheme.of(context).primary
-                      ],
-                      stops: const [0.0, 1.0],
-                      begin: const AlignmentDirectional(0.24, -1.0),
-                      end: const AlignmentDirectional(-0.24, 1.0),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/ranklogo.png',
-                              width: 70.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ].divide(const SizedBox(width: 110.0)),
-                  ),
-                ),
                 Container(
                   width: double.infinity,
                   height: 130.0,
@@ -129,8 +115,8 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -288,156 +274,33 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   30.0, 0.0, 0.0, 0.0),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'REF: ',
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                fontSize: 19.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            getJsonField(
-                                              getTransactionsHistoryItem,
-                                              r'''$.reference''',
-                                            ).toString(),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'REF: ',
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
                                                       .alternate,
-                                                  fontSize: 19.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Text(
-                                          getJsonField(
-                                            getTransactionsHistoryItem,
-                                            r'''$.amount''',
-                                          ).toString(),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                fontSize: 19.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'DATE: ',
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                fontSize: 13.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
-                                              ),
-                                        ),
-                                        Text(
-                                          getJsonField(
-                                            getTransactionsHistoryItem,
-                                            r'''$.transaction_date''',
-                                          ).toString(),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                fontSize: 13.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w300,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    Flexible(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            'BALANCE: ',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  fontSize: 13.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                          ),
-                                          Text(
-                                            getJsonField(
-                                              getTransactionsHistoryItem,
-                                              r'''$.running_balance''',
-                                            ).toString(),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  fontSize: 13.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                          ),
-                                        ],
+                                              fontSize: 19.0,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
-                                    ),
-                                    Align(
-                                      alignment: const AlignmentDirectional(1.0, 0.0),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 20.0, 0.0),
+                                      Expanded(
                                         child: Text(
                                           getJsonField(
                                             getTransactionsHistoryItem,
-                                            r'''$.amount''',
+                                            r'''$.reference''',
                                           ).toString(),
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
@@ -446,16 +309,136 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                                 fontFamily: 'Readex Pro',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                        .alternate,
+                                                fontSize: 19.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Text(
+                                        getJsonField(
+                                          getTransactionsHistoryItem,
+                                          r'''$.amount''',
+                                        ).toString(),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              fontSize: 19.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'DATE: ',
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              fontSize: 13.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                      ),
+                                      Text(
+                                        getJsonField(
+                                          getTransactionsHistoryItem,
+                                          r'''$.transaction_date''',
+                                        ).toString(),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              fontSize: 13.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                  Flexible(
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'BALANCE: ',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
                                                 fontSize: 13.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                         ),
+                                        Text(
+                                          getJsonField(
+                                            getTransactionsHistoryItem,
+                                            r'''$.running_balance''',
+                                          ).toString(),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                fontSize: 13.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 20.0, 0.0),
+                                      child: Text(
+                                        getJsonField(
+                                          getTransactionsHistoryItem,
+                                          r'''$.amount''',
+                                        ).toString(),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 13.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w300,
+                                            ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
