@@ -78,15 +78,6 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
               floating: false,
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              title: Text(
-                'Page Title',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
-              ),
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
                 background: Container(

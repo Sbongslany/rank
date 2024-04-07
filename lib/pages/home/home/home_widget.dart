@@ -529,6 +529,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
+                                                width: 3.0,
                                               ),
                                             ),
                                           ),
@@ -538,7 +539,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         FontAwesomeIcons.solidEdit,
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        size: 24.0,
+                                        size: 20.0,
                                       ),
                                     ],
                                   ),
