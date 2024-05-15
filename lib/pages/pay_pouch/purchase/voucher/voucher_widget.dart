@@ -1,9 +1,11 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'voucher_model.dart';
 export 'voucher_model.dart';
 
@@ -232,7 +234,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                       children: [
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 0.0),
+                              10.0, 0.0, 10.0, 10.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -354,6 +356,58 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                                       ),
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const UtilityCardWidget(
+                                        id: '448',
+                                        network: 'Hollywood Bets',
+                                        name: 'Hollywood Bets R20',
+                                        description: 'Hollywood Bets R20',
+                                        typeCode: 'HB',
+                                        minAmount: '20.0000',
+                                        maxAmount: '20.0000',
+                                        amount: '20',
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: wrapWithModel(
+                            model: _model.utilityCardModel,
+                            updateCallback: () => setState(() {}),
+                            child: const UtilityCardWidget(
+                              id: '448',
+                              network: 'Hollywood Bets',
+                              name: 'Hollywood Bets R20',
+                              description: 'Hollywood Bets R20',
+                              typeCode: 'HB',
+                              minAmount: '20.0000',
+                              maxAmount: '20.0000',
+                              amount: '20',
                             ),
                           ),
                         ),
