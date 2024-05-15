@@ -1,5 +1,5 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'voucher_widget.dart' show VoucherWidget;
 import 'package:flutter/material.dart';
 
@@ -7,9 +7,8 @@ class VoucherModel extends FlutterFlowModel<VoucherWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
+  ApiCallResponse? responseBets10;
 
   @override
   void initState(BuildContext context) {}

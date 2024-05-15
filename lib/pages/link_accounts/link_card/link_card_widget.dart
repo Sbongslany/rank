@@ -24,13 +24,13 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
     super.initState();
     _model = createModel(context, () => LinkCardModel());
 
-    _model.holderController ??= TextEditingController();
+    _model.holderTextController ??= TextEditingController();
     _model.holderFocusNode ??= FocusNode();
 
-    _model.accountNumberController ??= TextEditingController();
+    _model.accountNumberTextController ??= TextEditingController();
     _model.accountNumberFocusNode ??= FocusNode();
 
-    _model.bankNameController ??= TextEditingController();
+    _model.bankNameTextController ??= TextEditingController();
     _model.bankNameFocusNode ??= FocusNode();
 
     _model.textController4 ??= TextEditingController();
@@ -300,7 +300,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 10.0, 8.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.holderController,
+                                      controller: _model.holderTextController,
                                       focusNode: _model.holderFocusNode,
                                       autofocus: false,
                                       textInputAction: TextInputAction.next,
@@ -365,9 +365,8 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .holderControllerValidator
+                                          .holderTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -376,7 +375,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                         8.0, 5.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller:
-                                          _model.accountNumberController,
+                                          _model.accountNumberTextController,
                                       focusNode: _model.accountNumberFocusNode,
                                       autofocus: false,
                                       textInputAction: TextInputAction.next,
@@ -441,10 +440,9 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       keyboardType: TextInputType.number,
                                       validator: _model
-                                          .accountNumberControllerValidator
+                                          .accountNumberTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -452,7 +450,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 5.0, 8.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.bankNameController,
+                                      controller: _model.bankNameTextController,
                                       focusNode: _model.bankNameFocusNode,
                                       autofocus: false,
                                       textCapitalization:
@@ -519,9 +517,8 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .bankNameControllerValidator
+                                          .bankNameTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -621,7 +618,6 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                                             'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
                                                   .textController4Validator
                                                   .asValidator(context),
@@ -718,7 +714,6 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                                             'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
                                                   .textController5Validator
                                                   .asValidator(context),
@@ -742,10 +737,10 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                             var shouldSetState = false;
                             _model.bankResponse = await BankDetailsCall.call(
                               jwt: currentAuthenticationToken,
-                              bankname: _model.bankNameController.text,
+                              bankname: _model.bankNameTextController.text,
                               accountNumber:
-                                  _model.accountNumberController.text,
-                              holder: _model.holderController.text,
+                                  _model.accountNumberTextController.text,
+                              holder: _model.holderTextController.text,
                             );
                             shouldSetState = true;
                             if ((_model.bankResponse?.succeeded ?? true)) {

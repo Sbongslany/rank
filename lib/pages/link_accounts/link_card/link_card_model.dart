@@ -9,16 +9,16 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for holder widget.
   FocusNode? holderFocusNode;
-  TextEditingController? holderController;
-  String? Function(BuildContext, String?)? holderControllerValidator;
+  TextEditingController? holderTextController;
+  String? Function(BuildContext, String?)? holderTextControllerValidator;
   // State field(s) for accountNumber widget.
   FocusNode? accountNumberFocusNode;
-  TextEditingController? accountNumberController;
-  String? Function(BuildContext, String?)? accountNumberControllerValidator;
+  TextEditingController? accountNumberTextController;
+  String? Function(BuildContext, String?)? accountNumberTextControllerValidator;
   // State field(s) for bankName widget.
   FocusNode? bankNameFocusNode;
-  TextEditingController? bankNameController;
-  String? Function(BuildContext, String?)? bankNameControllerValidator;
+  TextEditingController? bankNameTextController;
+  String? Function(BuildContext, String?)? bankNameTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController4;
@@ -37,13 +37,13 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
   void dispose() {
     unfocusNode.dispose();
     holderFocusNode?.dispose();
-    holderController?.dispose();
+    holderTextController?.dispose();
 
     accountNumberFocusNode?.dispose();
-    accountNumberController?.dispose();
+    accountNumberTextController?.dispose();
 
     bankNameFocusNode?.dispose();
-    bankNameController?.dispose();
+    bankNameTextController?.dispose();
 
     textFieldFocusNode1?.dispose();
     textController4?.dispose();

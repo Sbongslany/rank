@@ -346,7 +346,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
-                        controller: _model.firstnameController ??=
+                        controller: _model.firstnameTextController ??=
                             TextEditingController(
                           text: GetUserCall.firstname(
                             containerGetUserResponse.jsonBody,
@@ -403,8 +403,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
-                        validator: _model.firstnameControllerValidator
+                        validator: _model.firstnameTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -432,7 +431,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
-                        controller: _model.lastnameController ??=
+                        controller: _model.lastnameTextController ??=
                             TextEditingController(
                           text: GetUserCall.lastname(
                             containerGetUserResponse.jsonBody,
@@ -489,8 +488,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
-                        validator: _model.lastnameControllerValidator
+                        validator: _model.lastnameTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -518,7 +516,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
-                        controller: _model.cellnumberController ??=
+                        controller: _model.cellnumberTextController ??=
                             TextEditingController(
                           text: GetUserCall.cellnumber(
                             containerGetUserResponse.jsonBody,
@@ -575,8 +573,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
-                        validator: _model.cellnumberControllerValidator
+                        validator: _model.cellnumberTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -604,7 +601,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: TextFormField(
-                        controller: _model.bioController ??=
+                        controller: _model.bioTextController ??=
                             TextEditingController(
                           text: GetUserCall.bio(
                             containerGetUserResponse.jsonBody,
@@ -661,9 +658,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
-                        validator:
-                            _model.bioControllerValidator.asValidator(context),
+                        validator: _model.bioTextControllerValidator
+                            .asValidator(context),
                       ),
                     ),
                     Align(
@@ -676,10 +672,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             var shouldSetState = false;
                             _model.editApiResponse = await EditProfileCall.call(
                               jwt: currentAuthenticationToken,
-                              firstName: _model.firstnameController.text,
-                              lastName: _model.lastnameController.text,
-                              contactNumber: _model.cellnumberController.text,
-                              bio: _model.bioController.text,
+                              firstName: _model.firstnameTextController.text,
+                              lastName: _model.lastnameTextController.text,
+                              contactNumber:
+                                  _model.cellnumberTextController.text,
+                              bio: _model.bioTextController.text,
                             );
                             shouldSetState = true;
                             if ((_model.editApiResponse?.succeeded ?? true)) {

@@ -983,6 +983,256 @@ class GetTransactionHistoryCall {
           .toList();
 }
 
+class UtilitiesCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    String? name = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Utilities',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/get_products.php',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'name': name,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? networks(dynamic response) => getJsonField(
+        response,
+        r'''$.networks''',
+        true,
+      ) as List?;
+  static List<int>? networksId(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? networkDescription(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? productTypes(dynamic response) => getJsonField(
+        response,
+        r'''$.networks..productTypes''',
+        true,
+      ) as List?;
+  static List<int>? productTypesId(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..productTypes..id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? productTypesProductsId(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List? productTypesProduct(dynamic response) => getJsonField(
+        response,
+        r'''$.networks..productTypes..products''',
+        true,
+      ) as List?;
+  static List<bool>? productTypesfixedAmount(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..productTypes..fixedAmount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypesdescription(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypescode(dynamic response) => (getJsonField(
+        response,
+        r'''$.networks..productTypes..code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<double>? productTypesproductsretailValue(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..retailValue''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? productTypesproductsmaxAmount(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..maxAmount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<double>? productTypesproductsdiscountPercentage(
+          dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..discountPercentage''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypesproductsnetwork(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..network''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypesProductsName(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypesproductsDescription(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypesproductstypeCode(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..typeCode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? productTypesproductsminAmount(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.networks..productTypes..products..minAmount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+}
+
+class SmartCallAuthCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'SmartCall Auth',
+      apiUrl: 'https://test.smartcall.co.za:8101/webservice/auth',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class PurchaseCall {
+  static Future<ApiCallResponse> call({
+    String? id = '',
+    String? network = '',
+    String? name = '',
+    String? description = '',
+    String? typeCode = '',
+    String? minAmount = '',
+    String? maxAmount = '',
+    String? amount = '',
+    String? jwt = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "id": "$id",
+  "network": "$network",
+  "name": "$name",
+  "description": "$description",
+  "typeCode": "$typeCode",
+  "minAmount": "$minAmount",
+  "maxAmount": "$maxAmount",
+  "amount": "$amount"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Purchase',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/purchase_utility.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.responseCode''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

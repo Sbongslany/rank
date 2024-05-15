@@ -61,15 +61,6 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
               floating: false,
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              title: Text(
-                'Page Title',
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Outfit',
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      letterSpacing: 0.0,
-                    ),
-              ),
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
                 background: Container(
@@ -595,7 +586,6 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   keyboardType: TextInputType.number,
                                   validator: _model.textControllerValidator
                                       .asValidator(context),

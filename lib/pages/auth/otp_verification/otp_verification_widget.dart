@@ -22,35 +22,37 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'textFieldOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => OtpVerificationModel());
 
-    _model.newpasswordController ??= TextEditingController();
+    _model.newpasswordTextController ??= TextEditingController();
     _model.newpasswordFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -228,17 +230,10 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/ranklogo.png',
-                            width: 150.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                      Icon(
+                        Icons.email_outlined,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 94.0,
                       ),
                       Opacity(
                         opacity: 0.9,
@@ -276,7 +271,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                           enablePinAutofill: false,
                           errorTextSpace: 16.0,
                           showCursor: true,
-                          cursorColor: FlutterFlowTheme.of(context).primary,
+                          cursorColor: FlutterFlowTheme.of(context).alternate,
                           obscureText: false,
                           hintCharacter: '●',
                           keyboardType: TextInputType.visiblePassword,
@@ -290,18 +285,19 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                               topLeft: Radius.circular(12.0),
                               topRight: Radius.circular(12.0),
                             ),
-                            shape: PinCodeFieldShape.box,
+                            shape: PinCodeFieldShape.underline,
                             activeColor:
                                 FlutterFlowTheme.of(context).primaryText,
                             inactiveColor:
                                 FlutterFlowTheme.of(context).alternate,
-                            selectedColor: FlutterFlowTheme.of(context).primary,
+                            selectedColor:
+                                FlutterFlowTheme.of(context).alternate,
                             activeFillColor:
                                 FlutterFlowTheme.of(context).primaryText,
                             inactiveFillColor:
                                 FlutterFlowTheme.of(context).alternate,
                             selectedFillColor:
-                                FlutterFlowTheme.of(context).primary,
+                                FlutterFlowTheme.of(context).alternate,
                           ),
                           controller: _model.pinCodeController,
                           onChanged: (_) {},
@@ -327,7 +323,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         child: TextFormField(
-                          controller: _model.newpasswordController,
+                          controller: _model.newpasswordTextController,
                           focusNode: _model.newpasswordFocusNode,
                           autofocus: false,
                           obscureText: false,
@@ -383,9 +379,8 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
-                          minLines: null,
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.newpasswordControllerValidator
+                          validator: _model.newpasswordTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation']!),
@@ -429,7 +424,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                               _model.resetResponse =
                                   await ResetPasswordCall.call(
                                 otp: _model.pinCodeController!.text,
-                                password: _model.newpasswordController.text,
+                                password: _model.newpasswordTextController.text,
                               );
                               shouldSetState = true;
                               if ((_model.resetResponse?.succeeded ?? true)) {

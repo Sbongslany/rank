@@ -22,35 +22,37 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'textFieldOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ForgotPasswordModel());
 
-    _model.emailController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -165,7 +167,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
               child: TextFormField(
-                controller: _model.emailController,
+                controller: _model.emailTextController,
                 focusNode: _model.emailFocusNode,
                 autofocus: false,
                 obscureText: false,
@@ -215,9 +217,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                       color: FlutterFlowTheme.of(context).primaryText,
                       letterSpacing: 0.0,
                     ),
-                minLines: null,
                 keyboardType: TextInputType.emailAddress,
-                validator: _model.emailControllerValidator.asValidator(context),
+                validator:
+                    _model.emailTextControllerValidator.asValidator(context),
               ).animateOnPageLoad(
                   animationsMap['textFieldOnPageLoadAnimation']!),
             ),
@@ -250,7 +252,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                   onPressed: () async {
                     var shouldSetState = false;
                     _model.forgotResponse = await ForgotPasswordCall.call(
-                      email: _model.emailController.text,
+                      email: _model.emailTextController.text,
                     );
                     shouldSetState = true;
                     if ((_model.forgotResponse?.succeeded ?? true)) {

@@ -9,29 +9,29 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
-  TextEditingController? firstNameController;
-  String? Function(BuildContext, String?)? firstNameControllerValidator;
+  TextEditingController? firstNameTextController;
+  String? Function(BuildContext, String?)? firstNameTextControllerValidator;
   // State field(s) for surname widget.
   FocusNode? surnameFocusNode;
-  TextEditingController? surnameController;
-  String? Function(BuildContext, String?)? surnameControllerValidator;
+  TextEditingController? surnameTextController;
+  String? Function(BuildContext, String?)? surnameTextControllerValidator;
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
-  TextEditingController? phoneNumberController;
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
+  TextEditingController? phoneNumberTextController;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
-  TextEditingController? passwordController;
+  TextEditingController? passwordTextController;
   late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // State field(s) for idNumber widget.
   FocusNode? idNumberFocusNode;
-  TextEditingController? idNumberController;
-  String? Function(BuildContext, String?)? idNumberControllerValidator;
+  TextEditingController? idNumberTextController;
+  String? Function(BuildContext, String?)? idNumberTextControllerValidator;
   // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
   ApiCallResponse? regResponse;
 
@@ -44,21 +44,21 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   void dispose() {
     unfocusNode.dispose();
     firstNameFocusNode?.dispose();
-    firstNameController?.dispose();
+    firstNameTextController?.dispose();
 
     surnameFocusNode?.dispose();
-    surnameController?.dispose();
+    surnameTextController?.dispose();
 
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
 
     phoneNumberFocusNode?.dispose();
-    phoneNumberController?.dispose();
+    phoneNumberTextController?.dispose();
 
     passwordFocusNode?.dispose();
-    passwordController?.dispose();
+    passwordTextController?.dispose();
 
     idNumberFocusNode?.dispose();
-    idNumberController?.dispose();
+    idNumberTextController?.dispose();
   }
 }

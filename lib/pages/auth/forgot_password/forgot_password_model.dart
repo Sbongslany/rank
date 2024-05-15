@@ -12,8 +12,8 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
   late BackButtonModel backButtonModel;
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // Stores action output result for [Backend Call - API (Forgot Password)] action in Button widget.
   ApiCallResponse? forgotResponse;
 
@@ -27,6 +27,6 @@ class ForgotPasswordModel extends FlutterFlowModel<ForgotPasswordWidget> {
     unfocusNode.dispose();
     backButtonModel.dispose();
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
   }
 }

@@ -18,20 +18,20 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   ApiCallResponse? apiResult9ge;
   // State field(s) for firstname widget.
   FocusNode? firstnameFocusNode;
-  TextEditingController? firstnameController;
-  String? Function(BuildContext, String?)? firstnameControllerValidator;
+  TextEditingController? firstnameTextController;
+  String? Function(BuildContext, String?)? firstnameTextControllerValidator;
   // State field(s) for lastname widget.
   FocusNode? lastnameFocusNode;
-  TextEditingController? lastnameController;
-  String? Function(BuildContext, String?)? lastnameControllerValidator;
+  TextEditingController? lastnameTextController;
+  String? Function(BuildContext, String?)? lastnameTextControllerValidator;
   // State field(s) for cellnumber widget.
   FocusNode? cellnumberFocusNode;
-  TextEditingController? cellnumberController;
-  String? Function(BuildContext, String?)? cellnumberControllerValidator;
+  TextEditingController? cellnumberTextController;
+  String? Function(BuildContext, String?)? cellnumberTextControllerValidator;
   // State field(s) for bio widget.
   FocusNode? bioFocusNode;
-  TextEditingController? bioController;
-  String? Function(BuildContext, String?)? bioControllerValidator;
+  TextEditingController? bioTextController;
+  String? Function(BuildContext, String?)? bioTextControllerValidator;
   // Stores action output result for [Backend Call - API (Edit Profile)] action in Button widget.
   ApiCallResponse? editApiResponse;
 
@@ -45,15 +45,15 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
     unfocusNode.dispose();
     backButtonModel.dispose();
     firstnameFocusNode?.dispose();
-    firstnameController?.dispose();
+    firstnameTextController?.dispose();
 
     lastnameFocusNode?.dispose();
-    lastnameController?.dispose();
+    lastnameTextController?.dispose();
 
     cellnumberFocusNode?.dispose();
-    cellnumberController?.dispose();
+    cellnumberTextController?.dispose();
 
     bioFocusNode?.dispose();
-    bioController?.dispose();
+    bioTextController?.dispose();
   }
 }

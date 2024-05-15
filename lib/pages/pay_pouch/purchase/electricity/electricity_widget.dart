@@ -427,7 +427,6 @@ class _ElectricityWidgetState extends State<ElectricityWidget> {
                             color: const Color(0xFFB8BEC7),
                             letterSpacing: 0.0,
                           ),
-                      minLines: null,
                       validator:
                           _model.textControllerValidator.asValidator(context),
                     ),

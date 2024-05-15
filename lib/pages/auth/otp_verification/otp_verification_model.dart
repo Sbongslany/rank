@@ -12,8 +12,8 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
   // State field(s) for newpassword widget.
   FocusNode? newpasswordFocusNode;
-  TextEditingController? newpasswordController;
-  String? Function(BuildContext, String?)? newpasswordControllerValidator;
+  TextEditingController? newpasswordTextController;
+  String? Function(BuildContext, String?)? newpasswordTextControllerValidator;
   // Stores action output result for [Backend Call - API (Reset Password)] action in Button widget.
   ApiCallResponse? resetResponse;
 
@@ -27,6 +27,6 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
     unfocusNode.dispose();
     pinCodeController?.dispose();
     newpasswordFocusNode?.dispose();
-    newpasswordController?.dispose();
+    newpasswordTextController?.dispose();
   }
 }

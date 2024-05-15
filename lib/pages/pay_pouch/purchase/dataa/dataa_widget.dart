@@ -23,35 +23,37 @@ class _DataaWidgetState extends State<DataaWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'textFieldOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DataaModel());
 
-    _model.phoneNumberController ??= TextEditingController();
+    _model.phoneNumberTextController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -300,7 +302,7 @@ class _DataaWidgetState extends State<DataaWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: TextFormField(
-                          controller: _model.phoneNumberController,
+                          controller: _model.phoneNumberTextController,
                           focusNode: _model.phoneNumberFocusNode,
                           autofocus: false,
                           obscureText: false,
@@ -362,9 +364,8 @@ class _DataaWidgetState extends State<DataaWidget>
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
-                          minLines: null,
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.phoneNumberControllerValidator
+                          validator: _model.phoneNumberTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation']!),
