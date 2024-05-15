@@ -91,7 +91,8 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                 '-',
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: 'Rubik',
+                    color: FlutterFlowTheme.of(context).alternate,
                     fontSize: 24.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
@@ -118,7 +119,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Purchased Hollywood Bets R10',
+                          widget.name!,
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),

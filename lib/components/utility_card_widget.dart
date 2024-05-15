@@ -106,7 +106,10 @@ class _UtilityCardWidgetState extends State<UtilityCardWidget> {
           ),
           alignment: const AlignmentDirectional(0.0, 0.0),
           child: AutoSizeText(
-            'R20 Voucher',
+            valueOrDefault<String>(
+              widget.description,
+              '-',
+            ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Rubik',
                   color: FlutterFlowTheme.of(context).alternate,
