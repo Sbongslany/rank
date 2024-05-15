@@ -11,11 +11,17 @@ class VoucherModel extends FlutterFlowModel<VoucherWidget> {
   late UtilityCardModel utilityCardModel1;
   // Model for utilityCard component.
   late UtilityCardModel utilityCardModel2;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel3;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel4;
 
   @override
   void initState(BuildContext context) {
     utilityCardModel1 = createModel(context, () => UtilityCardModel());
     utilityCardModel2 = createModel(context, () => UtilityCardModel());
+    utilityCardModel3 = createModel(context, () => UtilityCardModel());
+    utilityCardModel4 = createModel(context, () => UtilityCardModel());
   }
 
   @override
@@ -23,5 +29,7 @@ class VoucherModel extends FlutterFlowModel<VoucherWidget> {
     unfocusNode.dispose();
     utilityCardModel1.dispose();
     utilityCardModel2.dispose();
+    utilityCardModel3.dispose();
+    utilityCardModel4.dispose();
   }
 }

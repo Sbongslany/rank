@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'utility_card_model.dart';
 export 'utility_card_model.dart';
@@ -105,15 +104,15 @@ class _UtilityCardWidgetState extends State<UtilityCardWidget> {
             ),
           ),
           alignment: const AlignmentDirectional(0.0, 0.0),
-          child: AutoSizeText(
+          child: Text(
             valueOrDefault<String>(
-              widget.description,
+              widget.name,
               '-',
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Rubik',
+                  fontFamily: 'Readex Pro',
                   color: FlutterFlowTheme.of(context).alternate,
-                  fontSize: 24.0,
+                  fontSize: 20.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),

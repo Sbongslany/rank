@@ -252,14 +252,14 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: const PurchaseUtilityWidget(
-                                        id: '447',
+                                        id: '448',
                                         network: 'Hollywood Bets',
-                                        name: 'Hollywood Bets R10',
-                                        description: 'Hollywood Bets R10',
+                                        name: 'Hollywood Bets R20',
+                                        description: 'Hollywood Bets R20',
                                         typeCode: 'HB',
-                                        minAmount: '10.0000',
-                                        maxAmount: '10.0000',
-                                        amount: '10',
+                                        minAmount: '20.0000',
+                                        maxAmount: '20.0000',
+                                        amount: '20',
                                       ),
                                     ),
                                   ),
@@ -271,14 +271,14 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             model: _model.utilityCardModel1,
                             updateCallback: () => setState(() {}),
                             child: const UtilityCardWidget(
-                              id: '448',
+                              id: '447',
                               network: 'Hollywood Bets',
-                              name: 'Hollywood Bets R20',
-                              description: 'Hollywood Bets R20',
+                              name: 'Hollywood Bets R10',
+                              description: 'Hollywood Bets R10',
                               typeCode: 'HB',
-                              minAmount: '20.0000',
-                              maxAmount: '20.0000',
-                              amount: '20',
+                              minAmount: '10.0000',
+                              maxAmount: '10.0000',
+                              amount: '10',
                             ),
                           ),
                         ),
@@ -331,6 +331,110 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                               minAmount: '20.0000',
                               maxAmount: '20.0000',
                               amount: '20',
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const PurchaseUtilityWidget(
+                                        id: '448',
+                                        network: 'Hollywood Bets',
+                                        name: 'Hollywood Bets R20',
+                                        description: 'Hollywood Bets R20',
+                                        typeCode: 'HB',
+                                        minAmount: '20.0000',
+                                        maxAmount: '20.0000',
+                                        amount: '20',
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: wrapWithModel(
+                            model: _model.utilityCardModel3,
+                            updateCallback: () => setState(() {}),
+                            child: const UtilityCardWidget(
+                              id: '836',
+                              network: 'Hollywood Bets',
+                              name: 'Hollywood Bets R50',
+                              description: 'Hollywood Bets R50',
+                              typeCode: 'HB',
+                              minAmount: '50.0000',
+                              maxAmount: '50.0000',
+                              amount: '50',
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const PurchaseUtilityWidget(
+                                        id: '448',
+                                        network: 'Hollywood Bets',
+                                        name: 'Hollywood Bets R20',
+                                        description: 'Hollywood Bets R20',
+                                        typeCode: 'HB',
+                                        minAmount: '20.0000',
+                                        maxAmount: '20.0000',
+                                        amount: '20',
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: wrapWithModel(
+                            model: _model.utilityCardModel4,
+                            updateCallback: () => setState(() {}),
+                            child: const UtilityCardWidget(
+                              id: '449',
+                              network: 'Hollywood Bets',
+                              name: 'Hollywood Bets R100',
+                              description: 'Hollywood Bets R100',
+                              typeCode: 'HB',
+                              minAmount: '100.0000',
+                              maxAmount: '100.0000',
+                              amount: '100',
                             ),
                           ),
                         ),
