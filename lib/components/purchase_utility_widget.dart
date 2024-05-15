@@ -61,7 +61,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
       width: double.infinity,
       height: 270.0,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: FlutterFlowTheme.of(context).secondary,
         boxShadow: const [
           BoxShadow(
             blurRadius: 5.0,
@@ -92,7 +92,9 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Readex Pro',
+                    fontSize: 24.0,
                     letterSpacing: 0.0,
+                    fontWeight: FontWeight.w500,
                   ),
             ),
             Padding(
@@ -157,6 +159,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
+                        fontSize: 20.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -185,7 +188,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.of(context).alternate,
-                        fontSize: 16.0,
+                        fontSize: 20.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),

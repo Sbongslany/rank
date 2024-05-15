@@ -1,10 +1,7 @@
-import '/auth/custom_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/components/purchase_utility_widget.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'voucher_model.dart';
@@ -233,130 +230,55 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 10.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              var shouldSetState = false;
-                              _model.responseBets10 = await PurchaseCall.call(
-                                jwt: currentAuthenticationToken,
-                                id: '447',
-                                network: 'Hollywood Bets',
-                                name: 'Hollywood Bets R10',
-                                description: 'Hollywood Bets R10',
-                                typeCode: 'HB',
-                                minAmount: '10.0000',
-                                maxAmount: '10.0000',
-                                amount: '10',
-                              );
-                              shouldSetState = true;
-                              if ((_model.responseBets10?.succeeded ?? true)) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Purchased Hollywood Bets R10',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const PurchaseUtilityWidget(
+                                        id: '447',
+                                        network: 'Hollywood Bets',
+                                        name: 'Hollywood Bets R10',
+                                        description: 'Hollywood Bets R10',
+                                        typeCode: 'HB',
+                                        minAmount: '10.0000',
+                                        maxAmount: '10.0000',
+                                        amount: '10',
                                       ),
                                     ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).success,
                                   ),
                                 );
-                                context.safePop();
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      PurchaseCall.message(
-                                        (_model.responseBets10?.jsonBody ?? ''),
-                                      )!,
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
-                                if (shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              if (shouldSetState) setState(() {});
-                            },
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 2.0,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(5.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(5.0),
-                                  topRight: Radius.circular(0.0),
-                                ),
-                              ),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 100),
-                                curve: Curves.easeIn,
-                                width: 100.0,
-                                height: 60.0,
-                                decoration: BoxDecoration(
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x33000000),
-                                      offset: Offset(
-                                        0.0,
-                                        2.0,
-                                      ),
-                                    )
-                                  ],
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      FlutterFlowTheme.of(context).primary,
-                                      FlutterFlowTheme.of(context).secondary
-                                    ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(5.0),
-                                    bottomRight: Radius.circular(0.0),
-                                    topLeft: Radius.circular(5.0),
-                                    topRight: Radius.circular(0.0),
-                                  ),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 5.0,
-                                  ),
-                                ),
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: AutoSizeText(
-                                  'R10 Voucher',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 24.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: wrapWithModel(
+                            model: _model.utilityCardModel1,
+                            updateCallback: () => setState(() {}),
+                            child: const UtilityCardWidget(
+                              id: '448',
+                              network: 'Hollywood Bets',
+                              name: 'Hollywood Bets R20',
+                              description: 'Hollywood Bets R20',
+                              typeCode: 'HB',
+                              minAmount: '20.0000',
+                              maxAmount: '20.0000',
+                              amount: '20',
                             ),
                           ),
                         ),
@@ -398,7 +320,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             ).then((value) => safeSetState(() {}));
                           },
                           child: wrapWithModel(
-                            model: _model.utilityCardModel,
+                            model: _model.utilityCardModel2,
                             updateCallback: () => setState(() {}),
                             child: const UtilityCardWidget(
                               id: '448',
