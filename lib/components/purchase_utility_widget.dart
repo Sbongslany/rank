@@ -119,9 +119,11 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          widget.name!,
+                          'Purchased ${widget.name}',
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).alternate,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20.0,
                           ),
                         ),
                         duration: const Duration(milliseconds: 4000),
@@ -160,6 +162,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).secondary,
                         fontSize: 20.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,

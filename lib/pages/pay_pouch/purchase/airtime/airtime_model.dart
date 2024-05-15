@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'airtime_widget.dart' show AirtimeWidget;
 import 'package:flutter/material.dart';
@@ -12,18 +13,20 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response2;
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response5;
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response12;
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response29;
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response55;
-  // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
-  ApiCallResponse? response110;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel1;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel2;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel3;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel4;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel5;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel6;
+  // Model for utilityCard component.
+  late UtilityCardModel utilityCardModel7;
   // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
   ApiCallResponse? responseMTN2;
   // Stores action output result for [Backend Call - API (Purchase)] action in Text widget.
@@ -62,11 +65,26 @@ class AirtimeModel extends FlutterFlowModel<AirtimeWidget> {
   ApiCallResponse? responseTelkom1000;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    utilityCardModel1 = createModel(context, () => UtilityCardModel());
+    utilityCardModel2 = createModel(context, () => UtilityCardModel());
+    utilityCardModel3 = createModel(context, () => UtilityCardModel());
+    utilityCardModel4 = createModel(context, () => UtilityCardModel());
+    utilityCardModel5 = createModel(context, () => UtilityCardModel());
+    utilityCardModel6 = createModel(context, () => UtilityCardModel());
+    utilityCardModel7 = createModel(context, () => UtilityCardModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
+    utilityCardModel1.dispose();
+    utilityCardModel2.dispose();
+    utilityCardModel3.dispose();
+    utilityCardModel4.dispose();
+    utilityCardModel5.dispose();
+    utilityCardModel6.dispose();
+    utilityCardModel7.dispose();
   }
 }

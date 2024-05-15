@@ -7,24 +7,10 @@ export 'utility_card_model.dart';
 class UtilityCardWidget extends StatefulWidget {
   const UtilityCardWidget({
     super.key,
-    required this.id,
-    required this.network,
     required this.name,
-    required this.description,
-    required this.typeCode,
-    required this.minAmount,
-    required this.maxAmount,
-    required this.amount,
   });
 
-  final String? id;
-  final String? network;
   final String? name;
-  final String? description;
-  final String? typeCode;
-  final String? minAmount;
-  final String? maxAmount;
-  final String? amount;
 
   @override
   State<UtilityCardWidget> createState() => _UtilityCardWidgetState();
