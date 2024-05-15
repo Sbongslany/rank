@@ -8,7 +8,26 @@ import 'purchase_utility_model.dart';
 export 'purchase_utility_model.dart';
 
 class PurchaseUtilityWidget extends StatefulWidget {
-  const PurchaseUtilityWidget({super.key});
+  const PurchaseUtilityWidget({
+    super.key,
+    required this.id,
+    required this.network,
+    required this.name,
+    required this.description,
+    required this.typeCode,
+    required this.minAmount,
+    required this.maxAmount,
+    required this.amount,
+  });
+
+  final String? id;
+  final String? network;
+  final String? name;
+  final String? description;
+  final String? typeCode;
+  final String? minAmount;
+  final String? maxAmount;
+  final String? amount;
 
   @override
   State<PurchaseUtilityWidget> createState() => _PurchaseUtilityWidgetState();
@@ -67,7 +86,10 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'R100',
+              valueOrDefault<String>(
+                widget.description,
+                '-',
+              ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Readex Pro',
                     letterSpacing: 0.0,
@@ -80,14 +102,14 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                   var shouldSetState = false;
                   _model.responseBets10 = await PurchaseCall.call(
                     jwt: currentAuthenticationToken,
-                    id: '447',
-                    network: 'Hollywood Bets',
-                    name: 'Hollywood Bets R10',
-                    description: 'Hollywood Bets R10',
-                    typeCode: 'HB',
-                    minAmount: '10.0000',
-                    maxAmount: '10.0000',
-                    amount: '10',
+                    id: widget.id,
+                    network: widget.network,
+                    name: widget.name,
+                    description: widget.description,
+                    typeCode: widget.typeCode,
+                    minAmount: widget.minAmount,
+                    maxAmount: widget.maxAmount,
+                    amount: widget.amount,
                   );
                   shouldSetState = true;
                   if ((_model.responseBets10?.succeeded ?? true)) {
@@ -103,7 +125,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                         backgroundColor: FlutterFlowTheme.of(context).success,
                       ),
                     );
-                    context.safePop();
+                    Navigator.pop(context);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

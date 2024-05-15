@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/purchase_utility_widget.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -380,7 +381,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                                         : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const UtilityCardWidget(
+                                      child: const PurchaseUtilityWidget(
                                         id: '448',
                                         network: 'Hollywood Bets',
                                         name: 'Hollywood Bets R20',
