@@ -6,19 +6,18 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'electricity_model.dart';
-export 'electricity_model.dart';
+import 'dstv_model.dart';
+export 'dstv_model.dart';
 
-class ElectricityWidget extends StatefulWidget {
-  const ElectricityWidget({super.key});
+class DstvWidget extends StatefulWidget {
+  const DstvWidget({super.key});
 
   @override
-  State<ElectricityWidget> createState() => _ElectricityWidgetState();
+  State<DstvWidget> createState() => _DstvWidgetState();
 }
 
-class _ElectricityWidgetState extends State<ElectricityWidget>
-    with TickerProviderStateMixin {
-  late ElectricityModel _model;
+class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
+  late DstvModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -27,7 +26,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ElectricityModel());
+    _model = createModel(context, () => DstvModel());
 
     _model.amountTextController ??= TextEditingController();
     _model.amountFocusNode ??= FocusNode();
@@ -286,7 +285,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 0.0, 20.0),
                         child: Text(
-                          'Purchase\nElectricity Eskom',
+                          'Pay DSTV',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -381,23 +380,23 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             var shouldSetState = false;
-                            _model.responseEskom = await PurchaseCall.call(
+                            _model.responseDSTV = await PurchaseCall.call(
                               jwt: currentAuthenticationToken,
-                              id: '47',
-                              network: 'Electricity-Eskom',
-                              name: 'Electricity-Eskom',
-                              description: 'Electricity-Eskom',
-                              typeCode: 'E',
-                              minAmount: '10.0000',
-                              maxAmount: '1000.0000',
+                              id: '298',
+                              network: 'DSTV',
+                              name: 'DSTV',
+                              description: 'DSTV',
+                              typeCode: 'SP',
+                              minAmount: '20.0000',
+                              maxAmount: '99999.0000',
                               amount: _model.amountTextController.text,
                             );
                             shouldSetState = true;
-                            if ((_model.responseEskom?.succeeded ?? true)) {
+                            if ((_model.responseDSTV?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                    'Purchased ${_model.amountTextController.text}Electricity-Eskom',
+                                    'Purchased ${_model.amountTextController.text}DSTV',
                                     style: TextStyle(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -415,7 +414,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                 SnackBar(
                                   content: Text(
                                     PurchaseCall.message(
-                                      (_model.responseEskom?.jsonBody ?? ''),
+                                      (_model.responseDSTV?.jsonBody ?? ''),
                                     )!,
                                     style: TextStyle(
                                       color: FlutterFlowTheme.of(context)

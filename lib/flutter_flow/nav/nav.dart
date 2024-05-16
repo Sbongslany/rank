@@ -269,6 +269,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Utilities',
           path: '/utilities',
           builder: (context, params) => const UtilitiesWidget(),
+        ),
+        FFRoute(
+          name: 'DSTV',
+          path: '/dstv',
+          builder: (context, params) => const DstvWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

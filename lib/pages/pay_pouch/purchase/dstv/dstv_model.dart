@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'electricity_widget.dart' show ElectricityWidget;
+import 'dstv_widget.dart' show DstvWidget;
 import 'package:flutter/material.dart';
 
-class ElectricityModel extends FlutterFlowModel<ElectricityWidget> {
+class DstvModel extends FlutterFlowModel<DstvWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -12,7 +12,7 @@ class ElectricityModel extends FlutterFlowModel<ElectricityWidget> {
   TextEditingController? amountTextController;
   String? Function(BuildContext, String?)? amountTextControllerValidator;
   // Stores action output result for [Backend Call - API (Purchase)] action in Button widget.
-  ApiCallResponse? responseEskom;
+  ApiCallResponse? responseDSTV;
 
   @override
   void initState(BuildContext context) {}
