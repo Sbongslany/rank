@@ -1,7 +1,10 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'about_us_model.dart';
 export 'about_us_model.dart';
 
@@ -21,6 +24,26 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutUsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
   }
 
   @override

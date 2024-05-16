@@ -8,6 +8,8 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in PaySomeone widget.
+  ApiCallResponse? apiAuth;
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
   // State field(s) for ref widget.

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'link_accounts_model.dart';
 export 'link_accounts_model.dart';
 
@@ -24,6 +25,26 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LinkAccountsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
   }
 
   @override

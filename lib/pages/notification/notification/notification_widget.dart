@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'notification_model.dart';
 export 'notification_model.dart';
 
@@ -23,6 +24,26 @@ class _NotificationWidgetState extends State<NotificationWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NotificationModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
   }
 
   @override

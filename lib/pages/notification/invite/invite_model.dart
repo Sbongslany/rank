@@ -7,6 +7,8 @@ class InviteModel extends FlutterFlowModel<InviteWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in Invite widget.
+  ApiCallResponse? apiAuth;
   // Stores action output result for [Backend Call - API (Invite friend)] action in Container widget.
   ApiCallResponse? inviteFriendResoonse;
 

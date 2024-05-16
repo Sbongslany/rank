@@ -1,3 +1,5 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/purchase_utility_widget.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
@@ -6,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'dataa_model.dart';
 export 'dataa_model.dart';
@@ -27,6 +30,26 @@ class _DataaWidgetState extends State<DataaWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => DataaModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
 
     _model.monthController = TabController(
       vsync: this,

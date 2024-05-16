@@ -9,6 +9,8 @@ class TransactionHistoryModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in TransactionHistory widget.
+  ApiCallResponse? apiAuth;
   Completer<ApiCallResponse>? apiRequestCompleter;
 
   @override

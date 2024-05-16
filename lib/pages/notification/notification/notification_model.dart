@@ -8,6 +8,8 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in Notification widget.
+  ApiCallResponse? apiAuth;
   Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (Reject Friend)] action in Container widget.
   ApiCallResponse? rejectRespanse;

@@ -1,8 +1,11 @@
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/purchase_utility_widget.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'voucher_model.dart';
 export 'voucher_model.dart';
@@ -23,6 +26,26 @@ class _VoucherWidgetState extends State<VoucherWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VoucherModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
   }
 
   @override
@@ -208,211 +231,220 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                     end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
-                      child: Text(
-                        'Hollywood Bets',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: FlutterFlowTheme.of(context).alternate,
-                              fontSize: 25.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 0.0, 20.0),
+                        child: Text(
+                          'Hollywood Bets',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                fontSize: 25.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
                       ),
-                    ),
-                    ListView(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return WebViewAware(
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: const PurchaseUtilityWidget(
-                                        id: '447',
-                                        network: 'Hollywood Bets',
-                                        name: 'Hollywood Bets R10',
-                                        description: 'Hollywood Bets R10',
-                                        typeCode: 'HB',
-                                        minAmount: '10.0000',
-                                        maxAmount: '10.0000',
-                                        amount: '10',
+                      ListView(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const PurchaseUtilityWidget(
+                                          id: '447',
+                                          network: 'Hollywood Bets',
+                                          name: 'Hollywood Bets R10',
+                                          description: 'Hollywood Bets R10',
+                                          typeCode: 'HB',
+                                          minAmount: '10.0000',
+                                          maxAmount: '10.0000',
+                                          amount: '10',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
-                          },
-                          child: wrapWithModel(
-                            model: _model.utilityCardModel1,
-                            updateCallback: () => setState(() {}),
-                            child: const UtilityCardWidget(
-                              name: 'Hollywood Bets R10',
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: wrapWithModel(
+                              model: _model.utilityCardModel1,
+                              updateCallback: () => setState(() {}),
+                              child: const UtilityCardWidget(
+                                name: 'Hollywood Bets R10',
+                              ),
                             ),
                           ),
-                        ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return WebViewAware(
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: const PurchaseUtilityWidget(
-                                        id: '448',
-                                        network: 'Hollywood Bets',
-                                        name: 'Hollywood Bets R20',
-                                        description: 'Hollywood Bets R20',
-                                        typeCode: 'HB',
-                                        minAmount: '20.0000',
-                                        maxAmount: '20.0000',
-                                        amount: '20',
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const PurchaseUtilityWidget(
+                                          id: '448',
+                                          network: 'Hollywood Bets',
+                                          name: 'Hollywood Bets R20',
+                                          description: 'Hollywood Bets R20',
+                                          typeCode: 'HB',
+                                          minAmount: '20.0000',
+                                          maxAmount: '20.0000',
+                                          amount: '20',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
-                          },
-                          child: wrapWithModel(
-                            model: _model.utilityCardModel2,
-                            updateCallback: () => setState(() {}),
-                            child: const UtilityCardWidget(
-                              name: 'Hollywood Bets R20',
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: wrapWithModel(
+                              model: _model.utilityCardModel2,
+                              updateCallback: () => setState(() {}),
+                              child: const UtilityCardWidget(
+                                name: 'Hollywood Bets R20',
+                              ),
                             ),
                           ),
-                        ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return WebViewAware(
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: const PurchaseUtilityWidget(
-                                        id: '836',
-                                        network: 'Hollywood Bets',
-                                        name: 'Hollywood Bets R20',
-                                        description: 'Hollywood Bets R50',
-                                        typeCode: 'HB',
-                                        minAmount: '50.0000',
-                                        maxAmount: '50.0000',
-                                        amount: '50',
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const PurchaseUtilityWidget(
+                                          id: '836',
+                                          network: 'Hollywood Bets',
+                                          name: 'Hollywood Bets R20',
+                                          description: 'Hollywood Bets R50',
+                                          typeCode: 'HB',
+                                          minAmount: '50.0000',
+                                          maxAmount: '50.0000',
+                                          amount: '50',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
-                          },
-                          child: wrapWithModel(
-                            model: _model.utilityCardModel3,
-                            updateCallback: () => setState(() {}),
-                            child: const UtilityCardWidget(
-                              name: 'Hollywood Bets R50',
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: wrapWithModel(
+                              model: _model.utilityCardModel3,
+                              updateCallback: () => setState(() {}),
+                              child: const UtilityCardWidget(
+                                name: 'Hollywood Bets R50',
+                              ),
                             ),
                           ),
-                        ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return WebViewAware(
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: const PurchaseUtilityWidget(
-                                        id: '449',
-                                        network: 'Hollywood Bets',
-                                        name: 'Hollywood Bets R100',
-                                        description: 'Hollywood Bets R100',
-                                        typeCode: 'HB',
-                                        minAmount: '100.0000',
-                                        maxAmount: '100.0000',
-                                        amount: '100',
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const PurchaseUtilityWidget(
+                                          id: '449',
+                                          network: 'Hollywood Bets',
+                                          name: 'Hollywood Bets R100',
+                                          description: 'Hollywood Bets R100',
+                                          typeCode: 'HB',
+                                          minAmount: '100.0000',
+                                          maxAmount: '100.0000',
+                                          amount: '100',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
-                          },
-                          child: wrapWithModel(
-                            model: _model.utilityCardModel4,
-                            updateCallback: () => setState(() {}),
-                            child: const UtilityCardWidget(
-                              name: 'Hollywood Bets R100',
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: wrapWithModel(
+                              model: _model.utilityCardModel4,
+                              updateCallback: () => setState(() {}),
+                              child: const UtilityCardWidget(
+                                name: 'Hollywood Bets R100',
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               );
             },

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'info_widget.dart' show InfoWidget;
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ class InfoModel extends FlutterFlowModel<InfoWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in info widget.
+  ApiCallResponse? apiAuth;
 
   @override
   void initState(BuildContext context) {}

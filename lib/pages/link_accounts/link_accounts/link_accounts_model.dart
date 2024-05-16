@@ -7,6 +7,8 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in LinkAccounts widget.
+  ApiCallResponse? apiAuth;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));

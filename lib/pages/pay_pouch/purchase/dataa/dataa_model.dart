@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -8,6 +9,8 @@ class DataaModel extends FlutterFlowModel<DataaWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in DATAA widget.
+  ApiCallResponse? apiAuth;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

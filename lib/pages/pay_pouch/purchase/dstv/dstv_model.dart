@@ -7,6 +7,8 @@ class DstvModel extends FlutterFlowModel<DstvWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in DSTV widget.
+  ApiCallResponse? apiAuth;
   // State field(s) for Amount widget.
   FocusNode? amountFocusNode;
   TextEditingController? amountTextController;

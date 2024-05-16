@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/utility_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'smss_widget.dart' show SmssWidget;
@@ -7,6 +8,8 @@ class SmssModel extends FlutterFlowModel<SmssWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Get User)] action in SMSS widget.
+  ApiCallResponse? apiAuth;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
