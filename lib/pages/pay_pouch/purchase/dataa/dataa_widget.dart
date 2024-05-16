@@ -1,12 +1,12 @@
-import '/flutter_flow/flutter_flow_animations.dart';
+import '/components/purchase_utility_widget.dart';
+import '/components/utility_card_widget.dart';
+import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'dataa_model.dart';
 export 'dataa_model.dart';
 
@@ -23,37 +23,21 @@ class _DataaWidgetState extends State<DataaWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = <String, AnimationInfo>{};
-
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DataaModel());
 
-    _model.phoneNumberTextController ??= TextEditingController();
-    _model.phoneNumberFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'textFieldOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 50.0.ms,
-            duration: 300.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 50.0.ms,
-            duration: 300.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-    });
+    _model.monthController = TabController(
+      vsync: this,
+      length: 3,
+      initialIndex: 0,
+    )..addListener(() => setState(() {}));
+    _model.dayController = TabController(
+      vsync: this,
+      length: 4,
+      initialIndex: 0,
+    )..addListener(() => setState(() {}));
   }
 
   @override
@@ -242,650 +226,3366 @@ class _DataaWidgetState extends State<DataaWidget>
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Opacity(
-                      opacity: 0.5,
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                        child: Text(
-                          'PURCHASE  AIRTIME',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 19.0,
-                                letterSpacing: 0.0,
-                              ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 30.0, 0.0, 20.0),
-                        child: FlutterFlowRadioButton(
-                          options: ['Me', 'Someone'].toList(),
-                          onChanged: (val) => setState(() {}),
-                          controller: _model.radioButtonValueController ??=
-                              FormFieldController<String>(null),
-                          optionHeight: 32.0,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).secondary,
-                                letterSpacing: 0.0,
-                              ),
-                          selectedTextStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                letterSpacing: 0.0,
-                              ),
-                          buttonPosition: RadioButtonPosition.left,
-                          direction: Axis.vertical,
-                          radioButtonColor:
-                              FlutterFlowTheme.of(context).alternate,
-                          inactiveRadioButtonColor:
-                              FlutterFlowTheme.of(context).secondary,
-                          toggleable: false,
-                          horizontalAlignment: WrapAlignment.start,
-                          verticalAlignment: WrapCrossAlignment.start,
-                        ),
-                      ),
-                    ),
-                    if (_model.radioButtonValue == 'Someone')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.phoneNumberTextController,
-                          focusNode: _model.phoneNumberFocusNode,
-                          autofocus: false,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
-                                ),
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: const Color(0xFF969EA4),
-                                  letterSpacing: 0.0,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            filled: true,
-                            fillColor: const Color(0xFFB5C4D1),
-                            prefixIcon: const Icon(
-                              Icons.phone_sharp,
-                            ),
-                            suffixIcon: const Icon(
-                              Icons.add_rounded,
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                              ),
-                          keyboardType: TextInputType.emailAddress,
-                          validator: _model.phoneNumberTextControllerValidator
-                              .asValidator(context),
-                        ).animateOnPageLoad(
-                            animationsMap['textFieldOnPageLoadAnimation']!),
-                      ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Flexible(
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 0.0),
-                            child: FlutterFlowDropDown<String>(
-                              controller:
-                                  _model.mobileNetworkValueController ??=
-                                      FormFieldController<String>(null),
-                              options: const ['Vodacom', 'CellC', 'MTN', 'Telkom'],
-                              onChanged: (val) => setState(
-                                  () => _model.mobileNetworkValue = val),
-                              width: 400.0,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                              hintText: 'Mobile Network',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
-                              ),
-                              fillColor: const Color(0xFFB5C4D1),
-                              elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
-                              borderWidth: 2.0,
-                              borderRadius: 8.0,
-                              margin: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 4.0, 20.0, 4.0),
-                              hidesUnderline: true,
-                              isOverButton: true,
-                              isSearchable: false,
-                              isMultiSelect: false,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    if (_model.mobileNetworkValue == 'Vodacom')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 10.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.prePaidAirtimeVodacomValueController ??=
-                                  FormFieldController<String>(null),
-                          options: const ['5', '12', '29', '55', '110', '275'],
-                          onChanged: (val) => setState(
-                              () => _model.prePaidAirtimeVodacomValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Prepaid Value',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    if (_model.mobileNetworkValue == 'MTN')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 10.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.prePaidAirtimeMTNValueController ??=
-                                  FormFieldController<String>(null),
-                          options: const ['5', '25', '30', '60', '180'],
-                          onChanged: (val) => setState(
-                              () => _model.prePaidAirtimeMTNValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Prepaid Value',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    if (_model.mobileNetworkValue == 'Telkom')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 10.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.prePaidAirtimeTelkomValueController ??=
-                                  FormFieldController<String>(null),
-                          options: const ['10', '20', '30', '40', '50', '100'],
-                          onChanged: (val) => setState(
-                              () => _model.prePaidAirtimeTelkomValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Prepaid Value',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    Opacity(
-                      opacity: 0.7,
-                      child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 50.0, 0.0, 0.0),
-                          child: Text(
-                            'Allocation Period',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 10.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'Once Off',
-                          style: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                letterSpacing: 0.0,
-                              ),
-                        ),
-                      ),
-                    ),
-                    Opacity(
-                      opacity: 0.7,
-                      child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 0.0, 0.0),
-                          child: Text(
-                            'Validity Period',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 10.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (_model.mobileNetworkValue == 'CellC')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.prePaidBungleCellCValueController ??=
-                                  FormFieldController<String>(null),
-                          options: const ['1 day', '7 days', '30 days'],
-                          onChanged: (val) => setState(
-                              () => _model.prePaidBungleCellCValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Prepaid Value',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    Opacity(
-                      opacity: 0.7,
-                      child: Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 10.0, 0.0, 0.0),
-                          child: Text(
-                            'Bundle value',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 10.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (_model.prePaidBungleCellCValue == '1 day')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 1.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller: _model.preCellCData1DayValueController ??=
-                              FormFieldController<String>(
-                            _model.preCellCData1DayValue ??= '',
-                          ),
-                          options: List<String>.from([
-                            'Option 1',
-                            '5',
-                            '10',
-                            '15',
-                            '17',
-                            '19',
-                            '25',
-                            '35'
-                          ]),
-                          optionLabels: const [
-                            'R5 30MB',
-                            'R10 80MB',
-                            'R15 150MB',
-                            'R17 300MB',
-                            'R19 600MB',
-                            'R25 1GB',
-                            'R35 2GB',
-                            ''
-                          ],
-                          onChanged: (val) => setState(
-                              () => _model.preCellCData1DayValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Please select',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    if (_model.prePaidBungleCellCValue == '7 days')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 1.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.preCellCData7DaysValueController ??=
-                                  FormFieldController<String>(
-                            _model.preCellCData7DaysValue ??= '',
-                          ),
-                          options: List<String>.from(['29', '49', '69', '99']),
-                          optionLabels: const [
-                            'R49 500MB',
-                            'R69 1GB',
-                            'R99 2GB',
-                            'R25 1GB'
-                          ],
-                          onChanged: (val) => setState(
-                              () => _model.preCellCData7DaysValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Please select',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    if (_model.prePaidBungleCellCValue == '30 days')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 1.0, 20.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller:
-                              _model.preCellCData30DaysValueController ??=
-                                  FormFieldController<String>(
-                            _model.preCellCData30DaysValue ??= '',
-                          ),
-                          options: List<String>.from([
-                            '19',
-                            '29',
-                            '35',
-                            '49',
-                            '69',
-                            '85',
-                            '99',
-                            '149',
-                            '199',
-                            '249'
-                          ]),
-                          optionLabels: const [
-                            'R19 100MB',
-                            'R29 150MB',
-                            'R35 250MB',
-                            'R49 350MB',
-                            'R69 600MB',
-                            'R85 1GB',
-                            'R99 1.5GB',
-                            'R149 2GB',
-                            'R199 3GB',
-                            'R249 4GB'
-                          ],
-                          onChanged: (val) => setState(
-                              () => _model.preCellCData30DaysValue = val),
-                          width: double.infinity,
-                          height: 50.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                          hintText: 'Please select',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 4.0),
-                          hidesUnderline: true,
-                          isOverButton: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 10.0),
+                      child: Text(
+                        'PURCHASE  DATA',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).alternate,
+                              fontSize: 25.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 20.0),
                       child: FlutterFlowDropDown<String>(
-                        controller: _model.accountValueController ??=
-                            FormFieldController<String>(null),
-                        options: const ['Account 1', 'Account 2'],
+                        controller: _model.dropDownValueController ??=
+                            FormFieldController<String>(
+                          _model.dropDownValue ??= 'Month',
+                        ),
+                        options: const ['Month', 'Day'],
                         onChanged: (val) =>
-                            setState(() => _model.accountValue = val),
+                            setState(() => _model.dropDownValue = val),
                         width: double.infinity,
-                        height: 50.0,
+                        height: 56.0,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Readex Pro',
                                   letterSpacing: 0.0,
                                 ),
-                        hintText: 'Account',
+                        hintText: 'Please select...',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
                           size: 24.0,
                         ),
-                        fillColor: const Color(0xFFB5C4D1),
+                        fillColor: FlutterFlowTheme.of(context).alternate,
                         elevation: 2.0,
                         borderColor: FlutterFlowTheme.of(context).alternate,
                         borderWidth: 2.0,
                         borderRadius: 8.0,
                         margin: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 4.0, 20.0, 4.0),
+                            16.0, 4.0, 16.0, 4.0),
                         hidesUnderline: true,
                         isOverButton: true,
                         isSearchable: false,
                         isMultiSelect: false,
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('PayUser');
-                        },
-                        text: 'Buy now',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 60.0,
+                    if (_model.dropDownValue == 'Month')
+                      Expanded(
+                        child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xFF192A6F),
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: const BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: const Alignment(0.0, 0),
+                                child: FlutterFlowButtonTabBar(
+                                  useToggleButtonStyle: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  unselectedLabelStyle: const TextStyle(),
+                                  labelColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  unselectedLabelColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  unselectedBackgroundColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  unselectedBorderColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  borderWidth: 2.0,
+                                  borderRadius: 8.0,
+                                  elevation: 0.0,
+                                  buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  padding: const EdgeInsets.all(4.0),
+                                  tabs: const [
+                                    Tab(
+                                      text: 'Vodacom',
+                                    ),
+                                    Tab(
+                                      text: 'MTN',
+                                    ),
+                                    Tab(
+                                      text: 'CELL C',
+                                    ),
+                                  ],
+                                  controller: _model.monthController,
+                                  onTap: (i) async {
+                                    [
+                                      () async {},
+                                      () async {},
+                                      () async {}
+                                    ][i]();
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                child: TabBarView(
+                                  controller: _model.monthController,
+                                  children: [
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Text(
+                                          '30 days',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '132',
+                                                          network: 'Vodacom',
+                                                          name: '75MB-R13',
+                                                          description:
+                                                              '75MB-R13',
+                                                          typeCode: 'X',
+                                                          minAmount: '13.0000',
+                                                          maxAmount: '13.0000',
+                                                          amount: '13',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel1,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '75MB-R13',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '630',
+                                                          network: 'Vodacom',
+                                                          name: '240MB-R32',
+                                                          description:
+                                                              '240MB-R32',
+                                                          typeCode: 'X',
+                                                          minAmount: '32.0000',
+                                                          maxAmount: '32.0000',
+                                                          amount: '32',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel2,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '240MB-R32',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '631',
+                                                          network: 'Vodacom',
+                                                          name: '400MB-R53',
+                                                          description:
+                                                              '400MB-R53',
+                                                          typeCode: 'X',
+                                                          minAmount: '53.0000',
+                                                          maxAmount: '53.0000',
+                                                          amount: '53',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel3,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '400MB-R53',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '632',
+                                                          network: 'Vodacom',
+                                                          name: '600MB-R74',
+                                                          description:
+                                                              '600MB-R74',
+                                                          typeCode: 'X',
+                                                          minAmount: '74.0000',
+                                                          maxAmount: '74.0000',
+                                                          amount: '74',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel4,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '600MB-R74',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '633',
+                                                          network: 'Vodacom',
+                                                          name: '1.2GB-R89',
+                                                          description:
+                                                              '1.2GB-R89',
+                                                          typeCode: 'X',
+                                                          minAmount: '89.0000',
+                                                          maxAmount: '89.0000',
+                                                          amount: '89',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel5,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '1.2GB-R89',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '1137',
+                                                          network: 'Vodacom',
+                                                          name: '1.5GB-R99',
+                                                          description:
+                                                              '1.5GB-R99',
+                                                          typeCode: 'X',
+                                                          minAmount: '99.0000',
+                                                          maxAmount: '99.0000',
+                                                          amount: '99',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel6,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '1.5GB-R99',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '771',
+                                                          network: 'Vodacom',
+                                                          name: '2.5GB-R155',
+                                                          description:
+                                                              '2.5GB-R155',
+                                                          typeCode: 'X',
+                                                          minAmount: '155.0000',
+                                                          maxAmount: '155.0000',
+                                                          amount: '155',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel7,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '2.5GB-R155',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '769',
+                                                          network: 'Vodacom',
+                                                          name: '4.5GB-R259',
+                                                          description:
+                                                              '4.5GB-R259',
+                                                          typeCode: 'X',
+                                                          minAmount: '259.0000',
+                                                          maxAmount: '259.0000',
+                                                          amount: '259',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel8,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '4.5GB-R259',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '772',
+                                                          network: 'Vodacom',
+                                                          name: '7GB-R365',
+                                                          description:
+                                                              '7GB-R365',
+                                                          typeCode: 'X',
+                                                          minAmount: '365.0000',
+                                                          maxAmount: '365.0000',
+                                                          amount: '365',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel9,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '7GB-R365',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '141',
+                                                          network: 'Vodacom',
+                                                          name: '12GB-R499',
+                                                          description:
+                                                              '12GB-R499',
+                                                          typeCode: 'X',
+                                                          minAmount: '499.0000',
+                                                          maxAmount: '499.0000',
+                                                          amount: '499',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel10,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '12GB-R499',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Text(
+                                          '30 days',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '536',
+                                                          network: 'MTN',
+                                                          name: '5MB-R4',
+                                                          description: '5MB-R4',
+                                                          typeCode: 'D',
+                                                          minAmount: '4.0000',
+                                                          maxAmount: '4.0000',
+                                                          amount: '4',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel11,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '5MB-R4',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '464',
+                                                          network: 'MTN',
+                                                          name: '40MB-R10',
+                                                          description:
+                                                              '40MB-R10',
+                                                          typeCode: 'D',
+                                                          minAmount: '10.0000',
+                                                          maxAmount: '10.0000',
+                                                          amount: '10',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel12,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '40MB-R10',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '1098',
+                                                          network: 'MTN',
+                                                          name: '120MB-R20',
+                                                          description:
+                                                              '120MB-R20',
+                                                          typeCode: 'D',
+                                                          minAmount: '20.0000',
+                                                          maxAmount: '20.0000',
+                                                          amount: '20',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel13,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '120MB-R20',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '720',
+                                                          network: 'MTN',
+                                                          name: '200MB-R29',
+                                                          description:
+                                                              '200MB-R29',
+                                                          typeCode: 'D',
+                                                          minAmount: '29.0000',
+                                                          maxAmount: '29.0000',
+                                                          amount: '29',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel14,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '200MB-R29',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '721',
+                                                          network: 'MTN',
+                                                          name: '350MB-R49',
+                                                          description:
+                                                              '350MB-R49',
+                                                          typeCode: 'D',
+                                                          minAmount: '49.0000',
+                                                          maxAmount: '49.0000',
+                                                          amount: '49',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel15,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '350MB-R49',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '1099',
+                                                          network: 'MTN',
+                                                          name: '500MB-R65',
+                                                          description:
+                                                              '500MB-R65',
+                                                          typeCode: 'D',
+                                                          minAmount: '65.0000',
+                                                          maxAmount: '65.0000',
+                                                          amount: '65',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel16,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '500MB-R65',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '1100',
+                                                          network: 'MTN',
+                                                          name: '1GB-R79',
+                                                          description:
+                                                              '1GB-R79',
+                                                          typeCode: 'D',
+                                                          minAmount: '79.0000',
+                                                          maxAmount: '79.0000',
+                                                          amount: '79',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel17,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '1GB-R79',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '724',
+                                                          network: 'MTN',
+                                                          name: '1.5GB-R99',
+                                                          description:
+                                                              '1.5GB-R99',
+                                                          typeCode: 'D',
+                                                          minAmount: '99.0000',
+                                                          maxAmount: '99.0000',
+                                                          amount: '99',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel18,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '1.5GB-R99',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '732',
+                                                          network: 'MTN',
+                                                          name: '2+2GB-R149',
+                                                          description:
+                                                              '2+2GB-R149',
+                                                          typeCode: 'D',
+                                                          minAmount: '149.0000',
+                                                          maxAmount: '149.0000',
+                                                          amount: '149',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel19,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '2+2GB-R149',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '725',
+                                                          network: 'MTN',
+                                                          name: '3+3GB-R199',
+                                                          description:
+                                                              '3+3GB-R199',
+                                                          typeCode: 'D',
+                                                          minAmount: '199.0000',
+                                                          maxAmount: '199.0000',
+                                                          amount: '199',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel20,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '3+3GB-R199',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '726',
+                                                          network: 'MTN',
+                                                          name: '5+5GB-R299',
+                                                          description:
+                                                              '5+5GB-R299',
+                                                          typeCode: 'D',
+                                                          minAmount: '299.0000',
+                                                          maxAmount: '299.0000',
+                                                          amount: '299',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel21,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '5+5GB-R299',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Text(
+                                          '30 days',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '959',
+                                                          network: 'Cell C',
+                                                          name: '1000MB-R50',
+                                                          description:
+                                                              '1000MB-R50',
+                                                          typeCode: 'AO',
+                                                          minAmount: '50.0000',
+                                                          maxAmount: '50.0000',
+                                                          amount: '50',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel22,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '1000MB-R50',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '960',
+                                                          network: 'Cell C',
+                                                          name: '2GB-R99',
+                                                          description:
+                                                              '2GB-R99',
+                                                          typeCode: 'AO',
+                                                          minAmount: '99.0000',
+                                                          maxAmount: '99.0000',
+                                                          amount: '99',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel23,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: '2GB-R99',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(18.0),
                         ),
                       ),
-                    ),
+                    if (_model.dropDownValue == 'Day')
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: const Alignment(0.0, 0),
+                                child: FlutterFlowButtonTabBar(
+                                  useToggleButtonStyle: true,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 13.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  unselectedLabelStyle: const TextStyle(),
+                                  labelColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  unselectedLabelColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  unselectedBackgroundColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                  unselectedBorderColor:
+                                      FlutterFlowTheme.of(context).alternate,
+                                  borderWidth: 2.0,
+                                  borderRadius: 8.0,
+                                  elevation: 0.0,
+                                  buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  padding: const EdgeInsets.all(4.0),
+                                  tabs: const [
+                                    Tab(
+                                      text: 'Vodacom',
+                                    ),
+                                    Tab(
+                                      text: 'MTN',
+                                    ),
+                                    Tab(
+                                      text: 'CELL C',
+                                    ),
+                                    Tab(
+                                      text: 'Telkom',
+                                    ),
+                                  ],
+                                  controller: _model.dayController,
+                                  onTap: (i) async {
+                                    [
+                                      () async {},
+                                      () async {},
+                                      () async {},
+                                      () async {}
+                                    ][i]();
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                child: TabBarView(
+                                  controller: _model.dayController,
+                                  children: [
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '65',
+                                                          network: 'Vodacom',
+                                                          name:
+                                                              'Vodacom R2 voucher',
+                                                          description:
+                                                              'Vodacom R2 voucher',
+                                                          typeCode: 'V',
+                                                          minAmount: '2.0000',
+                                                          maxAmount: '2.0000',
+                                                          amount: '2',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel24,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: 'Vodacom R2 voucher',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '66',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R5 voucher',
+                                                        description:
+                                                            'Vodacom R5 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '5.0000',
+                                                        maxAmount: '5.0000',
+                                                        amount: '5',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel25,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R5 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '67',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R10 voucher',
+                                                        description:
+                                                            'Vodacom R10 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '10.0000',
+                                                        maxAmount: '10.0000',
+                                                        amount: '10',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel26,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R10 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '68',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R12 voucher',
+                                                        description:
+                                                            'Vodacom R12 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '12.0000',
+                                                        maxAmount: '12.0000',
+                                                        amount: '12',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel27,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R12 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '69',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R29 voucher',
+                                                        description:
+                                                            'Vodacom R29 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '29.0000',
+                                                        maxAmount: '29.0000',
+                                                        amount: '29',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel28,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R29 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '71',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R55 voucher',
+                                                        description:
+                                                            'Vodacom R55 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '55.0000',
+                                                        maxAmount: '55.0000',
+                                                        amount: '55',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel29,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R55 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '72',
+                                                        network: 'Vodacom',
+                                                        name:
+                                                            'Vodacom R110 voucher',
+                                                        description:
+                                                            'Vodacom R110 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '110.0000',
+                                                        maxAmount: '110.0000',
+                                                        amount: '110',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel30,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Vodacom R110 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '121',
+                                                          network: 'MTN',
+                                                          name:
+                                                              'MTN R2 voucher',
+                                                          description:
+                                                              'MTN R2 voucher',
+                                                          typeCode: 'V',
+                                                          minAmount: '2.0000',
+                                                          maxAmount: '2.0000',
+                                                          amount: '2',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel31,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: 'MTN R2 voucher',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '120',
+                                                        network: 'MTN',
+                                                        name: 'MTN R5 voucher',
+                                                        description:
+                                                            'MTN R5 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '5.0000',
+                                                        maxAmount: '5.0000',
+                                                        amount: '5',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel32,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R5 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '25',
+                                                        network: 'MTN',
+                                                        name: 'MTN R10 voucher',
+                                                        description:
+                                                            'MTN R10 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '10.0000',
+                                                        maxAmount: '10.0000',
+                                                        amount: '10',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel33,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R10 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '26',
+                                                        network: 'MTN',
+                                                        name: 'MTN R15 voucher',
+                                                        description:
+                                                            'MTN R15 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '15.0000',
+                                                        maxAmount: '15.0000',
+                                                        amount: '15',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel34,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R15 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '27',
+                                                        network: 'MTN',
+                                                        name: 'MTN R30 voucher',
+                                                        description:
+                                                            'MTN R30 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '30.0000',
+                                                        maxAmount: '30.0000',
+                                                        amount: '30',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel35,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R30 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '28',
+                                                        network: 'MTN',
+                                                        name: 'MTN R60 voucher',
+                                                        description:
+                                                            'MTN R60 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '60.0000',
+                                                        maxAmount: '60.0000',
+                                                        amount: '60',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel36,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R60 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '934',
+                                                        network: 'MTN',
+                                                        name:
+                                                            'MTN R100 voucher',
+                                                        description:
+                                                            'MTN R100 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '100.0000',
+                                                        maxAmount: '100.0000',
+                                                        amount: '100',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel37,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R100 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '29',
+                                                        network: 'MTN',
+                                                        name:
+                                                            'MTN R180 voucher',
+                                                        description:
+                                                            'MTN R180 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '180.0000',
+                                                        maxAmount: '180.0000',
+                                                        amount: '180',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel38,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'MTN R180 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '30',
+                                                          network: 'Cell C',
+                                                          name:
+                                                              'Cell C R5 voucher',
+                                                          description:
+                                                              'Cell C R5 voucher',
+                                                          typeCode: 'V',
+                                                          minAmount: '5.0000',
+                                                          maxAmount: '5.0000',
+                                                          amount: '5',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel39,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: 'Cell C R5 voucher',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '36',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R10 voucher',
+                                                        description:
+                                                            'Cell C R10 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '10.0000',
+                                                        maxAmount: '10.0000',
+                                                        amount: '10',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel40,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Cell C R10 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '928',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R20 SupaCharge Voucher',
+                                                        description:
+                                                            'Cell C R20 SupaCharge Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '20.0000',
+                                                        maxAmount: '20.0000',
+                                                        amount: '20',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel41,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name:
+                                                  'Cell C R20 SupaCharge Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '31',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R25 voucher',
+                                                        description:
+                                                            'Cell C R25 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '25.0000',
+                                                        maxAmount: '25.0000',
+                                                        amount: '25',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel42,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Cell C R25 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '929',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R30 SupaCharge Voucher',
+                                                        description:
+                                                            'Cell C R30 SupaCharge Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '30.0000',
+                                                        maxAmount: '30.0000',
+                                                        amount: '30',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel43,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name:
+                                                  'Cell C R30 SupaCharge Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '32',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R35 voucher',
+                                                        description:
+                                                            'Cell C R35 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '35.0000',
+                                                        maxAmount: '35.0000',
+                                                        amount: '35',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel44,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Cell C R35 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '117',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'CellC R50 voucher',
+                                                        description:
+                                                            'CellC R50 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '50.0000',
+                                                        maxAmount: '50.0000',
+                                                        amount: '50',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel45,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'CellC R50 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '33',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R70 voucher',
+                                                        description:
+                                                            'Cell C R70 voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '70.0000',
+                                                        maxAmount: '70.0000',
+                                                        amount: '70',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel46,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Cell C R70 voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '926',
+                                                        network: 'Cell C',
+                                                        name:
+                                                            'Cell C R100 Voucher',
+                                                        description:
+                                                            'Cell C R100 Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '100.0000',
+                                                        maxAmount: '100.0000',
+                                                        amount: '100',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel47,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Cell C R100 Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    ListView(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const PurchaseUtilityWidget(
+                                                          id: '156',
+                                                          network: 'Telkom',
+                                                          name:
+                                                              'Tkm Mobile R5 Voucher',
+                                                          description:
+                                                              'Tkm Mobile R5 Voucher',
+                                                          typeCode: 'V',
+                                                          minAmount: '5.0000',
+                                                          maxAmount: '5.0000',
+                                                          amount: '5',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.utilityCardModel48,
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              child: const UtilityCardWidget(
+                                                name: 'Tkm Mobile R5 Voucher',
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '158',
+                                                        network: 'Telkom',
+                                                        name:
+                                                            'Tkm Mobile R20 Voucher',
+                                                        description:
+                                                            'Tkm Mobile R20 Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '20.0000',
+                                                        maxAmount: '20.0000',
+                                                        amount: '20',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel49,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Tkm Mobile R10 Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '159',
+                                                        network: 'Telkom',
+                                                        name:
+                                                            'Tkm Mobile R30 Voucher',
+                                                        description:
+                                                            'Tkm Mobile R30 Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '30.0000',
+                                                        maxAmount: '30.0000',
+                                                        amount: '30',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel50,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Tkm Mobile R30 Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '160',
+                                                        network: 'Telkom',
+                                                        name:
+                                                            'Tkm Mobile R50 Voucher',
+                                                        description:
+                                                            'Tkm Mobile R50 Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '50.0000',
+                                                        maxAmount: '50.0000',
+                                                        amount: '50',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel51,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Tkm Mobile R50 Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          const PurchaseUtilityWidget(
+                                                        id: '161',
+                                                        network: 'Telkom',
+                                                        name:
+                                                            'Tkm Mobile R100 Voucher',
+                                                        description:
+                                                            'Tkm Mobile R100 Voucher',
+                                                        typeCode: 'V',
+                                                        minAmount: '100.0000',
+                                                        maxAmount: '100.0000',
+                                                        amount: '100',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.utilityCardModel52,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const UtilityCardWidget(
+                                              name: 'Tkm Mobile R100 Voucher',
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               );

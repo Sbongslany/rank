@@ -446,7 +446,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                       )!,
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                            .alternate,
                                       ),
                                     ),
                                     duration: const Duration(milliseconds: 4000),
