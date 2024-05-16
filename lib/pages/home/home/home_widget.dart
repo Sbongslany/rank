@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -28,6 +29,26 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiAuth = await GetUserCall.call(
+        jwt: currentAuthenticationToken,
+      );
+      if ((_model.apiAuth?.succeeded ?? true)) {
+        return;
+      }
+
+      GoRouter.of(context).prepareAuthEvent();
+      await authManager.signOut();
+      GoRouter.of(context).clearRedirectLocation();
+
+      context.goNamedAuth('Login', context.mounted);
+
+      return;
+
+      context.goNamedAuth('Login', context.mounted);
+    });
   }
 
   @override

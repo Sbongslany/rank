@@ -248,7 +248,7 @@ class _DataaWidgetState extends State<DataaWidget>
                             FormFieldController<String>(
                           _model.dropDownValue ??= 'Month',
                         ),
-                        options: const ['Month', 'Day'],
+                        options: const ['Month', 'Day', 'Weekly'],
                         onChanged: (val) =>
                             setState(() => _model.dropDownValue = val),
                         width: double.infinity,
