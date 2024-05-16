@@ -41,7 +41,7 @@ class _UtilityCardWidgetState extends State<UtilityCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,
@@ -59,6 +59,7 @@ class _UtilityCardWidgetState extends State<UtilityCardWidget> {
           width: 100.0,
           height: 60.0,
           decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondary,
             boxShadow: const [
               BoxShadow(
                 blurRadius: 4.0,
@@ -69,15 +70,6 @@ class _UtilityCardWidgetState extends State<UtilityCardWidget> {
                 ),
               )
             ],
-            gradient: LinearGradient(
-              colors: [
-                FlutterFlowTheme.of(context).primary,
-                FlutterFlowTheme.of(context).secondary
-              ],
-              stops: const [0.0, 1.0],
-              begin: const AlignmentDirectional(0.0, -1.0),
-              end: const AlignmentDirectional(0, 1.0),
-            ),
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(5.0),
               bottomRight: Radius.circular(0.0),
