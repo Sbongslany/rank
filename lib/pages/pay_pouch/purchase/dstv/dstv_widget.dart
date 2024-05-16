@@ -418,9 +418,6 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                               );
                               shouldSetState = true;
                               if ((_model.responseDSTV?.succeeded ?? true)) {
-                                setState(() {
-                                  _model.amountTextController?.clear();
-                                });
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
@@ -437,6 +434,9 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                         FlutterFlowTheme.of(context).success,
                                   ),
                                 );
+                                setState(() {
+                                  _model.amountTextController?.clear();
+                                });
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -457,6 +457,9 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
+                                setState(() {
+                                  _model.amountTextController?.clear();
+                                });
                                 if (shouldSetState) setState(() {});
                                 return;
                               }

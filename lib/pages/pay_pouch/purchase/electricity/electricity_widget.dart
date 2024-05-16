@@ -418,9 +418,6 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                               );
                               shouldSetState = true;
                               if ((_model.responseEskom?.succeeded ?? true)) {
-                                setState(() {
-                                  _model.amountTextController?.clear();
-                                });
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
@@ -437,6 +434,9 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                         FlutterFlowTheme.of(context).success,
                                   ),
                                 );
+                                setState(() {
+                                  _model.amountTextController?.clear();
+                                });
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -454,6 +454,9 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
+                                setState(() {
+                                  _model.amountTextController?.clear();
+                                });
                                 if (shouldSetState) setState(() {});
                                 return;
                               }
