@@ -418,6 +418,9 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                               );
                               shouldSetState = true;
                               if ((_model.responseEskom?.succeeded ?? true)) {
+                                setState(() {
+                                  _model.amountTextController?.clear();
+                                });
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
