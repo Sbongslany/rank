@@ -196,7 +196,8 @@ class _PurchaseWidgetState extends State<PurchaseWidget>
             SliverAppBar(
               expandedHeight: 100.0,
               pinned: false,
-              floating: false,
+              floating: true,
+              snap: true,
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               actions: const [],
