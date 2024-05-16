@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'electricity_model.dart';
@@ -278,39 +279,55 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 20.0, 0.0, 20.0),
+                            0.0, 10.0, 0.0, 60.0),
                         child: Text(
-                          'Purchase\nElectricity Eskom',
+                          'Purchase',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 25.0,
+                                fontSize: 45.0,
                                 letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w300,
                               ),
                         ),
                       ),
                     ),
-                    Text(
-                      'PLEASE ENTER AMOUNT',
-                      textAlign: TextAlign.start,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
-                            fontSize: 14.0,
-                            letterSpacing: 0.0,
-                          ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: CachedNetworkImage(
+                        fadeInDuration: const Duration(milliseconds: 500),
+                        fadeOutDuration: const Duration(milliseconds: 500),
+                        imageUrl:
+                            'https://tse2.mm.bing.net/th?id=OIP.v3t-0rCwZKU-uyfIR8p4hQHaE8&pid=Api&P=0&h=220',
+                        width: 300.0,
+                        height: 133.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      child: Text(
+                        'PLEASE ENTER AMOUNT',
+                        textAlign: TextAlign.start,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).alternate,
+                              fontSize: 14.0,
+                              letterSpacing: 0.0,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
+                    ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),

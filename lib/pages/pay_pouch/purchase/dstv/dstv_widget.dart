@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dstv_model.dart';
 export 'dstv_model.dart';
 
@@ -277,39 +279,55 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 20.0, 0.0, 20.0),
+                            0.0, 10.0, 0.0, 60.0),
                         child: Text(
-                          'Pay DSTV',
+                          'Pay',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
                                 fontFamily: 'Readex Pro',
                                 color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 25.0,
+                                fontSize: 45.0,
                                 letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w300,
                               ),
                         ),
                       ),
                     ),
-                    Text(
-                      'PLEASE ENTER AMOUNT',
-                      textAlign: TextAlign.start,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).alternate,
-                            fontSize: 14.0,
-                            letterSpacing: 0.0,
-                          ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: CachedNetworkImage(
+                        fadeInDuration: const Duration(milliseconds: 500),
+                        fadeOutDuration: const Duration(milliseconds: 500),
+                        imageUrl:
+                            'https://tse4.mm.bing.net/th?id=OIP.a-lP1KY1lS_yK-NFFtAn9AHaD4&pid=Api&P=0&h=220',
+                        width: 300.0,
+                        height: 133.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                      child: Text(
+                        'PLEASE ENTER AMOUNT',
+                        textAlign: TextAlign.start,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).alternate,
+                              fontSize: 14.0,
+                              letterSpacing: 0.0,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
+                    ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -400,7 +418,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                     style: TextStyle(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w300,
                                       fontSize: 20.0,
                                     ),
                                   ),
@@ -416,9 +434,12 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                     PurchaseCall.message(
                                       (_model.responseDSTV?.jsonBody ?? ''),
                                     )!,
-                                    style: TextStyle(
+                                    style: GoogleFonts.getFont(
+                                      'Rubik',
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryText,
+                                          .alternate,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 20.0,
                                     ),
                                   ),
                                   duration: const Duration(milliseconds: 4000),
