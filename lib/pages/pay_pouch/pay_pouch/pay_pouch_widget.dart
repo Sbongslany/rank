@@ -332,7 +332,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Align(
                               alignment: const AlignmentDirectional(-1.0, 0.0),
@@ -395,7 +395,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                             fontFamily: 'Readex Pro',
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
-                                            fontSize: 25.0,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -409,7 +409,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 12.0, 16.0, 12.0),
+                            16.0, 30.0, 16.0, 12.0),
                         child: GridView(
                           padding: EdgeInsets.zero,
                           gridDelegate:
@@ -463,7 +463,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               .displaySmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 10.0,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -525,7 +525,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
-                                                fontSize: 10.0,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -623,7 +623,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
-                                                fontSize: 10.0,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -687,7 +687,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               .displaySmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 10.0,
+                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
