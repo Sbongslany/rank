@@ -396,15 +396,10 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 30.0, 0.0),
-                                  child: Icon(
-                                    Icons.electric_bolt,
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    size: 24.0,
-                                  ),
+                                Icon(
+                                  Icons.electric_bolt,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 24.0,
                                 ),
                                 Text(
                                   'PURCHASE ELECTRICITY',
@@ -454,18 +449,66 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 30.0, 0.0),
-                                  child: FaIcon(
-                                    FontAwesomeIcons.gavel,
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    size: 24.0,
-                                  ),
+                                FaIcon(
+                                  FontAwesomeIcons.gavel,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 24.0,
                                 ),
                                 Text(
                                   'PURCHASE VOUCHER',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('DSTV');
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).secondary,
+                                  FlutterFlowTheme.of(context).primary
+                                ],
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.47, -1.0),
+                                end: const AlignmentDirectional(-0.47, 1.0),
+                              ),
+                            ),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.tv,
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  size: 24.0,
+                                ),
+                                Text(
+                                  'DSTV',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
