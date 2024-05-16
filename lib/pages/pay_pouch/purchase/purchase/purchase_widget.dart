@@ -205,7 +205,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget> {
                       Flexible(
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 60.0, 0.0, 0.0),
+                              0.0, 10.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,

@@ -1229,7 +1229,7 @@ class PurchaseCall {
 
   static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.responseCode''',
+        r'''$.message''',
       ));
 }
 
