@@ -35,6 +35,7 @@ class _PayWebViewWidgetState extends State<PayWebViewWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }

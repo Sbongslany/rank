@@ -35,6 +35,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -414,10 +415,19 @@ class _HomeWidgetState extends State<HomeWidget> {
               actions: [
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                  child: Icon(
-                    Icons.notifications_sharp,
-                    color: FlutterFlowTheme.of(context).alternate,
-                    size: 30.0,
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('info');
+                    },
+                    child: FaIcon(
+                      FontAwesomeIcons.mailBulk,
+                      color: FlutterFlowTheme.of(context).alternate,
+                      size: 30.0,
+                    ),
                   ),
                 ),
               ],
@@ -632,35 +642,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed('info');
-                                        },
-                                        child: const FaIcon(
-                                          FontAwesomeIcons.mailBulk,
-                                          color: Color(0xFF2391E1),
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        'RANK INFO',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 8.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
                                 ],
                               ),
                             ),
@@ -750,6 +731,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       await GetFriendRequesCountCall.call(
                                     jwt: currentAuthenticationToken,
                                   );
+
                                   shouldSetState = true;
                                   if ((_model.countResponse?.succeeded ??
                                       true)) {

@@ -114,6 +114,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                     maxAmount: widget.maxAmount,
                     amount: widget.amount,
                   );
+
                   shouldSetState = true;
                   if ((_model.responseBets10?.succeeded ?? true)) {
                     ScaffoldMessenger.of(context).showSnackBar(

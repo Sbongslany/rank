@@ -36,6 +36,7 @@ class _InviteWidgetState extends State<InviteWidget>
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -367,6 +368,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                 ).toString(),
                                                 jwt: currentAuthenticationToken,
                                               );
+
                                               shouldSetState = true;
                                               if ((_model.inviteFriendResoonse
                                                       ?.succeeded ??

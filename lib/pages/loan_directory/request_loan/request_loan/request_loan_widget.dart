@@ -371,6 +371,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                             amount: _model.amountValue,
                             days: _model.daysValue,
                           );
+
                           shouldSetState = true;
                           if ((_model.apiResultmsa?.succeeded ?? true)) {
                             ScaffoldMessenger.of(context).showSnackBar(

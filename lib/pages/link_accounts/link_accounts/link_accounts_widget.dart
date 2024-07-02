@@ -31,6 +31,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -763,6 +764,7 @@ class _LinkAccountsWidgetState extends State<LinkAccountsWidget> {
                             file: _model.uploadedLocalFile1,
                             type: 'S',
                           );
+
                           shouldSetState = true;
                           if ((_model.apiResultg6a?.succeeded ?? true)) {
                             ScaffoldMessenger.of(context).showSnackBar(

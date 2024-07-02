@@ -30,6 +30,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -453,6 +454,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                     r'''$.friend_id''',
                                                                   ).toString(),
                                                                 );
+
                                                                 shouldSetState =
                                                                     true;
                                                                 if ((_model
@@ -591,6 +593,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                     r'''$.friend_id''',
                                                                   ).toString(),
                                                                 );
+
                                                                 shouldSetState =
                                                                     true;
                                                                 if ((_model

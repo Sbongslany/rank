@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/balance_header_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'pay_someone_widget.dart' show PaySomeoneWidget;
@@ -10,6 +11,8 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in PaySomeone widget.
   ApiCallResponse? apiAuth;
+  // Model for balance_header component.
+  late BalanceHeaderModel balanceHeaderModel;
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
   // State field(s) for ref widget.
@@ -23,11 +26,14 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   ApiCallResponse? apiResult836;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    balanceHeaderModel = createModel(context, () => BalanceHeaderModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    balanceHeaderModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

@@ -43,6 +43,7 @@ class SignUpCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -70,6 +71,7 @@ class SignInCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -118,6 +120,7 @@ class GetUserCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -165,6 +168,7 @@ class GetUsersCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -248,6 +252,7 @@ class InviteFriendCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -269,6 +274,7 @@ class GetPayPouchBalanceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -304,6 +310,7 @@ class PayPouchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -350,6 +357,7 @@ class ForgotPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -377,6 +385,7 @@ class ResetPasswordCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -398,6 +407,7 @@ class GetMyFriendRequestsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -453,6 +463,7 @@ class ApproveRequestCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -481,6 +492,7 @@ class PaypouchWithdrawCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -503,6 +515,7 @@ class GetMyFriendsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -533,6 +546,7 @@ class PaySomeoneCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -560,6 +574,7 @@ class AcceptRequestCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -585,6 +600,7 @@ class RejectFriendCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -612,6 +628,7 @@ class GetFriendRequesCountCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -639,6 +656,7 @@ class GetFriendsCountCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -671,6 +689,7 @@ class UploadDocCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -703,6 +722,7 @@ class BankDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -725,6 +745,7 @@ class GetFriendsToInviteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -812,6 +833,7 @@ class PayFastCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -844,6 +866,7 @@ class LoanDirectoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -891,6 +914,7 @@ class EditProfileCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -922,6 +946,7 @@ class UploadPictureCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -943,6 +968,7 @@ class GetTransactionHistoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1004,6 +1030,7 @@ class UtilitiesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1183,6 +1210,7 @@ class SmartCallAuthCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1225,6 +1253,7 @@ class PurchaseCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
@@ -1251,10 +1280,14 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("List serialization failed. Returning empty list.");
@@ -1266,7 +1299,7 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("Json serialization failed. Returning empty json.");

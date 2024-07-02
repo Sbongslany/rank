@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/balance_header_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -34,6 +35,7 @@ class _DepositWidgetState extends State<DepositWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -237,6 +239,11 @@ class _DepositWidgetState extends State<DepositWidget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      wrapWithModel(
+                        model: _model.balanceHeaderModel,
+                        updateCallback: () => setState(() {}),
+                        child: const BalanceHeaderWidget(),
+                      ),
                       Text(
                         'DEPOSIT TO PAY POUCH',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1034,6 +1041,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                               ref: _model.refValue,
                               jwt: currentAuthenticationToken,
                             );
+
                             shouldSetState = true;
                             if ((_model.paypouchresponse?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(

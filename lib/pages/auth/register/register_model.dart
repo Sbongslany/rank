@@ -28,10 +28,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
-  // State field(s) for idNumber widget.
-  FocusNode? idNumberFocusNode;
-  TextEditingController? idNumberTextController;
-  String? Function(BuildContext, String?)? idNumberTextControllerValidator;
   // Stores action output result for [Backend Call - API (SignUp)] action in Button widget.
   ApiCallResponse? regResponse;
 
@@ -57,8 +53,5 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
-
-    idNumberFocusNode?.dispose();
-    idNumberTextController?.dispose();
   }
 }

@@ -470,6 +470,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           email: _model.emailTextController.text,
                           password: _model.loginPasswordTextController.text,
                         );
+
                         shouldSetState = true;
                         if ((_model.loginResponse?.succeeded ?? true)) {
                           GoRouter.of(context).prepareAuthEvent();

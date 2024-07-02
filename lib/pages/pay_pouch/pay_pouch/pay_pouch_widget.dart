@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/balance_header_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -35,6 +36,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -323,89 +325,10 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        height: 40.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondary,
-                        ),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  'PAY POUCH\nAVALABLE BALANCE',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        fontSize: 10.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: FutureBuilder<ApiCallResponse>(
-                                  future: GetPayPouchBalanceCall.call(
-                                    jwt: currentAuthenticationToken,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final textGetPayPouchBalanceResponse =
-                                        snapshot.data!;
-                                    return Text(
-                                      valueOrDefault<String>(
-                                        GetPayPouchBalanceCall.total(
-                                          textGetPayPouchBalanceResponse
-                                              .jsonBody,
-                                        ),
-                                        '-',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            fontSize: 15.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                      wrapWithModel(
+                        model: _model.balanceHeaderModel,
+                        updateCallback: () => setState(() {}),
+                        child: const BalanceHeaderWidget(),
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -513,7 +436,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
                                           'TRANSFER TO MY DEBIT\nCARD',
@@ -555,6 +478,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                     await GetFriendsCountCall.call(
                                   jwt: currentAuthenticationToken,
                                 );
+
                                 shouldSetState = true;
                                 if (GetFriendsCountCall.numberRequests(
                                       (_model.apiCount?.jsonBody ?? ''),

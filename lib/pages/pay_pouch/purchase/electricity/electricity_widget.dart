@@ -36,6 +36,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -437,6 +438,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                 maxAmount: '1000.0000',
                                 amount: _model.amountTextController.text,
                               );
+
                               shouldSetState = true;
                               if ((_model.responseEskom?.succeeded ?? true)) {
                                 ScaffoldMessenger.of(context).showSnackBar(

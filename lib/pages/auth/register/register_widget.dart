@@ -43,9 +43,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
     _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
-    _model.idNumberTextController ??= TextEditingController();
-    _model.idNumberFocusNode ??= FocusNode();
-
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -231,44 +228,6 @@ class _RegisterWidgetState extends State<RegisterWidget>
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 500.0.ms,
-            duration: 300.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 550.0.ms,
-            duration: 300.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 550.0.ms,
-            duration: 300.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'textFieldOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 600.0.ms,
-            duration: 300.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
-          ),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 600.0.ms,
             duration: 300.0.ms,
             begin: 0.0,
             end: 1.0,
@@ -923,97 +882,10 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                 'textFieldOnPageLoadAnimation5']!),
                           ),
                         ),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 5.0, 0.0, 0.0),
-                            child: Text(
-                              'PLEASE ENTER YOUR ID NUMBER',
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 10.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation6']!),
-                          ),
-                        ),
                         Container(
                           width: 370.0,
                           height: 50.0,
                           decoration: const BoxDecoration(),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.idNumberTextController,
-                              focusNode: _model.idNumberFocusNode,
-                              autofocus: false,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      letterSpacing: 0.0,
-                                    ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: const Color(0xFF969EA4),
-                                      letterSpacing: 0.0,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                filled: true,
-                                fillColor: const Color(0xFFB5C4D1),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                  ),
-                              keyboardType: TextInputType.number,
-                              validator: _model.idNumberTextControllerValidator
-                                  .asValidator(context),
-                            ).animateOnPageLoad(animationsMap[
-                                'textFieldOnPageLoadAnimation6']!),
-                          ),
                         ),
                         Align(
                           alignment: const AlignmentDirectional(0.0, 1.0),
@@ -1031,8 +903,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                   cellNumber:
                                       _model.phoneNumberTextController.text,
                                   password: _model.passwordTextController.text,
-                                  idnumber: _model.idNumberTextController.text,
                                 );
+
                                 shouldSetState = true;
                                 if ((_model.regResponse?.succeeded ?? true)) {
                                   ScaffoldMessenger.of(context).showSnackBar(

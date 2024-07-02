@@ -36,6 +36,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -437,6 +438,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 maxAmount: '99999.0000',
                                 amount: _model.amountTextController.text,
                               );
+
                               shouldSetState = true;
                               if ((_model.responseDSTV?.succeeded ?? true)) {
                                 ScaffoldMessenger.of(context).showSnackBar(

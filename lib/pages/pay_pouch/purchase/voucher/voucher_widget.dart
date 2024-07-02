@@ -32,6 +32,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }

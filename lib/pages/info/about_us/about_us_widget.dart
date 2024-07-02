@@ -30,6 +30,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -237,7 +238,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 5.0, 10.0),
                                 child: AutoSizeText(
-                                  'Rank Financial services a groundbreaking',
+                                  'Rank Financial Services Pty Ltd',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -250,7 +251,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                                 ),
                               ),
                               AutoSizeText(
-                                'mobile application designed to\nrevolutionize the financial services\nlandscape. Our app aims to provide users\nwith a seamless and user-friendly\nplatform for requesting short term loans,\npurchasing of utilities, airtime, lotto and\ninstant payments. With innovative\nfeatures and a commitment to user\nsatisfaction, Rank Financial Services is\npoised to become a leading player in the\nfinancial technology sector.',
+                                'A groundbreaking  mobile application designed to\nrevolutionize the financial services\nlandscape. Our app aims to provide users\nwith a seamless and user-friendly\nplatform for requesting short term loans,\npurchasing of utilities, airtime, lotto and\ninstant payments. With innovative\nfeatures and a commitment to user\nsatisfaction, Rank Financial Services is\npoised to become a leading player in the\nfinancial technology sector.',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

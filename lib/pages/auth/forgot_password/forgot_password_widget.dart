@@ -254,6 +254,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                     _model.forgotResponse = await ForgotPasswordCall.call(
                       email: _model.emailTextController.text,
                     );
+
                     shouldSetState = true;
                     if ((_model.forgotResponse?.succeeded ?? true)) {
                       context.pushNamed('OtpVerification');

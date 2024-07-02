@@ -256,6 +256,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 jwt: currentAuthenticationToken,
                                 file: _model.uploadedLocalFile,
                               );
+
                               shouldSetState = true;
                               if ((_model.apiResult9ge?.succeeded ?? true)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -678,6 +679,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   _model.cellnumberTextController.text,
                               bio: _model.bioTextController.text,
                             );
+
                             shouldSetState = true;
                             if ((_model.editApiResponse?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(

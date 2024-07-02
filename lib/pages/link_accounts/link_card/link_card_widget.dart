@@ -30,6 +30,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
       _model.apiAuth = await GetUserCall.call(
         jwt: currentAuthenticationToken,
       );
+
       if ((_model.apiAuth?.succeeded ?? true)) {
         return;
       }
@@ -763,6 +764,7 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                   _model.accountNumberTextController.text,
                               holder: _model.holderTextController.text,
                             );
+
                             shouldSetState = true;
                             if ((_model.bankResponse?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(

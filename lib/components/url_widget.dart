@@ -42,7 +42,7 @@ class _UrlWidgetState extends State<UrlWidget> {
   Widget build(BuildContext context) {
     return Html(
       data: widget.webLink!,
-      onLinkTap: (url, _, __, ___) => launchURL(url!),
+      onLinkTap: (url, _, __) => launchURL(url!),
     );
   }
 }

@@ -426,6 +426,7 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                 otp: _model.pinCodeController!.text,
                                 password: _model.newpasswordTextController.text,
                               );
+
                               shouldSetState = true;
                               if ((_model.resetResponse?.succeeded ?? true)) {
                                 context.pushNamed('Login');
