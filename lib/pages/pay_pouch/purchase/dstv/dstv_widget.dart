@@ -52,11 +52,14 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
       context.goNamedAuth('Login', context.mounted);
     });
 
-    _model.amountTextController ??= TextEditingController();
-    _model.amountFocusNode ??= FocusNode();
+    _model.amountTextController1 ??= TextEditingController();
+    _model.amountFocusNode1 ??= FocusNode();
+
+    _model.amountTextController2 ??= TextEditingController();
+    _model.amountFocusNode2 ??= FocusNode();
 
     animationsMap.addAll({
-      'textOnPageLoadAnimation': AnimationInfo(
+      'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -75,7 +78,45 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
-      'textFieldOnPageLoadAnimation': AnimationInfo(
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -126,9 +167,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).alternate,
@@ -340,7 +379,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                         child: Text(
-                          'PLEASE ENTER AMOUNT',
+                          'ID, Smart Card or Customer No.',
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -351,14 +390,14 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 letterSpacing: 0.0,
                               ),
                         ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
+                            animationsMap['textOnPageLoadAnimation1']!),
                       ),
                       Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         child: TextFormField(
-                          controller: _model.amountTextController,
-                          focusNode: _model.amountFocusNode,
+                          controller: _model.amountTextController1,
+                          focusNode: _model.amountFocusNode1,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -414,10 +453,93 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextControllerValidator
+                          validator: _model.amountTextController1Validator
                               .asValidator(context),
                         ).animateOnPageLoad(
-                            animationsMap['textFieldOnPageLoadAnimation']!),
+                            animationsMap['textFieldOnPageLoadAnimation1']!),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: Text(
+                          'PLEASE ENTER AMOUNT',
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                              ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.amountTextController2,
+                          focusNode: _model.amountFocusNode2,
+                          autofocus: false,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF969EA4),
+                                  letterSpacing: 0.0,
+                                ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: const Color(0xFFB5C4D1),
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: _model.amountTextController2Validator
+                              .asValidator(context),
+                        ).animateOnPageLoad(
+                            animationsMap['textFieldOnPageLoadAnimation2']!),
                       ),
                       Align(
                         alignment: const AlignmentDirectional(0.0, 1.0),
@@ -436,7 +558,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 typeCode: 'SP',
                                 minAmount: '20.0000',
                                 maxAmount: '99999.0000',
-                                amount: _model.amountTextController.text,
+                                amount: _model.amountTextController1.text,
                               );
 
                               shouldSetState = true;
@@ -444,7 +566,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Purchased ${_model.amountTextController.text}DSTV',
+                                      'Purchased ${_model.amountTextController1.text}DSTV',
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
@@ -458,7 +580,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                   ),
                                 );
                                 setState(() {
-                                  _model.amountTextController?.clear();
+                                  _model.amountTextController1?.clear();
                                 });
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -481,7 +603,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                   ),
                                 );
                                 setState(() {
-                                  _model.amountTextController?.clear();
+                                  _model.amountTextController1?.clear();
                                 });
                                 if (shouldSetState) setState(() {});
                                 return;

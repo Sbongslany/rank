@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class PayPouchModel extends FlutterFlowModel<PayPouchWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in PayPouch widget.
   ApiCallResponse? apiAuth;
   // Model for balance_header component.
@@ -22,7 +21,6 @@ class PayPouchModel extends FlutterFlowModel<PayPouchWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     balanceHeaderModel.dispose();
   }
 }

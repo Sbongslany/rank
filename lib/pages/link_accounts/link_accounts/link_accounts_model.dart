@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in LinkAccounts widget.
   ApiCallResponse? apiAuth;
   bool isDataUploading1 = false;
@@ -28,7 +27,5 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

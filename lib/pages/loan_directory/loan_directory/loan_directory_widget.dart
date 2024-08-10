@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/components/balance_header_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -56,9 +57,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -69,7 +68,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
               expandedHeight: 100.0,
               pinned: false,
               floating: false,
-              backgroundColor: FlutterFlowTheme.of(context).primary,
+              backgroundColor: FlutterFlowTheme.of(context).secondary,
               automaticallyImplyLeading: false,
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
@@ -210,7 +209,6 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                 centerTitle: false,
                 expandedTitleScale: 1.0,
               ),
-              elevation: 2.0,
             )
           ],
           body: Builder(
@@ -232,95 +230,10 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: double.infinity,
-                      height: 130.0,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            const Color(0xF1493333),
-                            FlutterFlowTheme.of(context).primary
-                          ],
-                          stops: const [0.0, 1.0],
-                          begin: const AlignmentDirectional(1.0, 0.34),
-                          end: const AlignmentDirectional(-1.0, -0.34),
-                        ),
-                      ),
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'PAY POUCH\nAVALABLE BALANCE',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 0.0, 0.0),
-                              child: FutureBuilder<ApiCallResponse>(
-                                future: GetPayPouchBalanceCall.call(
-                                  jwt: currentAuthenticationToken,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  final textGetPayPouchBalanceResponse =
-                                      snapshot.data!;
-                                  return Text(
-                                    valueOrDefault<String>(
-                                      GetPayPouchBalanceCall.total(
-                                        textGetPayPouchBalanceResponse.jsonBody,
-                                      ),
-                                      '-',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          fontSize: 35.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    wrapWithModel(
+                      model: _model.balanceHeaderModel,
+                      updateCallback: () => setState(() {}),
+                      child: const BalanceHeaderWidget(),
                     ),
                     Padding(
                       padding:
@@ -372,7 +285,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('OfferLoan');
+                          context.pushNamed('StokvelMenu');
                         },
                         child: Container(
                           width: double.infinity,

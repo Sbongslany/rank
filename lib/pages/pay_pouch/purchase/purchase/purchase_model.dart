@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class PurchaseModel extends FlutterFlowModel<PurchaseWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in Purchase widget.
   ApiCallResponse? apiAuth;
 
@@ -14,7 +13,5 @@ class PurchaseModel extends FlutterFlowModel<PurchaseWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

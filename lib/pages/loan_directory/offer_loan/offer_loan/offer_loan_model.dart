@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class OfferLoanModel extends FlutterFlowModel<OfferLoanWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in OfferLoan widget.
   ApiCallResponse? apiAuth;
   // State field(s) for DropDown widget.
@@ -24,7 +23,5 @@ class OfferLoanModel extends FlutterFlowModel<OfferLoanWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class RequestLoanModel extends FlutterFlowModel<RequestLoanWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for amount widget.
   String? amountValue;
   FormFieldController<String>? amountValueController;
@@ -21,7 +20,5 @@ class RequestLoanModel extends FlutterFlowModel<RequestLoanWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in PaySomeone widget.
   ApiCallResponse? apiAuth;
   // Model for balance_header component.
@@ -32,7 +31,6 @@ class PaySomeoneModel extends FlutterFlowModel<PaySomeoneWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     balanceHeaderModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

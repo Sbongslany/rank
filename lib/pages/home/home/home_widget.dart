@@ -62,9 +62,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -508,6 +506,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           );
                         }
                         final rowGetUserResponse = snapshot.data!;
+
                         return Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -720,6 +719,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               }
                               final badgeGetFriendRequesCountResponse =
                                   snapshot.data!;
+
                               return InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -881,6 +881,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ),
@@ -951,6 +952,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             .primaryBackground,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
@@ -1022,6 +1024,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ),

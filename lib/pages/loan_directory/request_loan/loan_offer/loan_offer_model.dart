@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class LoanOfferModel extends FlutterFlowModel<LoanOfferWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
@@ -18,7 +17,5 @@ class LoanOfferModel extends FlutterFlowModel<LoanOfferWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

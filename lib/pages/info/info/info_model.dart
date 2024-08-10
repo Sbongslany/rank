@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class InfoModel extends FlutterFlowModel<InfoWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in info widget.
   ApiCallResponse? apiAuth;
 
@@ -14,7 +13,5 @@ class InfoModel extends FlutterFlowModel<InfoWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

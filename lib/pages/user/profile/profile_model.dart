@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for backButton component.
   late BackButtonModel backButtonModel;
   bool isDataUploading = false;
@@ -42,7 +41,6 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     backButtonModel.dispose();
     firstnameFocusNode?.dispose();
     firstnameTextController?.dispose();

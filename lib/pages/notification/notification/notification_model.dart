@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in Notification widget.
   ApiCallResponse? apiAuth;
   Completer<ApiCallResponse>? apiRequestCompleter;
@@ -20,9 +19,7 @@ class NotificationModel extends FlutterFlowModel<NotificationWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods.
   Future waitForApiRequestCompleted({

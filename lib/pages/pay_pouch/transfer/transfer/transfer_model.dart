@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class TransferModel extends FlutterFlowModel<TransferWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for balance_header component.
   late BalanceHeaderModel balanceHeaderModel;
   // State field(s) for RatingBar widget.
@@ -29,7 +28,6 @@ class TransferModel extends FlutterFlowModel<TransferWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     balanceHeaderModel.dispose();
   }
 }

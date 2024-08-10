@@ -55,3 +55,11 @@ export '/pages/link_accounts/link_card/link_card_widget.dart'
 export '/pages/pay_pouch/deposit/pay_web_view/pay_web_view_widget.dart'
     show PayWebViewWidget;
 export '/pages/pay_pouch/purchase/dstv/dstv_widget.dart' show DstvWidget;
+export '/pages/loan_directory/stokvel/stokvel_menu/stokvel_menu_widget.dart'
+    show StokvelMenuWidget;
+export '/pages/loan_directory/stokvel/contribution/contribute_screen/contribute_screen_widget.dart'
+    show ContributeScreenWidget;
+export '/pages/loan_directory/stokvel/withdraw/stokvel_withdraw/stokvel_withdraw_widget.dart'
+    show StokvelWithdrawWidget;
+export '/pages/loan_directory/stokvel/stokvel_transaction/stokvel_report/stokvel_report_widget.dart'
+    show StokvelReportWidget;

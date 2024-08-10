@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class DataaModel extends FlutterFlowModel<DataaWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in DATAA widget.
   ApiCallResponse? apiAuth;
   // State field(s) for DropDown widget.
@@ -186,7 +185,6 @@ class DataaModel extends FlutterFlowModel<DataaWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     monthController?.dispose();
     utilityCardModel1.dispose();
     utilityCardModel2.dispose();

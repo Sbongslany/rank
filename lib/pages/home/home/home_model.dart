@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in Home widget.
   ApiCallResponse? apiAuth;
   // Stores action output result for [Backend Call - API (Get Friend Reques Count)] action in Badge widget.
@@ -16,7 +15,5 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

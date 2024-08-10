@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in LinkCard widget.
   ApiCallResponse? apiAuth;
   // State field(s) for holder widget.
@@ -37,7 +36,6 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     holderFocusNode?.dispose();
     holderTextController?.dispose();
 

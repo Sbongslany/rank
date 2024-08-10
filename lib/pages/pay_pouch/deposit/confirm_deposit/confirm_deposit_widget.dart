@@ -58,9 +58,7 @@ class _ConfirmDepositWidgetState extends State<ConfirmDepositWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -166,7 +164,7 @@ class _ConfirmDepositWidgetState extends State<ConfirmDepositWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
-                                  'Payment Complete',
+                                  'Deposit Complete',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -184,7 +182,7 @@ class _ConfirmDepositWidgetState extends State<ConfirmDepositWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
                                 child: Text(
-                                  'Thank you for your payment.\nfinal confirmation has been sent to',
+                                  'Thank you for your deposit.\nfinal confirmation has been sent to',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -224,6 +222,7 @@ class _ConfirmDepositWidgetState extends State<ConfirmDepositWidget> {
                                       );
                                     }
                                     final textGetUserResponse = snapshot.data!;
+
                                     return Text(
                                       getJsonField(
                                         textGetUserResponse.jsonBody,

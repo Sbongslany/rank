@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class VoucherModel extends FlutterFlowModel<VoucherWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in Voucher widget.
   ApiCallResponse? apiAuth;
   // Model for utilityCard component.
@@ -29,7 +28,6 @@ class VoucherModel extends FlutterFlowModel<VoucherWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     utilityCardModel1.dispose();
     utilityCardModel2.dispose();
     utilityCardModel3.dispose();

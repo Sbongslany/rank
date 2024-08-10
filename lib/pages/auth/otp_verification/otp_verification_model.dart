@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
@@ -24,7 +23,6 @@ class OtpVerificationModel extends FlutterFlowModel<OtpVerificationWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     pinCodeController?.dispose();
     newpasswordFocusNode?.dispose();
     newpasswordTextController?.dispose();

@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 class SmssModel extends FlutterFlowModel<SmssWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in SMSS widget.
   ApiCallResponse? apiAuth;
   // State field(s) for DropDown widget.
@@ -204,7 +203,6 @@ class SmssModel extends FlutterFlowModel<SmssWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     monthController?.dispose();
     utilityCardModel1.dispose();
     utilityCardModel2.dispose();

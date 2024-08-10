@@ -278,9 +278,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -288,7 +286,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, _) => [
             SliverAppBar(
-              expandedHeight: 130.0,
+              expandedHeight: 150.0,
               pinned: false,
               floating: false,
               backgroundColor: FlutterFlowTheme.of(context).secondary,
@@ -310,7 +308,8 @@ class _RegisterWidgetState extends State<RegisterWidget>
                     ),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
@@ -342,7 +341,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                         ),
                       ),
                       Row(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(

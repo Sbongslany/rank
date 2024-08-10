@@ -58,9 +58,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -128,6 +126,7 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                                     }
                                     final textGetPayPouchBalanceResponse =
                                         snapshot.data!;
+
                                     return Text(
                                       valueOrDefault<String>(
                                         GetPayPouchBalanceCall.total(
@@ -217,11 +216,13 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
                     }
                     final listViewGetTransactionHistoryResponse =
                         snapshot.data!;
+
                     return Builder(
                       builder: (context) {
                         final getTransactionsHistory =
                             listViewGetTransactionHistoryResponse.jsonBody
                                 .toList();
+
                         return RefreshIndicator(
                           onRefresh: () async {
                             setState(() => _model.apiRequestCompleter = null);

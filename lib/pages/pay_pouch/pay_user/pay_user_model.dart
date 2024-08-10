@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class PayUserModel extends FlutterFlowModel<PayUserWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in PayUser widget.
   ApiCallResponse? apiAuth;
   Completer<ApiCallResponse>? apiRequestCompleter;
@@ -16,9 +15,7 @@ class PayUserModel extends FlutterFlowModel<PayUserWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods.
   Future waitForApiRequestCompleted({

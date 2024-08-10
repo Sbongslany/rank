@@ -79,10 +79,9 @@ class _NotificationWidgetState extends State<NotificationWidget> {
           );
         }
         final notificationGetFriendRequesCountResponse = snapshot.data!;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -284,12 +283,14 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                               }
                               final listViewGetMyFriendRequestsResponse =
                                   snapshot.data!;
+
                               return Builder(
                                 builder: (context) {
                                   final getMyFriendRequests =
                                       listViewGetMyFriendRequestsResponse
                                           .jsonBody
                                           .toList();
+
                                   return RefreshIndicator(
                                     onRefresh: () async {
                                       setState(() =>

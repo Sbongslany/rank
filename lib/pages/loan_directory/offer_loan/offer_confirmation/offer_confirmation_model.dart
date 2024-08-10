@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class OfferConfirmationModel extends FlutterFlowModel<OfferConfirmationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in OfferConfirmation widget.
   ApiCallResponse? apiAuth;
 
@@ -14,7 +13,5 @@ class OfferConfirmationModel extends FlutterFlowModel<OfferConfirmationWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

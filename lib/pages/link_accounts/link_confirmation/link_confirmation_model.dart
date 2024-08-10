@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class LinkConfirmationModel extends FlutterFlowModel<LinkConfirmationWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Get User)] action in LinkConfirmation widget.
   ApiCallResponse? apiAuth;
 
@@ -14,7 +13,5 @@ class LinkConfirmationModel extends FlutterFlowModel<LinkConfirmationWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

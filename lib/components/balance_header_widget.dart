@@ -87,6 +87,7 @@ class _BalanceHeaderWidgetState extends State<BalanceHeaderWidget> {
                     );
                   }
                   final textGetPayPouchBalanceResponse = snapshot.data!;
+
                   return Text(
                     valueOrDefault<String>(
                       GetPayPouchBalanceCall.total(

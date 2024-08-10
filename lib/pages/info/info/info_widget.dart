@@ -57,9 +57,7 @@ class _InfoWidgetState extends State<InfoWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -269,7 +267,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              '0844437475\nrankinfo@gmail.com\nACC NO. ***********',
+                              '0844437475\nrank@rankfinancialservices.co.za\nACC NO. ***********',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
