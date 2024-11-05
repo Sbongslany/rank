@@ -10,7 +10,7 @@ class UploadFileModel extends FlutterFlowModel<UploadFileWidget> {
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  // Stores action output result for [Backend Call - API (Link Account Upload)] action in Button widget.
+  // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.
   ApiCallResponse? apiResultvoa;
 
   @override

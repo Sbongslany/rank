@@ -186,8 +186,7 @@ class _UploadFileWidgetState extends State<UploadFileWidget> {
                             FFButtonWidget(
                               onPressed: () async {
                                 var shouldSetState = false;
-                                _model.apiResultvoa =
-                                    await LinkAccountUploadCall.call(
+                                _model.apiResultvoa = await UploadDocCall.call(
                                   jwt: currentAuthenticationToken,
                                   file: _model.uploadedLocalFile,
                                   type: widget.type,
