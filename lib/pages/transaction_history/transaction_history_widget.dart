@@ -225,7 +225,8 @@ class _TransactionHistoryWidgetState extends State<TransactionHistoryWidget> {
 
                         return RefreshIndicator(
                           onRefresh: () async {
-                            setState(() => _model.apiRequestCompleter = null);
+                            safeSetState(
+                                () => _model.apiRequestCompleter = null);
                             await _model.waitForApiRequestCompleted();
                           },
                           child: ListView.builder(

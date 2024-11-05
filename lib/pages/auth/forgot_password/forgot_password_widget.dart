@@ -96,7 +96,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                     children: [
                       wrapWithModel(
                         model: _model.backButtonModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: const BackButtonWidget(),
                       ),
                       Padding(
@@ -290,11 +290,11 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               FlutterFlowTheme.of(context).secondary,
                         ),
                       );
-                      if (shouldSetState) setState(() {});
+                      if (shouldSetState) safeSetState(() {});
                       return;
                     }
 
-                    if (shouldSetState) setState(() {});
+                    if (shouldSetState) safeSetState(() {});
                   },
                   text: 'Retrieve password',
                   options: FFButtonOptions(

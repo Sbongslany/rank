@@ -401,7 +401,7 @@ class _InviteWidgetState extends State<InviteWidget>
                                                   ),
                                                 );
                                                 if (shouldSetState) {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                                 return;
                                               } else {
@@ -431,13 +431,13 @@ class _InviteWidgetState extends State<InviteWidget>
                                                   ),
                                                 );
                                                 if (shouldSetState) {
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                                 return;
                                               }
 
                                               if (shouldSetState) {
-                                                setState(() {});
+                                                safeSetState(() {});
                                               }
                                             },
                                             child: Material(

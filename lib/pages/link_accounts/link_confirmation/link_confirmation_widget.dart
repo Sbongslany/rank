@@ -151,7 +151,7 @@ class _LinkConfirmationWidgetState extends State<LinkConfirmationWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1709044385859.json',
+                            'assets/jsons/Animation_-_1709044385859.json',
                             width: 150.0,
                             height: 130.0,
                             fit: BoxFit.cover,

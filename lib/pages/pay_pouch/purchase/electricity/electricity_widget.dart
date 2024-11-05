@@ -694,7 +694,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                           FlutterFlowTheme.of(context).success,
                                     ),
                                   );
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.amountTextController1?.clear();
                                   });
                                 } else {
@@ -716,14 +716,14 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                               .secondary,
                                     ),
                                   );
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.amountTextController1?.clear();
                                   });
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                   return;
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                               },
                               text: 'Purchase',
                               options: FFButtonOptions(

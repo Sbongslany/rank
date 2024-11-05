@@ -56,12 +56,12 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
       vsync: this,
       length: 4,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.dayController = TabController(
       vsync: this,
       length: 4,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -272,7 +272,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                         ),
                         options: const ['Month', 'Day'],
                         onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
+                            safeSetState(() => _model.dropDownValue = val),
                         width: double.infinity,
                         height: 56.0,
                         textStyle:
@@ -322,7 +322,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                   labelColor:
                                       FlutterFlowTheme.of(context).alternate,
                                   unselectedLabelColor:
-                                      FlutterFlowTheme.of(context).secondary,
+                                      FlutterFlowTheme.of(context).alternate,
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                   unselectedBackgroundColor:
@@ -420,7 +420,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel1,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Vodacom R2 voucher',
                                               ),
@@ -472,7 +472,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel2,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R5 voucher',
                                             ),
@@ -523,7 +523,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel3,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R10 voucher',
                                             ),
@@ -574,7 +574,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel4,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R12 voucher',
                                             ),
@@ -625,7 +625,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel5,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R29 voucher',
                                             ),
@@ -676,7 +676,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel6,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R55 voucher',
                                             ),
@@ -727,7 +727,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel7,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R110 voucher',
                                             ),
@@ -789,7 +789,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel8,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'MTN R2 voucher',
                                               ),
@@ -840,7 +840,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel9,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R5 voucher',
                                             ),
@@ -890,7 +890,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel10,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R10 voucher',
                                             ),
@@ -940,7 +940,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel11,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R15 voucher',
                                             ),
@@ -990,7 +990,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel12,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R30 voucher',
                                             ),
@@ -1040,7 +1040,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel13,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R60 voucher',
                                             ),
@@ -1091,7 +1091,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel14,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R100 voucher',
                                             ),
@@ -1142,7 +1142,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel15,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R180 voucher',
                                             ),
@@ -1204,7 +1204,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel16,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Cell C R5 voucher',
                                               ),
@@ -1256,7 +1256,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel17,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R10 voucher',
                                             ),
@@ -1307,7 +1307,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel18,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R20 SupaCharge Voucher',
@@ -1359,7 +1359,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel19,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R25 voucher',
                                             ),
@@ -1410,7 +1410,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel20,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R30 SupaCharge Voucher',
@@ -1462,7 +1462,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel21,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R35 voucher',
                                             ),
@@ -1513,7 +1513,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel22,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'CellC R50 voucher',
                                             ),
@@ -1564,7 +1564,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel23,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R70 voucher',
                                             ),
@@ -1615,7 +1615,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel24,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R100 Voucher',
                                             ),
@@ -1677,7 +1677,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel25,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Tkm Mobile R5 Voucher',
                                               ),
@@ -1729,7 +1729,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel26,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R10 Voucher',
                                             ),
@@ -1780,7 +1780,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel27,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R30 Voucher',
                                             ),
@@ -1831,7 +1831,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel28,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R50 Voucher',
                                             ),
@@ -1882,7 +1882,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel29,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R100 Voucher',
                                             ),
@@ -1920,7 +1920,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                   labelColor:
                                       FlutterFlowTheme.of(context).alternate,
                                   unselectedLabelColor:
-                                      FlutterFlowTheme.of(context).secondary,
+                                      FlutterFlowTheme.of(context).alternate,
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                   unselectedBackgroundColor:
@@ -2018,7 +2018,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel30,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Vodacom R2 voucher',
                                               ),
@@ -2070,7 +2070,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel31,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R5 voucher',
                                             ),
@@ -2121,7 +2121,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel32,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R10 voucher',
                                             ),
@@ -2172,7 +2172,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel33,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R12 voucher',
                                             ),
@@ -2223,7 +2223,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel34,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R29 voucher',
                                             ),
@@ -2274,7 +2274,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel35,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R55 voucher',
                                             ),
@@ -2325,7 +2325,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel36,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R110 voucher',
                                             ),
@@ -2387,7 +2387,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel37,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'MTN R2 voucher',
                                               ),
@@ -2438,7 +2438,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel38,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R5 voucher',
                                             ),
@@ -2488,7 +2488,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel39,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R10 voucher',
                                             ),
@@ -2538,7 +2538,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel40,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R15 voucher',
                                             ),
@@ -2588,7 +2588,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel41,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R30 voucher',
                                             ),
@@ -2638,7 +2638,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel42,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R60 voucher',
                                             ),
@@ -2689,7 +2689,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel43,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R100 voucher',
                                             ),
@@ -2740,7 +2740,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel44,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R180 voucher',
                                             ),
@@ -2802,7 +2802,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel45,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Cell C R5 voucher',
                                               ),
@@ -2854,7 +2854,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel46,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R10 voucher',
                                             ),
@@ -2905,7 +2905,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel47,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R20 SupaCharge Voucher',
@@ -2957,7 +2957,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel48,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R25 voucher',
                                             ),
@@ -3008,7 +3008,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel49,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R30 SupaCharge Voucher',
@@ -3060,7 +3060,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel50,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R35 voucher',
                                             ),
@@ -3111,7 +3111,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel51,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'CellC R50 voucher',
                                             ),
@@ -3162,7 +3162,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel52,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R70 voucher',
                                             ),
@@ -3213,7 +3213,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel53,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R100 Voucher',
                                             ),
@@ -3275,7 +3275,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel54,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Tkm Mobile R5 Voucher',
                                               ),
@@ -3327,7 +3327,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel55,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R10 Voucher',
                                             ),
@@ -3378,7 +3378,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel56,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R30 Voucher',
                                             ),
@@ -3429,7 +3429,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel57,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R50 Voucher',
                                             ),
@@ -3480,7 +3480,7 @@ class _AirtimeWidgetState extends State<AirtimeWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel58,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R100 Voucher',
                                             ),

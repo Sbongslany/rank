@@ -325,7 +325,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                     children: [
                       wrapWithModel(
                         model: _model.balanceHeaderModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: const BalanceHeaderWidget(),
                       ),
                       Padding(
@@ -389,7 +389,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               ),
                                         ),
                                         Lottie.asset(
-                                          'assets/lottie_animations/Animation_-_1709060185421.json',
+                                          'assets/jsons/Animation_-_1709060185421.json',
                                           width: 80.0,
                                           height: 80.0,
                                           fit: BoxFit.cover,
@@ -451,7 +451,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               ),
                                         ),
                                         Lottie.asset(
-                                          'assets/lottie_animations/Animation_-_1709059834925.json',
+                                          'assets/jsons/Animation_-_1709059834925.json',
                                           width: 100.0,
                                           height: 100.0,
                                           fit: BoxFit.cover,
@@ -499,16 +499,16 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
 
                                   context.pushNamed('Invite');
 
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                   return;
                                 } else {
                                   context.pushNamed('PayUser');
 
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                   return;
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                               },
                               child: Material(
                                 color: Colors.transparent,
@@ -554,7 +554,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 90.0, 0.0),
                                           child: Lottie.asset(
-                                            'assets/lottie_animations/Animation_-_1709059590514.json',
+                                            'assets/jsons/Animation_-_1709059590514.json',
                                             width: 70.0,
                                             height: 70.0,
                                             fit: BoxFit.cover,
@@ -614,7 +614,7 @@ class _PayPouchWidgetState extends State<PayPouchWidget>
                                               ),
                                         ),
                                         Lottie.asset(
-                                          'assets/lottie_animations/Animation_-_1709059203646.json',
+                                          'assets/jsons/Animation_-_1709059203646.json',
                                           width: 80.0,
                                           height: 80.0,
                                           fit: BoxFit.cover,

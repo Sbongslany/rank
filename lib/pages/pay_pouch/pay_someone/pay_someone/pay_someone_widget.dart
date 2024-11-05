@@ -244,7 +244,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.balanceHeaderModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const BalanceHeaderWidget(),
                     ),
                     SingleChildScrollView(
@@ -334,7 +334,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 2.0, 0.0, 20.0),
                               child: RatingBar.builder(
-                                onRatingUpdate: (newValue) => setState(
+                                onRatingUpdate: (newValue) => safeSetState(
                                     () => _model.ratingBarValue = newValue),
                                 itemBuilder: (context, index) => Icon(
                                   Icons.star_rounded,
@@ -430,7 +430,7 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                       FormFieldController<String>(null),
                                   options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
                                   onChanged: (val) =>
-                                      setState(() => _model.refValue = val),
+                                      safeSetState(() => _model.refValue = val),
                                   width: 200.0,
                                   height: 50.0,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -722,11 +722,11 @@ class _PaySomeoneWidgetState extends State<PaySomeoneWidget> {
                                                 .primaryBackground,
                                       ),
                                     );
-                                    if (shouldSetState) setState(() {});
+                                    if (shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                 },
                                 text: 'pay now',
                                 options: FFButtonOptions(

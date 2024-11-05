@@ -51,7 +51,7 @@ class _StokvelReportWidgetState extends State<StokvelReportWidget>
       vsync: this,
       length: 3,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -330,7 +330,7 @@ class _StokvelReportWidgetState extends State<StokvelReportWidget>
                               labelColor:
                                   FlutterFlowTheme.of(context).primaryText,
                               unselectedLabelColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
+                                  FlutterFlowTheme.of(context).primaryText,
                               labelStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(

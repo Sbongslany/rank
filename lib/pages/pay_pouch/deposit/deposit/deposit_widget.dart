@@ -6,8 +6,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -240,7 +240,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                     children: [
                       wrapWithModel(
                         model: _model.balanceHeaderModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: const BalanceHeaderWidget(),
                       ),
                       Text(
@@ -418,8 +418,8 @@ class _DepositWidgetState extends State<DepositWidget> {
                         ),
                       ),
                       RatingBar.builder(
-                        onRatingUpdate: (newValue) =>
-                            setState(() => _model.ratingBarValue = newValue),
+                        onRatingUpdate: (newValue) => safeSetState(
+                            () => _model.ratingBarValue = newValue),
                         itemBuilder: (context, index) => Icon(
                           Icons.star_rounded,
                           color: FlutterFlowTheme.of(context).tertiary,
@@ -458,7 +458,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 FormFieldController<String>(null),
                             options: const ['EFT Deposit', 'Deposit', 'Cheque'],
                             onChanged: (val) =>
-                                setState(() => _model.refValue = val),
+                                safeSetState(() => _model.refValue = val),
                             width: 200.0,
                             height: 50.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -491,7 +491,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 FormFieldController<String>(null),
                             options: const ['1000', '5000 ', '10000'],
                             onChanged: (val) =>
-                                setState(() => _model.amountValue = val),
+                                safeSetState(() => _model.amountValue = val),
                             width: 160.0,
                             height: 50.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -1107,7 +1107,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                               ),
                             ],
                             carouselController: _model.carouselController ??=
-                                CarouselController(),
+                                CarouselSliderController(),
                             options: CarouselOptions(
                               initialPage: 1,
                               viewportFraction: 0.5,
@@ -1167,7 +1167,7 @@ class _DepositWidgetState extends State<DepositWidget> {
                                 }.withoutNulls,
                               );
 
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                               return;
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -1187,11 +1187,11 @@ class _DepositWidgetState extends State<DepositWidget> {
                                       .primaryBackground,
                                 ),
                               );
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (shouldSetState) safeSetState(() {});
                           },
                           text: 'Pay Now',
                           options: FFButtonOptions(

@@ -952,6 +952,33 @@ class UploadPictureCall {
   }
 }
 
+class LinkAccountUploadCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    FFUploadedFile? file,
+    String? type = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Link Account Upload',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/link_account.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {
+        'profile_picture': file,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class GetTransactionHistoryCall {
   static Future<ApiCallResponse> call({
     String? jwt = '',

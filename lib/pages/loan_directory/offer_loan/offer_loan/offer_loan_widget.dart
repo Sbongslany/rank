@@ -74,15 +74,6 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
               automaticallyImplyLeading: false,
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  'Page Title',
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
                 background: Container(
                   width: 100.0,
                   height: 100.0,
@@ -307,7 +298,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                           FormFieldController<String>(null),
                       options: const ['1000', '5000', '10 000'],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue1 = val),
+                          safeSetState(() => _model.dropDownValue1 = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:
@@ -359,7 +350,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                       ),
                       options: const ['1 MONTH'],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue2 = val),
+                          safeSetState(() => _model.dropDownValue2 = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:
@@ -409,7 +400,7 @@ class _OfferLoanWidgetState extends State<OfferLoanWidget> {
                           FormFieldController<String>(null),
                       options: const ['1100', '5100', '11 000'],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue3 = val),
+                          safeSetState(() => _model.dropDownValue3 = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:

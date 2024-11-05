@@ -281,7 +281,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                         '5000'
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.amountValue = val),
+                          safeSetState(() => _model.amountValue = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:
@@ -331,7 +331,7 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                           FormFieldController<String>(null),
                       options: const ['1 MONTH'],
                       onChanged: (val) =>
-                          setState(() => _model.daysValue = val),
+                          safeSetState(() => _model.daysValue = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:
@@ -407,11 +407,11 @@ class _RequestLoanWidgetState extends State<RequestLoanWidget> {
                                     FlutterFlowTheme.of(context).error,
                               ),
                             );
-                            if (shouldSetState) setState(() {});
+                            if (shouldSetState) safeSetState(() {});
                             return;
                           }
 
-                          if (shouldSetState) setState(() {});
+                          if (shouldSetState) safeSetState(() {});
                         },
                         text: 'SUBMIT',
                         options: FFButtonOptions(

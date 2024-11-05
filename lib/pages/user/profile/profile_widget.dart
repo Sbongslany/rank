@@ -97,7 +97,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         children: [
                           wrapWithModel(
                             model: _model.backButtonModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: const BackButtonWidget(),
                           ),
                           Padding(
@@ -176,7 +176,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading = true);
+                                safeSetState(
+                                    () => _model.isDataUploading = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -194,12 +195,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -272,7 +273,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                                 return;
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
@@ -289,11 +290,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         FlutterFlowTheme.of(context).error,
                                   ),
                                 );
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                                 return;
                               }
 
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                             },
                             text: 'SAVE',
                             options: FFButtonOptions(
@@ -700,7 +701,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
                               context.pushNamed('Home');
 
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                               return;
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -719,11 +720,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       FlutterFlowTheme.of(context).error,
                                 ),
                               );
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (shouldSetState) safeSetState(() {});
                           },
                           text: 'SUBMIT',
                           options: FFButtonOptions(

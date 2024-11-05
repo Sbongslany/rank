@@ -147,11 +147,11 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                         backgroundColor: FlutterFlowTheme.of(context).secondary,
                       ),
                     );
-                    if (shouldSetState) setState(() {});
+                    if (shouldSetState) safeSetState(() {});
                     return;
                   }
 
-                  if (shouldSetState) setState(() {});
+                  if (shouldSetState) safeSetState(() {});
                 },
                 text: 'Buy',
                 options: FFButtonOptions(

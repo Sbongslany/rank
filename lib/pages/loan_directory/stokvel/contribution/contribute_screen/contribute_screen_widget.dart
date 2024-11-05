@@ -304,7 +304,7 @@ class _ContributeScreenWidgetState extends State<ContributeScreenWidget> {
                                 FormFieldController<String>(null),
                             options: const ['500', '1000', '1500', '2000'],
                             onChanged: (val) =>
-                                setState(() => _model.dropDownValue1 = val),
+                                safeSetState(() => _model.dropDownValue1 = val),
                             width: 300.0,
                             height: 56.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -358,7 +358,7 @@ class _ContributeScreenWidgetState extends State<ContributeScreenWidget> {
                           ),
                           options: const ['Weekly', 'Monthly', 'Yearly'],
                           onChanged: (val) =>
-                              setState(() => _model.dropDownValue2 = val),
+                              safeSetState(() => _model.dropDownValue2 = val),
                           width: 300.0,
                           height: 56.0,
                           textStyle:
@@ -390,7 +390,7 @@ class _ContributeScreenWidgetState extends State<ContributeScreenWidget> {
                               0.0, 15.0, 0.0, 0.0),
                           child: FlutterFlowCheckboxGroup(
                             options: const ['Accept terms and conditions'],
-                            onChanged: (val) => setState(
+                            onChanged: (val) => safeSetState(
                                 () => _model.checkboxGroupValues = val),
                             controller: _model.checkboxGroupValueController ??=
                                 FormFieldController<List<String>>(

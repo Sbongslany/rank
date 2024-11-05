@@ -22,7 +22,7 @@ class DepositModel extends FlutterFlowModel<DepositWidget> {
   String? amountValue;
   FormFieldController<String>? amountValueController;
   // State field(s) for Carousel widget.
-  CarouselController? carouselController;
+  CarouselSliderController? carouselController;
   int carouselCurrentIndex = 1;
 
   // Stores action output result for [Backend Call - API (Pay Pouch)] action in Button widget.

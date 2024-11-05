@@ -232,7 +232,7 @@ class _LoanDirectoryWidgetState extends State<LoanDirectoryWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.balanceHeaderModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const BalanceHeaderWidget(),
                     ),
                     Padding(

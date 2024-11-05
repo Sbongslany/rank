@@ -293,7 +293,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             },
                             child: wrapWithModel(
                               model: _model.utilityCardModel1,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const UtilityCardWidget(
                                 name: 'Hollywood Bets R10',
                               ),
@@ -336,7 +336,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             },
                             child: wrapWithModel(
                               model: _model.utilityCardModel2,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const UtilityCardWidget(
                                 name: 'Hollywood Bets R20',
                               ),
@@ -379,7 +379,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             },
                             child: wrapWithModel(
                               model: _model.utilityCardModel3,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const UtilityCardWidget(
                                 name: 'Hollywood Bets R50',
                               ),
@@ -422,7 +422,7 @@ class _VoucherWidgetState extends State<VoucherWidget> {
                             },
                             child: wrapWithModel(
                               model: _model.utilityCardModel4,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const UtilityCardWidget(
                                 name: 'Hollywood Bets R100',
                               ),

@@ -259,7 +259,7 @@ class _LoanOfferWidgetState extends State<LoanOfferWidget> {
                         '10 000 - 20 000'
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue1 = val),
+                          safeSetState(() => _model.dropDownValue1 = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:
@@ -311,7 +311,7 @@ class _LoanOfferWidgetState extends State<LoanOfferWidget> {
                       ),
                       options: const ['1 MONTH'],
                       onChanged: (val) =>
-                          setState(() => _model.dropDownValue2 = val),
+                          safeSetState(() => _model.dropDownValue2 = val),
                       width: 350.0,
                       height: 50.0,
                       textStyle:

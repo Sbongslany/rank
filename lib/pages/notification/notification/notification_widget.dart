@@ -293,7 +293,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
 
                                   return RefreshIndicator(
                                     onRefresh: () async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.apiRequestCompleter = null);
                                       await _model.waitForApiRequestCompleted();
                                     },
@@ -488,7 +488,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                     ),
                                                                   );
                                                                   if (shouldSetState) {
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   }
                                                                   return;
@@ -519,14 +519,14 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                     ),
                                                                   );
                                                                   if (shouldSetState) {
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   }
                                                                   return;
                                                                 }
 
                                                                 if (shouldSetState) {
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 }
                                                               },
@@ -631,7 +631,7 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                       'Notification');
 
                                                                   if (shouldSetState) {
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   }
                                                                   return;
@@ -666,14 +666,14 @@ class _NotificationWidgetState extends State<NotificationWidget> {
                                                                       'Notification');
 
                                                                   if (shouldSetState) {
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   }
                                                                   return;
                                                                 }
 
                                                                 if (shouldSetState) {
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 }
                                                               },

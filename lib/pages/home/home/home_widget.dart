@@ -758,17 +758,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   .error,
                                         ),
                                       );
-                                      if (shouldSetState) setState(() {});
+                                      if (shouldSetState) safeSetState(() {});
                                       return;
                                     } else {
                                       context.pushNamed('Notification');
                                     }
                                   } else {
-                                    if (shouldSetState) setState(() {});
+                                    if (shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                 },
                                 child: badges.Badge(
                                   badgeContent: Text(
@@ -861,7 +861,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Lottie.asset(
-                                    'assets/lottie_animations/Animation_-_1709060506272.json',
+                                    'assets/jsons/Animation_-_1709060506272.json',
                                     width: 180.0,
                                     height: 180.0,
                                     fit: BoxFit.contain,
@@ -931,7 +931,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Lottie.asset(
-                                'assets/lottie_animations/Animation_-_1709061002700.json',
+                                'assets/jsons/Animation_-_1709061002700.json',
                                 width: 180.0,
                                 height: 180.0,
                                 fit: BoxFit.contain,
@@ -1005,7 +1005,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Lottie.asset(
-                                    'assets/lottie_animations/Animation_-_1709061503251.json',
+                                    'assets/jsons/Animation_-_1709061503251.json',
                                     width: 180.0,
                                     height: 180.0,
                                     fit: BoxFit.contain,

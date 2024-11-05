@@ -802,11 +802,11 @@ class _LinkCardWidgetState extends State<LinkCardWidget> {
                                       FlutterFlowTheme.of(context).error,
                                 ),
                               );
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                               return;
                             }
 
-                            if (shouldSetState) setState(() {});
+                            if (shouldSetState) safeSetState(() {});
                           },
                           text: 'Confirm',
                           options: FFButtonOptions(

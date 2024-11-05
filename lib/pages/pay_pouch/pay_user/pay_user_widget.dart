@@ -315,7 +315,7 @@ class _PayUserWidgetState extends State<PayUserWidget> {
 
                               return RefreshIndicator(
                                 onRefresh: () async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.apiRequestCompleter = null);
                                   await _model.waitForApiRequestCompleted();
                                 },

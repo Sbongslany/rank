@@ -579,7 +579,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                         FlutterFlowTheme.of(context).success,
                                   ),
                                 );
-                                setState(() {
+                                safeSetState(() {
                                   _model.amountTextController1?.clear();
                                 });
                               } else {
@@ -602,14 +602,14 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
-                                setState(() {
+                                safeSetState(() {
                                   _model.amountTextController1?.clear();
                                 });
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                                 return;
                               }
 
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                             },
                             text: 'Purchase',
                             options: FFButtonOptions(

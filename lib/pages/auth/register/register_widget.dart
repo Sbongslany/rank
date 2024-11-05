@@ -852,7 +852,7 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                 filled: true,
                                 fillColor: const Color(0xFFB5C4D1),
                                 suffixIcon: InkWell(
-                                  onTap: () => setState(
+                                  onTap: () => safeSetState(
                                     () => _model.passwordVisibility =
                                         !_model.passwordVisibility,
                                   ),
@@ -945,11 +945,11 @@ class _RegisterWidgetState extends State<RegisterWidget>
                                               .primaryBackground,
                                     ),
                                   );
-                                  if (shouldSetState) setState(() {});
+                                  if (shouldSetState) safeSetState(() {});
                                   return;
                                 }
 
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                               },
                               text: 'CREATE ACCOUNT',
                               options: FFButtonOptions(

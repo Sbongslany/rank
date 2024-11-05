@@ -56,12 +56,12 @@ class _DataaWidgetState extends State<DataaWidget>
       vsync: this,
       length: 3,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.dayController = TabController(
       vsync: this,
       length: 4,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -272,7 +272,7 @@ class _DataaWidgetState extends State<DataaWidget>
                         ),
                         options: const ['Month', 'Day', 'Weekly'],
                         onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
+                            safeSetState(() => _model.dropDownValue = val),
                         width: double.infinity,
                         height: 56.0,
                         textStyle:
@@ -322,7 +322,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                   labelColor:
                                       FlutterFlowTheme.of(context).alternate,
                                   unselectedLabelColor:
-                                      FlutterFlowTheme.of(context).secondary,
+                                      FlutterFlowTheme.of(context).alternate,
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                   unselectedBackgroundColor:
@@ -429,7 +429,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel1,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '75MB-R13',
                                               ),
@@ -484,7 +484,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel2,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '240MB-R32',
                                               ),
@@ -539,7 +539,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel3,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '400MB-R53',
                                               ),
@@ -594,7 +594,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel4,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '600MB-R74',
                                               ),
@@ -649,7 +649,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel5,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '1.2GB-R89',
                                               ),
@@ -704,7 +704,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel6,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '1.5GB-R99',
                                               ),
@@ -759,7 +759,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel7,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '2.5GB-R155',
                                               ),
@@ -814,7 +814,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel8,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '4.5GB-R259',
                                               ),
@@ -869,7 +869,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel9,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '7GB-R365',
                                               ),
@@ -924,7 +924,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel10,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '12GB-R499',
                                               ),
@@ -999,7 +999,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel11,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '5MB-R4',
                                               ),
@@ -1054,7 +1054,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel12,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '40MB-R10',
                                               ),
@@ -1109,7 +1109,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel13,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '120MB-R20',
                                               ),
@@ -1164,7 +1164,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel14,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '200MB-R29',
                                               ),
@@ -1219,7 +1219,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel15,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '350MB-R49',
                                               ),
@@ -1274,7 +1274,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel16,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '500MB-R65',
                                               ),
@@ -1329,7 +1329,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel17,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '1GB-R79',
                                               ),
@@ -1384,7 +1384,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel18,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '1.5GB-R99',
                                               ),
@@ -1439,7 +1439,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel19,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '2+2GB-R149',
                                               ),
@@ -1494,7 +1494,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel20,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '3+3GB-R199',
                                               ),
@@ -1549,7 +1549,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel21,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '5+5GB-R299',
                                               ),
@@ -1625,7 +1625,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel22,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '1000MB-R50',
                                               ),
@@ -1680,7 +1680,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel23,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: '2GB-R99',
                                               ),
@@ -1719,7 +1719,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                   labelColor:
                                       FlutterFlowTheme.of(context).alternate,
                                   unselectedLabelColor:
-                                      FlutterFlowTheme.of(context).secondary,
+                                      FlutterFlowTheme.of(context).alternate,
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                   unselectedBackgroundColor:
@@ -1817,7 +1817,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel24,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Vodacom R2 voucher',
                                               ),
@@ -1869,7 +1869,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel25,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R5 voucher',
                                             ),
@@ -1920,7 +1920,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel26,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R10 voucher',
                                             ),
@@ -1971,7 +1971,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel27,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R12 voucher',
                                             ),
@@ -2022,7 +2022,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel28,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R29 voucher',
                                             ),
@@ -2073,7 +2073,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel29,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R55 voucher',
                                             ),
@@ -2124,7 +2124,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel30,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Vodacom R110 voucher',
                                             ),
@@ -2186,7 +2186,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel31,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'MTN R2 voucher',
                                               ),
@@ -2237,7 +2237,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel32,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R5 voucher',
                                             ),
@@ -2287,7 +2287,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel33,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R10 voucher',
                                             ),
@@ -2337,7 +2337,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel34,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R15 voucher',
                                             ),
@@ -2387,7 +2387,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel35,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R30 voucher',
                                             ),
@@ -2437,7 +2437,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel36,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R60 voucher',
                                             ),
@@ -2488,7 +2488,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel37,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R100 voucher',
                                             ),
@@ -2539,7 +2539,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel38,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'MTN R180 voucher',
                                             ),
@@ -2601,7 +2601,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel39,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Cell C R5 voucher',
                                               ),
@@ -2653,7 +2653,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel40,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R10 voucher',
                                             ),
@@ -2704,7 +2704,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel41,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R20 SupaCharge Voucher',
@@ -2756,7 +2756,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel42,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R25 voucher',
                                             ),
@@ -2807,7 +2807,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel43,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name:
                                                   'Cell C R30 SupaCharge Voucher',
@@ -2859,7 +2859,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel44,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R35 voucher',
                                             ),
@@ -2910,7 +2910,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel45,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'CellC R50 voucher',
                                             ),
@@ -2961,7 +2961,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel46,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R70 voucher',
                                             ),
@@ -3012,7 +3012,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel47,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Cell C R100 Voucher',
                                             ),
@@ -3074,7 +3074,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                             child: wrapWithModel(
                                               model: _model.utilityCardModel48,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: const UtilityCardWidget(
                                                 name: 'Tkm Mobile R5 Voucher',
                                               ),
@@ -3126,7 +3126,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel49,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R10 Voucher',
                                             ),
@@ -3177,7 +3177,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel50,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R30 Voucher',
                                             ),
@@ -3228,7 +3228,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel51,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R50 Voucher',
                                             ),
@@ -3279,7 +3279,7 @@ class _DataaWidgetState extends State<DataaWidget>
                                           child: wrapWithModel(
                                             model: _model.utilityCardModel52,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: const UtilityCardWidget(
                                               name: 'Tkm Mobile R100 Voucher',
                                             ),

@@ -214,7 +214,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                   children: [
                     wrapWithModel(
                       model: _model.balanceHeaderModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const BalanceHeaderWidget(),
                     ),
                     Padding(
@@ -298,8 +298,8 @@ class _TransferWidgetState extends State<TransferWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 2.0, 0.0, 20.0),
                         child: RatingBar.builder(
-                          onRatingUpdate: (newValue) =>
-                              setState(() => _model.ratingBarValue = newValue),
+                          onRatingUpdate: (newValue) => safeSetState(
+                              () => _model.ratingBarValue = newValue),
                           itemBuilder: (context, index) => Icon(
                             Icons.star_rounded,
                             color: FlutterFlowTheme.of(context).tertiary,
@@ -389,7 +389,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                               FormFieldController<String>(null),
                           options: const ['EFT', 'DEPOSIT', 'CHEQUE'],
                           onChanged: (val) =>
-                              setState(() => _model.refValue = val),
+                              safeSetState(() => _model.refValue = val),
                           width: 200.0,
                           height: 50.0,
                           textStyle:
@@ -421,7 +421,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                               FormFieldController<String>(null),
                           options: const ['1000', '5000 ', '10000', '20000'],
                           onChanged: (val) =>
-                              setState(() => _model.amountValue = val),
+                              safeSetState(() => _model.amountValue = val),
                           width: 160.0,
                           height: 50.0,
                           textStyle:
@@ -623,11 +623,11 @@ class _TransferWidgetState extends State<TransferWidget> {
                                     .primaryBackground,
                               ),
                             );
-                            if (shouldSetState) setState(() {});
+                            if (shouldSetState) safeSetState(() {});
                             return;
                           }
 
-                          if (shouldSetState) setState(() {});
+                          if (shouldSetState) safeSetState(() {});
                         },
                         text: 'confirm',
                         options: FFButtonOptions(

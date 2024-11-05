@@ -430,7 +430,7 @@ class _LoginWidgetState extends State<LoginWidget>
                         filled: true,
                         fillColor: const Color(0xFFB5C4D1),
                         suffixIcon: InkWell(
-                          onTap: () => setState(
+                          onTap: () => safeSetState(
                             () => _model.loginPasswordVisibility =
                                 !_model.loginPasswordVisibility,
                           ),
@@ -515,11 +515,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                   .primaryBackground,
                             ),
                           );
-                          if (shouldSetState) setState(() {});
+                          if (shouldSetState) safeSetState(() {});
                           return;
                         }
 
-                        if (shouldSetState) setState(() {});
+                        if (shouldSetState) safeSetState(() {});
                       },
                       text: 'Login',
                       options: FFButtonOptions(

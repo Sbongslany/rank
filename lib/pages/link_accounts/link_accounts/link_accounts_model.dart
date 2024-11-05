@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/upload_widget_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'link_accounts_widget.dart' show LinkAccountsWidget;
 import 'package:flutter/material.dart';
@@ -8,24 +9,28 @@ class LinkAccountsModel extends FlutterFlowModel<LinkAccountsWidget> {
 
   // Stores action output result for [Backend Call - API (Get User)] action in LinkAccounts widget.
   ApiCallResponse? apiAuth;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Backend Call - API (UploadDoc)] action in Button widget.
-  ApiCallResponse? apiResultg6a;
+  // Model for uploadWidget component.
+  late UploadWidgetModel uploadWidgetModel1;
+  // Model for uploadWidget component.
+  late UploadWidgetModel uploadWidgetModel2;
+  // Model for uploadWidget component.
+  late UploadWidgetModel uploadWidgetModel3;
+  // Model for uploadWidget component.
+  late UploadWidgetModel uploadWidgetModel4;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    uploadWidgetModel1 = createModel(context, () => UploadWidgetModel());
+    uploadWidgetModel2 = createModel(context, () => UploadWidgetModel());
+    uploadWidgetModel3 = createModel(context, () => UploadWidgetModel());
+    uploadWidgetModel4 = createModel(context, () => UploadWidgetModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    uploadWidgetModel1.dispose();
+    uploadWidgetModel2.dispose();
+    uploadWidgetModel3.dispose();
+    uploadWidgetModel4.dispose();
+  }
 }

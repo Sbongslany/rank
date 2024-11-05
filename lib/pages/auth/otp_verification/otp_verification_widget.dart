@@ -290,12 +290,6 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                 FlutterFlowTheme.of(context).alternate,
                             selectedColor:
                                 FlutterFlowTheme.of(context).alternate,
-                            activeFillColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            inactiveFillColor:
-                                FlutterFlowTheme.of(context).alternate,
-                            selectedFillColor:
-                                FlutterFlowTheme.of(context).alternate,
                           ),
                           controller: _model.pinCodeController,
                           onChanged: (_) {},
@@ -464,11 +458,11 @@ class _OtpVerificationWidgetState extends State<OtpVerificationWidget>
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
-                                if (shouldSetState) setState(() {});
+                                if (shouldSetState) safeSetState(() {});
                                 return;
                               }
 
-                              if (shouldSetState) setState(() {});
+                              if (shouldSetState) safeSetState(() {});
                             },
                             text: 'SUBMIT',
                             options: FFButtonOptions(

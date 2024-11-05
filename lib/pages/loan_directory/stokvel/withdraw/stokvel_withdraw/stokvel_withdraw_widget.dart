@@ -263,7 +263,7 @@ class _StokvelWithdrawWidgetState extends State<StokvelWithdrawWidget> {
                               FormFieldController<String>(null),
                           options: const ['500', '1000', '1500', '2000'],
                           onChanged: (val) =>
-                              setState(() => _model.dropDownValue = val),
+                              safeSetState(() => _model.dropDownValue = val),
                           width: double.infinity,
                           height: 56.0,
                           textStyle:
