@@ -6,6 +6,12 @@ import 'package:flutter/material.dart';
 class PurchaseUtilityModel extends FlutterFlowModel<PurchaseUtilityWidget> {
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue;
+  // State field(s) for PhoneNumber widget.
+  FocusNode? phoneNumberFocusNode;
+  TextEditingController? phoneNumberTextController;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
   // Stores action output result for [Backend Call - API (Purchase)] action in Button widget.
   ApiCallResponse? responseBets10;
 
@@ -13,5 +19,8 @@ class PurchaseUtilityModel extends FlutterFlowModel<PurchaseUtilityWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    phoneNumberFocusNode?.dispose();
+    phoneNumberTextController?.dispose();
+  }
 }

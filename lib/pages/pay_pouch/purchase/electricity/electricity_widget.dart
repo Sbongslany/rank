@@ -52,14 +52,14 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
       context.goNamedAuth('Login', context.mounted);
     });
 
-    _model.amountTextController1 ??= TextEditingController();
-    _model.amountFocusNode1 ??= FocusNode();
+    _model.meterNumberTextController ??= TextEditingController();
+    _model.meterNumberFocusNode ??= FocusNode();
 
-    _model.amountTextController2 ??= TextEditingController();
-    _model.amountFocusNode2 ??= FocusNode();
+    _model.cellNumberTextController ??= TextEditingController();
+    _model.cellNumberFocusNode ??= FocusNode();
 
-    _model.amountTextController3 ??= TextEditingController();
-    _model.amountFocusNode3 ??= FocusNode();
+    _model.amountTextController ??= TextEditingController();
+    _model.amountFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
@@ -437,8 +437,8 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                               animationsMap['textOnPageLoadAnimation1']!),
                         ),
                         TextFormField(
-                          controller: _model.amountTextController1,
-                          focusNode: _model.amountFocusNode1,
+                          controller: _model.meterNumberTextController,
+                          focusNode: _model.meterNumberFocusNode,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -494,7 +494,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextController1Validator
+                          validator: _model.meterNumberTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation1']!),
@@ -516,8 +516,8 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                               animationsMap['textOnPageLoadAnimation2']!),
                         ),
                         TextFormField(
-                          controller: _model.amountTextController2,
-                          focusNode: _model.amountFocusNode2,
+                          controller: _model.cellNumberTextController,
+                          focusNode: _model.cellNumberFocusNode,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -573,7 +573,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextController2Validator
+                          validator: _model.cellNumberTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation2']!),
@@ -595,8 +595,8 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                               animationsMap['textOnPageLoadAnimation3']!),
                         ),
                         TextFormField(
-                          controller: _model.amountTextController3,
-                          focusNode: _model.amountFocusNode3,
+                          controller: _model.amountTextController,
+                          focusNode: _model.amountFocusNode,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -652,7 +652,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextController3Validator
+                          validator: _model.amountTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation3']!),
@@ -664,16 +664,16 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var shouldSetState = false;
-                                _model.responseEskom = await PurchaseCall.call(
+                                _model.responseEskom =
+                                    await PurchaseDSTVCall.call(
                                   jwt: currentAuthenticationToken,
-                                  id: '47',
-                                  network: 'Electricity-Eskom',
-                                  name: 'Electricity-Eskom',
-                                  description: 'Electricity-Eskom',
-                                  typeCode: 'E',
-                                  minAmount: '10.0000',
-                                  maxAmount: '1000.0000',
-                                  amount: _model.amountTextController1.text,
+                                  paymentCellNumber:
+                                      _model.meterNumberTextController.text,
+                                  paymentAmount:
+                                      _model.amountTextController.text,
+                                  contactnumber:
+                                      _model.cellNumberTextController.text,
+                                  buyingFor: '1',
                                 );
 
                                 shouldSetState = true;
@@ -681,7 +681,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Purchased ${_model.amountTextController1.text}Electricity-Eskom',
+                                        'Purchased ${_model.meterNumberTextController.text}Electricity-Eskom',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
@@ -695,13 +695,13 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                     ),
                                   );
                                   safeSetState(() {
-                                    _model.amountTextController1?.clear();
+                                    _model.meterNumberTextController?.clear();
                                   });
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        PurchaseCall.message(
+                                        PurchaseDSTVCall.message(
                                           (_model.responseEskom?.jsonBody ??
                                               ''),
                                         )!,
@@ -717,7 +717,7 @@ class _ElectricityWidgetState extends State<ElectricityWidget>
                                     ),
                                   );
                                   safeSetState(() {
-                                    _model.amountTextController1?.clear();
+                                    _model.meterNumberTextController?.clear();
                                   });
                                   if (shouldSetState) safeSetState(() {});
                                   return;

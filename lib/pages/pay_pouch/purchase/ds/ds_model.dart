@@ -1,12 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'electricity_widget.dart' show ElectricityWidget;
+import 'ds_widget.dart' show DsWidget;
 import 'package:flutter/material.dart';
 
-class ElectricityModel extends FlutterFlowModel<ElectricityWidget> {
+class DsModel extends FlutterFlowModel<DsWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Backend Call - API (Get User)] action in Electricity widget.
+  // Stores action output result for [Backend Call - API (Get User)] action in DS widget.
   ApiCallResponse? apiAuth;
   // State field(s) for MeterNumber widget.
   FocusNode? meterNumberFocusNode;

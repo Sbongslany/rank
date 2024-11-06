@@ -588,7 +588,7 @@ class _PurchaseWidgetState extends State<PurchaseWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('DSTV');
+                          context.pushNamed('DS');
                         },
                         child: Material(
                           color: Colors.transparent,

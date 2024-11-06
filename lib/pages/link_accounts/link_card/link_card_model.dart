@@ -8,10 +8,6 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
 
   // Stores action output result for [Backend Call - API (Get User)] action in LinkCard widget.
   ApiCallResponse? apiAuth;
-  // State field(s) for holder widget.
-  FocusNode? holderFocusNode;
-  TextEditingController? holderTextController;
-  String? Function(BuildContext, String?)? holderTextControllerValidator;
   // State field(s) for accountNumber widget.
   FocusNode? accountNumberFocusNode;
   TextEditingController? accountNumberTextController;
@@ -20,14 +16,6 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
   FocusNode? bankNameFocusNode;
   TextEditingController? bankNameTextController;
   String? Function(BuildContext, String?)? bankNameTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
   // Stores action output result for [Backend Call - API (Bank Details)] action in Button widget.
   ApiCallResponse? bankResponse;
 
@@ -36,19 +24,10 @@ class LinkCardModel extends FlutterFlowModel<LinkCardWidget> {
 
   @override
   void dispose() {
-    holderFocusNode?.dispose();
-    holderTextController?.dispose();
-
     accountNumberFocusNode?.dispose();
     accountNumberTextController?.dispose();
 
     bankNameFocusNode?.dispose();
     bankNameTextController?.dispose();
-
-    textFieldFocusNode1?.dispose();
-    textController4?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController5?.dispose();
   }
 }

@@ -266,11 +266,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'DSTV',
-          path: '/dstv',
-          builder: (context, params) => const DstvWidget(),
-        ),
-        FFRoute(
           name: 'StokvelMenu',
           path: '/stokvelMenu',
           builder: (context, params) => const StokvelMenuWidget(),
@@ -289,6 +284,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'StokvelReport',
           path: '/stokvelReport',
           builder: (context, params) => const StokvelReportWidget(),
+        ),
+        FFRoute(
+          name: 'DS',
+          path: '/ds',
+          builder: (context, params) => const DsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

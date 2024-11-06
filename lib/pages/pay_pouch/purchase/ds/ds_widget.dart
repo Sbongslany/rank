@@ -8,19 +8,18 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'dstv_model.dart';
-export 'dstv_model.dart';
+import 'ds_model.dart';
+export 'ds_model.dart';
 
-class DstvWidget extends StatefulWidget {
-  const DstvWidget({super.key});
+class DsWidget extends StatefulWidget {
+  const DsWidget({super.key});
 
   @override
-  State<DstvWidget> createState() => _DstvWidgetState();
+  State<DsWidget> createState() => _DsWidgetState();
 }
 
-class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
-  late DstvModel _model;
+class _DsWidgetState extends State<DsWidget> with TickerProviderStateMixin {
+  late DsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -29,7 +28,7 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DstvModel());
+    _model = createModel(context, () => DsModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -52,11 +51,14 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
       context.goNamedAuth('Login', context.mounted);
     });
 
-    _model.amountTextController1 ??= TextEditingController();
-    _model.amountFocusNode1 ??= FocusNode();
+    _model.meterNumberTextController ??= TextEditingController();
+    _model.meterNumberFocusNode ??= FocusNode();
 
-    _model.amountTextController2 ??= TextEditingController();
-    _model.amountFocusNode2 ??= FocusNode();
+    _model.cellNumberTextController ??= TextEditingController();
+    _model.cellNumberFocusNode ??= FocusNode();
+
+    _model.amountTextController ??= TextEditingController();
+    _model.amountFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
@@ -117,6 +119,44 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
         ],
       ),
       'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -338,66 +378,66 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                     end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
-                        child: Padding(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 60.0),
+                            child: Text(
+                              'Purchase',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    fontSize: 45.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: CachedNetworkImage(
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
+                            imageUrl:
+                                'https://tse4.mm.bing.net/th?id=OIP.a-lP1KY1lS_yK-NFFtAn9AHaD4&pid=Api&P=0&h=220',
+                            width: 300.0,
+                            height: 133.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 60.0),
+                              0.0, 20.0, 0.0, 0.0),
                           child: Text(
-                            'Pay',
-                            textAlign: TextAlign.center,
+                            'ID, Smart Card or Customer No.',
+                            textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 45.0,
+                                  fontSize: 14.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
                         ),
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: CachedNetworkImage(
-                          fadeInDuration: const Duration(milliseconds: 500),
-                          fadeOutDuration: const Duration(milliseconds: 500),
-                          imageUrl:
-                              'https://tse4.mm.bing.net/th?id=OIP.a-lP1KY1lS_yK-NFFtAn9AHaD4&pid=Api&P=0&h=220',
-                          width: 300.0,
-                          height: 133.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                        child: Text(
-                          'ID, Smart Card or Customer No.',
-                          textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 14.0,
-                                letterSpacing: 0.0,
-                              ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation1']!),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.amountTextController1,
-                          focusNode: _model.amountFocusNode1,
+                        TextFormField(
+                          controller: _model.meterNumberTextController,
+                          focusNode: _model.meterNumberFocusNode,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -453,34 +493,30 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextController1Validator
+                          validator: _model.meterNumberTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation1']!),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Text(
-                          'PLEASE ENTER AMOUNT',
-                          textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 14.0,
-                                letterSpacing: 0.0,
-                              ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation2']!),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.amountTextController2,
-                          focusNode: _model.amountFocusNode2,
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
+                          child: Text(
+                            'Cellphone Number',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
+                        ),
+                        TextFormField(
+                          controller: _model.cellNumberTextController,
+                          focusNode: _model.cellNumberFocusNode,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -536,110 +572,188 @@ class _DstvWidgetState extends State<DstvWidget> with TickerProviderStateMixin {
                                 letterSpacing: 0.0,
                               ),
                           keyboardType: TextInputType.emailAddress,
-                          validator: _model.amountTextController2Validator
+                          validator: _model.cellNumberTextControllerValidator
                               .asValidator(context),
                         ).animateOnPageLoad(
                             animationsMap['textFieldOnPageLoadAnimation2']!),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
+                        Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 50.0, 20.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              var shouldSetState = false;
-                              _model.responseDSTV = await PurchaseCall.call(
-                                jwt: currentAuthenticationToken,
-                                id: '298',
-                                network: 'DSTV',
-                                name: 'DSTV',
-                                description: 'DSTV',
-                                typeCode: 'SP',
-                                minAmount: '20.0000',
-                                maxAmount: '99999.0000',
-                                amount: _model.amountTextController1.text,
-                              );
-
-                              shouldSetState = true;
-                              if ((_model.responseDSTV?.succeeded ?? true)) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Purchased ${_model.amountTextController1.text}DSTV',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 20.0,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).success,
-                                  ),
-                                );
-                                safeSetState(() {
-                                  _model.amountTextController1?.clear();
-                                });
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      PurchaseCall.message(
-                                        (_model.responseDSTV?.jsonBody ?? ''),
-                                      )!,
-                                      style: GoogleFonts.getFont(
-                                        'Rubik',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 20.0,
-                                      ),
-                                    ),
-                                    duration: const Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
-                                safeSetState(() {
-                                  _model.amountTextController1?.clear();
-                                });
-                                if (shouldSetState) safeSetState(() {});
-                                return;
-                              }
-
-                              if (shouldSetState) safeSetState(() {});
-                            },
-                            text: 'Purchase',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 60.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).secondary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    fontSize: 19.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 3.0,
+                              0.0, 5.0, 0.0, 0.0),
+                          child: Text(
+                            'Amount',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation3']!),
+                        ),
+                        TextFormField(
+                          controller: _model.amountTextController,
+                          focusNode: _model.amountFocusNode,
+                          autofocus: false,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF969EA4),
+                                  letterSpacing: 0.0,
+                                ),
+                            enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
-                                width: 1.0,
+                                width: 2.0,
                               ),
-                              borderRadius: BorderRadius.circular(22.0),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['buttonOnPageLoadAnimation']!),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor: const Color(0xFFB5C4D1),
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: _model.amountTextControllerValidator
+                              .asValidator(context),
+                        ).animateOnPageLoad(
+                            animationsMap['textFieldOnPageLoadAnimation3']!),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 50.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                var shouldSetState = false;
+                                _model.responseEskom =
+                                    await PurchaseDSTVCall.call(
+                                  jwt: currentAuthenticationToken,
+                                  paymentCellNumber:
+                                      _model.meterNumberTextController.text,
+                                  paymentAmount:
+                                      _model.amountTextController.text,
+                                  contactnumber:
+                                      _model.cellNumberTextController.text,
+                                  buyingFor: '1',
+                                );
+
+                                shouldSetState = true;
+                                if ((_model.responseEskom?.succeeded ?? true)) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Purchased ${_model.meterNumberTextController.text}Electricity-Eskom',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20.0,
+                                        ),
+                                      ),
+                                      duration: const Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).success,
+                                    ),
+                                  );
+                                  safeSetState(() {
+                                    _model.meterNumberTextController?.clear();
+                                  });
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        PurchaseDSTVCall.message(
+                                          (_model.responseEskom?.jsonBody ??
+                                              ''),
+                                        )!,
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      duration: const Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                  safeSetState(() {
+                                    _model.meterNumberTextController?.clear();
+                                  });
+                                  if (shouldSetState) safeSetState(() {});
+                                  return;
+                                }
+
+                                if (shouldSetState) safeSetState(() {});
+                              },
+                              text: 'Purchase',
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 60.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).secondary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                      fontSize: 19.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(22.0),
+                              ),
+                            ).animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation']!),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );

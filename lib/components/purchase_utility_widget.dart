@@ -1,9 +1,12 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'purchase_utility_model.dart';
 export 'purchase_utility_model.dart';
 
@@ -33,8 +36,11 @@ class PurchaseUtilityWidget extends StatefulWidget {
   State<PurchaseUtilityWidget> createState() => _PurchaseUtilityWidgetState();
 }
 
-class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
+class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget>
+    with TickerProviderStateMixin {
   late PurchaseUtilityModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -46,6 +52,31 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PurchaseUtilityModel());
+
+    _model.phoneNumberTextController ??= TextEditingController();
+    _model.phoneNumberFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -59,7 +90,7 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 270.0,
+      height: 500.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondary,
         boxShadow: const [
@@ -98,6 +129,109 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                     fontWeight: FontWeight.w500,
                   ),
             ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Theme(
+                    data: ThemeData(
+                      checkboxTheme: const CheckboxThemeData(
+                        shape: CircleBorder(),
+                      ),
+                      unselectedWidgetColor:
+                          FlutterFlowTheme.of(context).alternate,
+                    ),
+                    child: Checkbox(
+                      value: _model.checkboxValue ??= false,
+                      onChanged: (newValue) async {
+                        safeSetState(() => _model.checkboxValue = newValue!);
+                      },
+                      side: BorderSide(
+                        width: 2,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
+                      activeColor: FlutterFlowTheme.of(context).primary,
+                      checkColor: FlutterFlowTheme.of(context).info,
+                    ),
+                  ),
+                  Text(
+                    'For someone',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+            if (_model.checkboxValue == true)
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                child: TextFormField(
+                  controller: _model.phoneNumberTextController,
+                  focusNode: _model.phoneNumberFocusNode,
+                  autofocus: false,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                            ),
+                    hintText: 'Phone Number',
+                    hintStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Readex Pro',
+                              color: FlutterFlowTheme.of(context).secondary,
+                              letterSpacing: 0.0,
+                            ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    filled: true,
+                    fillColor: const Color(0xFFB5C4D1),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        letterSpacing: 0.0,
+                      ),
+                  keyboardType: TextInputType.emailAddress,
+                  validator: _model.phoneNumberTextControllerValidator
+                      .asValidator(context),
+                ).animateOnPageLoad(
+                    animationsMap['textFieldOnPageLoadAnimation']!),
+              ),
+            const Spacer(),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: FFButtonWidget(
@@ -113,10 +247,13 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                     minAmount: widget.minAmount,
                     maxAmount: widget.maxAmount,
                     amount: widget.amount,
+                    buyingFor: functions.buyingFor(_model.checkboxValue),
+                    contactnumber: _model.phoneNumberTextController.text,
                   );
 
                   shouldSetState = true;
                   if ((_model.responseBets10?.succeeded ?? true)) {
+                    Navigator.pop(context);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
@@ -131,8 +268,8 @@ class _PurchaseUtilityWidgetState extends State<PurchaseUtilityWidget> {
                         backgroundColor: FlutterFlowTheme.of(context).success,
                       ),
                     );
-                    Navigator.pop(context);
                   } else {
+                    Navigator.pop(context);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(

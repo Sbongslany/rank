@@ -1254,6 +1254,8 @@ class PurchaseCall {
     String? maxAmount = '',
     String? amount = '',
     String? jwt = '',
+    String? buyingFor = '',
+    String? contactnumber = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -1264,11 +1266,53 @@ class PurchaseCall {
   "typeCode": "$typeCode",
   "minAmount": "$minAmount",
   "maxAmount": "$maxAmount",
-  "amount": "$amount"
+  "amount": "$amount",
+  "buyingFor": "$buyingFor",
+  "contactnumber": "$contactnumber"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Purchase',
       apiUrl: 'https://m-techsolutions.co.za/app-rank/purchase_utility.php',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer $jwt',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class PurchaseDSTVCall {
+  static Future<ApiCallResponse> call({
+    String? jwt = '',
+    String? paymentAmount = '',
+    String? paymentCellNumber = '',
+    String? buyingFor = '1',
+    String? contactnumber = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "paymentAmount": "$paymentAmount",
+  "paymentCellNumber": "$paymentCellNumber",
+  "buyingFor": "$buyingFor",
+  "contactnumber": "$contactnumber"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Purchase  DSTV',
+      apiUrl: 'https://m-techsolutions.co.za/app-rank/purchase_dstv.php',
       callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Bearer $jwt',
